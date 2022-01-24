@@ -2,8 +2,43 @@ body {
     cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/default.cur),
         default;
 }
+
 a,
 img {
     cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/pointer.cur),
         default;
+}
+
+@font-face {
+    font-family: 'tzy';
+    /* 字体名自定义即可 */
+    src: url('https://cdn.jsdelivr.net/gh/tzy13755126023/BLOG_SOURCE/font/ZhuZiAWan.woff2');
+    /* 字体文件路径 */
+    font-display: swap;
+}
+
+body,
+.gitcalendar {
+    font-family: tzy !important;
+}
+
+/* 文章标题居中 */
+#page h1.page-title,
+#post>#post-info {
+    text-align: center
+}
+
+/* 导航栏居中 */
+#navFn {
+    flex: 1;
+    text-align: right;
+}
+
+#nav #search-button {
+    display: inline;
+    padding: 0 0 0 0.3rem;
+    position: relative;
+    padding-bottom: 0.3rem;
+    text-shadow: 0.05rem 0.05rem 0.1rem rgb(0 0 0 / 30%);
+    cursor: pointer;
 }
