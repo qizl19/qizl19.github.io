@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
 <meta property="article:published_time" content="2022-01-24T16:26:30.000Z">
-<meta property="article:modified_time" content="2022-01-25T07:55:33.485Z">
+<meta property="article:modified_time" content="2022-01-25T08:33:21.272Z">
 <meta property="article:author" content="Qzl">
 <meta property="article:tag" content="数据">
 <meta name="twitter:card" content="summary">
@@ -53,7 +53,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2022-01-25 15:55:33'
+  postUpdate: '2022-01-25 16:33:21'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -142,13 +142,13 @@
       }
     }
     detectApple()
-    })(window)</script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/gundongtiao.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://pic3.zhimg.com/80/v2-94d674932a8c0f4a6cccc1b7a158c21a_720w.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Qzl's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div></div></div><div id="navFn"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> search</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">使用matlab实现排序问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-24T16:26:30.000Z" title="发表于 2022-01-25 00:26:30">2022-01-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-25T07:55:33.485Z" title="更新于 2022-01-25 15:55:33">2022-01-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Matlab/">Matlab</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="使用matlab实现排序问题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h6 id="请学习遍历排序，冒泡排序，快速排序算法，画出3种算法的流程图（从小到大排序），并分析3种排序方法的时间复杂度。"><a href="#请学习遍历排序，冒泡排序，快速排序算法，画出3种算法的流程图（从小到大排序），并分析3种排序方法的时间复杂度。" class="headerlink" title="请学习遍历排序，冒泡排序，快速排序算法，画出3种算法的流程图（从小到大排序），并分析3种排序方法的时间复杂度。"></a>请学习遍历排序，冒泡排序，快速排序算法，画出3种算法的流程图（从小到大排序），并分析3种排序方法的时间复杂度。</h6><ul>
+    })(window)</script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/gundongtiao.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://pic3.zhimg.com/80/v2-94d674932a8c0f4a6cccc1b7a158c21a_720w.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Qzl's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div></div></div><div id="navFn"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> search</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">使用matlab实现排序问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-24T16:26:30.000Z" title="发表于 2022-01-25 00:26:30">2022-01-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-25T08:33:21.272Z" title="更新于 2022-01-25 16:33:21">2022-01-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Matlab/">Matlab</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="使用matlab实现排序问题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h6 id="请学习遍历排序，冒泡排序，快速排序算法，画出3种算法的流程图（从小到大排序），并分析3种排序方法的时间复杂度。"><a href="#请学习遍历排序，冒泡排序，快速排序算法，画出3种算法的流程图（从小到大排序），并分析3种排序方法的时间复杂度。" class="headerlink" title="请学习遍历排序，冒泡排序，快速排序算法，画出3种算法的流程图（从小到大排序），并分析3种排序方法的时间复杂度。"></a>请学习遍历排序，冒泡排序，快速排序算法，画出3种算法的流程图（从小到大排序），并分析3种排序方法的时间复杂度。</h6><ul>
 <li><p>遍历排序</p>
 <ul>
 <li><p>原理:对待排序数组进行遍历，第一次取第一个数，然后把它和之后的所有数进行比较，范围为1 ~ n，找出最大的数，并将它放在最后一位，然后再从第一位开始，比较范围为1 ~ n-1，找出第二大的数，放置在倒数第二位，以此类推。</p>
 </li>
 <li><p>流程图</p>
-<p><img src="遍历flowchart.png" /></p>
+<p><img src="/images/port/%E9%81%8D%E5%8E%86flowchart.png" alt=""></p>
 </li>
 <li><p>复杂度：共有两层循环，第一层循环划定比较的范围，第二层进行比较。其外层循环执行 n - 1次。内层循环最多的时候执行n次，最少的时候执行1次，平均执行 (n+1)/2次。所以循环体内的比较约执行 n(n-1)/2次，复杂度为$O(n^2)$。</p>
 </li>
@@ -159,15 +159,13 @@
 <li><p>原理：对数组进行遍历，第一次遍历从数列第一项开始，比较相邻的两项，并且交换顺序排错的项，使每个局部的最大值放在正确的位置。第二次遍历从第二项开始，操作与第一遍一致，直至数组末尾。</p>
 </li>
 <li><p>流程图</p>
-<p><img src="冒泡flowchart.png" alt=""></p>
+<p><img src="/images/port/%E5%86%92%E6%B3%A1flowchart.png" alt=""></p>
 </li>
-</ul>
-</li>
-</ul>
-<ul>
 <li><p>复杂度</p>
 <p>​       共有两层循环，第一层循环划定比较的范围，第二层进行比较和操作。其外层循环执行 $n - 1$次。内层循环最多的时候执行n次，最少的时候执行1次，平均执行 (n+1)/2次。所以循环体内的比较交换约执行 n(n-1)/2次，复杂度为$O(n^2)$。</p>
 <p>​       按最为复杂的情况为例计算，每次比较都会有三次操作，第一轮共有n次比较，第二次共有n-1次，以此类推：</p>
+</li>
+</ul>
 </li>
 </ul>
 <script type="math/tex; mode=display">
@@ -190,7 +188,7 @@ sum = 3\times[n+(n-1)+(n-2)+...+2+1)]=3\times \frac{n\times (n-1)}{2}=\frac{3}{2
 <p>一次排序的流程图：</p>
 </li>
 </ul>
-<p><img src="快速排序.png" style="zoom:80%;" /></p>
+<p><img src="/images/port/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.png" alt=""></p>
 </li>
 <li><p>复杂度</p>
 <p>设n为待排序数组中的元素个数，$T(n)$为算法需要的时间复杂度，则</p>
@@ -289,7 +287,7 @@ T(n)=D(n)+\frac{1}{n}\sum_{i=0}^{n-1}[T(i)+T(n-i)]=D(n)+\frac{2}{n}\sum_{i=0}^{n
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span><span class="params">(x)</span></span></span><br><span class="line">    time=<span class="number">0.3</span>; </span><br><span class="line">    clf; <span class="comment">% 清除之前的图形</span></span><br><span class="line">    bar(x); <span class="comment">% 绘制柱状图</span></span><br><span class="line">    pause(time); <span class="comment">% 延时函数，使得结果更易观察</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>编写APP（使用App designer）</p>
-<p><img src="屏幕截图 2021-11-17 171904.jpg"  /></p>
+<p><img src="/images/port/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-11-17%20171904.jpg" style="zoom:80%;" /></p>
 <p>共包括四个组件：</p>
 <ul>
 <li>EditField:用于输入待排序的数组，数组各元素之间用空格隔开即可</li>
@@ -299,7 +297,7 @@ T(n)=D(n)+\frac{1}{n}\sum_{i=0}^{n-1}[T(i)+T(n-i)]=D(n)+\frac{2}{n}\sum_{i=0}^{n
 </ul>
 <p>点击打开文件“sort_tool_exported.m”,点击运行即可显示GUI。</p>
 <p>点击“Start”后，弹出figure图窗，动态显示排序过程</p>
-<p><img src="image-20211117172901126.png" alt="image-20211117172901126" style="zoom:67%;" /></p>
+<p><img src="/images/port/image-20211117172901126.png" style="zoom:67%;" /></p>
 </li>
 </ul>
 <p>排序结束后，会在EditField2窗口中显示排序好的数组。</p>
