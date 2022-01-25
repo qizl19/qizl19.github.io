@@ -42,3 +42,17 @@ body,
     text-shadow: 0.05rem 0.05rem 0.1rem rgb(0 0 0 / 30%);
     cursor: pointer;
 }
+
+/* 所有页面背景 */
+
+#recent-posts>.recent-post-item,
+.layout>div:first-child:not(.recent-posts),
+#aside-content .card-widget {
+    background: rgba(255, 255, 255, .8);
+}
+
+/* 取消页脚背景 */
+
+/* #footer {
+    background: none;
+} */
