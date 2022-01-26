@@ -62,7 +62,7 @@ body,
 
 /* 首页侧栏卡片 */
 .card-widget {
-    background: rgba(255, 255, 255, 0.9) !important;
+    background: rgba(255, 255, 255, 1) !important;
 }
 
 /* 文章页面正文背景 */
