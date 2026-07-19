@@ -236,6 +236,14 @@ def render_photo(photo: dict) -> str:
 
 def render_model_widget(profile: dict) -> str:
     model = profile["model"]
+    reconstruction_credit = ""
+    if model.get("kind") == "triposr-image-reconstruction":
+        reconstruction_credit = (
+            f'<br>输入照片：{esc(model["inputCredit"])}（'
+            f'<a target="_blank" rel="noopener" href="{esc(model["inputSourceUrl"])}">原始来源</a>）；'
+            f'重建引擎：<a target="_blank" rel="noopener" href="{esc(model["engineUrl"])}">{esc(model["engine"])}</a> '
+            f'（{esc(model["engineLicense"])}）。'
+        )
     return (
         '<section class="aircraft-widget aircraft-model-card" data-aircraft-model>'
         '<div class="aircraft-widget-heading"><div><span class="aircraft-widget-kicker">ON-DEMAND 3D</span>'
@@ -248,7 +256,7 @@ def render_model_widget(profile: dict) -> str:
         '<p class="aircraft-widget-status" role="status" aria-live="polite">当前显示静态预览，尚未下载模型。</p>'
         f'<p id="aircraft-model-note" class="aircraft-model-note"><strong>精度声明：非工程模型。</strong> {esc(model["note"])}</p>'
         f'<p class="aircraft-model-credit">建模：{esc(model["author"])}；<a target="_blank" rel="noopener" href="{esc(model["sourceUrl"])}">生成方法</a>；'
-        f'<a target="_blank" rel="noopener" href="{esc(model["licenseUrl"])}">{esc(model["license"])}</a>。</p>'
+        f'<a target="_blank" rel="noopener license" href="{esc(model["licenseUrl"])}">{esc(model["license"])}</a>。{reconstruction_credit}</p>'
         '<noscript><p class="aircraft-widget-fallback">浏览器未启用 JavaScript，已保留静态预览与文字说明。</p></noscript>'
         '</section>'
     )

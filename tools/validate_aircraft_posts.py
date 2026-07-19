@@ -110,6 +110,16 @@ def main() -> None:
                     errors.append(f"Missing model credit {field}: {profile['nameZh']}")
                 elif field in {"sourceUrl", "licenseUrl"} and model[field] not in content:
                     errors.append(f"Missing model credit link {field} in {page.name}")
+            if model.get("kind") == "triposr-image-reconstruction":
+                for field in ["inputImage", "inputCredit", "inputSourceUrl", "engine", "engineUrl", "engineLicense"]:
+                    if not model.get(field):
+                        errors.append(f"Missing TripoSR provenance {field}: {profile['nameZh']}")
+                input_image = root / model.get("inputImage", "").lstrip("/")
+                if not input_image.is_file():
+                    errors.append(f"Missing TripoSR input image: {input_image}")
+                for field in ["inputSourceUrl", "engineUrl"]:
+                    if model.get(field) and model[field] not in content:
+                        errors.append(f"Missing TripoSR credit link {field} in {page.name}")
 
     checks = {
         root / "index.html": [profile["nameZh"] for profile in profiles],

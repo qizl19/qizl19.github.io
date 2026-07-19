@@ -17,7 +17,7 @@ def main() -> None:
     root = args.root.resolve()
     posts = json.loads((root / "data" / "cad_cae_weekly_posts.json").read_text(encoding="utf-8"))
     aircraft = json.loads((root / "data" / "aircraft_posts.json").read_text(encoding="utf-8"))
-    latest_post_date = max(item["date"] for item in posts + aircraft)
+    latest_post_date = max(item.get("updated") or item["date"] for item in posts + aircraft)
     expected_last_push = f'data-lastPushDate="{latest_post_date}T01:00:00.000Z"'
     errors: list[str] = []
 
