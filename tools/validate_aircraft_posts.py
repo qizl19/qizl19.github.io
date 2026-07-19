@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import struct
 from pathlib import Path
 
 
@@ -12,6 +13,10 @@ REQUIRED_SECTIONS = [
     "动力系统",
     "主要型号与改型",
     "优势与局限",
+    "三维外形示意",
+    "飞机参数对比",
+    "尺寸图表",
+    "工程关系图",
     "参考资料与图片许可",
 ]
 REMOVED_POSTS = {
@@ -64,6 +69,47 @@ def main() -> None:
                 errors.append(f"Missing photo {source}")
             if photo["sourceUrl"] not in content or photo["licenseUrl"] not in content:
                 errors.append(f"Missing photo credit links in {page.name}: {source.name}")
+        for key in ["updated", "metrics", "diagram", "model"]:
+            if key not in profile:
+                errors.append(f"Missing aircraft widget data {key}: {profile['nameZh']}")
+        widget_needles = [
+            'data-aircraft-model',
+            'data-aircraft-comparison',
+            'data-aircraft-chart',
+            'data-aircraft-mermaid',
+            '<script defer src="/js/aircraft-article.js"></script>',
+            '点击后下载 GLB',
+            '进入视口后加载',
+            '进入视口后渲染',
+            'aircraft-chart-fallback',
+            'aircraft-mermaid-fallback',
+            '非工程模型',
+        ]
+        for needle in widget_needles:
+            if needle not in content and not (needle == "非工程模型" and "不可用于工程分析" in content):
+                errors.append(f"Missing aircraft widget marker {needle} in {page.name}")
+        if content.count('<script defer src="/js/aircraft-article.js"></script>') != 1:
+            errors.append(f"Aircraft widget script count must be one in {page.name}")
+        model = profile.get("model", {})
+        if model:
+            model_path = root / model["src"].lstrip("/")
+            if not model_path.is_file():
+                errors.append(f"Missing GLB model: {model_path}")
+            else:
+                if model_path.stat().st_size > 5 * 1024 * 1024:
+                    errors.append(f"GLB exceeds 5 MiB target: {model_path}")
+                raw = model_path.read_bytes()
+                if len(raw) < 20 or raw[:4] != b"glTF":
+                    errors.append(f"Invalid GLB header: {model_path}")
+                else:
+                    _, version, length = struct.unpack_from("<4sII", raw, 0)
+                    if version != 2 or length != len(raw):
+                        errors.append(f"Invalid GLB version or length: {model_path}")
+            for field in ["author", "sourceUrl", "license", "licenseUrl", "note"]:
+                if not model.get(field):
+                    errors.append(f"Missing model credit {field}: {profile['nameZh']}")
+                elif field in {"sourceUrl", "licenseUrl"} and model[field] not in content:
+                    errors.append(f"Missing model credit link {field} in {page.name}")
 
     checks = {
         root / "index.html": [profile["nameZh"] for profile in profiles],
@@ -126,6 +172,57 @@ def main() -> None:
         if actual != expected:
             errors.append(f"GitHub calendar homepage marker mismatch for {needle}: expected {expected}, got {actual}")
 
+    random_checks = {
+        'id="random-aircraft"': 1,
+        '<!-- RANDOM_AIRCRAFT_START -->': 1,
+        '<!-- RANDOM_AIRCRAFT_END -->': 1,
+        'class="random-aircraft-button"': 1,
+        '<script defer src="/js/random-aircraft.js"></script>': 1,
+    }
+    for needle, expected in random_checks.items():
+        actual = homepage.count(needle)
+        if actual != expected:
+            errors.append(f"Random aircraft homepage marker mismatch for {needle}: expected {expected}, got {actual}")
+    for forbidden in ["aircraft-article.js", "chart.js@", "mermaid@", "model-viewer@", "data-aircraft-model"]:
+        if forbidden in homepage:
+            errors.append(f"Heavy aircraft widget leaked into homepage: {forbidden}")
+
+    comparison_path = root / "data" / "aircraft-comparison.json"
+    if not comparison_path.is_file():
+        errors.append("Missing local aircraft comparison JSON")
+    else:
+        comparison = json.loads(comparison_path.read_text(encoding="utf-8"))
+        if {item["slug"] for item in comparison} != {profile["slug"] for profile in profiles}:
+            errors.append("Aircraft comparison JSON does not match article data")
+
+    article_script = root / "js" / "aircraft-article.js"
+    if not article_script.is_file():
+        errors.append("Missing local aircraft article script")
+    else:
+        script = article_script.read_text(encoding="utf-8")
+        for needle in [
+            "IntersectionObserver",
+            "chart.js@4.5.1",
+            "mermaid@11.16.0",
+            "@google/model-viewer@4.2.0",
+            "prefers-reduced-motion",
+            "max-width: 768px",
+            "releaseViewer",
+            "pagehide",
+            "模型加载失败",
+            "对比数据加载失败",
+            "图表组件加载失败",
+            "工程图组件加载失败",
+        ]:
+            if needle not in script:
+                errors.append(f"Aircraft article script is missing {needle}")
+
+    random_script = root / "js" / "random-aircraft.js"
+    if not random_script.is_file():
+        errors.append("Missing local random aircraft script")
+    elif random_script.stat().st_size > 4 * 1024:
+        errors.append("Homepage random aircraft script is larger than 4 KiB")
+
     calendar_script = root / "js" / "github-contributions.js"
     if not calendar_script.is_file():
         errors.append("Missing local GitHub contributions script")
@@ -156,6 +253,13 @@ def main() -> None:
                 errors.append(f"Legacy GitHub calendar token remains in {path}: {token}")
         if path != root / "index.html" and 'id="github-contributions"' in content:
             errors.append(f"GitHub contributions card must only appear on homepage: {path}")
+        if path != root / "index.html" and 'id="random-aircraft"' in content:
+            errors.append(f"Random aircraft card must only appear on homepage: {path}")
+
+    styles = (root / "css" / "index.css").read_text(encoding="utf-8")
+    for needle in [".random-aircraft-card", ".aircraft-model-host model-viewer", ".aircraft-comparison-controls", ".aircraft-chart-stage", ".aircraft-mermaid-output"]:
+        if needle not in styles:
+            errors.append(f"Aircraft widget styles are missing {needle}")
 
     if errors:
         print("Validation failed:")

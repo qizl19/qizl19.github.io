@@ -1,0 +1,46 @@
+[
+  {
+    "slug": "y-20-kunpeng",
+    "name": "运-20“鲲鹏”",
+    "url": "/p/eacebbb9.html",
+    "firstFlightYear": 2013,
+    "lengthM": 47.0,
+    "wingspanM": 45.0,
+    "maxTakeoffWeightT": 220.0,
+    "speedLabel": "公开完整口径不足",
+    "rangeLabel": "随载荷和批次变化，未采用单一数值"
+  },
+  {
+    "slug": "concorde",
+    "name": "协和式客机",
+    "url": "/p/6e9a9f42.html",
+    "firstFlightYear": 1969,
+    "lengthM": 61.66,
+    "wingspanM": 25.6,
+    "maxTakeoffWeightT": 185.07,
+    "speedLabel": "约 Mach 2.02",
+    "rangeLabel": "约 7,222 km（运营口径随条件变化）"
+  },
+  {
+    "slug": "de-havilland-mosquito",
+    "name": "德·哈维兰蚊式",
+    "url": "/p/fe7680d9.html",
+    "firstFlightYear": 1940,
+    "lengthM": 12.4,
+    "wingspanM": 16.5,
+    "maxTakeoffWeightT": 11.35,
+    "speedLabel": "随型号不同，约 595–668 km/h",
+    "rangeLabel": "随型号与任务载荷显著变化"
+  },
+  {
+    "slug": "boeing-747",
+    "name": "波音 747",
+    "url": "/p/ebc40a24.html",
+    "firstFlightYear": 1969,
+    "lengthM": 76.3,
+    "wingspanM": 68.4,
+    "maxTakeoffWeightT": 447.7,
+    "speedLabel": "约 Mach 0.855（747-8）",
+    "rangeLabel": "约 14,320 km（747-8I典型公开口径）"
+  }
+]

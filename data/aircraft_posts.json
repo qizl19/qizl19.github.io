@@ -6,6 +6,7 @@
     "eyebrow": "最新档案 · 第 4 期",
     "subtitle": "中国大型军用运输机平台：从战略空运到空中加油家族",
     "date": "2026-07-19",
+    "updated": "2026-07-19",
     "nation": "中国",
     "category": "军用运输机",
     "era": "2010s—至今",
@@ -14,9 +15,33 @@
       "现役"
     ],
     "status": "现役 / 持续发展",
+    "metrics": {
+      "firstFlightYear": 2013,
+      "lengthM": 47.0,
+      "wingspanM": 45.0,
+      "maxTakeoffWeightT": 220.0,
+      "speedLabel": "公开完整口径不足",
+      "rangeLabel": "随载荷和批次变化，未采用单一数值"
+    },
+    "diagram": [
+      "大型运输平台",
+      "Y-20A：成熟动力先行列装",
+      "Y-20B：国产 WS-20 换发",
+      "YY-20：空中加油与运输派生"
+    ],
     "firstFlight": "2013-01-26",
     "accent": "#d2a441",
     "heroImage": "/p/eacebbb9/y20-000.jpg",
+    "model": {
+      "kind": "generated-low-poly",
+      "src": "/p/eacebbb9/models/y-20-kunpeng-reference.glb",
+      "poster": "/p/eacebbb9/y20-000.jpg",
+      "author": "Qzl's Blog（依据公开总体尺寸程序化建模）",
+      "sourceUrl": "https://github.com/qizl19/qizl19.github.io/blob/main/tools/generate_aircraft_models.py",
+      "license": "本站原创展示资产",
+      "licenseUrl": "https://qizl19.github.io/",
+      "note": "仅表达运-20的上单翼、四发布局与T形尾翼等公开外形特征，不含内部结构，不可用于工程分析。"
+    },
     "statement": "价值不只在“能装多少”，而在于获得了可持续生产、可派生的大型空中平台。",
     "summary": "运-20 由中国航空工业体系组织研制，采用上单翼、T 形尾翼、四发和尾部大型货桥布局。它于 2013 年首飞、2016 年列装；公开资料已经确认 Y-20A、换装国产 WS-20 的 Y-20B，以及空中加油型 YY-20 共同形成家族。",
     "facts": [
@@ -166,6 +191,7 @@
     "eyebrow": "第 3 期",
     "subtitle": "英法合作、马赫 2 与超声速民航的工程边界",
     "date": "2026-07-17",
+    "updated": "2026-07-19",
     "nation": "英国 / 法国",
     "category": "超声速客机",
     "era": "1960s—2003",
@@ -174,9 +200,33 @@
       "历史"
     ],
     "status": "退役 / 博物馆保存",
+    "metrics": {
+      "firstFlightYear": 1969,
+      "lengthM": 61.66,
+      "wingspanM": 25.6,
+      "maxTakeoffWeightT": 185.07,
+      "speedLabel": "约 Mach 2.02",
+      "rangeLabel": "约 7,222 km（运营口径随条件变化）"
+    },
+    "diagram": [
+      "细长机身与双三角翼",
+      "可调进气道与 Olympus 593",
+      "约 Mach 2 超声速巡航",
+      "高温、噪声与经济性约束"
+    ],
     "firstFlight": "1969-03-02",
     "accent": "#c64a3a",
     "heroImage": "/p/6e9a9f42/concorde-g-boac-eduard-marmet.jpg",
+    "model": {
+      "kind": "generated-low-poly",
+      "src": "/p/6e9a9f42/models/concorde-reference.glb",
+      "poster": "/p/6e9a9f42/concorde-g-boac-eduard-marmet.jpg",
+      "author": "Qzl's Blog（依据公开总体尺寸程序化建模）",
+      "sourceUrl": "https://github.com/qizl19/qizl19.github.io/blob/main/tools/generate_aircraft_models.py",
+      "license": "本站原创展示资产",
+      "licenseUrl": "https://qizl19.github.io/",
+      "note": "用于说明细长机身、双三角翼和四发布局的低多边形外形示意，不代表具体生产批次工程几何。"
+    },
     "statement": "它把大西洋时间压缩一半，也把噪声、油耗和维护成本推到商业航空必须面对的前台。",
     "summary": "协和式是英国与法国联合研制的超声速客机。它以细长机身、无尾尖拱形三角翼、可下垂机鼻、燃油转移配平和四台 Olympus 593 发动机，把约 100 名乘客送到约两倍音速的巡航状态。",
     "facts": [
@@ -331,6 +381,7 @@
     "eyebrow": "第 2 期",
     "subtitle": "木质结构、速度优先与“一机多用”的经典范例",
     "date": "2026-07-15",
+    "updated": "2026-07-19",
     "nation": "英国",
     "category": "多用途军机",
     "era": "1940s—1950s",
@@ -339,9 +390,33 @@
       "历史"
     ],
     "status": "退役 / 少量适航",
+    "metrics": {
+      "firstFlightYear": 1940,
+      "lengthM": 12.4,
+      "wingspanM": 16.5,
+      "maxTakeoffWeightT": 11.35,
+      "speedLabel": "随型号不同，约 595–668 km/h",
+      "rangeLabel": "随型号与任务载荷显著变化"
+    },
+    "diagram": [
+      "木质夹层承力结构",
+      "较低结构重量与阻力",
+      "双 Merlin 发动机高速性能",
+      "轰炸、侦察、战斗等多任务派生"
+    ],
     "firstFlight": "1940-11-25",
     "accent": "#c9822b",
     "heroImage": "/p/fe7680d9/mosquito-in-flight-pjsime.jpg",
+    "model": {
+      "kind": "generated-low-poly",
+      "src": "/p/fe7680d9/models/de-havilland-mosquito-reference.glb",
+      "poster": "/p/fe7680d9/mosquito-in-flight-pjsime.jpg",
+      "author": "Qzl's Blog（依据公开总体尺寸程序化建模）",
+      "sourceUrl": "https://github.com/qizl19/qizl19.github.io/blob/main/tools/generate_aircraft_models.py",
+      "license": "本站原创展示资产",
+      "licenseUrl": "https://qizl19.github.io/",
+      "note": "用于说明双发、平直翼和常规尾翼比例的低多边形外形示意；螺旋桨与短舱均作简化。"
+    },
     "statement": "它证明“去掉非必要重量，把性能集中到任务核心”可以形成强大的系统优势。",
     "summary": "蚊式是第二次世界大战时期最具代表性的多用途双发飞机之一。它以桦木胶合板与轻木夹芯结构节省战略金属，依靠双 Rolls-Royce Merlin 动力和较低阻力实现高速，并从轰炸、侦察扩展到夜战、海上打击与目标拖曳。",
     "facts": [
@@ -496,6 +571,7 @@
     "eyebrow": "第 1 期",
     "subtitle": "“空中女王”：从大众洲际旅行到重型航空货运",
     "date": "2026-07-14",
+    "updated": "2026-07-19",
     "nation": "美国",
     "category": "宽体客货机",
     "era": "1960s—至今",
@@ -504,9 +580,33 @@
       "历史"
     ],
     "status": "已停产 / 仍运营",
+    "metrics": {
+      "firstFlightYear": 1969,
+      "lengthM": 76.3,
+      "wingspanM": 68.4,
+      "maxTakeoffWeightT": 447.7,
+      "speedLabel": "约 Mach 0.855（747-8）",
+      "rangeLabel": "约 14,320 km（747-8I典型公开口径）"
+    },
+    "diagram": [
+      "宽体双通道与前部上层甲板",
+      "四台高涵道比涡扇",
+      "远程大容量客运平台",
+      "客机、货机与特种平台派生"
+    ],
     "firstFlight": "1969-02-09",
     "accent": "#2f83af",
     "heroImage": "/p/ebc40a24/747-8-lufthansa-thilo-darmstadt.jpg",
+    "model": {
+      "kind": "generated-low-poly",
+      "src": "/p/ebc40a24/models/boeing-747-reference.glb",
+      "poster": "/p/ebc40a24/747-8-lufthansa-thilo-darmstadt.jpg",
+      "author": "Qzl's Blog（依据公开总体尺寸程序化建模）",
+      "sourceUrl": "https://github.com/qizl19/qizl19.github.io/blob/main/tools/generate_aircraft_models.py",
+      "license": "本站原创展示资产",
+      "licenseUrl": "https://qizl19.github.io/",
+      "note": "以747-8公开长度和翼展为主要比例，简化表现四发、后掠翼与标志性前部上层甲板。"
+    },
     "statement": "747 的历史价值在于把远程航空运输做大；今天的持续价值则集中在重型货运与特殊任务。",
     "summary": "波音 747 是世界首款投入商业运营的双通道宽体客机。四发高涵道比涡扇、前上层驾驶舱和宽体主客舱共同降低了远程航线的单位座英里成本，并为机鼻货门、超限货物和特殊任务留下独特空间。",
     "facts": [

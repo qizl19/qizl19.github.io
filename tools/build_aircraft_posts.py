@@ -10,6 +10,8 @@ import shutil
 from pathlib import Path
 from urllib.parse import quote
 
+from generate_aircraft_models import write_glb
+
 
 SITE_URL = "https://qizl19.github.io"
 GITHUB_USERNAME = "qizl19"
@@ -36,6 +38,10 @@ HEADINGS = [
     "动力系统",
     "主要型号与改型",
     "优势与局限",
+    "三维外形示意",
+    "飞机参数对比",
+    "尺寸图表",
+    "工程关系图",
     "参考资料与图片许可",
 ]
 OLD_POSTS = [
@@ -95,6 +101,26 @@ def github_contributions_card() -> str:
     )
 
 
+def random_aircraft_card(profiles: list[dict]) -> str:
+    choices = [
+        {"title": profile["nameZh"], "url": post_url(profile)}
+        for profile in sorted(profiles, key=lambda item: item["date"], reverse=True)
+    ]
+    payload = esc(json.dumps(choices, ensure_ascii=False, separators=(",", ":")))
+    return (
+        '<!-- RANDOM_AIRCRAFT_START -->'
+        '<section class="recent-post-item random-aircraft-card" id="random-aircraft" aria-labelledby="random-aircraft-title">'
+        '<div class="random-aircraft-copy"><span class="random-aircraft-kicker">AIRCRAFT SHUFFLE</span>'
+        '<h2 id="random-aircraft-title"><i class="fas fa-random" aria-hidden="true"></i> 随机看一架飞机</h2>'
+        '<p>从已经整理的飞机文章中随机选择一篇；首页不会加载模型、图表或工程图脚本。</p></div>'
+        f'<button type="button" class="random-aircraft-button" data-aircraft-choices="{payload}">'
+        '<span>开始随机</span><i class="fas fa-plane-departure" aria-hidden="true"></i></button>'
+        '<p class="random-aircraft-status" role="status" aria-live="polite">点击后直接前往随机文章。</p>'
+        '</section>'
+        '<!-- RANDOM_AIRCRAFT_END -->'
+    )
+
+
 def remove_legacy_gitcalendar(text: str) -> str:
     patterns = [
         r'<link[^>]+(?:hexo-filter-gitcalendar|gitcalendar\.css)[^>]*>',
@@ -145,6 +171,10 @@ def normalize_aircraft(profile: dict) -> dict:
     profile["tagName"] = "航空"
     profile["tagUrl"] = TAG_URL
     return profile
+
+
+def updated_date(post: dict) -> str:
+    return post.get("updated") or post["date"]
 
 
 def normalize_weekly(post: dict) -> dict:
@@ -201,6 +231,88 @@ def render_photo(photo: dict) -> str:
         f'摄影 / 作者：{esc(photo["credit"])}；'
         f'<a target="_blank" rel="noopener" href="{esc(photo["sourceUrl"])}">原始来源</a>；'
         f'<a target="_blank" rel="noopener license" href="{esc(photo["licenseUrl"])}">{esc(photo["license"])}</a></center>'
+    )
+
+
+def render_model_widget(profile: dict) -> str:
+    model = profile["model"]
+    return (
+        '<section class="aircraft-widget aircraft-model-card" data-aircraft-model>'
+        '<div class="aircraft-widget-heading"><div><span class="aircraft-widget-kicker">ON-DEMAND 3D</span>'
+        f'<h3>{esc(profile["nameZh"])}轻量三维外形</h3></div><span class="aircraft-widget-badge">点击后下载 GLB</span></div>'
+        '<div class="aircraft-model-poster">'
+        f'<img src="{LAZY_PLACEHOLDER}" data-original="{esc(model["poster"])}" alt="{esc(profile["nameZh"])}三维模型加载前的静态预览">'
+        f'<button class="aircraft-model-load" type="button" data-model-src="{esc(model["src"])}" data-model-title="{esc(profile["nameZh"])}" aria-describedby="aircraft-model-note">'
+        '<i class="fas fa-cube" aria-hidden="true"></i><span>加载三维模型</span><small>仅在点击后初始化 WebGL</small></button>'
+        '</div><div class="aircraft-model-host" hidden></div>'
+        '<p class="aircraft-widget-status" role="status" aria-live="polite">当前显示静态预览，尚未下载模型。</p>'
+        f'<p id="aircraft-model-note" class="aircraft-model-note"><strong>精度声明：非工程模型。</strong> {esc(model["note"])}</p>'
+        f'<p class="aircraft-model-credit">建模：{esc(model["author"])}；<a target="_blank" rel="noopener" href="{esc(model["sourceUrl"])}">生成方法</a>；'
+        f'<a target="_blank" rel="noopener" href="{esc(model["licenseUrl"])}">{esc(model["license"])}</a>。</p>'
+        '<noscript><p class="aircraft-widget-fallback">浏览器未启用 JavaScript，已保留静态预览与文字说明。</p></noscript>'
+        '</section>'
+    )
+
+
+def render_comparison_widget(profile: dict) -> str:
+    metrics = profile["metrics"]
+    fallback_rows = [
+        ("首飞年份", str(metrics["firstFlightYear"])),
+        ("长度", f'{metrics["lengthM"]:g} m'),
+        ("翼展", f'{metrics["wingspanM"]:g} m'),
+        ("最大起飞重量", f'{metrics["maxTakeoffWeightT"]:g} t'),
+        ("速度公开口径", metrics["speedLabel"]),
+        ("航程公开口径", metrics["rangeLabel"]),
+    ]
+    fallback = "".join(f"<tr><th>{esc(label)}</th><td colspan=\"2\">{esc(value)}</td></tr>" for label, value in fallback_rows)
+    return (
+        f'<section class="aircraft-widget aircraft-comparison" data-aircraft-comparison data-current-slug="{esc(profile["slug"])}" data-source="/data/aircraft-comparison.json">'
+        '<div class="aircraft-widget-heading"><div><span class="aircraft-widget-kicker">LOCAL JSON</span><h3>飞机参数对比器</h3></div><span class="aircraft-widget-badge">不进入首页首屏</span></div>'
+        '<div class="aircraft-comparison-controls"><label>飞机 A<select data-compare-a aria-label="选择第一款飞机"></select></label>'
+        '<label>飞机 B<select data-compare-b aria-label="选择第二款飞机"></select></label></div>'
+        '<div class="aircraft-table-scroll"><table><thead><tr><th>参数</th><th>当前文章公开口径</th><th data-compare-heading>对比机型</th></tr></thead>'
+        f'<tbody data-compare-body>{fallback}</tbody></table></div>'
+        '<p class="aircraft-widget-status" role="status" aria-live="polite">进入本区域后才读取本地对比数据；若加载失败，上表仍保留当前机型资料。</p>'
+        '</section>'
+    )
+
+
+def render_chart_widget(profile: dict) -> str:
+    metrics = profile["metrics"]
+    payload = json.dumps(
+        {
+            "title": f'{profile["nameZh"]}总体尺寸',
+            "labels": ["长度", "翼展"],
+            "values": [metrics["lengthM"], metrics["wingspanM"]],
+        },
+        ensure_ascii=False,
+        separators=(",", ":"),
+    )
+    return (
+        f'<section class="aircraft-widget aircraft-chart" data-aircraft-chart data-chart="{esc(payload)}">'
+        '<div class="aircraft-widget-heading"><div><span class="aircraft-widget-kicker">LAZY CHART.JS</span><h3>总体尺寸图表</h3></div><span class="aircraft-widget-badge">进入视口后加载</span></div>'
+        '<div class="aircraft-chart-stage"><canvas aria-label="飞机长度与翼展柱状图" role="img"></canvas></div>'
+        '<table class="aircraft-chart-fallback"><thead><tr><th>长度</th><th>翼展</th></tr></thead>'
+        f'<tbody><tr><td>{metrics["lengthM"]:g} m</td><td>{metrics["wingspanM"]:g} m</td></tr></tbody></table>'
+        '<p class="aircraft-widget-status" role="status" aria-live="polite">图表尚未加载；下方表格始终提供相同数值。</p>'
+        '</section>'
+    )
+
+
+def render_mermaid_widget(profile: dict) -> str:
+    nodes = profile["diagram"]
+    diagram_lines = ["flowchart LR"] + [
+        f'  N{index}["{str(node).replace(chr(34), chr(39))}"] --> N{index + 1}["{str(nodes[index + 1]).replace(chr(34), chr(39))}"]'
+        for index, node in enumerate(nodes[:-1])
+    ]
+    fallback = "".join(f"<li>{esc(node)}</li>" for node in nodes)
+    return (
+        '<section class="aircraft-widget aircraft-mermaid" data-aircraft-mermaid>'
+        '<div class="aircraft-widget-heading"><div><span class="aircraft-widget-kicker">LAZY MERMAID</span><h3>工程关系图</h3></div><span class="aircraft-widget-badge">进入视口后渲染</span></div>'
+        f'<pre class="aircraft-mermaid-source" hidden>{esc(chr(10).join(diagram_lines))}</pre><div class="aircraft-mermaid-output" aria-label="{esc(profile["nameZh"])}工程关系图"></div>'
+        f'<ol class="aircraft-mermaid-fallback">{fallback}</ol>'
+        '<p class="aircraft-widget-status" role="status" aria-live="polite">图形尚未渲染；上方文字链路可独立阅读。</p>'
+        '</section>'
     )
 
 
@@ -266,6 +378,14 @@ def render_article(profile: dict) -> str:
         f"<ul>{strengths}</ul>",
         "<h3>局限与公开资料不足</h3>",
         f"<ul>{limits}</ul>",
+        heading("三维外形示意"),
+        render_model_widget(profile),
+        heading("飞机参数对比"),
+        render_comparison_widget(profile),
+        heading("尺寸图表"),
+        render_chart_widget(profile),
+        heading("工程关系图"),
+        render_mermaid_widget(profile),
         heading("参考资料与图片许可"),
         '<p>主要参考资料均为可点击链接：</p>',
         f"<ol>{sources}</ol>",
@@ -291,11 +411,13 @@ def render_toc(post: dict) -> str:
 
 def render_post_info(profile: dict, article: str) -> str:
     published = f"{profile['date']}T01:00:00.000Z"
+    modified_date = updated_date(profile)
+    modified = f"{modified_date}T01:00:00.000Z"
     text_length = len(re.sub(r"<[^>]+>", "", article))
     count = f"{text_length / 1000:.1f}k" if text_length >= 1000 else str(text_length)
     minutes = max(1, math.ceil(text_length / 430))
     title = post_title(profile)
-    return f"""<h1 class="post-title">{esc(title)}</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="{published}" title="发表于 {esc(profile['date'])} 09:00:00">{esc(profile['date'])}</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="{published}" title="更新于 {esc(profile['date'])} 09:00:00">{esc(profile['date'])}</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="{post_category_url(profile)}">{esc(post_category(profile))}</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">{count}</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>{minutes}分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" data-flag-title="{esc(title)}"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div>"""
+    return f"""<h1 class="post-title">{esc(title)}</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="{published}" title="发表于 {esc(profile['date'])} 09:00:00">{esc(profile['date'])}</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="{modified}" title="更新于 {esc(modified_date)} 09:00:00">{esc(modified_date)}</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="{post_category_url(profile)}">{esc(post_category(profile))}</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">{count}</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>{minutes}分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" data-flag-title="{esc(title)}"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div>"""
 
 
 def pagination_side(post: dict, side: str) -> str:
@@ -318,6 +440,8 @@ def replace_meta(text: str, profile: dict, article: str) -> str:
     description = profile["summary"][:220]
     url = f"{SITE_URL}{post_url(profile)}"
     published = f"{profile['date']}T01:00:00.000Z"
+    modified_date = updated_date(profile)
+    modified = f"{modified_date}T01:00:00.000Z"
     replacements = [
         (r"<title>.*?</title>", f"<title>{esc(title)} | Qzl's Blog</title>"),
         (r'<meta name="description" content=".*?">', f'<meta name="description" content="{esc(description)}">'),
@@ -326,14 +450,14 @@ def replace_meta(text: str, profile: dict, article: str) -> str:
         (r'<meta property="og:description" content=".*?">', f'<meta property="og:description" content="{esc(description)}">'),
         (r'<meta property="og:image" content=".*?">', f'<meta property="og:image" content="{SITE_URL}{esc(profile["heroImage"])}">'),
         (r'<meta property="article:published_time" content=".*?">', f'<meta property="article:published_time" content="{published}">'),
-        (r'<meta property="article:modified_time" content=".*?">', f'<meta property="article:modified_time" content="{published}">'),
+        (r'<meta property="article:modified_time" content=".*?">', f'<meta property="article:modified_time" content="{modified}">'),
         (r'<meta name="twitter:image" content=".*?">', f'<meta name="twitter:image" content="{SITE_URL}{esc(profile["heroImage"])}">'),
         (r'<link rel="canonical" href=".*?">', f'<link rel="canonical" href="{url[:-5]}">'),
     ]
     for pattern, value in replacements:
         text = re.sub(pattern, value, text, count=1, flags=re.S)
     text = re.sub(r"title: '.*?',\n  isPost", f"title: '{title}',\n  isPost", text, count=1)
-    text = re.sub(r"postUpdate: '.*?'", f"postUpdate: '{profile['date']} 09:00:00'", text, count=1)
+    text = re.sub(r"postUpdate: '.*?'", f"postUpdate: '{modified_date} 09:00:00'", text, count=1)
     text = re.sub(
         r'<header class="post-bg" id="page-header" style="background-image: url\(\'.*?\'\)">',
         f'<header class="post-bg" id="page-header" style="background-image: url(\'{esc(profile["heroImage"])}\')">',
@@ -574,6 +698,21 @@ def update_index_pages(root: Path, profiles: list[dict], weekly_posts: list[dict
         count=1,
         flags=re.S,
     )
+    random_card = random_aircraft_card(profiles)
+    random_start = "<!-- RANDOM_AIRCRAFT_START -->"
+    random_end = "<!-- RANDOM_AIRCRAFT_END -->"
+    if random_start in homepage:
+        homepage = re.sub(
+            re.escape(random_start) + r".*?" + re.escape(random_end),
+            random_card,
+            homepage,
+            count=1,
+            flags=re.S,
+        )
+    elif "<!-- MANAGED_POSTS_START -->" in homepage:
+        homepage = homepage.replace("<!-- MANAGED_POSTS_START -->", random_card + "<!-- MANAGED_POSTS_START -->", 1)
+    else:
+        raise RuntimeError("Cannot place random aircraft card on homepage")
     calendar = github_contributions_card()
     calendar_start = "<!-- GITHUB_CONTRIBUTIONS_START -->"
     calendar_end = "<!-- GITHUB_CONTRIBUTIONS_END -->"
@@ -592,6 +731,9 @@ def update_index_pages(root: Path, profiles: list[dict], weekly_posts: list[dict
     calendar_script = '<script defer src="/js/github-contributions.js"></script>'
     if calendar_script not in homepage:
         homepage = homepage.replace("</body>", calendar_script + "</body>", 1)
+    random_script = '<script defer src="/js/random-aircraft.js"></script>'
+    if random_script not in homepage:
+        homepage = homepage.replace("</body>", random_script + "</body>", 1)
     homepage_path.write_text(homepage, encoding="utf-8")
 
     archive_path = root / "archives" / "index.html"
@@ -694,7 +836,7 @@ def update_global_shell(root: Path, profiles: list[dict], weekly_posts: list[dic
     managed_posts = sorted(profiles + weekly_posts, key=lambda item: item["date"], reverse=True)
     total_posts = len(managed_posts) + len(OLD_POSTS)
     recent_posts = (managed_posts + OLD_POSTS)[:5]
-    latest_post_date = max(post["date"] for post in managed_posts + OLD_POSTS)
+    latest_post_date = max(updated_date(post) for post in managed_posts + OLD_POSTS)
     latest_push_date = f"{latest_post_date}T01:00:00.000Z"
     aside = "".join(render_aside_item(post) for post in recent_posts)
     menu_item = '<div class="menus_item"><a class="site-page" href="/aircraft/"><i class="fa-fw fa fa-plane"></i><span> 飞机资料库</span></a></div>'
@@ -774,6 +916,9 @@ def build_posts(root: Path, profiles: list[dict], weekly_posts: list[dict]) -> N
             count=1,
             flags=re.S,
         )
+        aircraft_script = '<script defer src="/js/aircraft-article.js"></script>'
+        if profile.get("metrics") and aircraft_script not in page:
+            page = page.replace("</body>", aircraft_script + "</body>", 1)
         page = "\n".join(line.rstrip() for line in page.splitlines()) + "\n"
         target = root / "p" / f"{profile['postId']}.html"
         target.write_text(page, encoding="utf-8")
@@ -790,6 +935,23 @@ def load_weekly_posts(root: Path) -> list[dict]:
     return sorted(posts, key=lambda item: item["date"], reverse=True)
 
 
+def build_aircraft_assets(root: Path, profiles: list[dict]) -> None:
+    comparison = []
+    for profile in profiles:
+        comparison.append({
+            "slug": profile["slug"],
+            "name": profile["nameZh"],
+            "url": post_url(profile),
+            **profile["metrics"],
+        })
+        model = profile.get("model")
+        if model and model.get("kind") == "generated-low-poly":
+            target = root / model["src"].lstrip("/")
+            write_glb(target, profile["slug"], profile["nameZh"])
+    comparison_path = root / "data" / "aircraft-comparison.json"
+    comparison_path.write_text(json.dumps(comparison, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build aircraft profiles as ordinary Butterfly blog posts.")
     parser.add_argument("--root", type=Path, default=Path.cwd())
@@ -803,6 +965,7 @@ def main() -> None:
     )
     profiles = [normalize_aircraft(profile) for profile in profiles]
     profiles.sort(key=lambda item: item["date"], reverse=True)
+    build_aircraft_assets(root, profiles)
     weekly_posts = load_weekly_posts(root)
     build_posts(root, profiles, weekly_posts)
     update_index_pages(root, profiles, weekly_posts)

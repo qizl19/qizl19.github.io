@@ -20,6 +20,7 @@ const mime = {
   ".webp": "image/webp",
   ".svg": "image/svg+xml; charset=utf-8",
   ".ico": "image/x-icon",
+  ".glb": "model/gltf-binary",
 };
 
 const server = http.createServer((request, response) => {
@@ -68,6 +69,8 @@ async function main() {
   for (const id of postIds) {
     if ((await page.locator(`a[href="/p/${id}.html"]`).count()) === 0) throw new Error(`Homepage missing ${id}`);
   }
+  if ((await page.locator("#random-aircraft .random-aircraft-button").count()) !== 1) throw new Error("Homepage random aircraft widget is missing");
+  if ((await page.locator('script[src="/js/aircraft-article.js"]').count()) !== 0) throw new Error("Homepage loads the heavy aircraft article script");
   for (const title of ["直升机，不是直升飞机", "Hello World"]) {
     if ((await page.getByText(title, { exact: true }).count()) !== 0) throw new Error(`Homepage still lists removed article: ${title}`);
   }
@@ -93,8 +96,12 @@ async function main() {
   for (const id of postIds) {
     await page.goto(`${origin}/p/${id}.html`, { waitUntil: "domcontentloaded" });
     await settle(page);
-    if ((await page.locator("#article-container > h2").count()) !== 7) throw new Error(`${id} does not have seven sections`);
-    if ((await page.locator("#card-toc .toc-item").count()) !== 7) throw new Error(`${id} TOC does not have seven entries`);
+    if ((await page.locator("#article-container > h2").count()) !== 11) throw new Error(`${id} does not have eleven sections`);
+    if ((await page.locator("#card-toc .toc-item").count()) !== 11) throw new Error(`${id} TOC does not have eleven entries`);
+    for (const selector of ["[data-aircraft-model]", "[data-aircraft-comparison]", "[data-aircraft-chart]", "[data-aircraft-mermaid]"]) {
+      if ((await page.locator(selector).count()) !== 1) throw new Error(`${id} is missing ${selector}`);
+    }
+    if ((await page.locator('script[src="/js/aircraft-article.js"]').count()) !== 1) throw new Error(`${id} has an invalid aircraft script count`);
     if ((await page.getByText("全文转写", { exact: false }).count()) !== 0) throw new Error(`${id} contains transcript wording`);
     const broken = await page.locator("#article-container img").evaluateAll((images) =>
       images.filter((image) => image.complete && image.naturalWidth === 0).map((image) => image.getAttribute("data-original") || image.src),
