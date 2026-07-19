@@ -3270,7 +3270,7 @@ li.categoryBar-list-item.category-aircraft {
   background-position: center !important;
 }
 li.categoryBar-list-item.category-cad-cae {
-  background-image: linear-gradient(rgba(0,0,0,0.2) 15%, rgba(0,0,0,0.7) 100%), url('/images/cad-cae-weekly-cover.svg') !important;
+  background-image: linear-gradient(rgba(0,0,0,0.12) 15%, rgba(0,0,0,0.58) 100%), url('/images/cad-cae-weekly-cover-v2.webp') !important;
   background-size: cover !important;
   background-position: center !important;
 }

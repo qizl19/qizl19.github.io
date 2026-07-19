@@ -6,7 +6,7 @@
     "subtitle": "面向 FreeCAD 动力学自动化工作流",
     "date": "2026-07-13",
     "window": "2026-07-06 09:05 至 2026-07-13 09:05（Asia/Shanghai）",
-    "heroImage": "/images/cad-cae-weekly-cover.svg",
+    "heroImage": "/images/cad-cae-weekly-cover-v2.webp",
     "summary": "本期聚焦 FreeCAD Assembly 装配快照、VTK Fides 原生后端与 API 清理，以及可验证装配规格研究 AssemCAD，并给出面向 FreeCAD 动力学自动化的三项优先行动。",
     "contentFile": "data/cad-cae-weekly/2026-07-13.html",
     "headings": [

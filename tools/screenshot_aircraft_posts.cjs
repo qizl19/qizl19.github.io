@@ -74,7 +74,7 @@ async function main() {
   const aircraftBackground = await page.locator(".category-aircraft").evaluate((element) => getComputedStyle(element).backgroundImage);
   const weeklyBackground = await page.locator(".category-cad-cae").evaluate((element) => getComputedStyle(element).backgroundImage);
   if (!aircraftBackground.includes("y20-000.jpg")) throw new Error("Aircraft category does not use the local aircraft background");
-  if (!weeklyBackground.includes("cad-cae-weekly-cover.svg")) throw new Error("CAD/CAE category does not use the local weekly cover");
+  if (!weeklyBackground.includes("cad-cae-weekly-cover-v2.webp")) throw new Error("CAD/CAE category does not use the local weekly cover");
   if ((await page.locator('a[href="/p/44bc590d.html"]').count()) === 0) throw new Error("Homepage missing CAD/CAE weekly article");
   await page.screenshot({ path: path.join(output, "home-desktop.png"), fullPage: true });
 

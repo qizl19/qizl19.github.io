@@ -16,11 +16,14 @@ def main() -> None:
     args = parser.parse_args()
     root = args.root.resolve()
     posts = json.loads((root / "data" / "cad_cae_weekly_posts.json").read_text(encoding="utf-8"))
+    aircraft = json.loads((root / "data" / "aircraft_posts.json").read_text(encoding="utf-8"))
+    latest_post_date = max(item["date"] for item in posts + aircraft)
+    expected_last_push = f'data-lastPushDate="{latest_post_date}T01:00:00.000Z"'
     errors: list[str] = []
 
     if not posts:
         errors.append("CAD/CAE weekly metadata is empty")
-    cover = root / "images" / "cad-cae-weekly-cover.svg"
+    cover = root / "images" / "cad-cae-weekly-cover-v2.webp"
     if not cover.is_file():
         errors.append("Missing CAD/CAE weekly cover")
 
@@ -52,7 +55,7 @@ def main() -> None:
         root / "tags" / "CAD-CAE" / "index.html": ["CAD/CAE", "/p/44bc590d.html"],
         root / "archives" / "index.html": ["CAD/CAE 生态周报｜2026-07-13"],
         root / "search.xml": ["CAD/CAE 生态周报｜2026-07-13", "FreeCAD Assembly"],
-        root / "css" / "index.css": ["/p/eacebbb9/y20-000.jpg", "/images/cad-cae-weekly-cover.svg"],
+        root / "css" / "index.css": ["/p/eacebbb9/y20-000.jpg", "/images/cad-cae-weekly-cover-v2.webp"],
     }
     for path, needles in checks.items():
         if not path.is_file():
@@ -62,6 +65,13 @@ def main() -> None:
         for needle in needles:
             if needle not in content:
                 errors.append(f"Missing {needle} in {path}")
+
+    for path in root.rglob("*.html"):
+        if ".git" in path.parts:
+            continue
+        content = path.read_text(encoding="utf-8")
+        if 'id="last-push-date"' in content and expected_last_push not in content:
+            errors.append(f"Last update date is stale in {path}")
 
     copied_pdfs = [path for path in root.rglob("*.pdf") if ".git" not in path.parts and "tmp" not in path.parts]
     if copied_pdfs:

@@ -635,6 +635,8 @@ def update_global_shell(root: Path, profiles: list[dict], weekly_posts: list[dic
     managed_posts = sorted(profiles + weekly_posts, key=lambda item: item["date"], reverse=True)
     total_posts = len(managed_posts) + len(OLD_POSTS)
     recent_posts = (managed_posts + OLD_POSTS)[:5]
+    latest_post_date = max(post["date"] for post in managed_posts + OLD_POSTS)
+    latest_push_date = f"{latest_post_date}T01:00:00.000Z"
     aside = "".join(render_aside_item(post) for post in recent_posts)
     menu_item = '<div class="menus_item"><a class="site-page" href="/aircraft/"><i class="fa-fw fa fa-plane"></i><span> 飞机资料库</span></a></div>'
     category_item = '<li class="categoryBar-list-item"><a class="categoryBar-list-link" href="/aircraft/">飞机资料库</a><span class="categoryBar-list-count">4</span></li>'
@@ -677,6 +679,11 @@ def update_global_shell(root: Path, profiles: list[dict], weekly_posts: list[dic
         text = re.sub(
             r'<div class="item-name">🐌本站总字数 :</div><div class="item-count">.*?</div>',
             '<div class="item-name">🐌本站总字数 :</div><div class="item-count">约 33k</div>',
+            text,
+        )
+        text = re.sub(
+            r'data-lastPushDate="[^"]+"',
+            f'data-lastPushDate="{latest_push_date}"',
             text,
         )
         start = text.find(recent_prefix)
