@@ -1,0 +1,86 @@
+<p><strong>面向 FreeCAD 动力学自动化工作流</strong></p>
+<p><strong>报告日期：</strong>2026-07-13　<strong>检索窗口：</strong>2026-07-06 09:05 至 2026-07-13 09:05（Asia/Shanghai）　<strong>联网核验截止：</strong>2026-07-13 09:05</p>
+
+<h2 id="执行摘要"><a href="#执行摘要" class="headerlink" title="执行摘要"></a>执行摘要</h2>
+<blockquote>
+  <p>本周最值得立即跟进的是 FreeCAD Assembly 的<strong>装配快照（snapshots）</strong>：它把零件可见性、位置等装配状态保存为可切换版本，天然适合作为动力学批处理的“初始工况 / 姿态集”。但该能力目前属于开发分支信号，应先验证 Python 可访问性、文档持久化与跨版本回归。<a target="_blank" rel="noopener" href="https://blog.freecad.org/2026/07/08/wip-wednesday-8-july-2026/">FreeCAD WIP Wednesday</a></p>
+  <p>第二个重点是 VTK 主干将 Fides reader/writer 切换到 native VTK backend，同时集中移除 9.6.0 弃用项并新增一批 9.7 弃用标记。这会影响自编译 ParaView/VTK 插件、原位分析与二进制接口稳定性；它不是正式版本发布，暂不应直接升级生产环境。<a target="_blank" rel="noopener" href="https://github.com/Kitware/VTK/commits/master/">VTK 官方提交历史</a></p>
+  <p>研究侧，AssemCAD 在 7 月 6 日发布，提出 typed parts、geometry-backed ports、executable mates 与 B-Rep 证据验证。这与 FreeCAD 动力学自动化方向高度一致：把“生成装配代码”升级为“生成可验证装配规格”。论文结果仍需在真实 FreeCAD / Assembly Solver 约束、接触和自由度场景中复现。<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2607.05123">AssemCAD 原文</a></p>
+</blockquote>
+
+<h2 id="本周最优先的-3-项行动"><a href="#本周最优先的-3-项行动" class="headerlink" title="本周最优先的 3 项行动"></a>本周最优先的 3 项行动</h2>
+<ol>
+  <li><strong>建立 Assembly 快照探针：</strong>用 3-5 个刚体、转动副 / 滑动副和两组可见性状态生成最小 FCStd；记录快照对象的 TypeId、属性、序列化结果与 Python 可访问路径，并验证重开文件后状态一致。</li>
+  <li><strong>冻结 VTK / ParaView ABI 基线：</strong>生产环境继续锁定已验证版本；在独立 CI 分支编译 VTK master，针对 Fides I/O、Python wrapper、自定义 reader / plugin 跑 smoke test，并把 deprecated API 告警升级为迁移清单。</li>
+  <li><strong>给动力学流水线补“可验证装配规格”中间层：</strong>先定义 part / port / mate / DOF / geometry-evidence 的 JSON schema，再映射到 FreeCAD Assembly 对象；不要让 LLM 直接生成不可审计的最终脚本。</li>
+</ol>
+
+<h2 id="本周态势总览"><a href="#本周态势总览" class="headerlink" title="本周态势总览"></a>本周态势总览</h2>
+<table>
+  <thead><tr><th>领域</th><th>本周状态</th><th>结论</th></tr></thead>
+  <tbody>
+    <tr><th>FreeCAD Assembly 自动化</th><td><strong style="color:#a76400">开发中变更</strong></td><td>装配快照是本周最直接的自动化增量；周更构建仅用于测试。</td></tr>
+    <tr><th>CATIA / Rhino / STEP / 3DM</th><td><strong style="color:#287a55">无重要正式变化</strong></td><td>未核验到窗口内新的正式互操作发布；Rhino 9 Beta 有显示问题信号，但非 STEP / 3DM I/O 变更。</td></tr>
+    <tr><th>Gmsh / meshio</th><td><strong style="color:#287a55">无重要正式变化</strong></td><td>Gmsh 稳定版仍为 4.15.2；meshio 主干与 release 均无本周提交。</td></tr>
+    <tr><th>VTK / ParaView</th><td><strong style="color:#a76400">开发中变更</strong></td><td>VTK 主干 Fides native backend 与 API 清理值得预演；CfdOF 到 ParaView 保存问题是社区信号。</td></tr>
+    <tr><th>CalculiX / Abaqus-compatible</th><td><strong style="color:#287a55">无重要正式变化</strong></td><td>CalculiX 仍为 2.23，窗口内未见官方发布；应保持 deck 方言回归。</td></tr>
+    <tr><th>Python / C++ / pybind11 / ABI</th><td><strong style="color:#287a55">无重要正式变化</strong></td><td>pybind11 本周无提交 / 发布；最新正式版仍为 3.0.4。</td></tr>
+    <tr><th>论文与工程案例</th><td><strong style="color:#a13a32">高优先级研究</strong></td><td>AssemCAD 是窗口内最相关新论文，建议做小规模 FreeCAD 复现。</td></tr>
+  </tbody>
+</table>
+
+<h2 id="freecad-assembly-自动化与-api-插件变化"><a href="#freecad-assembly-自动化与-api-插件变化" class="headerlink" title="1. FreeCAD Assembly 自动化与 API/插件变化"></a>1. FreeCAD Assembly 自动化与 API/插件变化</h2>
+<h3>装配快照：状态集成为一等对象</h3>
+<p><strong style="color:#a76400">【开发中变更】</strong> FreeCAD 官方 7 月 8 日开发周报记录，PR #25384 增加 Assembly snapshots，可保存当前装配的多个状态版本，包括可见零件和位置，并在项目树中切换。同期官方发布 7 月 8 日和 7 月 9 日 weekly development builds，明确属于 bleeding edge，不应用于生产。<a target="_blank" rel="noopener" href="https://blog.freecad.org/2026/07/08/wip-wednesday-8-july-2026/">开发周报</a>　<a target="_blank" rel="noopener" href="https://github.com/FreeCAD/FreeCAD/pull/25384">PR #25384</a>　<a target="_blank" rel="noopener" href="https://github.com/FreeCAD/FreeCAD/releases">weekly builds</a></p>
+<p><strong>为什么影响动力学工作流：</strong>快照可承担“装配初始状态集”的角色，把每个算例的姿态、显隐和装配构型从外部脚本中的 Placement 修改，迁移到 FCStd 内部可追踪对象。若 Python API 完整，可驱动批量求解、碰撞 / 干涉前检查、运动学姿态扫描和结果复现。</p>
+<p><strong>风险 / 置信度：</strong>置信度高（官方周报与 PR），落地风险中高。仍需确认快照是否覆盖 solver state、joint parameters 与表达式依赖，以及恢复快照能否可靠触发 recompute。</p>
+<p><strong>建议：</strong>先在隔离副本测试；为每次快照切换记录 document transaction、recompute 次数、joint residual 和 Placement hash。插件侧避免绑定 UI tree 文本，优先探测对象 TypeId 与属性。</p>
+<h3>FEM 示例与插件构建背景</h3>
+<p>官方周报还记录两个新 FEM 示例：腔体表面对表面辐射，以及对环境辐射的热传导。它们不直接改变动力学 API，但可作为 FreeCAD 到 CalculiX 输入生成与热-结构流程的回归样例。同期 Coin / Pivy 作为 git submodules 的构建改动会影响自编译插件环境的可重复性。</p>
+
+<h2 id="catia-与-rhino-step-3dm-互操作"><a href="#catia-与-rhino-step-3dm-互操作" class="headerlink" title="2. CATIA 与 Rhino / STEP / 3DM 互操作"></a>2. CATIA 与 Rhino / STEP / 3DM 互操作</h2>
+<p><strong style="color:#287a55">【本周无重要正式变化】</strong>窗口内未核验到 Dassault Systèmes 或 McNeel 发布新的 CATIA 到 STEP、Rhino 到 STEP / 3DM 正式互操作版本说明。Rhino 9 Beta 社区出现 Direct3D / 显示模式崩溃和冻结报告，但这些是显示链路问题，不能据此推断 STEP / 3DM 几何传输发生变化。<a target="_blank" rel="noopener" href="https://www.rhino3d.com/features/">Rhino 官方发布策略</a>　<a target="_blank" rel="noopener" href="https://discourse.mcneel.com/t/issues-with-display-modes-in-rhino-beta/220660">Rhino Beta 问题信号</a></p>
+<p><strong>风险 / 置信度：</strong>“无重要变化”置信度中；商业 CATIA 的部分修复说明可能位于授权支持门户。社区显示问题置信度中高，但与互操作影响相关性低。</p>
+<p><strong>建议：</strong>维持 CATIA - STEP AP242 - FreeCAD 与 Rhino 3DM - STEP - FreeCAD 双路径 golden files；每周比较实体数、实例树、单位、体积 / 质心、面数、失效引用和导入日志，不要仅比较文件大小。</p>
+
+<h2 id="gmsh-与-meshio"><a href="#gmsh-与-meshio" class="headerlink" title="3. Gmsh 与 meshio"></a>3. Gmsh 与 meshio</h2>
+<p><strong style="color:#287a55">【本周无重要正式变化】</strong>Gmsh 官方下载页显示当前稳定版仍为 4.15.2（2026-03-24），窗口内无新稳定发布；meshio 官方主干最后提交与最新 release 均停在 2024-01-31。<a target="_blank" rel="noopener" href="https://gmsh.info/">Gmsh 官方下载页</a>　<a target="_blank" rel="noopener" href="https://github.com/nschloe/meshio/commits/main">meshio 提交历史</a>　<a target="_blank" rel="noopener" href="https://github.com/nschloe/meshio/releases">meshio releases</a></p>
+<p><strong>为什么影响工作流：</strong>meshio 长期低活跃意味着新 Python / NumPy、MSH 方言以及 Abaqus / VTK 边界语义的兼容风险更应由项目自身承担。</p>
+<p><strong>建议：</strong>锁定 Gmsh 4.15.2 与 meshio 5.3.5；为 MSH4 到 VTU、MSH4 到 Abaqus INP、二次四面体 / 六面体建立 round-trip 检查，验证节点 / 单元数、物理组、边界集合、高阶节点顺序与 Jacobian 符号。</p>
+
+<h2 id="vtk-与-paraview"><a href="#vtk-与-paraview" class="headerlink" title="4. VTK 与 ParaView"></a>4. VTK 与 ParaView</h2>
+<h3>Fides 切换 native VTK backend；API 清理集中出现</h3>
+<p><strong style="color:#a76400">【开发中变更】</strong>VTK 主干 7 月 8 日合入 IO / Fides reader / writer 切换到 native VTK backend，并出现 Python string variant arrays、GLES 配置暴露、FDS reader 改进等提交。同时移除 9.6.0 deprecations，并对 <code>vtkWindow::GetOffScreenRendering</code> 等接口新增弃用标记。<a target="_blank" rel="noopener" href="https://github.com/Kitware/VTK/commit/3a30f7716b5b056fe2cbc38ef80bd73e0d0ebfdd">Fides native backend</a>　<a target="_blank" rel="noopener" href="https://github.com/Kitware/VTK/commits/master/">VTK commit history</a></p>
+<p><strong>为什么影响工作流：</strong>FreeCAD / CAE 的大结果集、远程后处理和 in-situ 分支可能依赖 VTK / ParaView reader、Python wrapping 与 OpenGL / offscreen 路径。Fides backend 变化可能改变数据选择、元数据、数组类型与写回行为；API 移除会直接打断自编译插件。</p>
+<p><strong>建议：</strong>生产锁版；试验 CI 对代表性 <code>.vtu / .vtm / .bp</code> 数据比较数组名称 / 类型、time steps、block hierarchy 和数值 checksum，并把 deprecation warnings 对应到替代 API。</p>
+<h3>CfdOF 数据保存：社区问题信号</h3>
+<p><strong style="color:#a13a32">【社区问题信号】</strong>7 月 5 / 6 日，用户报告从 FreeCAD CfdOF 打开的 ParaView 数据，在保存 CGNS 或 PVSM 后重开时出现速度、压力、时间步或几何丢失。该帖是单一用户报告，不能当成已确认回归，但直接命中 FreeCAD 到 ParaView 结果归档链路。<a target="_blank" rel="noopener" href="https://discourse.paraview.org/t/saving-data-from-cfdof-freecad-add-on-in-a-usable-manner/17649">ParaView 社区帖</a></p>
+<p><strong>建议：</strong>归档时保留原始 solver case 与时间目录，PVSM 只作视图状态而非唯一数据副本；自动验证重开后的 time range、array list、block count 和关键场最大 / 最小值。</p>
+
+<h2 id="calculix-与-abaqus-compatible-流程"><a href="#calculix-与-abaqus-compatible-流程" class="headerlink" title="5. CalculiX 与 Abaqus-compatible 流程"></a>5. CalculiX 与 Abaqus-compatible 流程</h2>
+<p><strong style="color:#287a55">【本周无重要正式变化】</strong>CalculiX 官网仍显示 2.23（页面最后更新 2025-11-01），窗口内未见官方发布。官方说明 solver 使用 Abaqus input format，但这不等同于完整 Abaqus 语义兼容。<a target="_blank" rel="noopener" href="https://www.calculix.de/">CalculiX 官方页</a></p>
+<p><strong>建议：</strong>继续锁定 ccx 2.23；对动态分析建立显式关键字白名单和拒绝列表，解析 <code>*.sta / *.dat / *.frd</code> 检查收敛、步数、特征频率和能量项，而不是只看进程退出码。</p>
+
+<h2 id="python-cpp-pybind11-abi-集成"><a href="#python-cpp-pybind11-abi-集成" class="headerlink" title="6. Python / C++ / pybind11 / ABI 集成"></a>6. Python / C++ / pybind11 / ABI 集成</h2>
+<p><strong style="color:#287a55">【本周无重要正式变化】</strong>pybind11 官方主干最近提交停在 2026-05-25，最新正式版为 3.0.4（2026-04-19）；本周无新 release 或 commit。因此，本周不应把 pybind11 3.0 的 ABI bump 或 Python 3.14 free-threaded 支持重新包装成新闻。<a target="_blank" rel="noopener" href="https://github.com/pybind/pybind11/commits/master/">pybind11 commits</a>　<a target="_blank" rel="noopener" href="https://github.com/pybind/pybind11/releases">pybind11 releases</a>　<a target="_blank" rel="noopener" href="https://www.python.org/getit/source/">Python source releases</a></p>
+<p><strong>风险 / 置信度：</strong>本周状态置信度高；持续 ABI 风险高。FreeCAD 插件常同时跨 Python minor、MSVC runtime、Qt / PySide、Coin / Pivy、VTK 与自有 C++ 扩展。</p>
+<p><strong>建议：</strong>构建产物写入 Python SOABI、compiler ID、MSVC runtime、pybind11 version / internals ID、Qt / PySide、VTK 与 FreeCAD commit；插件 CI 至少覆盖 import、对象创建 / 析构、跨模块对象传递与 FreeCAD 关闭阶段。</p>
+
+<h2 id="本周重要论文与工程案例"><a href="#本周重要论文与工程案例" class="headerlink" title="7. 本周重要论文与工程案例"></a>7. 本周重要论文与工程案例</h2>
+<h3>AssemCAD：从代码生成转向可验证装配规格</h3>
+<p><strong style="color:#a13a32">【新论文 / 高优先级】</strong>AssemCAD 于 2026-07-06 提交 arXiv。其核心不是生成一段单体 CAD 代码，而是先生成由 typed parts、geometry-backed ports、executable mates 和 engineering axioms 组成的装配规格，再用确定性 mate transformation 与 B-Rep 几何证据验证接口。论文在 AssemBench 上报告装配保持和物理有效性优于 code-centric baselines。<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2607.05123">论文原文</a></p>
+<p><strong>为什么影响 FreeCAD 动力学：</strong>这套分层对应 FreeCAD 自动化所需的中间层：把自然语言 / 参数需求转换为可审计的 port / mate / DOF，再由适配器生成 FreeCAD Assembly objects，并以几何、约束残差和运动范围做验证。</p>
+<p><strong>建议：</strong>两周内做铰链、曲柄滑块、四连杆三个复现任务；记录 FreeCAD 求解成功率、自由度、约束残差、运动范围、重开一致性和人工修复次数。</p>
+<h3>工程案例信号：开放科学低压夹管阀</h3>
+<p>FreeCAD 7 月 6 日公布首届社区设计竞赛结果，主题为面向开放科学的低压 pinch valve；获奖方案使用 RC servo 与 3D 打印部件。这不是软件变更，但为“FreeCAD 装配 - 运动学 - 执行器选型 - 可制造原型”提供了适合自动化回归的真实小机构。<a target="_blank" rel="noopener" href="https://blog.freecad.org/2026/07/06/freecad-community-design-competition-2026-the-results/">FreeCAD 官方案例</a></p>
+
+<h2 id="决策与监控清单"><a href="#决策与监控清单" class="headerlink" title="8. 决策与监控清单"></a>8. 决策与监控清单</h2>
+<ul>
+  <li><strong>立即试验：</strong>Assembly snapshots、AssemCAD 规格层、CfdOF / ParaView 归档重开验证。</li>
+  <li><strong>隔离预演：</strong>VTK master 的 Fides backend 与 deprecation cleanup；不要升级生产 ParaView / VTK。</li>
+  <li><strong>继续锁版：</strong>Gmsh 4.15.2、meshio 5.3.5、CalculiX 2.23，以及项目当前已验证 Python / pybind11 / VTK 组合。</li>
+  <li><strong>互操作守门：</strong>CATIA / Rhino 到 STEP / 3DM golden files 按实体、实例、单位、质量属性与拓扑签名对比。</li>
+  <li><strong>下周重点：</strong>确认 PR #25384 的 Python API / 序列化语义；跟踪 VTK Fides 后续修复和 ParaView 6.2 发布状态；观察 CfdOF 保存问题是否获得可复现步骤或修复。</li>
+</ul>
+
+<blockquote><p><strong>方法与边界：</strong>本报告只将检索窗口内、可由官方发布 / 仓库 / 论文原文或明确时间戳的社区帖子核验的信息列为“本周变化”。开发主干与 weekly / WIP / Beta 均不等同于正式发布；社区帖子仅作为问题信号。商业 CATIA 的授权门户内容可能不在公开检索范围内。</p></blockquote>

@@ -3264,6 +3264,22 @@ li.categoryBar-list-item:nth-child(2)>span::after {
 li.categoryBar-list-item:nth-child(3)>span::after {
   content: '飞机资料整理' !important;
 }
+li.categoryBar-list-item.category-aircraft {
+  background-image: linear-gradient(rgba(0,0,0,0.18) 15%, rgba(0,0,0,0.62) 100%), url('/p/eacebbb9/y20-000.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+li.categoryBar-list-item.category-cad-cae {
+  background-image: linear-gradient(rgba(0,0,0,0.2) 15%, rgba(0,0,0,0.7) 100%), url('/images/cad-cae-weekly-cover.svg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+li.categoryBar-list-item.category-aircraft>span::after {
+  content: '代表机型档案' !important;
+}
+li.categoryBar-list-item.category-cad-cae>span::after {
+  content: '工程生态与 AI 追踪' !important;
+}
 li.categoryBar-list-item {
   width: 32.3% !important;
 }
