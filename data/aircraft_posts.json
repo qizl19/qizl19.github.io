@@ -16,8 +16,7 @@
     "status": "现役 / 持续发展",
     "firstFlight": "2013-01-26",
     "accent": "#d2a441",
-    "heroImage": "/aircraft/assets/images/y-20/y20-000.jpg",
-    "pdf": "/aircraft/assets/pdf/aircraft-profile-Xi-an-Y-20-Kunpeng-2026-07-19.pdf",
+    "heroImage": "/p/eacebbb9/y20-000.jpg",
     "statement": "价值不只在“能装多少”，而在于获得了可持续生产、可派生的大型空中平台。",
     "summary": "运-20 由中国航空工业体系组织研制，采用上单翼、T 形尾翼、四发和尾部大型货桥布局。它于 2013 年首飞、2016 年列装；公开资料已经确认 Y-20A、换装国产 WS-20 的 Y-20B，以及空中加油型 YY-20 共同形成家族。",
     "facts": [
@@ -113,7 +112,7 @@
     ],
     "photos": [
       {
-        "src": "/aircraft/assets/images/y-20/y20-000.jpg",
+        "src": "/p/eacebbb9/y20-000.jpg",
         "alt": "运-20 在蓝天下飞行的完整侧下方视图",
         "caption": "运-20 在 2016 年珠海航展期间飞行，四发、上单翼与 T 形尾翼清晰可见。",
         "credit": "L.G.Liao",
@@ -122,7 +121,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
-        "src": "/aircraft/assets/images/y-20/y20-001.jpg",
+        "src": "/p/eacebbb9/y20-001.jpg",
         "alt": "编号 20041 的运-20A 放下起落架进近",
         "caption": "编号 20041 的运-20A 进近，可观察主起落架和早期发动机短舱。",
         "credit": "Anna Zvereva",
@@ -131,7 +130,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
       },
       {
-        "src": "/aircraft/assets/images/y-20/y20-002.jpg",
+        "src": "/p/eacebbb9/y20-002.jpg",
         "alt": "YY-20 为歼-16 实施软管锥套空中加油",
         "caption": "日本航空自卫队公开的 YY-20 与歼-16 空中加油画面。",
         "credit": "日本防卫省 / 航空自卫队",
@@ -157,7 +156,8 @@
         "label": "日本防卫省：YY-20 公开影像",
         "url": "https://www.mod.go.jp/js/pdf/2024/p20241130_01.pdf"
       }
-    ]
+    ],
+    "postId": "eacebbb9"
   },
   {
     "slug": "concorde",
@@ -176,8 +176,7 @@
     "status": "退役 / 博物馆保存",
     "firstFlight": "1969-03-02",
     "accent": "#c64a3a",
-    "heroImage": "/aircraft/assets/images/concorde/concorde-g-boac-eduard-marmet.jpg",
-    "pdf": "/aircraft/assets/pdf/aircraft-profile-Concorde-2026-07-17.pdf",
+    "heroImage": "/p/6e9a9f42/concorde-g-boac-eduard-marmet.jpg",
     "statement": "它把大西洋时间压缩一半，也把噪声、油耗和维护成本推到商业航空必须面对的前台。",
     "summary": "协和式是英国与法国联合研制的超声速客机。它以细长机身、无尾尖拱形三角翼、可下垂机鼻、燃油转移配平和四台 Olympus 593 发动机，把约 100 名乘客送到约两倍音速的巡航状态。",
     "facts": [
@@ -269,7 +268,7 @@
     ],
     "photos": [
       {
-        "src": "/aircraft/assets/images/concorde/concorde-g-boac-eduard-marmet.jpg",
+        "src": "/p/6e9a9f42/concorde-g-boac-eduard-marmet.jpg",
         "alt": "英国航空 G-BOAC 协和式客机在飞行中",
         "caption": "英国航空 G-BOAC 在飞行中，细长机身与三角翼清晰可见。",
         "credit": "Eduard Marmet",
@@ -278,7 +277,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
-        "src": "/aircraft/assets/images/concorde/concorde-cockpit-ad-meskens.jpg",
+        "src": "/p/6e9a9f42/concorde-cockpit-ad-meskens.jpg",
         "alt": "G-BOAD 协和式驾驶舱",
         "caption": "G-BOAD 驾驶舱，可见双驾驶员席与飞行工程师面板。",
         "credit": "Ad Meskens",
@@ -287,7 +286,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
-        "src": "/aircraft/assets/images/concorde/concorde-olympus-jorge-lascar.jpg",
+        "src": "/p/6e9a9f42/concorde-olympus-jorge-lascar.jpg",
         "alt": "展陈状态的 Olympus 593 发动机",
         "caption": "Rolls-Royce / SNECMA Olympus 593 发动机展品。",
         "credit": "Jorge Láscar",
@@ -296,7 +295,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"
       },
       {
-        "src": "/aircraft/assets/images/concorde/concorde-cabin-kurkoe.jpg",
+        "src": "/p/6e9a9f42/concorde-cabin-kurkoe.jpg",
         "alt": "协和式客机四座并排客舱",
         "caption": "Brooklands Museum 保存的 G-BBDG 客舱。",
         "credit": "Kurkoe",
@@ -322,7 +321,8 @@
         "label": "BEA：法航 4590 调查资料",
         "url": "https://bea.aero/en/investigation-reports/notified-events/detail/accident-to-the-concorde-registered-f-btsc-operated-by-air-france-occured-on-07-25-00-at-gonesse/"
       }
-    ]
+    ],
+    "postId": "6e9a9f42"
   },
   {
     "slug": "de-havilland-mosquito",
@@ -341,8 +341,7 @@
     "status": "退役 / 少量适航",
     "firstFlight": "1940-11-25",
     "accent": "#c9822b",
-    "heroImage": "/aircraft/assets/images/mosquito/mosquito-in-flight-pjsime.jpg",
-    "pdf": "/aircraft/assets/pdf/aircraft-profile-de-Havilland-Mosquito-2026-07-15.pdf",
+    "heroImage": "/p/fe7680d9/mosquito-in-flight-pjsime.jpg",
     "statement": "它证明“去掉非必要重量，把性能集中到任务核心”可以形成强大的系统优势。",
     "summary": "蚊式是第二次世界大战时期最具代表性的多用途双发飞机之一。它以桦木胶合板与轻木夹芯结构节省战略金属，依靠双 Rolls-Royce Merlin 动力和较低阻力实现高速，并从轰炸、侦察扩展到夜战、海上打击与目标拖曳。",
     "facts": [
@@ -434,7 +433,7 @@
     ],
     "photos": [
       {
-        "src": "/aircraft/assets/images/mosquito/mosquito-in-flight-pjsime.jpg",
+        "src": "/p/fe7680d9/mosquito-in-flight-pjsime.jpg",
         "alt": "涂有诺曼底条纹的蚊式飞机飞行表演",
         "caption": "A52-1054 在新西兰 Warbirds Over Wanaka 飞行表演中。",
         "credit": "Pjsime",
@@ -443,7 +442,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
       },
       {
-        "src": "/aircraft/assets/images/mosquito/mosquito-prototype-raf.jpg",
+        "src": "/p/fe7680d9/mosquito-prototype-raf.jpg",
         "alt": "德哈维兰蚊式原型机 W4050 历史照片",
         "caption": "原型机 W4050 在 1940 年首飞时期的历史照片。",
         "credit": "英国皇家空军，摄影者不详",
@@ -452,7 +451,7 @@
         "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-UKGov"
       },
       {
-        "src": "/aircraft/assets/images/mosquito/mosquito-cockpit-usaf.jpg",
+        "src": "/p/fe7680d9/mosquito-cockpit-usaf.jpg",
         "alt": "美国空军国家博物馆收藏的蚊式驾驶舱",
         "caption": "美国空军国家博物馆收藏的蚊式驾驶舱。",
         "credit": "美国空军",
@@ -461,7 +460,7 @@
         "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
       },
       {
-        "src": "/aircraft/assets/images/mosquito/mosquito-merlin-engine-sdasm.jpg",
+        "src": "/p/fe7680d9/mosquito-merlin-engine-sdasm.jpg",
         "alt": "蚊式飞行中发动机短舱局部开启的历史照片",
         "caption": "蚊式飞行中发动机短舱局部开启或拆除整流罩的历史画面。",
         "credit": "San Diego Air & Space Museum Archives / Charles Daniels Collection",
@@ -487,7 +486,8 @@
         "label": "Smithsonian：Mosquito B/TT Mk 35",
         "url": "https://airandspace.si.edu/collection-objects/de-havilland-dh-98-btt-mk-35-mosquito/nasm_A19640023000"
       }
-    ]
+    ],
+    "postId": "fe7680d9"
   },
   {
     "slug": "boeing-747",
@@ -506,8 +506,7 @@
     "status": "已停产 / 仍运营",
     "firstFlight": "1969-02-09",
     "accent": "#2f83af",
-    "heroImage": "/aircraft/assets/images/boeing-747/747-8-lufthansa-thilo-darmstadt.jpg",
-    "pdf": "/aircraft/assets/pdf/aircraft-profile-Boeing-747-2026-07-14.pdf",
+    "heroImage": "/p/ebc40a24/747-8-lufthansa-thilo-darmstadt.jpg",
     "statement": "747 的历史价值在于把远程航空运输做大；今天的持续价值则集中在重型货运与特殊任务。",
     "summary": "波音 747 是世界首款投入商业运营的双通道宽体客机。四发高涵道比涡扇、前上层驾驶舱和宽体主客舱共同降低了远程航线的单位座英里成本，并为机鼻货门、超限货物和特殊任务留下独特空间。",
     "facts": [
@@ -599,7 +598,7 @@
     ],
     "photos": [
       {
-        "src": "/aircraft/assets/images/boeing-747/747-8-lufthansa-thilo-darmstadt.jpg",
+        "src": "/p/ebc40a24/747-8-lufthansa-thilo-darmstadt.jpg",
         "alt": "汉莎航空波音 747-8 飞行侧视图",
         "caption": "汉莎航空 Boeing 747-8 飞行侧视图。",
         "credit": "Thilo Darmstadt / TJDarmstadt",
@@ -608,7 +607,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"
       },
       {
-        "src": "/aircraft/assets/images/boeing-747/747-8f-nose-door-olivier-cleynen.jpg",
+        "src": "/p/ebc40a24/747-8f-nose-door-olivier-cleynen.jpg",
         "alt": "747-8F 机鼻货门开启",
         "caption": "747-8F 开启机鼻货门，展示超长货物直通能力。",
         "credit": "Olivier Cleynen",
@@ -617,7 +616,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
       },
       {
-        "src": "/aircraft/assets/images/boeing-747/747-cockpit-lp98.jpg",
+        "src": "/p/ebc40a24/747-cockpit-lp98.jpg",
         "alt": "退役 KLM 747-206 驾驶舱",
         "caption": "Aviodrome Museum 保存的 KLM 747-206 驾驶舱。",
         "credit": "LP98",
@@ -626,7 +625,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
       },
       {
-        "src": "/aircraft/assets/images/boeing-747/747-sca-endeavour-nasa-tony-landis.jpg",
+        "src": "/p/ebc40a24/747-sca-endeavour-nasa-tony-landis.jpg",
         "alt": "NASA 747 航天飞机运输机背负奋进号起飞",
         "caption": "NASA 747 航天飞机运输机背负 Endeavour 起飞。",
         "credit": "NASA / Tony Landis",
@@ -652,6 +651,7 @@
         "label": "NTSB：TWA 800 调查",
         "url": "https://www.ntsb.gov/investigations/Pages/DCA96MA070.aspx"
       }
-    ]
+    ],
+    "postId": "ebc40a24"
   }
 ]
