@@ -12,6 +12,8 @@ from urllib.parse import quote
 
 
 SITE_URL = "https://qizl19.github.io"
+GITHUB_USERNAME = "qizl19"
+GITHUB_CONTRIBUTIONS_API = f"https://github-contributions-api.jogruber.de/v4/{GITHUB_USERNAME}?y=last"
 CATEGORY_URL = "/categories/%E9%A3%9E%E6%9C%BA%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/"
 TAG_URL = "/tags/%E8%88%AA%E7%A9%BA/"
 CODE_CATEGORY_URL = "/categories/code%E8%AE%B0%E5%BD%95/"
@@ -65,6 +67,45 @@ REMOVED_POST_IDS = ("330e82f5", "4a17b156")
 
 def esc(value: object) -> str:
     return html.escape(str(value), quote=True)
+
+
+def github_contributions_card() -> str:
+    return (
+        '<!-- GITHUB_CONTRIBUTIONS_START -->'
+        f'<section class="recent-post-item github-calendar-card" id="github-contributions" '
+        f'data-user="{GITHUB_USERNAME}" data-api="{esc(GITHUB_CONTRIBUTIONS_API)}" '
+        'aria-labelledby="github-contributions-title">'
+        '<div class="github-calendar-header">'
+        '<div><h2 id="github-contributions-title"><i class="fab fa-github" aria-hidden="true"></i> GitHub 贡献日历</h2>'
+        f'<p>记录 <a href="https://github.com/{GITHUB_USERNAME}" target="_blank" rel="noopener noreferrer">@{GITHUB_USERNAME}</a> 过去一年的公开贡献</p></div>'
+        f'<a class="github-calendar-profile" href="https://github.com/{GITHUB_USERNAME}" target="_blank" rel="noopener noreferrer" aria-label="访问 {GITHUB_USERNAME} 的 GitHub 主页">查看主页 <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>'
+        '</div>'
+        '<div class="github-calendar-summary" id="github-calendar-summary" aria-live="polite">正在加载贡献数据…</div>'
+        '<div class="github-calendar-scroll" tabindex="0" aria-label="GitHub 过去一年贡献热力图，可横向滚动">'
+        '<div class="github-calendar-months" id="github-calendar-months" aria-hidden="true"></div>'
+        '<div class="github-calendar-grid" id="github-calendar-grid" role="img" aria-label="GitHub 贡献日历"></div>'
+        '</div>'
+        '<div class="github-calendar-footer">'
+        '<span id="github-calendar-status">数据来自公开 GitHub 贡献记录</span>'
+        '<span class="github-calendar-legend" aria-label="贡献强度：少到多">少 '
+        '<i data-level="0"></i><i data-level="1"></i><i data-level="2"></i><i data-level="3"></i><i data-level="4"></i> 多</span>'
+        '</div>'
+        '</section>'
+        '<!-- GITHUB_CONTRIBUTIONS_END -->'
+    )
+
+
+def remove_legacy_gitcalendar(text: str) -> str:
+    patterns = [
+        r'<link[^>]+(?:hexo-filter-gitcalendar|gitcalendar\.css)[^>]*>',
+        r'<script[^>]+(?:hexo-filter-gitcalendar|gitcalendar\.js)[^>]*></script>',
+        r'<script data-pjax>\s*function gitcalendar_injector_config\(\).*?</script>',
+        r'<scscrip[^>]+/js/githubcalendar\.js[^>]*></script>',
+        r'<script[^>]+/js/githubcalendar\.js[^>]*></script>',
+    ]
+    for pattern in patterns:
+        text = re.sub(pattern, "", text, flags=re.S | re.I)
+    return text
 
 
 def post_url(post: dict) -> str:
@@ -533,6 +574,24 @@ def update_index_pages(root: Path, profiles: list[dict], weekly_posts: list[dict
         count=1,
         flags=re.S,
     )
+    calendar = github_contributions_card()
+    calendar_start = "<!-- GITHUB_CONTRIBUTIONS_START -->"
+    calendar_end = "<!-- GITHUB_CONTRIBUTIONS_END -->"
+    if calendar_start in homepage:
+        homepage = re.sub(
+            re.escape(calendar_start) + r".*?" + re.escape(calendar_end),
+            calendar,
+            homepage,
+            count=1,
+            flags=re.S,
+        )
+    elif "<!-- MANAGED_POSTS_START -->" in homepage:
+        homepage = homepage.replace("<!-- MANAGED_POSTS_START -->", calendar + "<!-- MANAGED_POSTS_START -->", 1)
+    else:
+        raise RuntimeError("Cannot place GitHub contributions card on homepage")
+    calendar_script = '<script defer src="/js/github-contributions.js"></script>'
+    if calendar_script not in homepage:
+        homepage = homepage.replace("</body>", calendar_script + "</body>", 1)
     homepage_path.write_text(homepage, encoding="utf-8")
 
     archive_path = root / "archives" / "index.html"
@@ -645,6 +704,7 @@ def update_global_shell(root: Path, profiles: list[dict], weekly_posts: list[dic
         if ".git" in path.parts or "aircraft" in path.parts:
             continue
         text = path.read_text(encoding="utf-8")
+        text = remove_legacy_gitcalendar(text)
         text = text.replace(menu_item, "").replace(category_item, "")
         text = re.sub(
             r'<div class="headline">文章</div><div class="length-num">\d+</div>',

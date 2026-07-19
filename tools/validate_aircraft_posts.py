@@ -113,6 +113,50 @@ def main() -> None:
     if home_cards != 7:
         errors.append(f"Homepage article count mismatch: expected 7, got {home_cards}")
 
+    calendar_checks = {
+        'id="github-contributions"': 1,
+        '<!-- GITHUB_CONTRIBUTIONS_START -->': 1,
+        '<!-- GITHUB_CONTRIBUTIONS_END -->': 1,
+        'data-user="qizl19"': 1,
+        'https://github-contributions-api.jogruber.de/v4/qizl19?y=last': 1,
+        '<script defer src="/js/github-contributions.js"></script>': 1,
+    }
+    for needle, expected in calendar_checks.items():
+        actual = homepage.count(needle)
+        if actual != expected:
+            errors.append(f"GitHub calendar homepage marker mismatch for {needle}: expected {expected}, got {actual}")
+
+    calendar_script = root / "js" / "github-contributions.js"
+    if not calendar_script.is_file():
+        errors.append("Missing local GitHub contributions script")
+    else:
+        script = calendar_script.read_text(encoding="utf-8")
+        for needle in ["fetch(card.dataset.api", "AbortController", "REQUEST_TIMEOUT", "暂时无法加载贡献数据", "day.level"]:
+            if needle not in script:
+                errors.append(f"GitHub contributions script is missing {needle}")
+
+    calendar_css = (root / "css" / "index.css").read_text(encoding="utf-8")
+    for needle in [".github-calendar-card", ".github-calendar-grid", '[data-level="4"]', "prefers-reduced-motion"]:
+        if needle not in calendar_css:
+            errors.append(f"GitHub contributions styles are missing {needle}")
+
+    legacy_calendar_tokens = [
+        "gitcalendar.akilar.top",
+        "hexo-filter-gitcalendar",
+        "/js/githubcalendar.js",
+        "<scscrip",
+        "GitCalendarInit",
+    ]
+    for path in root.rglob("*.html"):
+        if ".git" in path.parts:
+            continue
+        content = path.read_text(encoding="utf-8")
+        for token in legacy_calendar_tokens:
+            if token in content:
+                errors.append(f"Legacy GitHub calendar token remains in {path}: {token}")
+        if path != root / "index.html" and 'id="github-contributions"' in content:
+            errors.append(f"GitHub contributions card must only appear on homepage: {path}")
+
     if errors:
         print("Validation failed:")
         for error in errors:

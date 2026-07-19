@@ -6189,3 +6189,171 @@ blockquote.pullquote.right {
     max-height: 75vh !important;
   }
 }
+
+/* GitHub contributions calendar */
+#recent-posts > .github-calendar-card {
+  display: block;
+  flex: 0 0 100%;
+  overflow: hidden;
+  padding: 20px 22px 18px;
+  min-height: 0;
+  width: 100% !important;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: rgba(255,255,255,0.94);
+}
+#recent-posts > .github-calendar-card:hover {
+  transform: translateY(-2px);
+}
+.github-calendar-header,
+.github-calendar-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.github-calendar-header h2 {
+  margin: 0;
+  color: var(--font-color);
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+.github-calendar-header h2 i {
+  margin-right: 7px;
+  font-size: 1.25em;
+}
+.github-calendar-header p {
+  margin: 5px 0 0;
+  color: #6b7280;
+  font-size: 0.84rem;
+}
+.github-calendar-header a,
+.github-calendar-footer a {
+  color: #1689c9;
+}
+.github-calendar-profile {
+  flex: 0 0 auto;
+  padding: 7px 11px;
+  border: 1px solid rgba(22,137,201,0.25);
+  border-radius: 9px;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+.github-calendar-profile:hover {
+  color: #fff;
+  background: #1689c9;
+}
+.github-calendar-summary {
+  margin: 18px 0 8px;
+  color: var(--font-color);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+.github-calendar-scroll {
+  overflow-x: auto;
+  padding: 2px 1px 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(73,177,245,0.5) transparent;
+}
+.github-calendar-scroll:focus-visible {
+  outline: 2px solid #49b1f5;
+  outline-offset: 3px;
+}
+.github-calendar-months {
+  position: relative;
+  height: 19px;
+  min-width: max-content;
+  color: #7b8490;
+  font-size: 11px;
+  line-height: 16px;
+}
+.github-calendar-months span {
+  position: absolute;
+  white-space: nowrap;
+}
+.github-calendar-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, 12px);
+  grid-template-columns: repeat(var(--github-calendar-weeks, 53), 12px);
+  gap: 3px;
+  width: max-content;
+}
+.github-calendar-cell,
+.github-calendar-legend i {
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(27,31,35,0.04);
+  border-radius: 3px;
+  background: #ebedf0;
+}
+.github-calendar-cell[data-level="1"],
+.github-calendar-legend i[data-level="1"] { background: #c6e7ff; }
+.github-calendar-cell[data-level="2"],
+.github-calendar-legend i[data-level="2"] { background: #7cc7ff; }
+.github-calendar-cell[data-level="3"],
+.github-calendar-legend i[data-level="3"] { background: #3498db; }
+.github-calendar-cell[data-level="4"],
+.github-calendar-legend i[data-level="4"] { background: #145a9c; }
+.github-calendar-cell.is-empty {
+  visibility: hidden;
+}
+.github-calendar-cell:not(.is-empty):hover {
+  border-color: #172b4d;
+  transform: scale(1.28);
+}
+.github-calendar-footer {
+  margin-top: 7px;
+  color: #7b8490;
+  font-size: 0.76rem;
+}
+.github-calendar-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.github-calendar-legend i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+[data-theme='dark'] #recent-posts > .github-calendar-card {
+  background: rgba(29,34,42,0.94);
+}
+[data-theme='dark'] .github-calendar-header p,
+[data-theme='dark'] .github-calendar-footer,
+[data-theme='dark'] .github-calendar-months {
+  color: #a7b0bc;
+}
+[data-theme='dark'] .github-calendar-cell[data-level="0"],
+[data-theme='dark'] .github-calendar-legend i[data-level="0"] {
+  border-color: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.1);
+}
+@media screen and (max-width: 768px) {
+  #recent-posts > .github-calendar-card {
+    padding: 17px 15px 15px;
+  }
+  .github-calendar-header {
+    align-items: flex-start;
+  }
+  .github-calendar-header p {
+    max-width: 220px;
+  }
+  .github-calendar-profile {
+    padding: 6px 9px;
+  }
+  .github-calendar-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #recent-posts > .github-calendar-card,
+  .github-calendar-cell {
+    transition: none !important;
+  }
+}
