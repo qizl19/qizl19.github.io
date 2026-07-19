@@ -14,6 +14,10 @@ REQUIRED_SECTIONS = [
     "优势与局限",
     "参考资料与图片许可",
 ]
+REMOVED_POSTS = {
+    "330e82f5": "直升机，不是直升飞机",
+    "4a17b156": "Hello World",
+}
 
 
 def main() -> None:
@@ -26,6 +30,9 @@ def main() -> None:
 
     if (root / "aircraft").exists():
         errors.append("Independent /aircraft directory still exists")
+    for post_id, title in REMOVED_POSTS.items():
+        if (root / "p" / f"{post_id}.html").exists():
+            errors.append(f"Removed article still exists: {title}")
     for obsolete in [
         "build_aircraft_site.py",
         "extract_aircraft_pdfs.py",
@@ -74,8 +81,37 @@ def main() -> None:
             errors.append(f"Independent archive link remains in {path}")
 
     for path in root.rglob("*.html"):
-        if ".git" not in path.parts and 'href="/aircraft/"' in path.read_text(encoding="utf-8"):
+        if ".git" in path.parts:
+            continue
+        content = path.read_text(encoding="utf-8")
+        if 'href="/aircraft/"' in content:
             errors.append(f"Independent archive navigation remains in {path}")
+        for post_id, title in REMOVED_POSTS.items():
+            if f'/p/{post_id}.html' in content or title in content:
+                errors.append(f"Removed article reference remains in {path}: {title}")
+
+    search = (root / "search.xml").read_text(encoding="utf-8")
+    for post_id, title in REMOVED_POSTS.items():
+        if f'/p/{post_id}.html' in search or title in search:
+            errors.append(f"Removed article remains in search.xml: {title}")
+
+    expected_listing_counts = {
+        root / "archives" / "index.html": 7,
+        root / "archives" / "2022" / "index.html": 2,
+        root / "archives" / "2022" / "03" / "index.html": 1,
+        root / "archives" / "2022" / "01" / "index.html": 1,
+        root / "categories" / "飞机资料整理" / "index.html": 5,
+        root / "tags" / "航空" / "index.html": 5,
+    }
+    for path, expected in expected_listing_counts.items():
+        actual = path.read_text(encoding="utf-8").count('<div class="article-sort-item"><a')
+        if actual != expected:
+            errors.append(f"Listing count mismatch in {path}: expected {expected}, got {actual}")
+
+    homepage = (root / "index.html").read_text(encoding="utf-8")
+    home_cards = homepage.count('<div class="recent-post-item"><div class="post_cover')
+    if home_cards != 7:
+        errors.append(f"Homepage article count mismatch: expected 7, got {home_cards}")
 
     if errors:
         print("Validation failed:")

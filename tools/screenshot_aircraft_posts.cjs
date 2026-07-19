@@ -68,6 +68,9 @@ async function main() {
   for (const id of postIds) {
     if ((await page.locator(`a[href="/p/${id}.html"]`).count()) === 0) throw new Error(`Homepage missing ${id}`);
   }
+  for (const title of ["直升机，不是直升飞机", "Hello World"]) {
+    if ((await page.getByText(title, { exact: true }).count()) !== 0) throw new Error(`Homepage still lists removed article: ${title}`);
+  }
   const aircraftBackground = await page.locator(".category-aircraft").evaluate((element) => getComputedStyle(element).backgroundImage);
   const weeklyBackground = await page.locator(".category-cad-cae").evaluate((element) => getComputedStyle(element).backgroundImage);
   if (!aircraftBackground.includes("y20-000.jpg")) throw new Error("Aircraft category does not use the local aircraft background");
@@ -124,6 +127,10 @@ async function main() {
 
   const removed = await page.request.get(`${origin}/aircraft/`);
   if (removed.status() !== 404) throw new Error(`/aircraft/ returned ${removed.status()}, expected 404`);
+  for (const id of ["330e82f5", "4a17b156"]) {
+    const removedPost = await page.request.get(`${origin}/p/${id}.html`);
+    if (removedPost.status() !== 404) throw new Error(`/p/${id}.html returned ${removedPost.status()}, expected 404`);
+  }
   await browser.close();
   if (localErrors.length) throw new Error(localErrors.join("\n"));
   console.log(`Blog browser QA passed; screenshots written to ${output}`);

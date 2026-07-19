@@ -14,6 +14,7 @@ from urllib.parse import quote
 SITE_URL = "https://qizl19.github.io"
 CATEGORY_URL = "/categories/%E9%A3%9E%E6%9C%BA%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/"
 TAG_URL = "/tags/%E8%88%AA%E7%A9%BA/"
+CODE_CATEGORY_URL = "/categories/code%E8%AE%B0%E5%BD%95/"
 WEEKLY_CATEGORY = "CAD/CAE 生态周报"
 WEEKLY_CATEGORY_URL = "/categories/CAD-CAE%E7%94%9F%E6%80%81%E5%91%A8%E6%8A%A5/"
 WEEKLY_TAG = "CAD/CAE"
@@ -37,18 +38,15 @@ HEADINGS = [
 ]
 OLD_POSTS = [
     {
-        "postId": "330e82f5",
-        "nameZh": "直升机，不是直升飞机",
-        "date": "2022-03-15",
-        "heroImage": "https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg",
-        "category": "飞机资料整理",
-    },
-    {
         "postId": "ed3590dd",
         "nameZh": "欧洲直升机",
         "date": "2022-03-15",
         "heroImage": OLD_HERO,
         "category": "飞机资料整理",
+        "categoryUrl": CATEGORY_URL,
+        "tagName": "航空",
+        "tagUrl": TAG_URL,
+        "summary": "欧洲主要直升机型号与技术特点整理。",
     },
     {
         "postId": "3694e76f",
@@ -56,15 +54,13 @@ OLD_POSTS = [
         "date": "2022-01-25",
         "heroImage": "https://images8.alphacoders.com/984/984617.jpg",
         "category": "code记录",
-    },
-    {
-        "postId": "4a17b156",
-        "nameZh": "Hello World",
-        "date": "2022-01-21",
-        "heroImage": "https://images4.alphacoders.com/848/848687.png",
-        "category": "",
+        "categoryUrl": CODE_CATEGORY_URL,
+        "tagName": "Matlab",
+        "tagUrl": "/tags/Matlab/",
+        "summary": "使用 Matlab 实现排序问题的记录。",
     },
 ]
+REMOVED_POST_IDS = ("330e82f5", "4a17b156")
 
 
 def esc(value: object) -> str:
@@ -86,7 +82,11 @@ def post_category(post: dict) -> str:
 def post_category_url(post: dict) -> str:
     if post.get("categoryUrl"):
         return post["categoryUrl"]
-    return CATEGORY_URL if post_category(post) == "飞机资料整理" else ""
+    if post_category(post) == "飞机资料整理":
+        return CATEGORY_URL
+    if post_category(post) == "code记录":
+        return CODE_CATEGORY_URL
+    return ""
 
 
 def post_tag(post: dict) -> str:
@@ -343,7 +343,7 @@ def replace_meta(text: str, profile: dict, article: str) -> str:
 
 def render_home_card(post: dict, index: int) -> str:
     side = "left" if index % 2 == 0 else "right"
-    excerpt = esc(post["summary"][:100])
+    excerpt = esc(post.get("summary", "")[:100])
     title = post_title(post)
     tag_html = ""
     if post_tag(post):
@@ -392,6 +392,80 @@ def render_grouped_listing(posts: list[dict]) -> str:
     return "".join(chunks)
 
 
+def legacy_category_count(category: str) -> int:
+    return sum(1 for post in OLD_POSTS if post.get("category") == category)
+
+
+def replace_article_sort(text: str, content: str) -> str:
+    updated, count = re.subn(
+        r'<div class="article-sort">.*?(?=<nav id="pagination">)',
+        f'<div class="article-sort">{content}</div>',
+        text,
+        count=1,
+        flags=re.S,
+    )
+    if count != 1:
+        raise RuntimeError("Cannot rebuild article-sort listing")
+    return updated
+
+
+def remove_related_section(text: str) -> str:
+    start = text.find('<div class="relatedPosts">')
+    if start < 0:
+        return text
+    aside = text.find('<div class="aside-content"', start)
+    if aside < 0:
+        return text
+    outer_close = text.rfind("</div>", start, aside)
+    if outer_close < 0:
+        return text
+    section = text[start:outer_close]
+    if not any(f'/p/{post_id}.html' in section for post_id in REMOVED_POST_IDS):
+        return text
+    return text[:start] + text[outer_close:]
+
+
+def purge_removed_posts(root: Path, profiles: list[dict], weekly_posts: list[dict]) -> None:
+    search_path = root / "search.xml"
+    search = search_path.read_text(encoding="utf-8")
+    for post_id in REMOVED_POST_IDS:
+        search = re.sub(
+            rf'<entry>(?:(?!</entry>).)*?<link href="/p/{post_id}\.html"/>(?:(?!</entry>).)*?</entry>',
+            "",
+            search,
+            flags=re.S,
+        )
+    search_path.write_text(search, encoding="utf-8")
+
+    ordered = sorted(profiles + weekly_posts, key=lambda item: item["date"], reverse=True) + OLD_POSTS
+    for post in OLD_POSTS:
+        path = root / "p" / f"{post['postId']}.html"
+        if not path.is_file():
+            continue
+        text = path.read_text(encoding="utf-8")
+        text = re.sub(
+            r'<nav class="pagination-post" id="pagination">.*?</nav>',
+            render_pagination(post, ordered),
+            text,
+            count=1,
+            flags=re.S,
+        )
+        path.write_text(remove_related_section(text), encoding="utf-8")
+
+    for path in (root / "p").glob("*.html"):
+        if path.stem in REMOVED_POST_IDS:
+            continue
+        text = path.read_text(encoding="utf-8")
+        cleaned = remove_related_section(text)
+        if cleaned != text:
+            path.write_text(cleaned, encoding="utf-8")
+
+    for post_id in REMOVED_POST_IDS:
+        target = root / "p" / f"{post_id}.html"
+        if target.is_file():
+            target.unlink()
+
+
 def build_taxonomy_page(
     root: Path,
     source_relative: Path,
@@ -427,11 +501,9 @@ def update_index_pages(root: Path, profiles: list[dict], weekly_posts: list[dict
     weekly_listing = render_grouped_listing(weekly_posts)
     managed_posts = sorted(profiles + weekly_posts, key=lambda item: item["date"], reverse=True)
     managed_listing = render_grouped_listing(managed_posts)
-    year_anchor = '<div class="article-sort-item year">2022</div>'
-
     homepage_path = root / "index.html"
     homepage = homepage_path.read_text(encoding="utf-8")
-    old_home_anchor = '<div class="recent-post-item"><div class="post_cover left"><a href="/p/330e82f5.html"'
+    old_home_anchor = '<div class="recent-post-item"><div class="post_cover left"><a href="/p/ed3590dd.html"'
     homepage = remove_block(homepage, "AIRCRAFT_POSTS")
     homepage = replace_block(
         homepage,
@@ -439,9 +511,19 @@ def update_index_pages(root: Path, profiles: list[dict], weekly_posts: list[dict
         "".join(render_home_card(post, index) for index, post in enumerate(managed_posts)),
         old_home_anchor,
     )
+    managed_end = homepage.find("<!-- MANAGED_POSTS_END -->")
+    legacy_end = homepage.find('</div><div class="aside-content"', managed_end)
+    if managed_end < 0 or legacy_end < 0:
+        raise RuntimeError("Cannot rebuild legacy homepage cards")
+    managed_end += len("<!-- MANAGED_POSTS_END -->")
+    legacy_cards = "".join(
+        render_home_card(post, len(managed_posts) + index)
+        for index, post in enumerate(OLD_POSTS)
+    )
+    homepage = homepage[:managed_end] + legacy_cards + homepage[legacy_end:]
     category_cards = (
         '<li class="categoryBar-list-item category-code"><a class="categoryBar-list-link" href="/categories/code%E8%AE%B0%E5%BD%95/">code记录</a><span class="categoryBar-list-count">1</span></li>'
-        f'<li class="categoryBar-list-item category-aircraft"><a class="categoryBar-list-link" href="{CATEGORY_URL}">飞机资料整理</a><span class="categoryBar-list-count">{len(profiles) + 2}</span></li>'
+        f'<li class="categoryBar-list-item category-aircraft"><a class="categoryBar-list-link" href="{CATEGORY_URL}">飞机资料整理</a><span class="categoryBar-list-count">{len(profiles) + legacy_category_count("飞机资料整理")}</span></li>'
         f'<li class="categoryBar-list-item category-cad-cae"><a class="categoryBar-list-link" href="{WEEKLY_CATEGORY_URL}">{WEEKLY_CATEGORY}</a><span class="categoryBar-list-count">{len(weekly_posts)}</span></li>'
     )
     homepage = re.sub(
@@ -455,15 +537,32 @@ def update_index_pages(root: Path, profiles: list[dict], weekly_posts: list[dict
 
     archive_path = root / "archives" / "index.html"
     archive = archive_path.read_text(encoding="utf-8")
-    archive = remove_block(archive, "AIRCRAFT_POSTS")
-    archive = replace_block(archive, "MANAGED_POSTS", managed_listing, year_anchor)
+    archive = replace_article_sort(
+        archive,
+        f'<!-- MANAGED_POSTS_START -->{managed_listing}<!-- MANAGED_POSTS_END -->{render_grouped_listing(OLD_POSTS)}',
+    )
     archive = re.sub(r"文章总览 - \d+", f"文章总览 - {len(managed_posts) + len(OLD_POSTS)}", archive, count=1)
     archive_path.write_text(archive, encoding="utf-8")
 
     for relative in [Path("categories/飞机资料整理/index.html"), Path("tags/航空/index.html")]:
         path = root / relative
         content = path.read_text(encoding="utf-8")
-        content = replace_block(content, "AIRCRAFT_POSTS", aircraft_listing, year_anchor)
+        legacy_aircraft = [post for post in OLD_POSTS if post.get("category") == "飞机资料整理"]
+        content = replace_article_sort(
+            content,
+            f'<!-- AIRCRAFT_POSTS_START -->{aircraft_listing}<!-- AIRCRAFT_POSTS_END -->{render_grouped_listing(legacy_aircraft)}',
+        )
+        path.write_text(content, encoding="utf-8")
+
+    legacy_archives = {
+        Path("archives/2022/index.html"): OLD_POSTS,
+        Path("archives/2022/03/index.html"): [post for post in OLD_POSTS if post["date"].startswith("2022-03")],
+        Path("archives/2022/01/index.html"): [post for post in OLD_POSTS if post["date"].startswith("2022-01")],
+    }
+    for relative, posts in legacy_archives.items():
+        path = root / relative
+        content = replace_article_sort(path.read_text(encoding="utf-8"), render_grouped_listing(posts))
+        content = re.sub(r"文章总览 - \d+", f"文章总览 - {len(posts)}", content, count=1)
         path.write_text(content, encoding="utf-8")
 
     build_taxonomy_page(
@@ -489,7 +588,7 @@ def update_index_pages(root: Path, profiles: list[dict], weekly_posts: list[dict
     categories = categories_path.read_text(encoding="utf-8")
     categories = re.sub(
         r'(<a class="category-list-link" href="/categories/%E9%A3%9E%E6%9C%BA%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/">飞机资料整理</a><span class="category-list-count">)\d+(</span>)',
-        rf"\g<1>{len(profiles) + 2}\g<2>",
+        rf"\g<1>{len(profiles) + legacy_category_count('飞机资料整理')}\g<2>",
         categories,
         count=1,
     )
@@ -552,7 +651,7 @@ def update_global_shell(root: Path, profiles: list[dict], weekly_posts: list[dic
         )
         text = re.sub(
             r'(<a class="categoryBar-list-link" href="/categories/%E9%A3%9E%E6%9C%BA%E8%B5%84%E6%96%99%E6%95%B4%E7%90%86/">飞机资料整理</a><span class="categoryBar-list-count">)\d+(</span>)',
-            rf"\g<1>{len(profiles) + 2}\g<2>",
+            rf"\g<1>{len(profiles) + legacy_category_count('飞机资料整理')}\g<2>",
             text,
         )
         text = re.sub(
@@ -642,6 +741,7 @@ def main() -> None:
     update_index_pages(root, profiles, weekly_posts)
     update_search(root, profiles, weekly_posts)
     update_global_shell(root, profiles, weekly_posts)
+    purge_removed_posts(root, profiles, weekly_posts)
     print(f"Built {len(profiles)} aircraft articles and {len(weekly_posts)} CAD/CAE weekly articles")
 
 
