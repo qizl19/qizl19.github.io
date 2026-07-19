@@ -1,0 +1,657 @@
+[
+  {
+    "slug": "y-20-kunpeng",
+    "nameZh": "运-20“鲲鹏”",
+    "nameEn": "Xi’an Y-20 Kunpeng",
+    "eyebrow": "最新档案 · 第 4 期",
+    "subtitle": "中国大型军用运输机平台：从战略空运到空中加油家族",
+    "date": "2026-07-19",
+    "nation": "中国",
+    "category": "军用运输机",
+    "era": "2010s—至今",
+    "tags": [
+      "军用",
+      "现役"
+    ],
+    "status": "现役 / 持续发展",
+    "firstFlight": "2013-01-26",
+    "accent": "#d2a441",
+    "heroImage": "/aircraft/assets/images/y-20/y20-000.jpg",
+    "pdf": "/aircraft/assets/pdf/aircraft-profile-Xi-an-Y-20-Kunpeng-2026-07-19.pdf",
+    "statement": "价值不只在“能装多少”，而在于获得了可持续生产、可派生的大型空中平台。",
+    "summary": "运-20 由中国航空工业体系组织研制，采用上单翼、T 形尾翼、四发和尾部大型货桥布局。它于 2013 年首飞、2016 年列装；公开资料已经确认 Y-20A、换装国产 WS-20 的 Y-20B，以及空中加油型 YY-20 共同形成家族。",
+    "facts": [
+      {
+        "label": "首飞",
+        "value": "2013.01.26"
+      },
+      {
+        "label": "长度",
+        "value": "约 47 m",
+        "note": "公开早期资料"
+      },
+      {
+        "label": "翼展",
+        "value": "约 45 m",
+        "note": "不同方案不可混用"
+      },
+      {
+        "label": "最大起飞重量",
+        "value": "约 200 / 220 t",
+        "note": "来源口径不同"
+      },
+      {
+        "label": "最大载荷",
+        "value": "66 t",
+        "note": "公开上限口径"
+      },
+      {
+        "label": "动力",
+        "value": "D-30KP-2 / WS-20"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "2007",
+        "event": "项目进入公开资料所述的研制阶段。"
+      },
+      {
+        "year": "2013",
+        "event": "1 月 26 日成功首飞。"
+      },
+      {
+        "year": "2016",
+        "event": "7 月 6 日正式列装中国空军。"
+      },
+      {
+        "year": "2020",
+        "event": "参与武汉抗疫人员和物资集中空运。"
+      },
+      {
+        "year": "2022",
+        "event": "YY-20 公开，并执行跨洲展示与人道运输任务。"
+      },
+      {
+        "year": "2025–26",
+        "event": "官方公开确认 Y-20B 与国产 WS-20。"
+      }
+    ],
+    "designPoints": [
+      "上单翼与大离地间隙兼顾低货舱地板和发动机离地安全。",
+      "T 形尾翼让出尾部货桥与装卸通道，但增加结构和操稳设计难度。",
+      "多轮主起落架用于分散重载接地载荷，适应不同机场条件。",
+      "运输、换发和加油型号共享平台，把昂贵的机体与保障体系复用于更多任务。"
+    ],
+    "power": "早期与主力可见批次使用成熟的 D-30KP-2 涡扇，降低首飞和早期列装风险。公开资料已确认 Y-20B 换装国产 WS-20 高涵道比涡扇，强调更强动力、燃油效率和航程改善；但额定推力、耗油率与完整航程—载荷曲线仍未公开。",
+    "variants": [
+      {
+        "name": "Y-20A",
+        "description": "早期和现役运输型，常见较细长的 D-30KP-2 发动机短舱。"
+      },
+      {
+        "name": "Y-20B",
+        "description": "换装国产 WS-20，短舱直径更大；官方已确认执行任务。"
+      },
+      {
+        "name": "YY-20 / 运油-20",
+        "description": "空中加油型，同时保留人员与货物运输能力。"
+      },
+      {
+        "name": "Y-20F100",
+        "description": "公开展示的民用货运概念，不应把其参数直接套用于军用运-20。"
+      }
+    ],
+    "strengths": [
+      "形成中国自主组织研制、生产和持续迭代的大型运输平台。",
+      "重载、远程与尾部装卸布局适合人员、物资和大型货物运输。",
+      "Y-20A、Y-20B 与 YY-20 展示出清晰的平台家族化路径。"
+    ],
+    "limits": [
+      "完整航程—载荷曲线、货舱限制与跑道性能没有统一公开数据。",
+      "早期进口动力与后续国产动力并存，增加备件、训练和状态管理复杂度。",
+      "公开机队数量多为商业数据库估计，不能等同官方现役清单。"
+    ],
+    "photos": [
+      {
+        "src": "/aircraft/assets/images/y-20/y20-000.jpg",
+        "alt": "运-20 在蓝天下飞行的完整侧下方视图",
+        "caption": "运-20 在 2016 年珠海航展期间飞行，四发、上单翼与 T 形尾翼清晰可见。",
+        "credit": "L.G.Liao",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:China_-_Air_Force_-_Xian_Y-20.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "src": "/aircraft/assets/images/y-20/y20-001.jpg",
+        "alt": "编号 20041 的运-20A 放下起落架进近",
+        "caption": "编号 20041 的运-20A 进近，可观察主起落架和早期发动机短舱。",
+        "credit": "Anna Zvereva",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chinese_Air_Force,_20041,_Xian_Y-20A_(51524456831).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+      },
+      {
+        "src": "/aircraft/assets/images/y-20/y20-002.jpg",
+        "alt": "YY-20 为歼-16 实施软管锥套空中加油",
+        "caption": "日本航空自卫队公开的 YY-20 与歼-16 空中加油画面。",
+        "credit": "日本防卫省 / 航空自卫队",
+        "sourceUrl": "https://www.mod.go.jp/js/pdf/2024/p20241130_01.pdf",
+        "license": "日本政府标准使用条款 2.0 / Commons 标注 CC BY 4.0 兼容",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "中国国防部：运-20 正式列装",
+        "url": "https://eng.mod.gov.cn/xb/News_213114/TopStories/4888800.html"
+      },
+      {
+        "label": "中国国防部：YY-20 公开资料",
+        "url": "https://eng.mod.gov.cn/news/2022-08/29/content_4919757.htm"
+      },
+      {
+        "label": "中国军网：运-20 家族与公开任务",
+        "url": "https://eng.chinamil.com.cn/CHINA_209163/TopStories_209189/10215713.html"
+      },
+      {
+        "label": "日本防卫省：YY-20 公开影像",
+        "url": "https://www.mod.go.jp/js/pdf/2024/p20241130_01.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "concorde",
+    "nameZh": "协和式客机",
+    "nameEn": "Concorde",
+    "eyebrow": "第 3 期",
+    "subtitle": "英法合作、马赫 2 与超声速民航的工程边界",
+    "date": "2026-07-17",
+    "nation": "英国 / 法国",
+    "category": "超声速客机",
+    "era": "1960s—2003",
+    "tags": [
+      "民航",
+      "历史"
+    ],
+    "status": "退役 / 博物馆保存",
+    "firstFlight": "1969-03-02",
+    "accent": "#c64a3a",
+    "heroImage": "/aircraft/assets/images/concorde/concorde-g-boac-eduard-marmet.jpg",
+    "pdf": "/aircraft/assets/pdf/aircraft-profile-Concorde-2026-07-17.pdf",
+    "statement": "它把大西洋时间压缩一半，也把噪声、油耗和维护成本推到商业航空必须面对的前台。",
+    "summary": "协和式是英国与法国联合研制的超声速客机。它以细长机身、无尾尖拱形三角翼、可下垂机鼻、燃油转移配平和四台 Olympus 593 发动机，把约 100 名乘客送到约两倍音速的巡航状态。",
+    "facts": [
+      {
+        "label": "首飞",
+        "value": "1969.03.02"
+      },
+      {
+        "label": "商业运营",
+        "value": "1976—2003"
+      },
+      {
+        "label": "长度",
+        "value": "61.66 m"
+      },
+      {
+        "label": "翼展",
+        "value": "25.60 m"
+      },
+      {
+        "label": "巡航",
+        "value": "约 Mach 2"
+      },
+      {
+        "label": "典型载客",
+        "value": "约 100 人"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "1962",
+        "event": "英法签署政府间合作协议。"
+      },
+      {
+        "year": "1969",
+        "event": "法国原型机 001 首飞。"
+      },
+      {
+        "year": "1976",
+        "event": "法国航空与英国航空投入商业运营。"
+      },
+      {
+        "year": "2000",
+        "event": "法航 4590 航班事故，机队暂停运营并改进。"
+      },
+      {
+        "year": "2001",
+        "event": "完成改装后恢复商业飞行。"
+      },
+      {
+        "year": "2003",
+        "event": "两家运营者先后结束协和式商业服务。"
+      }
+    ],
+    "designPoints": [
+      "尖拱形三角翼兼顾超声速阻力与低速涡升力，不需要传统水平尾翼。",
+      "可下垂机鼻和升降风挡解决大迎角起降时的前方视野问题。",
+      "巡航中通过燃油前后转移调节重心，减少配平阻力。",
+      "模拟电传操纵、进气道控制与发动机共同构成高度耦合的系统工程。"
+    ],
+    "power": "四台 Rolls-Royce / SNECMA Olympus 593 加力涡喷在起飞和跨声速加速时使用加力，超声速巡航并不持续开启。进气道需要在约 Mach 2 时减速并稳定送气；推力、进气、气动与热管理必须协同。",
+    "variants": [
+      {
+        "name": "法国 001 / 英国 002",
+        "description": "原型机，用于总体、超声速与系统试验。"
+      },
+      {
+        "name": "预生产机",
+        "description": "连接原型与量产标准，验证结构与运营配置。"
+      },
+      {
+        "name": "量产客机",
+        "description": "法国航空与英国航空运营；14 架投入商业使用。"
+      },
+      {
+        "name": "产量口径",
+        "description": "14 架量产运营机、16 架含预生产机、20 架含全部原型机。"
+      }
+    ],
+    "strengths": [
+      "约 Mach 2 巡航显著压缩跨大西洋旅行时间。",
+      "气动、进气、动力和控制系统实现了罕见的整体优化。",
+      "长期商业运营积累了超声速客运的真实工程与维护经验。"
+    ],
+    "limits": [
+      "声爆限制使大部分陆上航线无法发挥超声速优势。",
+      "油耗、噪声、维护和小机队规模共同抬高单位座位成本。",
+      "航线与运营者有限，系统冗余和商业扩展空间不足。"
+    ],
+    "photos": [
+      {
+        "src": "/aircraft/assets/images/concorde/concorde-g-boac-eduard-marmet.jpg",
+        "alt": "英国航空 G-BOAC 协和式客机在飞行中",
+        "caption": "英国航空 G-BOAC 在飞行中，细长机身与三角翼清晰可见。",
+        "credit": "Eduard Marmet",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:British_Airways_Concorde_G-BOAC_03.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "src": "/aircraft/assets/images/concorde/concorde-cockpit-ad-meskens.jpg",
+        "alt": "G-BOAD 协和式驾驶舱",
+        "caption": "G-BOAD 驾驶舱，可见双驾驶员席与飞行工程师面板。",
+        "credit": "Ad Meskens",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Concorde_cockpit.JPG",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "src": "/aircraft/assets/images/concorde/concorde-olympus-jorge-lascar.jpg",
+        "alt": "展陈状态的 Olympus 593 发动机",
+        "caption": "Rolls-Royce / SNECMA Olympus 593 发动机展品。",
+        "credit": "Jorge Láscar",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Concorde_-_Olympus_593_(7181569114).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"
+      },
+      {
+        "src": "/aircraft/assets/images/concorde/concorde-cabin-kurkoe.jpg",
+        "alt": "协和式客机四座并排客舱",
+        "caption": "Brooklands Museum 保存的 G-BBDG 客舱。",
+        "credit": "Kurkoe",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Concorde_cabin_interior.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Airbus：协和式首飞历史",
+        "url": "https://www.airbus.com/en/newsroom/stories/2019-03-the-day-concorde-flew-into-the-history-books"
+      },
+      {
+        "label": "BAE Systems Heritage：BAC Concorde",
+        "url": "https://heritage.baesystems.com/page/bac-concorde"
+      },
+      {
+        "label": "British Airways：Celebrating Concorde",
+        "url": "https://www.britishairways.com/content/information/about-ba/history-and-heritage/celebrating-concorde"
+      },
+      {
+        "label": "BEA：法航 4590 调查资料",
+        "url": "https://bea.aero/en/investigation-reports/notified-events/detail/accident-to-the-concorde-registered-f-btsc-operated-by-air-france-occured-on-07-25-00-at-gonesse/"
+      }
+    ]
+  },
+  {
+    "slug": "de-havilland-mosquito",
+    "nameZh": "德·哈维兰蚊式",
+    "nameEn": "de Havilland Mosquito (DH.98)",
+    "eyebrow": "第 2 期",
+    "subtitle": "木质结构、速度优先与“一机多用”的经典范例",
+    "date": "2026-07-15",
+    "nation": "英国",
+    "category": "多用途军机",
+    "era": "1940s—1950s",
+    "tags": [
+      "军用",
+      "历史"
+    ],
+    "status": "退役 / 少量适航",
+    "firstFlight": "1940-11-25",
+    "accent": "#c9822b",
+    "heroImage": "/aircraft/assets/images/mosquito/mosquito-in-flight-pjsime.jpg",
+    "pdf": "/aircraft/assets/pdf/aircraft-profile-de-Havilland-Mosquito-2026-07-15.pdf",
+    "statement": "它证明“去掉非必要重量，把性能集中到任务核心”可以形成强大的系统优势。",
+    "summary": "蚊式是第二次世界大战时期最具代表性的多用途双发飞机之一。它以桦木胶合板与轻木夹芯结构节省战略金属，依靠双 Rolls-Royce Merlin 动力和较低阻力实现高速，并从轰炸、侦察扩展到夜战、海上打击与目标拖曳。",
+    "facts": [
+      {
+        "label": "首飞",
+        "value": "1940.11.25"
+      },
+      {
+        "label": "乘员",
+        "value": "2 人"
+      },
+      {
+        "label": "长度",
+        "value": "约 12.4 m"
+      },
+      {
+        "label": "翼展",
+        "value": "约 16.5 m"
+      },
+      {
+        "label": "总产量",
+        "value": "7,781 架"
+      },
+      {
+        "label": "动力",
+        "value": "双 Rolls-Royce Merlin"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "1939",
+        "event": "德·哈维兰提出高速轻型无武装轰炸机方案。"
+      },
+      {
+        "year": "1940",
+        "event": "原型机 W4050 首飞。"
+      },
+      {
+        "year": "1941",
+        "event": "侦察与轰炸型号进入作战使用。"
+      },
+      {
+        "year": "1942–44",
+        "event": "夜战、战斗轰炸和海上打击型号迅速扩展。"
+      },
+      {
+        "year": "1944",
+        "event": "执行亚眠监狱突袭等精确低空任务。"
+      },
+      {
+        "year": "战后",
+        "event": "继续用于侦察、训练、拖靶与多国空军。"
+      }
+    ],
+    "designPoints": [
+      "木质夹芯半硬壳机身兼顾低重量、光滑外形与分散生产。",
+      "把防御机枪塔等重量让给速度、航程与任务载荷。",
+      "双 Merlin 动力与干净气动外形形成高速度和高空性能。",
+      "同一平台通过机鼻、武器、雷达和照相设备变化覆盖多种任务。"
+    ],
+    "power": "蚊式不同型号使用多种 Rolls-Royce Merlin V12 液冷活塞发动机。发动机、增压器和螺旋桨配置随批次变化，不能用单一功率代表全系列；双发动力与轻质机体共同形成了其速度和载荷优势。",
+    "variants": [
+      {
+        "name": "PR 系列",
+        "description": "无武装高速照相侦察型，是最早投入使用的方向之一。"
+      },
+      {
+        "name": "B Mk IV / XVI / 35",
+        "description": "轰炸与高空轰炸系列，动力和航程随批次变化。"
+      },
+      {
+        "name": "FB Mk VI",
+        "description": "产量最大的战斗轰炸型，兼顾机炮、炸弹与火箭任务。"
+      },
+      {
+        "name": "NF 系列",
+        "description": "配备机载雷达的夜间战斗型。"
+      }
+    ],
+    "strengths": [
+      "速度、航程与任务载荷组合出色，能够减少对防御武装的依赖。",
+      "平台复用覆盖侦察、轰炸、夜战、海上打击等广泛任务。",
+      "木材与胶接工艺减轻了对部分战略金属和传统飞机厂产能的依赖。"
+    ],
+    "limits": [
+      "胶粘剂、木材含水率与热湿环境会直接影响结构耐久性。",
+      "多型号、多发动机批次使性能数据和修复标准不能简单混用。",
+      "现代适航复原需要稀缺材料、工艺与长期无损检查能力。"
+    ],
+    "photos": [
+      {
+        "src": "/aircraft/assets/images/mosquito/mosquito-in-flight-pjsime.jpg",
+        "alt": "涂有诺曼底条纹的蚊式飞机飞行表演",
+        "caption": "A52-1054 在新西兰 Warbirds Over Wanaka 飞行表演中。",
+        "credit": "Pjsime",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:De_Havilland_Mosquito_in_Flight.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/aircraft/assets/images/mosquito/mosquito-prototype-raf.jpg",
+        "alt": "德哈维兰蚊式原型机 W4050 历史照片",
+        "caption": "原型机 W4050 在 1940 年首飞时期的历史照片。",
+        "credit": "英国皇家空军，摄影者不详",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:De_Havilland_Mosquito_Prototype.jpg",
+        "license": "英国政府作品，版权届满 / 公有领域",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-UKGov"
+      },
+      {
+        "src": "/aircraft/assets/images/mosquito/mosquito-cockpit-usaf.jpg",
+        "alt": "美国空军国家博物馆收藏的蚊式驾驶舱",
+        "caption": "美国空军国家博物馆收藏的蚊式驾驶舱。",
+        "credit": "美国空军",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:DeHavilland_DH-98_cockpit_USAF.jpg",
+        "license": "美国联邦政府作品 / 公有领域",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"
+      },
+      {
+        "src": "/aircraft/assets/images/mosquito/mosquito-merlin-engine-sdasm.jpg",
+        "alt": "蚊式飞行中发动机短舱局部开启的历史照片",
+        "caption": "蚊式飞行中发动机短舱局部开启或拆除整流罩的历史画面。",
+        "credit": "San Diego Air & Space Museum Archives / Charles Daniels Collection",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:15_Dehavilland_Mosquito_Merlin_Engine_(15216376883).jpg",
+        "license": "Flickr Commons：无已知版权限制",
+        "licenseUrl": "https://www.flickr.com/commons/usage/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "RAF Museum：Mosquito B.35",
+        "url": "https://www.rafmuseum.org.uk/research/collections/de-havilland-mosquito-b35/"
+      },
+      {
+        "label": "de Havilland Aircraft Museum：FB Mk VI",
+        "url": "https://www.dehavillandmuseum.co.uk/aircraft/de-havilland-dh98-mosquito-fb-mk-vi/"
+      },
+      {
+        "label": "美国空军国家博物馆：DH.98 Mosquito",
+        "url": "https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/196281/de-havilland-dh-98-mosquito/"
+      },
+      {
+        "label": "Smithsonian：Mosquito B/TT Mk 35",
+        "url": "https://airandspace.si.edu/collection-objects/de-havilland-dh-98-btt-mk-35-mosquito/nasm_A19640023000"
+      }
+    ]
+  },
+  {
+    "slug": "boeing-747",
+    "nameZh": "波音 747",
+    "nameEn": "Boeing 747",
+    "eyebrow": "第 1 期",
+    "subtitle": "“空中女王”：从大众洲际旅行到重型航空货运",
+    "date": "2026-07-14",
+    "nation": "美国",
+    "category": "宽体客货机",
+    "era": "1960s—至今",
+    "tags": [
+      "民航",
+      "历史"
+    ],
+    "status": "已停产 / 仍运营",
+    "firstFlight": "1969-02-09",
+    "accent": "#2f83af",
+    "heroImage": "/aircraft/assets/images/boeing-747/747-8-lufthansa-thilo-darmstadt.jpg",
+    "pdf": "/aircraft/assets/pdf/aircraft-profile-Boeing-747-2026-07-14.pdf",
+    "statement": "747 的历史价值在于把远程航空运输做大；今天的持续价值则集中在重型货运与特殊任务。",
+    "summary": "波音 747 是世界首款投入商业运营的双通道宽体客机。四发高涵道比涡扇、前上层驾驶舱和宽体主客舱共同降低了远程航线的单位座英里成本，并为机鼻货门、超限货物和特殊任务留下独特空间。",
+    "facts": [
+      {
+        "label": "首飞",
+        "value": "1969.02.09"
+      },
+      {
+        "label": "投入运营",
+        "value": "1970.01.22"
+      },
+      {
+        "label": "747-8 长度",
+        "value": "76.3 m"
+      },
+      {
+        "label": "747-8 翼展",
+        "value": "68.4 m"
+      },
+      {
+        "label": "总产量",
+        "value": "1,574 架"
+      },
+      {
+        "label": "生产结束",
+        "value": "2023"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "1966",
+        "event": "波音正式启动 747 项目。"
+      },
+      {
+        "year": "1969",
+        "event": "首架 747 完成首飞。"
+      },
+      {
+        "year": "1970",
+        "event": "泛美航空投入商业运营。"
+      },
+      {
+        "year": "1989",
+        "event": "747-400 投入服务，成为远程主力型号。"
+      },
+      {
+        "year": "2005",
+        "event": "波音启动 747-8 家族。"
+      },
+      {
+        "year": "2023",
+        "event": "第 1,574 架、也是最后一架 747 完成交付。"
+      }
+    ],
+    "designPoints": [
+      "前上层驾驶舱为货机保留机鼻开启与超长货物直通能力。",
+      "宽体双通道和大客舱推动远程航空旅行规模化。",
+      "四发构型在早期远程航路规则下提供冗余，也带来更高油耗与维护负担。",
+      "客机、货机、航天飞机运输机等改型展示了平台的结构余量。"
+    ],
+    "power": "747 系列跨越半个世纪，动力从早期 Pratt & Whitney JT9D 扩展到 GE CF6、Rolls-Royce RB211 和 PW4000；末代 747-8 专用 GE GEnx-2B。不同型号的推力、油耗和短舱不能混为一谈。",
+    "variants": [
+      {
+        "name": "747-100 / 200 / 300",
+        "description": "早期家族，逐步增加航程、重量与上层客舱长度。"
+      },
+      {
+        "name": "747-400",
+        "description": "数字化双人驾驶舱与翼梢小翼，成为最广泛使用的远程型号。"
+      },
+      {
+        "name": "747-8I",
+        "description": "最长的 747 客运型，采用新翼与 GEnx-2B 动力。"
+      },
+      {
+        "name": "747-8F",
+        "description": "保留机鼻货门，是末期生产与持续运营价值的核心。"
+      }
+    ],
+    "strengths": [
+      "大客舱和远程能力推动洲际航空旅行大众化。",
+      "机鼻货门、主甲板高度和内部容积适合超限与高价值货运。",
+      "成熟的全球运营经验和多种特殊任务改型证明平台余量。"
+    ],
+    "limits": [
+      "四发构型在现代双发宽体面前承受更高油耗与维护成本。",
+      "机场适配、备件和机组体系的固定成本高。",
+      "客运价值收缩，未来更依赖货运、政府和特殊任务市场。"
+    ],
+    "photos": [
+      {
+        "src": "/aircraft/assets/images/boeing-747/747-8-lufthansa-thilo-darmstadt.jpg",
+        "alt": "汉莎航空波音 747-8 飞行侧视图",
+        "caption": "汉莎航空 Boeing 747-8 飞行侧视图。",
+        "credit": "Thilo Darmstadt / TJDarmstadt",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:D-ABYL_Lufthansa_B748_FRA_(50549824683).jpg",
+        "license": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"
+      },
+      {
+        "src": "/aircraft/assets/images/boeing-747/747-8f-nose-door-olivier-cleynen.jpg",
+        "alt": "747-8F 机鼻货门开启",
+        "caption": "747-8F 开启机鼻货门，展示超长货物直通能力。",
+        "credit": "Olivier Cleynen",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boeing_747-8F_Nose_cargo_door.jpg",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "src": "/aircraft/assets/images/boeing-747/747-cockpit-lp98.jpg",
+        "alt": "退役 KLM 747-206 驾驶舱",
+        "caption": "Aviodrome Museum 保存的 KLM 747-206 驾驶舱。",
+        "credit": "LP98",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boeing_747_cockpit.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/aircraft/assets/images/boeing-747/747-sca-endeavour-nasa-tony-landis.jpg",
+        "alt": "NASA 747 航天飞机运输机背负奋进号起飞",
+        "caption": "NASA 747 航天飞机运输机背负 Endeavour 起飞。",
+        "credit": "NASA / Tony Landis",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:NASA%27s_Boeing_747_SCA_with_the_Space_Shuttle_Endeavour_on_top_climbs_out_after_takeoff_from_Edwards_Air_Force_Base_(EC01-0129-18).jpg",
+        "license": "NASA 官方作品 / 美国公有领域",
+        "licenseUrl": "https://www.nasa.gov/multimedia/guidelines/index.html"
+      }
+    ],
+    "sources": [
+      {
+        "label": "Boeing：747-8 官方资料",
+        "url": "https://www.boeing.com/commercial/747-8"
+      },
+      {
+        "label": "Boeing：747 最后一架交付",
+        "url": "https://investors.boeing.com/investors/news/press-release-details/2023/Boeing-Atlas-Air-Celebrate-Delivery-of-Final-747-an-Airplane-that-Transformed-Aviation-and-Global-Air-Travel/default.aspx"
+      },
+      {
+        "label": "Smithsonian：商用客机演进",
+        "url": "https://airandspace.si.edu/explore/stories/evolution-commercial-airliner"
+      },
+      {
+        "label": "NTSB：TWA 800 调查",
+        "url": "https://www.ntsb.gov/investigations/Pages/DCA96MA070.aspx"
+      }
+    ]
+  }
+]
