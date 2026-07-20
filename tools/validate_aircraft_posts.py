@@ -32,6 +32,10 @@ def main() -> None:
     args = parser.parse_args()
     root = args.root.resolve()
     profiles = json.loads((root / "data" / "aircraft_posts.json").read_text(encoding="utf-8"))
+    weekly_posts = json.loads(
+        (root / "data" / "cad_cae_weekly_posts.json").read_text(encoding="utf-8")
+    )
+    expected_total_posts = len(profiles) + len(weekly_posts) + 2
     errors: list[str] = []
 
     if (root / "aircraft").exists():
@@ -183,7 +187,7 @@ def main() -> None:
             errors.append(f"Removed article remains in search.xml: {title}")
 
     expected_listing_counts = {
-        root / "archives" / "index.html": 7,
+        root / "archives" / "index.html": expected_total_posts,
         root / "archives" / "2022" / "index.html": 2,
         root / "archives" / "2022" / "03" / "index.html": 1,
         root / "archives" / "2022" / "01" / "index.html": 1,
@@ -197,8 +201,10 @@ def main() -> None:
 
     homepage = (root / "index.html").read_text(encoding="utf-8")
     home_cards = homepage.count('<div class="recent-post-item"><div class="post_cover')
-    if home_cards != 7:
-        errors.append(f"Homepage article count mismatch: expected 7, got {home_cards}")
+    if home_cards != expected_total_posts:
+        errors.append(
+            f"Homepage article count mismatch: expected {expected_total_posts}, got {home_cards}"
+        )
 
     calendar_checks = {
         'id="github-contributions"': 1,

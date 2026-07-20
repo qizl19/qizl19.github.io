@@ -6,6 +6,10 @@ const { chromium } = require("playwright");
 const root = path.resolve(process.argv[2] || ".");
 const output = path.resolve(process.argv[3] || "tmp/aircraft-posts-qa");
 fs.mkdirSync(output, { recursive: true });
+const weeklyPosts = JSON.parse(
+  fs.readFileSync(path.join(root, "data", "cad_cae_weekly_posts.json"), "utf8"),
+);
+const latestWeekly = weeklyPosts[0];
 
 const mime = {
   ".html": "text/html; charset=utf-8",
@@ -56,6 +60,11 @@ async function main() {
   const browser = await chromium.launch({ headless: true, executablePath: browserExecutable });
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1 });
   const localErrors = [];
+  await page.route("**/*", async (route) => {
+    const url = route.request().url();
+    if (url.startsWith(origin) || url.startsWith("data:")) await route.continue();
+    else await route.abort();
+  });
   page.on("requestfailed", (request) => {
     if (request.url().startsWith(origin)) localErrors.push(`request: ${request.url()} ${request.failure()?.errorText}`);
   });
@@ -78,7 +87,11 @@ async function main() {
   const weeklyBackground = await page.locator(".category-cad-cae").evaluate((element) => getComputedStyle(element).backgroundImage);
   if (!aircraftBackground.includes("y20-000.jpg")) throw new Error("Aircraft category does not use the local aircraft background");
   if (!weeklyBackground.includes("cad-cae-weekly-cover-v2.webp")) throw new Error("CAD/CAE category does not use the local weekly cover");
-  if ((await page.locator('a[href="/p/44bc590d.html"]').count()) === 0) throw new Error("Homepage missing CAD/CAE weekly article");
+  for (const post of weeklyPosts) {
+    if ((await page.locator(`a[href="/p/${post.postId}.html"]`).count()) === 0) {
+      throw new Error(`Homepage missing CAD/CAE weekly article ${post.postId}`);
+    }
+  }
   await page.screenshot({ path: path.join(output, "home-desktop.png"), fullPage: true });
 
   await page.goto(`${origin}/categories/${encodeURIComponent("飞机资料整理")}/`, { waitUntil: "domcontentloaded" });
@@ -90,7 +103,11 @@ async function main() {
 
   await page.goto(`${origin}/categories/CAD-CAE%E7%94%9F%E6%80%81%E5%91%A8%E6%8A%A5/`, { waitUntil: "domcontentloaded" });
   await settle(page);
-  if ((await page.locator('a[href="/p/44bc590d.html"]').count()) === 0) throw new Error("CAD/CAE category missing first weekly article");
+  for (const post of weeklyPosts) {
+    if ((await page.locator(`a[href="/p/${post.postId}.html"]`).count()) === 0) {
+      throw new Error(`CAD/CAE category missing weekly article ${post.postId}`);
+    }
+  }
   await page.screenshot({ path: path.join(output, "weekly-category-desktop.png"), fullPage: true });
 
   for (const id of postIds) {
@@ -109,10 +126,10 @@ async function main() {
     if (broken.length) throw new Error(`${id} has broken article images: ${broken.join(", ")}`);
   }
 
-  await page.goto(`${origin}/p/44bc590d.html`, { waitUntil: "domcontentloaded" });
+  await page.goto(`${origin}/p/${latestWeekly.postId}.html`, { waitUntil: "domcontentloaded" });
   await settle(page);
-  if ((await page.locator("#article-container > h2").count()) !== 11) throw new Error("CAD/CAE weekly article does not have eleven sections");
-  if ((await page.locator("#card-toc .toc-item").count()) !== 11) throw new Error("CAD/CAE weekly TOC does not have eleven entries");
+  if ((await page.locator("#article-container > h2").count()) !== latestWeekly.headings.length) throw new Error("Latest CAD/CAE weekly article section count mismatch");
+  if ((await page.locator("#card-toc .toc-item").count()) !== latestWeekly.headings.length) throw new Error("Latest CAD/CAE weekly TOC count mismatch");
   if ((await page.getByText("全文转写", { exact: false }).count()) !== 0) throw new Error("CAD/CAE weekly article contains transcript wording");
   await page.screenshot({ path: path.join(output, "weekly-article-desktop.png"), fullPage: false });
   await page.locator("#本周态势总览").scrollIntoViewIfNeeded();
@@ -128,8 +145,9 @@ async function main() {
   await page.goto(`${origin}/p/6e9a9f42.html`, { waitUntil: "domcontentloaded" });
   await settle(page);
   await page.screenshot({ path: path.join(output, "article-mobile.png"), fullPage: false });
-  await page.goto(`${origin}/p/44bc590d.html`, { waitUntil: "domcontentloaded" });
+  await page.goto(`${origin}/p/${latestWeekly.postId}.html`, { waitUntil: "domcontentloaded" });
   await settle(page);
+  await page.locator("#执行摘要").scrollIntoViewIfNeeded();
   await page.screenshot({ path: path.join(output, "weekly-article-mobile.png"), fullPage: false });
 
   const removed = await page.request.get(`${origin}/aircraft/`);
