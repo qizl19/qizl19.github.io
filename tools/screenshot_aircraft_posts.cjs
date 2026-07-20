@@ -128,6 +128,8 @@ async function main() {
 
   await page.goto(`${origin}/p/${latestWeekly.postId}.html`, { waitUntil: "domcontentloaded" });
   await settle(page);
+  const weeklyHero = await page.locator("#page-header").evaluate((element) => getComputedStyle(element).backgroundImage);
+  if (!weeklyHero.includes(latestWeekly.heroImage)) throw new Error("Latest CAD/CAE weekly hero image mismatch");
   if ((await page.locator("#article-container > h2").count()) !== latestWeekly.headings.length) throw new Error("Latest CAD/CAE weekly article section count mismatch");
   if ((await page.locator("#card-toc .toc-item").count()) !== latestWeekly.headings.length) throw new Error("Latest CAD/CAE weekly TOC count mismatch");
   if ((await page.getByText("全文转写", { exact: false }).count()) !== 0) throw new Error("CAD/CAE weekly article contains transcript wording");
@@ -147,6 +149,7 @@ async function main() {
   await page.screenshot({ path: path.join(output, "article-mobile.png"), fullPage: false });
   await page.goto(`${origin}/p/${latestWeekly.postId}.html`, { waitUntil: "domcontentloaded" });
   await settle(page);
+  await page.screenshot({ path: path.join(output, "weekly-article-mobile-hero.png"), fullPage: false });
   await page.locator("#执行摘要").scrollIntoViewIfNeeded();
   await page.screenshot({ path: path.join(output, "weekly-article-mobile.png"), fullPage: false });
 
