@@ -1,0 +1,8 @@
+/tmp/
+/reports/
+__pycache__/
+*.py[cod]
+
+# Local TripoSG runtime, virtual environment, model weights, caches, and
+# per-run reconstruction artifacts all live below tmp/ and must never be
+# published with the static site.

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import struct
 from pathlib import Path
@@ -110,16 +111,46 @@ def main() -> None:
                     errors.append(f"Missing model credit {field}: {profile['nameZh']}")
                 elif field in {"sourceUrl", "licenseUrl"} and model[field] not in content:
                     errors.append(f"Missing model credit link {field} in {page.name}")
-            if model.get("kind") == "triposr-image-reconstruction":
+            if model.get("kind") == "triposg-image-reconstruction":
                 for field in ["inputImage", "inputCredit", "inputSourceUrl", "engine", "engineUrl", "engineLicense"]:
                     if not model.get(field):
-                        errors.append(f"Missing TripoSR provenance {field}: {profile['nameZh']}")
+                        errors.append(f"Missing TripoSG provenance {field}: {profile['nameZh']}")
                 input_image = root / model.get("inputImage", "").lstrip("/")
                 if not input_image.is_file():
-                    errors.append(f"Missing TripoSR input image: {input_image}")
+                    errors.append(f"Missing TripoSG input image: {input_image}")
                 for field in ["inputSourceUrl", "engineUrl"]:
                     if model.get(field) and model[field] not in content:
-                        errors.append(f"Missing TripoSR credit link {field} in {page.name}")
+                        errors.append(f"Missing TripoSG credit link {field} in {page.name}")
+                if model.get("engine") != "TripoSG":
+                    errors.append(f"Unexpected reconstruction engine: {profile['nameZh']}")
+                if model.get("engineUrl") != "https://github.com/VAST-AI-Research/TripoSG":
+                    errors.append(f"Unexpected TripoSG source URL: {profile['nameZh']}")
+                if model.get("engineLicense") != "MIT":
+                    errors.append(f"Unexpected TripoSG license: {profile['nameZh']}")
+                expected_sha = model.get("outputSha256")
+                if not expected_sha:
+                    errors.append(f"Missing TripoSG output SHA-256: {profile['nameZh']}")
+                elif model_path.is_file():
+                    actual_sha = hashlib.sha256(model_path.read_bytes()).hexdigest()
+                    if actual_sha != expected_sha:
+                        errors.append(f"TripoSG output SHA-256 mismatch: {model_path}")
+                generation = model.get("generation", {})
+                required_settings = {
+                    "steps": 40,
+                    "seed": 42,
+                    "guidanceScale": 7.0,
+                    "denseDepth": 8,
+                    "hierarchicalDepth": 9,
+                    "targetFaces": 80000,
+                    "flashDecoder": False,
+                }
+                for key, expected in required_settings.items():
+                    if generation.get(key) != expected:
+                        errors.append(
+                            f"Unexpected TripoSG setting {key}: {profile['nameZh']}"
+                        )
+            else:
+                errors.append(f"Aircraft model has not migrated to TripoSG: {profile['nameZh']}")
 
     checks = {
         root / "index.html": [profile["nameZh"] for profile in profiles],

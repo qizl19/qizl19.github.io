@@ -237,7 +237,7 @@ def render_photo(photo: dict) -> str:
 def render_model_widget(profile: dict) -> str:
     model = profile["model"]
     reconstruction_credit = ""
-    if model.get("kind") == "triposr-image-reconstruction":
+    if model.get("kind") in {"triposr-image-reconstruction", "triposg-image-reconstruction"}:
         reconstruction_credit = (
             f'<br>输入照片：{esc(model["inputCredit"])}（'
             f'<a target="_blank" rel="noopener" href="{esc(model["inputSourceUrl"])}">原始来源</a>）；'
