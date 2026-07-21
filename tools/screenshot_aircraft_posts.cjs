@@ -6,6 +6,9 @@ const { chromium } = require("playwright");
 const root = path.resolve(process.argv[2] || ".");
 const output = path.resolve(process.argv[3] || "tmp/aircraft-posts-qa");
 fs.mkdirSync(output, { recursive: true });
+const aircraftPosts = JSON.parse(
+  fs.readFileSync(path.join(root, "data", "aircraft_posts.json"), "utf8"),
+);
 const weeklyPosts = JSON.parse(
   fs.readFileSync(path.join(root, "data", "cad_cae_weekly_posts.json"), "utf8"),
 );
@@ -69,7 +72,7 @@ async function main() {
     if (request.url().startsWith(origin)) localErrors.push(`request: ${request.url()} ${request.failure()?.errorText}`);
   });
 
-  const postIds = ["eacebbb9", "6e9a9f42", "fe7680d9", "ebc40a24"];
+  const postIds = aircraftPosts.map((post) => post.postId);
   await page.goto(`${origin}/`, { waitUntil: "domcontentloaded" });
   await settle(page);
   if ((await page.getByText("飞机资料库", { exact: true }).count()) !== 0) {
@@ -137,16 +140,18 @@ async function main() {
   await page.locator("#本周态势总览").scrollIntoViewIfNeeded();
   await page.screenshot({ path: path.join(output, "weekly-article-content.png"), fullPage: false });
 
-  await page.goto(`${origin}/p/eacebbb9.html`, { waitUntil: "domcontentloaded" });
+  await page.goto(`${origin}/p/${postIds[0]}.html`, { waitUntil: "domcontentloaded" });
   await settle(page);
   await page.screenshot({ path: path.join(output, "article-desktop.png"), fullPage: false });
   await page.locator("#基本资料").scrollIntoViewIfNeeded();
   await page.screenshot({ path: path.join(output, "article-content.png"), fullPage: false });
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(`${origin}/p/6e9a9f42.html`, { waitUntil: "domcontentloaded" });
+  await page.goto(`${origin}/p/${postIds[0]}.html`, { waitUntil: "domcontentloaded" });
   await settle(page);
   await page.screenshot({ path: path.join(output, "article-mobile.png"), fullPage: false });
+  await page.locator("#基本资料").scrollIntoViewIfNeeded();
+  await page.screenshot({ path: path.join(output, "article-mobile-content.png"), fullPage: false });
   await page.goto(`${origin}/p/${latestWeekly.postId}.html`, { waitUntil: "domcontentloaded" });
   await settle(page);
   await page.screenshot({ path: path.join(output, "weekly-article-mobile-hero.png"), fullPage: false });

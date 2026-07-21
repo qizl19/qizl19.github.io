@@ -1,5 +1,220 @@
 [
   {
+    "slug": "chengdu-j-10c",
+    "nameZh": "歼-10C",
+    "nameEn": "Chengdu J-10C",
+    "eyebrow": "最新档案 · 第 5 期",
+    "subtitle": "中国单发鸭式三角翼多用途战斗机：从成熟平台到信息化改进",
+    "date": "2026-07-21",
+    "updated": "2026-07-21",
+    "nation": "中国",
+    "category": "多用途战斗机",
+    "era": "2010s—至今",
+    "tags": [
+      "军用",
+      "现役",
+      "战斗机"
+    ],
+    "status": "现役 / 持续发展",
+    "metrics": {
+      "firstFlightYear": 2017,
+      "lengthM": 16.43,
+      "wingspanM": 9.75,
+      "maxTakeoffWeightT": 19.3,
+      "speedLabel": "超声速；C 型精确公开口径不足",
+      "rangeLabel": "随任务剖面和外挂变化，不采用单一数值"
+    },
+    "diagram": [
+      "J-10 单发鸭式三角翼平台",
+      "J-10B：进气道与航电演进",
+      "J-10C：信息化与多用途能力提升",
+      "J-10CE：公开出口型"
+    ],
+    "firstFlight": "C 型首飞日期未公开；2017 年公开亮相",
+    "accent": "#b6403a",
+    "heroImage": "/p/1b346d49/j10c-001.jpg",
+    "model": {
+      "kind": "triposg-image-reconstruction",
+      "src": "/p/1b346d49/models/chengdu-j-10c-reference.glb",
+      "poster": "/p/1b346d49/j10c-001.jpg",
+      "author": "Qzl's Blog（使用 TripoSG 基于许可照片重建）",
+      "sourceUrl": "https://github.com/qizl19/qizl19.github.io/blob/main/tools/reconstruct_aircraft_triposg.py",
+      "license": "CC BY-SA 4.0（沿用输入照片许可）",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "inputImage": "/p/1b346d49/j10c-001.jpg",
+      "inputCredit": "颐园居",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:J-10C_at_Changchun_Air_Show_20250921.jpg",
+      "engine": "TripoSG",
+      "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "engineLicense": "MIT",
+      "outputSha256": "fdb41bc9b3755139622eb3aea7f675daecdbffc43d0763a984e2dd5a343c81dd",
+      "generation": {
+        "steps": 40,
+        "seed": 42,
+        "guidanceScale": 7.0,
+        "denseDepth": 8,
+        "hierarchicalDepth": 9,
+        "targetFaces": 80000,
+        "flashDecoder": false
+      },
+      "note": "输入为许可照片的裁剪、抠图派生图；由 TripoSG 单图补全并删除不足 100 面的明显漂浮碎片。模型能够表达单发、鸭翼、三角翼和单垂尾总体轮廓；遮挡侧、薄翼边缘与局部细节由模型推断，网格不水密、不代表工程尺寸，不可用于制造、仿真或逆向工程。"
+    },
+    "statement": "歼-10C 的意义不在某一个孤立参数，而在于把成熟气动平台、数字化航电、传感器与武器接口整合成持续演进的多用途作战节点。",
+    "summary": "歼-10C 是中国歼-10 单发鸭式三角翼战斗机家族的重要改进型。官方资料确认它在 2017 年首次公开亮相、2018 年开始担负战斗值班，并持续参与体系化训练和公开展示。由于官方没有发布完整的 C 型规格表，本文把可确认的时间节点与 J-10 家族、J-10CE 的公开尺寸口径分开标注，不把推测数据写成定值。",
+    "facts": [
+      {
+        "label": "公开亮相",
+        "value": "2017 年",
+        "note": "中国国防部公开口径"
+      },
+      {
+        "label": "战斗值班",
+        "value": "2018 年起",
+        "note": "官方报道"
+      },
+      {
+        "label": "长度",
+        "value": "约 16 m 级",
+        "note": "家族/出口资料口径"
+      },
+      {
+        "label": "翼展",
+        "value": "约 9.75 m",
+        "note": "公开家族规格"
+      },
+      {
+        "label": "最大起飞重量",
+        "value": "约 18.6–19.3 t",
+        "note": "不同公开资料存在差异"
+      },
+      {
+        "label": "动力布局",
+        "value": "单台加力涡扇"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "1998",
+        "event": "歼-10 家族基础平台完成首飞，为后续持续改进奠定气动与结构基础。"
+      },
+      {
+        "year": "2005",
+        "event": "歼-10 基础型进入公开资料所述的服役阶段。"
+      },
+      {
+        "year": "2017",
+        "event": "歼-10C 首次公开亮相。"
+      },
+      {
+        "year": "2018",
+        "event": "中国空军宣布歼-10C 开始担负战斗值班。"
+      },
+      {
+        "year": "2023",
+        "event": "八一飞行表演队换装歼-10C，扩大其国际公开展示。"
+      },
+      {
+        "year": "2024–26",
+        "event": "J-10CE 与歼-10C 持续出现在珠海、新加坡等国际航展和训练报道中。"
+      }
+    ],
+    "designPoints": [
+      "近耦合鸭翼与三角翼共同产生升力和俯仰控制力，适合高机动飞行，但气动耦合和控制律设计复杂。",
+      "腹部无附面层隔道进气道减少了传统隔道构件，有利于减重和外形连续性；具体内部流道参数未公开。",
+      "单发总体布局有利于控制尺寸、重量和全寿命成本，但动力系统可靠性与推重匹配更集中。",
+      "C 型的公开改进重点集中于传感器、航电、数据链与多用途任务整合，而不是简单追求单一速度指标。"
+    ],
+    "power": "歼-10C 采用单台加力涡扇。公开照片和报道显示不同阶段存在动力系统演进，但官方没有给出可统一核验的 C 型发动机批次、额定推力和耗油率清单，因此本文不把网络流传的发动机型号与推力数字作为所有飞机的固定配置。工程上，单发战斗机需要在进气道匹配、推重比、热管理、可靠性和维护保障之间取得综合平衡。",
+    "variants": [
+      {
+        "name": "J-10A / J-10S",
+        "description": "家族早期单座与双座型号，建立基本气动、结构与训练体系。"
+      },
+      {
+        "name": "J-10B",
+        "description": "重要过渡改进型，外观上可见进气道和前机身传感器布局变化。"
+      },
+      {
+        "name": "J-10C",
+        "description": "本文主角；官方强调全天候、多用途和体系化作战能力提升。"
+      },
+      {
+        "name": "J-10CE",
+        "description": "公开出口型，已在国际航展展示；不能把出口宣传参数无条件套用于全部中国空军批次。"
+      }
+    ],
+    "strengths": [
+      "成熟平台持续改进，降低重新研制整机的时间、成本和保障体系变化。",
+      "单发中型总体布局兼顾机动、数量规模、任务弹性与使用成本。",
+      "航电、传感器、数据链和多用途任务整合使其更适合体系化运用。"
+    ],
+    "limits": [
+      "C 型完整规格、雷达作用距离、控制律和航程—载荷曲线没有官方统一公开口径。",
+      "公开参数常混用基础型、B 型、C 型和 CE 出口型，若不注明来源会制造虚假精度。",
+      "单图 AI 三维模型只能用于外形浏览，遮挡侧和细节由算法补全，不能承担工程验证。"
+    ],
+    "photos": [
+      {
+        "src": "/p/1b346d49/j10c-000.jpg",
+        "alt": "歼-10C 在长春航空开放活动中飞行",
+        "caption": "2025 年长春航空开放活动中的歼-10C，完整机身、鸭翼、三角翼和单垂尾清晰可见。",
+        "credit": "颐园居",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:J-10C_20250921.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/p/1b346d49/j10c-001.jpg",
+        "alt": "歼-10C 前方三分之四视图",
+        "caption": "歼-10C 在地面展示区的前方三分之四视图，可观察鸭翼、腹部进气道和主翼关系。",
+        "credit": "颐园居",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:J-10C_at_Changchun_Air_Show_20250921.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/p/1b346d49/j10c-002.jpg",
+        "alt": "2024 珠海航展中的 J-10CE",
+        "caption": "2024 年珠海航展展示的 J-10CE。出口型照片用于说明家族公开外形，不能替代中国空军各批次的精确配置。",
+        "credit": "Z3144228",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:J-10CE_for_Pakistan_air_force_in_Zhuhai_airshow_2024.jpg",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "中国国防部：J-10C 2017 年首次公开亮相",
+        "url": "https://eng.mod.gov.cn/xb/News_213114/TopStories/4809665.html"
+      },
+      {
+        "label": "中国国防部：J-10C 2018 年开始战斗值班",
+        "url": "https://eng.mod.gov.cn/xb/Home/Focus/4809633.html"
+      },
+      {
+        "label": "中国国防部：J-10CE 亮相中国航展 2024",
+        "url": "https://eng.mod.gov.cn/xb/News_213114/TopStories/16351578.html"
+      },
+      {
+        "label": "中国军网：八一飞行表演队 J-10C 参加新加坡航展 2026",
+        "url": "https://eng.chinamil.com.cn/2025xb/B/16441059.html"
+      },
+      {
+        "label": "印度 DRDO：2024 技术出版物中的 J-10 家族公开参数对照",
+        "url": "https://drdo.gov.in/drdo/sites/default/files/drdo-news-documents/NPC17May2024.pdf"
+      },
+      {
+        "label": "AVIC 2012 展示资料：J-10 / FC-20 家族规格",
+        "url": "https://www.vayuaerospace.in/Issue/202005312004269798.pdf"
+      },
+      {
+        "label": "Shephard：Military Aircraft Handbook 2022（型号与公开口径交叉核验）",
+        "url": "https://mags.shephardmedia.com/legacy-handbooks/MA2022.pdf"
+      }
+    ],
+    "postId": "1b346d49"
+  },
+  {
     "slug": "y-20-kunpeng",
     "nameZh": "运-20“鲲鹏”",
     "nameEn": "Xi’an Y-20 Kunpeng",

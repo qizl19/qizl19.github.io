@@ -1,5 +1,16 @@
 [
   {
+    "slug": "chengdu-j-10c",
+    "name": "歼-10C",
+    "url": "/p/1b346d49.html",
+    "firstFlightYear": 2017,
+    "lengthM": 16.43,
+    "wingspanM": 9.75,
+    "maxTakeoffWeightT": 19.3,
+    "speedLabel": "超声速；C 型精确公开口径不足",
+    "rangeLabel": "随任务剖面和外挂变化，不采用单一数值"
+  },
+  {
     "slug": "y-20-kunpeng",
     "name": "运-20“鲲鹏”",
     "url": "/p/eacebbb9.html",

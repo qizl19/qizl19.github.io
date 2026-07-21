@@ -191,8 +191,10 @@ def main() -> None:
         root / "archives" / "2022" / "index.html": 2,
         root / "archives" / "2022" / "03" / "index.html": 1,
         root / "archives" / "2022" / "01" / "index.html": 1,
-        root / "categories" / "飞机资料整理" / "index.html": 5,
-        root / "tags" / "航空" / "index.html": 5,
+        # The category and tag also contain the legacy "欧洲直升机" article,
+        # which is intentionally not part of aircraft_posts.json.
+        root / "categories" / "飞机资料整理" / "index.html": len(profiles) + 1,
+        root / "tags" / "航空" / "index.html": len(profiles) + 1,
     }
     for path, expected in expected_listing_counts.items():
         actual = path.read_text(encoding="utf-8").count('<div class="article-sort-item"><a')
