@@ -3274,14 +3274,22 @@ li.categoryBar-list-item.category-cad-cae {
   background-size: cover !important;
   background-position: center !important;
 }
+li.categoryBar-list-item.category-aeroengine {
+  background-image: linear-gradient(rgba(0,0,0,0.12) 15%, rgba(0,0,0,0.62) 100%), url('/p/5d68a0e8/aeroengine-brayton-cover.webp') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
 li.categoryBar-list-item.category-aircraft>span::after {
   content: '代表机型档案' !important;
 }
 li.categoryBar-list-item.category-cad-cae>span::after {
   content: '工程生态与 AI 追踪' !important;
 }
+li.categoryBar-list-item.category-aeroengine>span::after {
+  content: '循环、气动、控制与经典型号' !important;
+}
 li.categoryBar-list-item {
-  width: 32.3% !important;
+  width: 24% !important;
 }
 @media screen and (max-width: 650px) {
   li.categoryBar-list-item {

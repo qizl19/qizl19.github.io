@@ -1,0 +1,65 @@
+[
+  {
+    "issue": 1,
+    "slug": "aeroengine-01-brayton-cycle-matching",
+    "postId": "5d68a0e8",
+    "title": "航空发动机学习简报｜第01期｜Brayton 循环与部件匹配",
+    "subtitle": "从能量账本读懂压气机、燃烧室、涡轮与喷管",
+    "type": "基础与前置知识",
+    "date": "2026-07-22",
+    "updated": "2026-07-22",
+    "heroImage": "/p/5d68a0e8/aeroengine-brayton-cover.webp",
+    "summary": "用站位、总温总压和轴功平衡建立航空发动机的第一张系统地图：压气机为何升温，燃烧室为何损失总压，涡轮为何必须先偿还压气机功，喷管又能拿到多少剩余能量。",
+    "contentFile": "data/aeroengine/2026-07-22-brayton-cycle.html",
+    "keyConcepts": [
+      "Brayton 循环",
+      "总温与总压",
+      "压气机功",
+      "涡轮-压气机匹配",
+      "燃烧室总压损失",
+      "喷管可用压比"
+    ],
+    "headings": [
+      {"id": "本期问题与学习目标", "title": "本期问题与学习目标"},
+      {"id": "核心结论", "title": "核心结论"},
+      {"id": "站位与总参数", "title": "站位与总参数"},
+      {"id": "brayton-循环的物理直觉", "title": "Brayton 循环的物理直觉"},
+      {"id": "必要公式与适用假设", "title": "必要公式与适用假设"},
+      {"id": "可复算的简化算例", "title": "可复算的简化算例"},
+      {"id": "设计与分析的执行步骤", "title": "设计与分析的执行步骤"},
+      {"id": "常见误区与失效边界", "title": "常见误区与失效边界"},
+      {"id": "与整机控制及其他部件的耦合", "title": "与整机、控制及其他部件的耦合"},
+      {"id": "自测题", "title": "自测题"},
+      {"id": "答案与下一期衔接", "title": "答案与下一期衔接"},
+      {"id": "参考资料与图示许可", "title": "参考资料与图示许可"}
+    ],
+    "figures": [
+      {
+        "src": "/p/5d68a0e8/brayton-cycle-map.svg",
+        "fallback": "/p/5d68a0e8/brayton-cycle-map.png",
+        "title": "Brayton 循环的理想化与真实偏离",
+        "author": "Qzl's Blog",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceData": "/data/aeroengine/brayton-efficiency-ideal.csv"
+      },
+      {
+        "src": "/p/5d68a0e8/engine-stations.svg",
+        "fallback": "/p/5d68a0e8/engine-stations.png",
+        "title": "涡喷/核心机站位与总参数账本",
+        "author": "Qzl's Blog",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "sources": [
+      {"title": "NASA Glenn：Brayton Cycle", "url": "https://www.grc.nasa.gov/WWW/K-12/BGP/brayton.html"},
+      {"title": "NASA Glenn：Compressor Thermodynamics", "url": "https://www.grc.nasa.gov/WWW/k-12/VirtualAero/BottleRocket/airplane/compth.html"},
+      {"title": "NASA Glenn：Compressor-Turbine Matching", "url": "https://www.grc.nasa.gov/WWW/k-12/VirtualAero/BottleRocket/airplane/ctmatch.html"},
+      {"title": "NASA TM-2007-214690：NPSS User Guide", "url": "https://ntrs.nasa.gov/citations/20070018165"},
+      {"title": "MIT Unified Engineering：Ideal Cycle Analysis", "url": "https://ocw.mit.edu/ans7870/16/16.unified/propulsionS04/UnifiedPropulsion8/UnifiedPropulsion8.htm"},
+      {"title": "FAA Aviation Maintenance Technician Handbook—Powerplant", "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/faa-h-8083-32b-aviation-maintenance-technician"}
+    ],
+    "nextTopic": "总参数、修正流量与相似准则"
+  }
+]

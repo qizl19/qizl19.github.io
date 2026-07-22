@@ -35,7 +35,13 @@ def main() -> None:
     weekly_posts = json.loads(
         (root / "data" / "cad_cae_weekly_posts.json").read_text(encoding="utf-8")
     )
-    expected_total_posts = len(profiles) + len(weekly_posts) + 2
+    aeroengine_path = root / "data" / "aeroengine_posts.json"
+    aeroengine_posts = (
+        json.loads(aeroengine_path.read_text(encoding="utf-8"))
+        if aeroengine_path.is_file()
+        else []
+    )
+    expected_total_posts = len(profiles) + len(weekly_posts) + len(aeroengine_posts) + 2
     errors: list[str] = []
 
     if (root / "aircraft").exists():
@@ -172,7 +178,7 @@ def main() -> None:
             errors.append(f"Independent archive link remains in {path}")
 
     for path in root.rglob("*.html"):
-        if ".git" in path.parts:
+        if ".git" in path.parts or "tmp" in path.parts:
             continue
         content = path.read_text(encoding="utf-8")
         if 'href="/aircraft/"' in content:
@@ -294,7 +300,7 @@ def main() -> None:
         "GitCalendarInit",
     ]
     for path in root.rglob("*.html"):
-        if ".git" in path.parts:
+        if ".git" in path.parts or "tmp" in path.parts:
             continue
         content = path.read_text(encoding="utf-8")
         for token in legacy_calendar_tokens:

@@ -1,0 +1,23 @@
+{
+  "briefing": 1,
+  "backend": "Python/matplotlib",
+  "coreConclusion": "压气机功、涡轮功与喷管剩余能量必须共同平衡，单独提高压气机总压比不能代表发动机更好。",
+  "assumptions": {
+    "compressorPressureRatio": 12.0,
+    "compressorEfficiency": 0.86,
+    "turbineEfficiency": 0.89,
+    "mechanicalEfficiency": 0.99,
+    "burnerTotalPressureRatio": 0.95,
+    "turbineInletTotalTemperatureK": 1450.0,
+    "variableCp": false,
+    "coolingBleedAccessoryLoads": "omitted in the simplified numerical example"
+  },
+  "derived": {
+    "compressorExitIsentropicK": 585.77,
+    "compressorExitActualK": 634.25,
+    "compressorSpecificWorkKJkg": 347.98,
+    "turbineExitTotalTemperatureK": 1143.82,
+    "turbineExitTotalPressureRatioToAmbient": 3.827
+  },
+  "integrity": "原创工程示意；曲线由列明公式和假设生成，不是实测发动机数据。"
+}

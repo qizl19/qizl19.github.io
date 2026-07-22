@@ -1,0 +1,8 @@
+compressor_pressure_ratio,ideal_thermal_efficiency,assumption
+2,0.17966464,gamma=1.4; ideal simple Brayton
+4,0.32704990,gamma=1.4; ideal simple Brayton
+8,0.44795524,gamma=1.4; ideal simple Brayton
+12,0.50834269,gamma=1.4; ideal simple Brayton
+20,0.57510938,gamma=1.4; ideal simple Brayton
+30,0.62158760,gamma=1.4; ideal simple Brayton
+40,0.65144720,gamma=1.4; ideal simple Brayton

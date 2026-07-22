@@ -222,7 +222,131 @@
 </ul>
 
 <blockquote><p><strong>方法与边界：</strong>本报告只将检索窗口内、可由官方发布 / 仓库 / 论文原文或明确时间戳的社区帖子核验的信息列为“本周变化”。开发主干与 weekly / WIP / Beta 均不等同于正式发布；社区帖子仅作为问题信号。商业 CATIA 的授权门户内容可能不在公开检索范围内。</p></blockquote>
-]]></content><categories><category> CAD/CAE 生态周报 </category></categories><tags><tag> CAD/CAE </tag></tags></entry><!-- MANAGED_POSTS_END -->
+]]></content><categories><category> CAD/CAE 生态周报 </category></categories><tags><tag> CAD/CAE </tag></tags></entry><entry><title>航空发动机学习简报｜第01期｜Brayton 循环与部件匹配</title><link href="/p/5d68a0e8.html"/><url>/p/5d68a0e8.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 01 期</strong></p>
+<p><strong>副题：</strong>从能量账本读懂压气机、燃烧室、涡轮与喷管</p>
+<p><strong>主题类型：</strong>基础与前置知识　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-07-22</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote>
+  <p><strong>本期问题：</strong>空气经过压气机、燃烧室、涡轮和喷管时，能量与总参数如何变化？为什么“压气机总压比更高”不能独立证明一台航空发动机更先进？</p>
+</blockquote>
+<p>学完本期，你应当能够：按 0-2-3-4-5-8 站位读懂一张基本流路图；区分总温/总压与静温/静压；用理想气体关系估算压气机出口总温和压气机比功；写出单轴核心机最基本的功率平衡；解释压力比、涡轮前总温、部件效率、冷却和喷管之间为什么必须联合匹配。</p>
+<p><strong>前置知识：</strong>能量守恒、理想气体、比热容、绝热过程和效率的基本概念即可。本期不要求叶轮机械速度三角形，也暂不使用压气机特性图；这些内容将在后续课程逐步接入。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol>
+  <li><strong>Brayton 循环是能量账本，不是发动机外形图。</strong>它把连续流动抽象成压缩、加热、膨胀和排热过程，便于判断能量从哪里来、被谁消耗、最后还能留下多少。</li>
+  <li><strong>压气机提高总压必然需要轴功，并同时提高总温。</strong>压力比越高，压气机功通常越大；若涡轮前总温上限不变，留给喷管或自由涡轮的可用焓降就可能减少。</li>
+  <li><strong>涡轮首先是压气机和附件的功率来源。</strong>单轴稳态下，涡轮输出功必须覆盖压气机、泵、发电机等负载以及机械损失；否则转速不会稳定。</li>
+  <li><strong>燃烧室主要增加总温，而不是“制造总压”。</strong>真实燃烧室存在摩擦、混合和热释放损失，总压通常下降；若计算中燃烧室出口总压无原因升高，模型很可能写错。</li>
+  <li><strong>设计点只是一个平衡点。</strong>高度、马赫数、转速、燃油量、可调静子、放气和喷口面积变化后，压气机、涡轮和喷管必须重新满足流量与功率相容。</li>
+</ol>
+
+<h2 id="站位与总参数"><a href="#站位与总参数" class="headerlink" title="站位与总参数"></a>站位与总参数</h2>
+<p>站位编号是部件之间的接口语言。常见简化编号为：0 表示远前方来流；2 为压气机进口；3 为压气机出口；4 为燃烧室出口/涡轮进口；5 为涡轮出口；8 为喷管出口。不同机构和发动机可能增加 1、2.5、4.5、7 等站位，因此阅读资料时应先确认编号约定，不能只凭数字猜部件。</p>
+<p><strong>总参数</strong>可以理解为把局部速度理想地减到零后所得到的状态。对绝热、无轴功部件，理想情况下总温保持不变；有损失时总压下降。静参数则是流体当前速度下的局部温度和压力。喷管可以让静温、静压下降并使速度上升，但若近似绝热且无轴功，总温不会凭空下降。总参数适合做部件能量和损失账本，静参数更直接关联局部马赫数、密度、声速和壁面载荷。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/5d68a0e8/engine-stations.svg" alt="航空发动机站位、部件和总温总压沿程趋势原创工程图">
+  <figcaption>图 1　站位、同轴功率传递以及算例总温/总压趋势。曲线由本文假设生成，不是真实发动机测试数据；原创图，CC BY 4.0。</figcaption>
+</figure>
+
+<h2 id="brayton-循环的物理直觉"><a href="#brayton-循环的物理直觉" class="headerlink" title="Brayton 循环的物理直觉"></a>Brayton 循环的物理直觉</h2>
+<p><strong>2→3 压缩：</strong>压气机从轴系取得功，使空气总压和总温上升。理想绝热压缩在 T-s 图上近似竖直；真实压气机存在黏性、二次流、间隙泄漏和激波等损失，熵增加，曲线向右偏。</p>
+<p><strong>3→4 加热：</strong>燃油化学能使总温大幅上升。理想 Brayton 循环把它近似为等压加热；真实燃烧室需要稳定火焰、完成混合并控制出口温度分布，因此会有总压损失。涡轮前总温受材料、冷却、寿命和排放共同限制，并不是可以任意提高的旋钮。</p>
+<p><strong>4→5 膨胀：</strong>涡轮从高温气体中取出轴功。核心涡轮取走多少焓降，取决于压气机和附件需要多少功，而不是“越多越好”；取能过多会降低后续喷管可用总压与总温，取能不足则轴系无法维持转速。</p>
+<p><strong>5→8 喷管：</strong>喷管把剩余总焓和总压转换为射流速度。热力学闭合循环中的“排热”并不对应发动机内部一个独立冷却器；开放式航空发动机把燃气排向大气，再由新鲜空气持续进入。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/5d68a0e8/brayton-cycle-map.svg" alt="理想与非理想 Brayton 循环 T-s 图及理想效率压力比曲线">
+  <figcaption>图 2　理想/非理想循环与理想热效率趋势。右图只说明理想简单循环的数学趋势，不能直接替代实际发动机推力、耗油率或重量分析；原创图，CC BY 4.0。</figcaption>
+</figure>
+
+<h2 id="必要公式与适用假设"><a href="#必要公式与适用假设" class="headerlink" title="必要公式与适用假设"></a>必要公式与适用假设</h2>
+<p>以下公式采用稳态、一维平均流、理想气体和定比热近似。符号：<code>Tt</code> 为总温 [K]，<code>Pt</code> 为总压 [Pa]，<code>πc=Pt3/Pt2</code> 为压气机总压比，<code>γ</code> 为比热比，<code>cp</code> 为定压比热 [kJ/(kg·K)]，<code>ηc</code> 为压气机等熵效率。</p>
+<div class="aeroengine-formula"><strong>理想压缩温升：</strong> Tt3s / Tt2 = πc<sup>(γ-1)/γ</sup></div>
+<div class="aeroengine-formula"><strong>真实压气机出口总温：</strong> Tt3 = Tt2 + (Tt3s - Tt2) / ηc</div>
+<div class="aeroengine-formula"><strong>压气机比功：</strong> wc = cp,a (Tt3 - Tt2)</div>
+<p>单轴核心机在稳态下可写成近似功率平衡：</p>
+<div class="aeroengine-formula"><strong>轴功平衡：</strong> ηm (1+f) cp,g (Tt4 - Tt5) = wc + waccessory</div>
+<p>其中 <code>ηm</code> 为机械效率，<code>f</code> 为燃油空气比，<code>waccessory</code> 为附件比功。这个方程解释了为何压气机、涡轮与燃油控制不能分开：燃油改变 Tt4 与轴加速能力，压气机状态改变所需功，附件负载又改变涡轮必须提供的功。</p>
+<p>理想简单 Brayton 循环的热效率为：</p>
+<div class="aeroengine-formula"><strong>理想热效率：</strong> ηth = 1 - 1 / πc<sup>(γ-1)/γ</sup></div>
+<p>它只适用于定比热、理想压缩/膨胀且无压力损失的循环。实际航空发动机还受有限 Tt4、压气机/涡轮效率、冷却与放气、燃烧室压损、喷管匹配、尺寸重量和飞行条件约束。它不能证明“压力比越高，实际推力一定越大”。</p>
+<p>推力还必须通过动量方程核算：空气流量、燃油流量、飞行速度、喷口速度以及出口压力不匹配项共同决定净推力。只知道循环热效率，无法计算一台具体发动机的推力。</p>
+
+<h2 id="可复算的简化算例"><a href="#可复算的简化算例" class="headerlink" title="可复算的简化算例"></a>可复算的简化算例</h2>
+<p><strong>假设：</strong>Tt2=288 K，πc=12，γa=1.4，cp,a=1.005 kJ/(kg·K)，ηc=0.86；Tt4=1450 K，cp,g=1.148 kJ/(kg·K)，ηt=0.89，ηm=0.99；燃烧室总压保持系数 0.95。暂忽略燃油质量、冷却/放气和附件负载。所有数值都是教学假设，不对应某一真实型号。</p>
+<ol>
+  <li>理想压气机出口：<code>Tt3s=288×12^(2/7)=585.8 K</code>。</li>
+  <li>考虑压气机效率：<code>Tt3=288+(585.8-288)/0.86=634.3 K</code>。</li>
+  <li>压气机比功：<code>wc=1.005×(634.3-288)=348.0 kJ/kg</code>。</li>
+  <li>由轴功平衡，涡轮出口总温约为：<code>Tt5=1450-348/(0.99×1.148)=1143.8 K</code>。</li>
+  <li>若再用 ηt 把实际温降换算成等熵温降，可估算 <code>Pt5/Pt4≈0.336</code>；结合燃烧室压损，算例得到 <code>Pt5/Pt0≈3.83</code>，说明喷管仍有可利用压比。</li>
+</ol>
+<p>理想效率公式在 πc=12 时给出约 50.8%，但这不是实际热效率，更不是推进效率。若用 <code>f≈cp(Tt4-Tt3)/(ηb·LHV)</code>、ηb=0.99、LHV=43 MJ/kg 做最低阶估算，可得 f≈0.019；真实燃烧计算必须采用变比热、燃气成分和更完整能量平衡。</p>
+<p><strong>算例的工程意义：</strong>把 πc 从 12 提高后，Tt3 与 wc 都会上升。若 Tt4 上限不变，涡轮需要更大的焓降去驱动压气机，喷管剩余能量和总压未必改善。要判断收益，必须重新算燃油、流量、喷管、部件效率和重量，而不能只看理想效率曲线。</p>
+
+<h2 id="设计与分析的执行步骤"><a href="#设计与分析的执行步骤" class="headerlink" title="设计与分析的执行步骤"></a>设计与分析的执行步骤</h2>
+<ol>
+  <li><strong>冻结任务点：</strong>明确高度、马赫数、环境温度、所需推力/功率和允许尺寸，先算 0→2 的来流总参数与进气道恢复。</li>
+  <li><strong>定义设计变量与限制：</strong>选择质量流量、πc、Tt4、涵道比/轴数、部件效率假设，同时列出转速、叶尖速度、温度和压力边界。</li>
+  <li><strong>逐部件传递总参数：</strong>按进气道、压气机、燃烧室、涡轮和喷管顺序更新 Tt、Pt、流量和燃油比；所有损失和冷却/放气都要有明确去向。</li>
+  <li><strong>闭合每根轴的功率：</strong>涡轮功覆盖同轴压气机、风扇、附件及机械损失；不平衡意味着转速仍在变化。</li>
+  <li><strong>闭合流量与喷管：</strong>检查喷管是否堵塞、出口压力是否匹配、各部件修正流量是否相容；必要时迭代喷口面积或工作点。</li>
+  <li><strong>计算性能并做守恒审计：</strong>输出推力、耗油率、热效率/推进效率以及质量、动量、能量残差。残差不闭合时禁止讨论优化。</li>
+  <li><strong>转入非设计点与控制：</strong>使用压气机/涡轮特性图、轴惯量和控制调度，检查起动、加速、减速、高度变化和故障状态的喘振裕度与温度限制。</li>
+</ol>
+
+<h2 id="常见误区与失效边界"><a href="#常见误区与失效边界" class="headerlink" title="常见误区与失效边界"></a>常见误区与失效边界</h2>
+<ul>
+  <li><strong>把理想循环效率当成发动机效率：</strong>真实损失、冷却、变比热、压力损失和推进效率会显著改变结论。</li>
+  <li><strong>混用静参数与总参数：</strong>高速来流在进气道减速后静压变化很大，但理想总温不变；错误混用会把速度能重复计算。</li>
+  <li><strong>认为燃烧室提高压力：</strong>航空燃烧室近似等压加热只是理想化；真实总压应下降。</li>
+  <li><strong>认为涡轮降温就是浪费：</strong>这段焓降承担压气机和附件功；真正需要权衡的是取功后还剩多少可用总压、总温和流量。</li>
+  <li><strong>忽略高温比热变化：</strong>1450 K 附近仍用常温 cp、γ 会带来系统误差，本期算例只用于手算直觉。</li>
+  <li><strong>把稳态平衡用于瞬态：</strong>加速时涡轮功必须暂时大于负载以增加轴动能；燃油加得过快可能先触发喘振或超温限制。</li>
+  <li><strong>把一个设计点推广到全包线：</strong>高空、热天、进气畸变和结冰会改变修正流量、压比与裕度，必须用部件特性图重新匹配。</li>
+</ul>
+
+<h2 id="与整机控制及其他部件的耦合"><a href="#与整机控制及其他部件的耦合" class="headerlink" title="与整机、控制及其他部件的耦合"></a>与整机、控制及其他部件的耦合</h2>
+<p><strong>进气系统：</strong>飞行马赫数和进气道总压恢复决定站位 2 的边界；畸变会使压气机局部工作点恶化。<strong>燃烧与排放：</strong>Tt4 由燃油决定，却受火焰稳定、温度分布、NOx、壁温和冒烟共同约束。<strong>涡轮冷却：</strong>从压气机抽取冷却气会减少主流并改变功率平衡，冷却气最终在涡轮内混合。</p>
+<p><strong>喷管与短舱：</strong>喷口面积改变背压、流量和轴系平衡；发动机不能脱离进气道和喷管单独匹配。<strong>控制系统：</strong>FADEC 并非简单“给多少推杆就喷多少油”，而是在转速、Tt4/排气温度、压比、加速率和喘振裕度限制之间选择允许的燃油与可调几何调度。<strong>整机任务：</strong>推力、迎风面积、发动机质量、油耗、噪声和热管理最终共同影响航程、爬升和维护成本。</p>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol>
+  <li>站位 3 和站位 4 分别位于哪个部件之后？它们最显著的总参数差异是什么？</li>
+  <li>判断：理想绝热喷管中，总温随速度增加而下降。说明理由。</li>
+  <li>判断：真实燃烧室出口总压可以在无外部压缩功时高于进口总压。说明理由。</li>
+  <li>若 Tt2=300 K、πc=4、γ=1.4，求理想 Tt3s，结果保留整数。</li>
+  <li>若上一题 ηc=0.80，求真实 Tt3，并说明为何它高于理想值。</li>
+  <li>单轴发动机稳定转速时，若附件负载突然增加而燃油和涡轮状态暂时不变，转速初始会怎样变化？</li>
+  <li>为什么提高 πc 可能提高理想热效率，却不一定提高实际净推力？至少列出三项耦合因素。</li>
+  <li>建立一个新循环模型时，最先应冻结哪些飞行条件？最后应检查哪三类守恒残差？</li>
+</ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<ol>
+  <li>3 在压气机后，4 在燃烧室后；4 的总温大幅升高，而真实总压略低于 3。</li>
+  <li>错误。理想绝热无轴功喷管的总温不变，下降的是静温，能量转化为速度。</li>
+  <li>通常错误。真实燃烧、混合和摩擦造成总压损失；“等压加热”也不是增压。</li>
+  <li><code>Tt3s=300×4^(2/7)≈446 K</code>。</li>
+  <li><code>Tt3=300+(446-300)/0.80≈483 K</code>；效率小于 1 表示达到同一压比需要更多实际功。</li>
+  <li>初始减速，因为负载功大于涡轮可供功，轴动能被消耗。</li>
+  <li>有限 Tt4、压气机功增加、涡轮效率/冷却、燃烧室压损、喷管匹配、流量和重量都可能改变净收益。</li>
+  <li>先冻结高度、马赫数、环境温度与任务推力/功率；最后检查质量、动量和能量守恒。</li>
+</ol>
+<p><strong>下一期建议：</strong>进入“总参数、修正流量与相似准则”，解释为什么同一台压气机在不同高度和进口温度下要用修正转速、修正流量比较，并为后续压气机特性图和喘振裕度铺路。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ol>
+  <li><a target="_blank" rel="noopener" href="https://www.grc.nasa.gov/WWW/K-12/BGP/brayton.html">NASA Glenn：Turbine Engine Thermodynamic Cycle - Brayton Cycle</a>，用于循环过程与站位概念。</li>
+  <li><a target="_blank" rel="noopener" href="https://www.grc.nasa.gov/WWW/k-12/VirtualAero/BottleRocket/airplane/ctmatch.html">NASA Glenn：Compressor-Turbine Matching</a>，用于轴功匹配关系和设计点/非设计点边界。</li>
+  <li><a target="_blank" rel="noopener" href="https://www.grc.nasa.gov/WWW/k-12/VirtualAero/BottleRocket/airplane/compth.html">NASA Glenn：Compressor Thermodynamics</a>，用于压气机温升、效率与比功关系。</li>
+  <li><a target="_blank" rel="noopener" href="https://ocw.mit.edu/ans7870/16/16.unified/propulsionS04/UnifiedPropulsion8/UnifiedPropulsion8.htm">MIT OpenCourseWare：Ideal Cycle Analysis of Aircraft Gas Turbine Engines</a>，用于理想循环设计变量与真实循环边界。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/20070018165">NASA/TM-2007-214690：Introduction to Thermodynamic Performance Analysis Using NPSS</a>，用于循环建模与部件化分析方法。</li>
+  <li><a target="_blank" rel="noopener" href="https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/faa-h-8083-32b-aviation-maintenance-technician">FAA-H-8083-32B：Aviation Maintenance Technician Handbook - Powerplant</a>，用于航空燃气涡轮部件和运行背景。</li>
+</ol>
+<p><strong>图示许可：</strong>图 1、图 2 及文章封面均由本站基于本文列明公式和假设用 Python/matplotlib 原创绘制，采用 CC BY 4.0；不含外部照片，不表示任何真实发动机型号的实测数据或制造几何。</p>
+]]></content><categories><category> 航空发动机 </category></categories><tags><tag> 航空发动机 </tag></tags></entry><!-- MANAGED_POSTS_END -->
 
 
 

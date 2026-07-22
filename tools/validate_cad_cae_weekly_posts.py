@@ -17,7 +17,15 @@ def main() -> None:
     root = args.root.resolve()
     posts = json.loads((root / "data" / "cad_cae_weekly_posts.json").read_text(encoding="utf-8"))
     aircraft = json.loads((root / "data" / "aircraft_posts.json").read_text(encoding="utf-8"))
-    latest_post_date = max(item.get("updated") or item["date"] for item in posts + aircraft)
+    aeroengine_path = root / "data" / "aeroengine_posts.json"
+    aeroengine = (
+        json.loads(aeroengine_path.read_text(encoding="utf-8"))
+        if aeroengine_path.is_file()
+        else []
+    )
+    latest_post_date = max(
+        item.get("updated") or item["date"] for item in posts + aircraft + aeroengine
+    )
     expected_last_push = f'data-lastPushDate="{latest_post_date}T01:00:00.000Z"'
     errors: list[str] = []
 
@@ -67,7 +75,7 @@ def main() -> None:
                 errors.append(f"Missing {needle} in {path}")
 
     for path in root.rglob("*.html"):
-        if ".git" in path.parts:
+        if ".git" in path.parts or "tmp" in path.parts:
             continue
         content = path.read_text(encoding="utf-8")
         if 'id="last-push-date"' in content and expected_last_push not in content:

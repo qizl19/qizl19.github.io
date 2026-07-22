@@ -23,6 +23,10 @@ WEEKLY_CATEGORY = "CAD/CAE 生态周报"
 WEEKLY_CATEGORY_URL = "/categories/CAD-CAE%E7%94%9F%E6%80%81%E5%91%A8%E6%8A%A5/"
 WEEKLY_TAG = "CAD/CAE"
 WEEKLY_TAG_URL = "/tags/CAD-CAE/"
+AEROENGINE_CATEGORY = "航空发动机"
+AEROENGINE_CATEGORY_URL = "/categories/%E8%88%AA%E7%A9%BA%E5%8F%91%E5%8A%A8%E6%9C%BA/"
+AEROENGINE_TAG = "航空发动机"
+AEROENGINE_TAG_URL = "/tags/%E8%88%AA%E7%A9%BA%E5%8F%91%E5%8A%A8%E6%9C%BA/"
 LAZY_PLACEHOLDER = "/img/5-160914192R3.gif"
 POST_IDS = {
     "boeing-747": "ebc40a24",
@@ -184,6 +188,16 @@ def normalize_weekly(post: dict) -> dict:
     post["categoryUrl"] = WEEKLY_CATEGORY_URL
     post["tagName"] = WEEKLY_TAG
     post["tagUrl"] = WEEKLY_TAG_URL
+    return post
+
+
+def normalize_aeroengine(post: dict) -> dict:
+    post["nameZh"] = post["title"]
+    post["nameEn"] = post.get("subtitle", "")
+    post["categoryName"] = AEROENGINE_CATEGORY
+    post["categoryUrl"] = AEROENGINE_CATEGORY_URL
+    post["tagName"] = AEROENGINE_TAG
+    post["tagUrl"] = AEROENGINE_TAG_URL
     return post
 
 
@@ -598,7 +612,12 @@ def remove_related_section(text: str) -> str:
     return text[:start] + text[outer_close:]
 
 
-def purge_removed_posts(root: Path, profiles: list[dict], weekly_posts: list[dict]) -> None:
+def purge_removed_posts(
+    root: Path,
+    profiles: list[dict],
+    weekly_posts: list[dict],
+    aeroengine_posts: list[dict],
+) -> None:
     search_path = root / "search.xml"
     search = search_path.read_text(encoding="utf-8")
     for post_id in REMOVED_POST_IDS:
@@ -610,7 +629,11 @@ def purge_removed_posts(root: Path, profiles: list[dict], weekly_posts: list[dic
         )
     search_path.write_text(search, encoding="utf-8")
 
-    ordered = sorted(profiles + weekly_posts, key=lambda item: item["date"], reverse=True) + OLD_POSTS
+    ordered = sorted(
+        profiles + weekly_posts + aeroengine_posts,
+        key=lambda item: item["date"],
+        reverse=True,
+    ) + OLD_POSTS
     for post in OLD_POSTS:
         path = root / "p" / f"{post['postId']}.html"
         if not path.is_file():
@@ -669,10 +692,20 @@ def build_taxonomy_page(
     target.write_text(text, encoding="utf-8")
 
 
-def update_index_pages(root: Path, profiles: list[dict], weekly_posts: list[dict]) -> None:
+def update_index_pages(
+    root: Path,
+    profiles: list[dict],
+    weekly_posts: list[dict],
+    aeroengine_posts: list[dict],
+) -> None:
     aircraft_listing = render_grouped_listing(profiles)
     weekly_listing = render_grouped_listing(weekly_posts)
-    managed_posts = sorted(profiles + weekly_posts, key=lambda item: item["date"], reverse=True)
+    aeroengine_listing = render_grouped_listing(aeroengine_posts)
+    managed_posts = sorted(
+        profiles + weekly_posts + aeroengine_posts,
+        key=lambda item: item["date"],
+        reverse=True,
+    )
     managed_listing = render_grouped_listing(managed_posts)
     homepage_path = root / "index.html"
     homepage = homepage_path.read_text(encoding="utf-8")
@@ -698,6 +731,7 @@ def update_index_pages(root: Path, profiles: list[dict], weekly_posts: list[dict
         '<li class="categoryBar-list-item category-code"><a class="categoryBar-list-link" href="/categories/code%E8%AE%B0%E5%BD%95/">code记录</a><span class="categoryBar-list-count">1</span></li>'
         f'<li class="categoryBar-list-item category-aircraft"><a class="categoryBar-list-link" href="{CATEGORY_URL}">飞机资料整理</a><span class="categoryBar-list-count">{len(profiles) + legacy_category_count("飞机资料整理")}</span></li>'
         f'<li class="categoryBar-list-item category-cad-cae"><a class="categoryBar-list-link" href="{WEEKLY_CATEGORY_URL}">{WEEKLY_CATEGORY}</a><span class="categoryBar-list-count">{len(weekly_posts)}</span></li>'
+        f'<li class="categoryBar-list-item category-aeroengine"><a class="categoryBar-list-link" href="{AEROENGINE_CATEGORY_URL}">{AEROENGINE_CATEGORY}</a><span class="categoryBar-list-count">{len(aeroengine_posts)}</span></li>'
     )
     homepage = re.sub(
         r'(<ul class="categoryBar-list">).*?(</ul>)',
@@ -785,6 +819,24 @@ def update_index_pages(root: Path, profiles: list[dict], weekly_posts: list[dict
     )
     build_taxonomy_page(
         root,
+        Path("categories/飞机资料整理/index.html"),
+        Path("categories/航空发动机/index.html"),
+        "分类",
+        AEROENGINE_CATEGORY,
+        AEROENGINE_CATEGORY_URL,
+        aeroengine_listing,
+    )
+    build_taxonomy_page(
+        root,
+        Path("tags/航空/index.html"),
+        Path("tags/航空发动机/index.html"),
+        "标签",
+        AEROENGINE_TAG,
+        AEROENGINE_TAG_URL,
+        aeroengine_listing,
+    )
+    build_taxonomy_page(
+        root,
         Path("tags/航空/index.html"),
         Path("tags/CAD-CAE/index.html"),
         "标签",
@@ -811,12 +863,27 @@ def update_index_pages(root: Path, profiles: list[dict], weekly_posts: list[dict
         )
     else:
         categories = categories.replace("</ul></div></div>", weekly_category_item + "</ul></div></div>", 1)
+    aeroengine_category_item = f'<li class="category-list-item"><a class="category-list-link" href="{AEROENGINE_CATEGORY_URL}">{AEROENGINE_CATEGORY}</a><span class="category-list-count">{len(aeroengine_posts)}</span></li>'
+    if AEROENGINE_CATEGORY_URL in categories:
+        categories = re.sub(
+            rf'<li class="category-list-item"><a class="category-list-link" href="{re.escape(AEROENGINE_CATEGORY_URL)}">.*?</a><span class="category-list-count">\d+</span></li>',
+            aeroengine_category_item,
+            categories,
+            count=1,
+        )
+    else:
+        categories = categories.replace("</ul></div></div>", aeroengine_category_item + "</ul></div></div>", 1)
     categories_path.write_text(categories, encoding="utf-8")
 
 
-def update_search(root: Path, profiles: list[dict], weekly_posts: list[dict]) -> None:
+def update_search(
+    root: Path,
+    profiles: list[dict],
+    weekly_posts: list[dict],
+    aeroengine_posts: list[dict],
+) -> None:
     entries = []
-    for profile in profiles + weekly_posts:
+    for profile in profiles + weekly_posts + aeroengine_posts:
         article = profile.get("articleHtml") or render_article(profile)
         article = article.replace("]]>", "] ]>")
         entries.append(
@@ -840,8 +907,17 @@ def update_search(root: Path, profiles: list[dict], weekly_posts: list[dict]) ->
     path.write_text(text, encoding="utf-8")
 
 
-def update_global_shell(root: Path, profiles: list[dict], weekly_posts: list[dict]) -> None:
-    managed_posts = sorted(profiles + weekly_posts, key=lambda item: item["date"], reverse=True)
+def update_global_shell(
+    root: Path,
+    profiles: list[dict],
+    weekly_posts: list[dict],
+    aeroengine_posts: list[dict],
+) -> None:
+    managed_posts = sorted(
+        profiles + weekly_posts + aeroengine_posts,
+        key=lambda item: item["date"],
+        reverse=True,
+    )
     total_posts = len(managed_posts) + len(OLD_POSTS)
     recent_posts = (managed_posts + OLD_POSTS)[:5]
     latest_post_date = max(updated_date(post) for post in managed_posts + OLD_POSTS)
@@ -851,7 +927,7 @@ def update_global_shell(root: Path, profiles: list[dict], weekly_posts: list[dic
     category_item = '<li class="categoryBar-list-item"><a class="categoryBar-list-link" href="/aircraft/">飞机资料库</a><span class="categoryBar-list-count">4</span></li>'
     recent_prefix = '<div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list">'
     for path in root.rglob("*.html"):
-        if ".git" in path.parts or "aircraft" in path.parts:
+        if ".git" in path.parts or "tmp" in path.parts or "aircraft" in path.parts:
             continue
         text = path.read_text(encoding="utf-8")
         text = remove_legacy_gitcalendar(text)
@@ -872,13 +948,18 @@ def update_global_shell(root: Path, profiles: list[dict], weekly_posts: list[dic
             text,
         )
         text = re.sub(
+            rf'(<a class="categoryBar-list-link" href="{re.escape(AEROENGINE_CATEGORY_URL)}">{re.escape(AEROENGINE_CATEGORY)}</a><span class="categoryBar-list-count">)\d+(</span>)',
+            rf"\g<1>{len(aeroengine_posts)}\g<2>",
+            text,
+        )
+        text = re.sub(
             r'(<a href="/tags/"><div class="headline">标签</div><div class="length-num">)\d+(</div>)',
-            r"\g<1>3\g<2>",
+            r"\g<1>4\g<2>",
             text,
         )
         text = re.sub(
             r'(<a href="/categories/"><div class="headline">分类</div><div class="length-num">)\d+(</div>)',
-            r"\g<1>3\g<2>",
+            r"\g<1>4\g<2>",
             text,
         )
         text = re.sub(
@@ -910,9 +991,18 @@ def update_global_shell(root: Path, profiles: list[dict], weekly_posts: list[dic
         path.write_text(text, encoding="utf-8")
 
 
-def build_posts(root: Path, profiles: list[dict], weekly_posts: list[dict]) -> None:
+def build_posts(
+    root: Path,
+    profiles: list[dict],
+    weekly_posts: list[dict],
+    aeroengine_posts: list[dict],
+) -> None:
     template = (root / "p" / "ed3590dd.html").read_text(encoding="utf-8")
-    managed_posts = sorted(profiles + weekly_posts, key=lambda item: item["date"], reverse=True)
+    managed_posts = sorted(
+        profiles + weekly_posts + aeroengine_posts,
+        key=lambda item: item["date"],
+        reverse=True,
+    )
     ordered = managed_posts + OLD_POSTS
     for profile in managed_posts:
         article = profile.get("articleHtml") or render_article(profile)
@@ -937,6 +1027,20 @@ def load_weekly_posts(root: Path) -> list[dict]:
     if not data_path.is_file():
         return []
     posts = [normalize_weekly(post) for post in json.loads(data_path.read_text(encoding="utf-8"))]
+    for post in posts:
+        content_path = root / post["contentFile"]
+        post["articleHtml"] = content_path.read_text(encoding="utf-8")
+    return sorted(posts, key=lambda item: item["date"], reverse=True)
+
+
+def load_aeroengine_posts(root: Path) -> list[dict]:
+    data_path = root / "data" / "aeroengine_posts.json"
+    if not data_path.is_file():
+        return []
+    posts = [
+        normalize_aeroengine(post)
+        for post in json.loads(data_path.read_text(encoding="utf-8"))
+    ]
     for post in posts:
         content_path = root / post["contentFile"]
         post["articleHtml"] = content_path.read_text(encoding="utf-8")
@@ -975,12 +1079,17 @@ def main() -> None:
     profiles.sort(key=lambda item: item["date"], reverse=True)
     build_aircraft_assets(root, profiles)
     weekly_posts = load_weekly_posts(root)
-    build_posts(root, profiles, weekly_posts)
-    update_index_pages(root, profiles, weekly_posts)
-    update_search(root, profiles, weekly_posts)
-    update_global_shell(root, profiles, weekly_posts)
-    purge_removed_posts(root, profiles, weekly_posts)
-    print(f"Built {len(profiles)} aircraft articles and {len(weekly_posts)} CAD/CAE weekly articles")
+    aeroengine_posts = load_aeroengine_posts(root)
+    build_posts(root, profiles, weekly_posts, aeroengine_posts)
+    update_index_pages(root, profiles, weekly_posts, aeroengine_posts)
+    update_search(root, profiles, weekly_posts, aeroengine_posts)
+    update_global_shell(root, profiles, weekly_posts, aeroengine_posts)
+    purge_removed_posts(root, profiles, weekly_posts, aeroengine_posts)
+    print(
+        f"Built {len(profiles)} aircraft articles, "
+        f"{len(weekly_posts)} CAD/CAE weekly articles, and "
+        f"{len(aeroengine_posts)} aeroengine briefings"
+    )
 
 
 if __name__ == "__main__":
