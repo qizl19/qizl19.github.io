@@ -1,5 +1,246 @@
 [
   {
+    "slug": "hongdu-jl-10",
+    "nameZh": "教练-10“猎鹰”",
+    "nameEn": "Hongdu JL-10 / L-15 Falcon",
+    "eyebrow": "最新档案 · 第 6 期",
+    "subtitle": "中国双发高级教练机：连接基础飞行训练与现代战斗机改装训练",
+    "date": "2026-07-23",
+    "updated": "2026-07-23",
+    "nation": "中国",
+    "category": "高级教练机",
+    "era": "2000s—至今",
+    "tags": [
+      "军用",
+      "现役",
+      "教练机"
+    ],
+    "status": "现役 / 持续改进与出口",
+    "metrics": {
+      "firstFlightYear": 2006,
+      "lengthM": 12.27,
+      "wingspanM": 9.48,
+      "maxTakeoffWeightT": 9.8,
+      "speedLabel": "约 1,200 km/h；加力型公开口径可达 Mach 1.4",
+      "rangeLabel": "约 2,600 km；不同构型与任务口径存在差异"
+    },
+    "diagram": [
+      "初教-6：基础操纵与飞行习惯",
+      "教练-8：喷气基础与中级训练",
+      "教练-10：高级训练与战术入门",
+      "作战部队：改装歼击机并完成资格训练"
+    ],
+    "firstFlight": "L-15 原型机于 2006 年 3 月 13 日首飞",
+    "accent": "#375a7f",
+    "heroImage": "/p/eba98e13/jl10-001.jpg",
+    "model": {
+      "kind": "triposg-image-reconstruction",
+      "src": "/p/eba98e13/models/hongdu-jl-10-reference.glb",
+      "poster": "/p/eba98e13/jl10-002.jpg",
+      "author": "Qzl's Blog（使用 TripoSG 基于许可照片重建）",
+      "sourceUrl": "https://github.com/qizl19/qizl19.github.io/blob/main/tools/reconstruct_aircraft_triposg.py",
+      "license": "CC BY-SA 3.0 / GFDL 1.2（沿用输入照片许可）",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "inputImage": "/p/eba98e13/jl10-002.jpg",
+      "inputCredit": "3GO*CHN-405/mjordan_6",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:PLAAF_Hongdu_L-15_Falcon_Jordan.jpg",
+      "engine": "TripoSG",
+      "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "engineLicense": "MIT",
+      "outputSha256": "79b4f22776d99da1c5169b616973f2831462c51cdcf71f161408f29486c0d2b9",
+      "generation": {
+        "steps": 40,
+        "seed": 42,
+        "guidanceScale": 7,
+        "denseDepth": 8,
+        "hierarchicalDepth": 9,
+        "targetFaces": 80000,
+        "flashDecoder": false
+      },
+      "note": "输入为许可明确的 L-15 原型机前方三分之四照片；由 TripoSG 单图补全，候选结果对照后保留最大连续飞机主体，删除与主体断开的牵引带和背景碎片。最终网格 77,812 个三角面、1 个连通组件，能够辨识双发、梯形翼、单垂尾和前三点起落架总体外形，但不水密；遮挡侧、薄翼边缘和局部细节由模型推断。该模型是 JL-10/L-15 家族外形浏览示意，非工程 CAD，不可用于制造、仿真或逆向工程。"
+    },
+    "statement": "教练-10的核心价值不是追求某一项极限性能，而是用接近现代战斗机的操纵、航电和训练环境，把飞行学员更平滑地送入作战部队。",
+    "summary": "教练-10（出口代号 L-15“猎鹰”）是航空工业洪都研制的双发串列双座高级教练机。公开资料显示，L-15 原型机于 2006 年首飞，教练-10随后进入中国空军和海军航空兵院校，承担高级飞行、战术入门和向现代战斗机过渡的训练。由于 JL-10、JL-10H、L-15A 及加力型的发动机、航电和重量口径并不完全相同，本文把官方确认的训练角色与 L-15 家族公开规格分开呈现。",
+    "facts": [
+      {
+        "label": "首飞",
+        "value": "2006-03-13",
+        "note": "L-15 原型机公开记录"
+      },
+      {
+        "label": "总体布局",
+        "value": "双发、串列双座、中单翼",
+        "note": "两侧进气、单垂尾、前三点起落架"
+      },
+      {
+        "label": "长度",
+        "value": "约 12.27 m",
+        "note": "L-15 家族公开口径"
+      },
+      {
+        "label": "翼展",
+        "value": "约 9.48 m",
+        "note": "L-15 家族公开口径"
+      },
+      {
+        "label": "最大起飞重量",
+        "value": "约 9.5–9.8 t",
+        "note": "构型和资料口径不同"
+      },
+      {
+        "label": "公开航程",
+        "value": "约 2,600 km",
+        "note": "AVIC 2018 年公开口径"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "2005",
+        "event": "首架 L-15 原型机公开下线，项目进入飞行试验准备阶段。"
+      },
+      {
+        "year": "2006",
+        "event": "L-15 原型机于 3 月 13 日完成首飞，并在同年珠海航展静态亮相。"
+      },
+      {
+        "year": "2013 前后",
+        "event": "公开资料开始将教练-10列为进入中国军队训练体系的现役高级教练机。"
+      },
+      {
+        "year": "2018",
+        "event": "中国海军航空大学接收新型高级教练机，用于缩短学员向现代舰载战斗机训练过渡的链路。"
+      },
+      {
+        "year": "2020",
+        "event": "空军首批全程使用教练-10完成高级训练的飞行学员毕业并分配至作战部队。"
+      },
+      {
+        "year": "2023",
+        "event": "L-15A 以阿联酋涂装公开展示，数字电传、综合航电和全权限数字发动机控制成为官方宣传重点。"
+      },
+      {
+        "year": "2025",
+        "event": "5 架教练-10组成教练机梯队参加公开阅兵，显示其已成为飞行院校的重要训练装备。"
+      }
+    ],
+    "designPoints": [
+      "串列双座座舱采用前低后高布置，后舱教员具有较好的前向视野，便于示范、监控和接管操纵。",
+      "双发、两侧进气和单垂尾布局兼顾训练安全、亚声速/跨声速性能与维护空间；不同批次的发动机配置不能混为一谈。",
+      "中等后掠梯形翼配合前缘边条和翼身融合，有利于获得较好的大迎角操纵特性，同时仍需数字电传控制律协调稳定性与机动性。",
+      "开放式综合航电和可编程训练环境可模拟雷达、导航、任务管理与武器操作流程，使学员在进入作战部队前建立系统化座舱工作习惯。"
+    ],
+    "power": "教练-10/L-15 家族采用双发涡扇动力。中国国防部对 L-15A 的公开说明强调发动机配备全权限数字电子控制系统（FADEC），而不同原型、国内型和出口型是否带加力、具体发动机型号与额定推力并不完全一致。本文因此只确认“双发涡扇 + 数字控制”的家族特征，不把某一出口宣传数字当作所有 JL-10 批次的固定配置。工程上，双发可改善训练中的动力冗余，但也会增加采购、油耗、维护和备件成本。",
+    "variants": [
+      {
+        "name": "L-15 基础型",
+        "description": "项目与出口代号，承担高级飞行训练和战斗入门训练；早期原型机用于验证总体布局和飞控。"
+      },
+      {
+        "name": "JL-10 / 教练-10",
+        "description": "中国空军院校使用的国内型，公开重点是高级训练、战术入门和缩短飞行员向作战部队过渡时间。"
+      },
+      {
+        "name": "JL-10H",
+        "description": "面向海军航空兵训练体系的公开称谓，用于提高学员向舰载机等现代作战平台过渡的训练效率。"
+      },
+      {
+        "name": "L-15A",
+        "description": "公开出口与轻型作战训练构型，展示了空中受油、数字电传、综合航电和有限空地任务能力。"
+      },
+      {
+        "name": "加力/轻型作战改进型",
+        "description": "公开资料常称 L-15B 等改进型可实现更高超声速性能；具体批次、动力和载荷应以合同或制造商文件为准。"
+      }
+    ],
+    "strengths": [
+      "训练座舱、数字电传和综合航电更接近现代战斗机，有助于减少从学院到作战部队的能力断层。",
+      "双发和串列双座总体布局兼顾教学安全、教员接管与复杂科目训练。",
+      "同一平台可覆盖高级训练、战术入门和部分轻型任务，利于构建连续训练体系并拓展出口市场。"
+    ],
+    "limits": [
+      "JL-10、JL-10H、L-15A 与加力改进型的公开参数经常被混用，速度、航程、重量和发动机数据不能视为统一定值。",
+      "双发高级教练机的采购、油耗和维护成本通常高于单发或较简单的中级教练机，必须通过训练效率收益来平衡。",
+      "单图 AI 三维模型以 L-15 原型机照片为输入，遮挡侧和细节由算法补全，只能用于外形浏览。"
+    ],
+    "photos": [
+      {
+        "src": "/p/eba98e13/jl10-001.jpg",
+        "alt": "2024 年珠海航展地面展示的教练-10",
+        "caption": "2024 年珠海航展中的教练-10，前机身、串列座舱、两侧进气道、主翼和单垂尾清晰可见。",
+        "credit": "Z3144228",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hongdu_JL-10_in_Zhuhai_airshow_2024.jpg",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "src": "/p/eba98e13/jl10-002.jpg",
+        "alt": "L-15 猎鹰原型机前方三分之四视图",
+        "caption": "L-15 原型机完整前方三分之四视图；该图用于 TripoSG 外形重建输入，照片可见范围之外由模型推断。",
+        "credit": "3GO*CHN-405/mjordan_6",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:PLAAF_Hongdu_L-15_Falcon_Jordan.jpg",
+        "license": "CC BY-SA 3.0 / GFDL 1.2",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "src": "/p/eba98e13/jl10-003.jpg",
+        "alt": "2021 年迪拜航展上的 L-15 侧视图",
+        "caption": "2021 年迪拜航展静态展示的 L-15，可观察串列座舱、边条、进气道与前三点起落架关系。",
+        "credit": "Mztourist",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:HAIG_L15_at_Dubai_Air_Show_2021_side.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/p/eba98e13/jl10-004.jpg",
+        "alt": "2023 年迪拜航展阿联酋涂装 L-15A",
+        "caption": "2023 年迪拜航展上的阿联酋涂装 L-15A，反映该家族面向出口与训练/轻型任务的持续发展。",
+        "credit": "Mztourist",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:L-15_at_Dubai_Airshow_2023.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "中国军网：首批使用教练-10完成高级训练的空军学员毕业",
+        "url": "https://eng.chinamil.com.cn/CHINA_209163/TopStories_209189/9857204.html"
+      },
+      {
+        "label": "中国国防部：2025 年教练机梯队与教练-10训练角色",
+        "url": "https://www.mod.gov.cn/gfbw/wzll/yw_214068/16407698.html"
+      },
+      {
+        "label": "中国军网：AVIC 公开 L-15 双发、航电及 1,200 km/h / 2,600 km 口径",
+        "url": "https://eng.chinamil.com.cn/CHINA_209163/TopStories_209189/9252021.html"
+      },
+      {
+        "label": "中国国防部：L-15A 的数字电传、综合航电与发动机数字控制",
+        "url": "https://eng.mod.gov.cn/xb/News_213114/TopStories/16265208.html"
+      },
+      {
+        "label": "中国军网：L-15 与阿联酋出口合作",
+        "url": "https://eng.chinamil.com.cn/CHINA_209163/TopStories_209189/16204168.html"
+      },
+      {
+        "label": "中国军网：初教-6、教练-8、L-15 三级训练链",
+        "url": "https://eng.chinamil.com.cn/CHINA_209163/TopStories_209189/9667949.html"
+      },
+      {
+        "label": "中国军网：L-15 串列双座、双发、中单翼与翼身融合布局",
+        "url": "https://www.81.cn/jskj/2014-11/04/content_6209710_13.htm"
+      },
+      {
+        "label": "Shephard Military Aircraft Handbook 2022：L-15 家族尺寸交叉核验",
+        "url": "https://mags.shephardmedia.com/legacy-handbooks/MA2022.pdf"
+      },
+      {
+        "label": "Wikimedia Commons：JL-10/L-15 影像、首飞日期与许可记录",
+        "url": "https://commons.wikimedia.org/wiki/Category:Hongdu_JL-10"
+      }
+    ],
+    "postId": "eba98e13"
+  },
+  {
     "slug": "chengdu-j-10c",
     "nameZh": "歼-10C",
     "nameEn": "Chengdu J-10C",

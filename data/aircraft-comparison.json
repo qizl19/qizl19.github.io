@@ -1,5 +1,16 @@
 [
   {
+    "slug": "hongdu-jl-10",
+    "name": "教练-10“猎鹰”",
+    "url": "/p/eba98e13.html",
+    "firstFlightYear": 2006,
+    "lengthM": 12.27,
+    "wingspanM": 9.48,
+    "maxTakeoffWeightT": 9.8,
+    "speedLabel": "约 1,200 km/h；加力型公开口径可达 Mach 1.4",
+    "rangeLabel": "约 2,600 km；不同构型与任务口径存在差异"
+  },
+  {
     "slug": "chengdu-j-10c",
     "name": "歼-10C",
     "url": "/p/1b346d49.html",
