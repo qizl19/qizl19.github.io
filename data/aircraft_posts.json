@@ -1,5 +1,251 @@
 [
   {
+    "slug": "comac-c919",
+    "nameZh": "中国商飞 C919",
+    "nameEn": "COMAC C919",
+    "eyebrow": "最新档案 · 第 7 期",
+    "subtitle": "中国首款按国际适航标准自主研制的喷气式干线客机",
+    "date": "2026-07-25",
+    "updated": "2026-07-25",
+    "nation": "中国",
+    "category": "喷气式干线客机",
+    "era": "2010s—至今",
+    "tags": [
+      "民航",
+      "现役",
+      "干线客机"
+    ],
+    "status": "商业运营 / 持续交付",
+    "metrics": {
+      "firstFlightYear": 2017,
+      "lengthM": 38.9,
+      "wingspanM": 35.8,
+      "maxTakeoffWeightT": 75.05,
+      "speedLabel": "公开官方页面未形成统一巡航速度口径",
+      "rangeLabel": "4,075–5,555 km"
+    },
+    "diagram": [
+      "总体设计：客舱、气动与系统方案",
+      "适航验证：地面试验与飞行试验",
+      "型号合格：2022 年取得 CAAC 型号合格证",
+      "商业运营：交付航司并进入规模化航线验证"
+    ],
+    "firstFlight": "2017 年 5 月 5 日在上海浦东完成首飞",
+    "accent": "#28719b",
+    "heroImage": "/p/45eadabd/c919-001.webp",
+    "model": {
+      "kind": "triposg-image-reconstruction",
+      "src": "/p/45eadabd/models/comac-c919-reference.glb",
+      "poster": "/p/45eadabd/c919-001.webp",
+      "author": "Qzl's Blog（使用 TripoSG 基于许可照片重建）",
+      "sourceUrl": "https://github.com/qizl19/qizl19.github.io/blob/main/tools/reconstruct_aircraft_triposg.py",
+      "license": "CC BY-SA 4.0（沿用输入照片许可）",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "inputImage": "/p/45eadabd/c919-001.webp",
+      "inputCredit": "Liuboyoupeter",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:China_Eastern_Airlines_COMAC_C919_Airplane_B-919A.jpg",
+      "engine": "TripoSG",
+      "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "engineLicense": "MIT",
+      "outputSha256": "8340aa3af518289f21722be334e770dafa0fb4b28365287c420c363a15665cdb",
+      "generation": {
+        "steps": 40,
+        "seed": 42,
+        "guidanceScale": 7,
+        "denseDepth": 8,
+        "hierarchicalDepth": 9,
+        "targetFaces": 80000,
+        "flashDecoder": false
+      },
+      "note": "输入为许可明确的东航 C919 进近三分之四照片；由 TripoSG 单图补全，候选网格保留最大连续飞机主体并删除游离背景碎片。最终模型含 74,394 个三角面、1 个连通组件，能够辨识双发、后掠翼、单垂尾和前三点起落架总体外形，但并不水密。遮挡侧、薄翼边缘、舱门与起落架细节由模型推断；这是 AI 单图重建外形示意，非工程 CAD，不可用于制造、仿真或逆向工程。"
+    },
+    "statement": "C919 的意义不只在于完成一架客机，而在于把设计、适航验证、供应链、交付和航线运行串成一套可持续迭代的民机工程体系。",
+    "summary": "C919 是中国商飞按照国际适航标准自主研制的单通道喷气式干线客机。基线型公开座位数为 158–192，航程为 4,075–5,555 千米。飞机于 2017 年首飞，2022 年取得中国民航局型号合格证并完成首架交付，2023 年投入商业运营。本文优先采用中国商飞、中国民航局、航空公司和 CFM 的公开资料；对于不同构型、翼尖方案和运营口径造成的参数差异，分别标注来源与适用边界。",
+    "facts": [
+      {
+        "label": "首飞",
+        "value": "2017-05-05",
+        "note": "上海浦东国际机场"
+      },
+      {
+        "label": "座位数",
+        "value": "158–192",
+        "note": "中国商飞基线型公开范围"
+      },
+      {
+        "label": "航程",
+        "value": "4,075–5,555 km",
+        "note": "标准航程与增程构型公开范围"
+      },
+      {
+        "label": "机长",
+        "value": "38.90 m",
+        "note": "中国民航局公开典型参数"
+      },
+      {
+        "label": "翼展",
+        "value": "约 33.60–35.90 m",
+        "note": "公开文件及翼尖构型口径不同；图表采用 35.8 m 典型值"
+      },
+      {
+        "label": "最大起飞重量",
+        "value": "约 75.05 t",
+        "note": "中国民航局行业标准给出 735.98 kN，按标准重力换算"
+      },
+      {
+        "label": "动力",
+        "value": "2 × CFM LEAP-1C",
+        "note": "发动机、短舱与反推装置组成综合推进系统"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "2007",
+        "event": "大型客机重大专项立项，项目进入总体方案与工程组织阶段。"
+      },
+      {
+        "year": "2015-11-02",
+        "event": "首架 C919 总装下线，进入系统联试和首飞准备。"
+      },
+      {
+        "year": "2017-05-05",
+        "event": "C919 在上海浦东完成首飞，飞行试验和适航验证全面展开。"
+      },
+      {
+        "year": "2022-09-29",
+        "event": "中国民航局向 C919 颁发型号合格证。"
+      },
+      {
+        "year": "2022-12-09",
+        "event": "全球首架 C919 交付中国东方航空。"
+      },
+      {
+        "year": "2023-05-28",
+        "event": "东航 C919 完成首次商业载客飞行，转入航线运营验证。"
+      },
+      {
+        "year": "2024-08-28",
+        "event": "国航与南航接收各自首架 C919，运营主体进一步扩展。"
+      },
+      {
+        "year": "2025-05-27",
+        "event": "东航公布 C919 累计商业飞行超过 11,400 班、承运旅客超过 157 万人次。"
+      }
+    ],
+    "designPoints": [
+      "单通道、下单翼、翼吊双发和常规尾翼构成成熟的干线客机总体布局，便于机场保障、航线运营和维修体系衔接。",
+      "机体结构综合采用铝合金、钛合金、复合材料和铝锂合金；材料选择服务于重量、疲劳、损伤容限、制造与维护之间的平衡。",
+      "数字电传飞控、综合航电与高度集成的机载系统需要通过系统安全分析、地面试验、飞行试验和适航符合性验证共同闭环。",
+      "不同航司的客舱密度和航程构型并不相同：国航首架增程型为 158 座，南航首架标准型为 164 座，不能把座位数与最大航程简单绑定。"
+    ],
+    "power": "C919 采用两台 CFM LEAP-1C 涡扇发动机。LEAP-1C 的发动机本体、短舱、进气道和反推装置以综合推进系统方式与飞机匹配，CFM 公告显示其在 C919 首飞前已取得 FAA 与 EASA 联合认证。高涵道比、先进材料和全权限数字发动机控制服务于油耗、排放、噪声和维护性目标；但实际航线经济性仍取决于构型、航段长度、载荷、气象、签派和维修保障，不能由单一台架参数推断。",
+    "variants": [
+      {
+        "name": "C919 标准航程型",
+        "description": "中国商飞公开航程范围下的基础构型；航司可按市场和客舱产品选择不同座椅布局。"
+      },
+      {
+        "name": "C919 增程型",
+        "description": "面向更长航段的构型；国航首架公开为 158 座增程型。"
+      },
+      {
+        "name": "航司客舱构型",
+        "description": "东航、国航和南航的首批飞机在座椅数量、舱等设置和客舱产品上存在差异，不能视为独立气动型号。"
+      }
+    ],
+    "strengths": [
+      "形成从总体设计、试验验证、适航取证到商业运营的完整国产干线客机工程链。",
+      "158–192 座和 4,075–5,555 千米航程覆盖国内外大量高频中短程市场。",
+      "进入多家航司后，真实运行数据可持续反馈可靠性、维修方案和产品改进。"
+    ],
+    "limits": [
+      "不同公开文件对翼展、重量和构型口径并不完全一致，机场运行和维修必须以获批准的具体机号资料为准。",
+      "持续扩大机队规模需要同步建设航材、维修、培训、运行控制和供应链保障能力。",
+      "单图 AI 三维模型只复现公开可见外形，遮挡侧和薄壁细节由算法补全，不能代表真实尺寸或工程结构。"
+    ],
+    "photos": [
+      {
+        "src": "/p/45eadabd/c919-001.webp",
+        "alt": "中国东方航空 C919 B-919A 进近",
+        "caption": "东航 B-919A 进近，完整展示 C919 的机身、后掠翼、翼吊双发、尾翼和前三点起落架；该图同时作为 TripoSG 单图重建输入。",
+        "credit": "Liuboyoupeter",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:China_Eastern_Airlines_COMAC_C919_Airplane_B-919A.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/p/45eadabd/c919-002.webp",
+        "alt": "中国商飞 C919 B-001C 首飞构型起飞",
+        "caption": "试飞阶段 C919 B-001C 起飞，可观察机翼、起落架和发动机短舱的总体关系。",
+        "credit": "Ken Chen",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:COMAC_C919_-_Commercial_Aircraft_Corporation_Of_China_AN4748979.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/p/45eadabd/c919-003.webp",
+        "alt": "C919 的 CFM LEAP-1C 发动机短舱特写",
+        "caption": "C919 的 LEAP-1C 发动机与短舱特写，展示大直径风扇、进气唇口与翼下吊挂位置。",
+        "credit": "AppleSteveGao",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:LEAP-1C_(tight_crop).png",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/p/45eadabd/c919-004.webp",
+        "alt": "中国南方航空 C919 在广州白云机场廊桥",
+        "caption": "南航 C919 在广州白云机场廊桥，反映机型已进入多航司商业运营与地面保障场景。",
+        "credit": "Lhzss8",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:China_Southern_Airline_C919_at_CAN.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "中国商飞：C919 产品页、座位/航程与里程碑",
+        "url": "https://english.comac.cc/products/ca/index.shtml"
+      },
+      {
+        "label": "中国商飞：国航、南航接收首架 C919",
+        "url": "https://english.comac.cc/news/latest/202408/30/t20240830_7391502.shtml"
+      },
+      {
+        "label": "中国民航局：C919 获颁型号合格证",
+        "url": "https://www.caac.gov.cn/XWZX/MHYW/202209/t20220930_215523.html"
+      },
+      {
+        "label": "中国民航适航审定中心：C919 审定试飞与试验边界",
+        "url": "https://acc.caac.gov.cn/ZTZL/C919_ZT/202308/t20230816_1563.html"
+      },
+      {
+        "label": "中国民航局：航空器应急搬移相关典型参数",
+        "url": "https://www.caac.gov.cn/XXGK/XXGK/GFXWJ/202412/P020241231576572477756.pdf"
+      },
+      {
+        "label": "中国民航局行业标准：机场道面评价参数（C919 重量口径）",
+        "url": "https://www.caac.gov.cn/PHONE/HDJL/YJZJ/202312/P020231229522888994106.pdf"
+      },
+      {
+        "label": "中国东方航空：C919 商业运营两周年数据",
+        "url": "https://globalgt.ceair.com/global/static/Announcement/AnnouncementMessage/chinaeasternnewstest/202505/t20250528_28226.html"
+      },
+      {
+        "label": "中国东方航空 2025 年中期报告：机队中的 C919",
+        "url": "https://www.ceair.com/global/en_static/AboutChinaEasternAirlines/intoEasternAirlines/InvestorRelations/announcement/HongKongStockExchange/hkExcReleased2025_1/202509/P020250928322819810536.pdf"
+      },
+      {
+        "label": "CFM：LEAP-1C 综合推进系统取得 FAA/EASA 认证",
+        "url": "https://www.geaerospace.com/news/press-releases/joint-ventures/cfm-leap-1c-integrated-propulsion-system-achieves-joint-easa-faa"
+      },
+      {
+        "label": "CFM：LEAP-1C 动力 C919 完成首飞",
+        "url": "https://www.cfmaeroengines.com/press-articles/cfm-leap-1c-powered-comac-c919-completes-successful-maiden-flight"
+      }
+    ],
+    "postId": "45eadabd"
+  },
+  {
     "slug": "hongdu-jl-10",
     "nameZh": "教练-10“猎鹰”",
     "nameEn": "Hongdu JL-10 / L-15 Falcon",

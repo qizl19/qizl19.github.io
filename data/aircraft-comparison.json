@@ -1,5 +1,16 @@
 [
   {
+    "slug": "comac-c919",
+    "name": "中国商飞 C919",
+    "url": "/p/45eadabd.html",
+    "firstFlightYear": 2017,
+    "lengthM": 38.9,
+    "wingspanM": 35.8,
+    "maxTakeoffWeightT": 75.05,
+    "speedLabel": "公开官方页面未形成统一巡航速度口径",
+    "rangeLabel": "4,075–5,555 km"
+  },
+  {
     "slug": "hongdu-jl-10",
     "name": "教练-10“猎鹰”",
     "url": "/p/eba98e13.html",
