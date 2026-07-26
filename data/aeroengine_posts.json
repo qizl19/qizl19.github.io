@@ -1,5 +1,78 @@
 [
   {
+    "issue": 2,
+    "slug": "aeroengine-02-corrected-parameters-compressor-map",
+    "postId": "bdbfd129",
+    "title": "航空发动机学习简报｜第02期｜修正转速、修正流量与压气机特性图",
+    "subtitle": "把不同高度和温度下的压气机数据放回同一张图",
+    "type": "基础与前置知识",
+    "date": "2026-07-25",
+    "updated": "2026-07-25",
+    "heroImage": "/p/bdbfd129/aeroengine-corrected-map-cover.webp",
+    "summary": "从进口总温总压出发，推导修正转速与修正流量，复算两个环境状态如何折叠为同一相似工作点，并学会读取压气机图中的等修正转速线、喘振边界、堵塞端、效率岛和整机工作线。",
+    "contentFile": "data/aeroengine/2026-07-25-corrected-parameters.html",
+    "keyConcepts": [
+      "修正转速",
+      "修正流量",
+      "相似准则",
+      "压气机特性图",
+      "喘振边界",
+      "效率岛",
+      "工作线"
+    ],
+    "headings": [
+      {"id": "本期问题与学习目标", "title": "本期问题与学习目标"},
+      {"id": "核心结论", "title": "核心结论"},
+      {"id": "为什么要修正", "title": "为什么要修正"},
+      {"id": "修正转速与修正流量", "title": "修正转速与修正流量"},
+      {"id": "压气机特性图怎么读", "title": "压气机特性图怎么读"},
+      {"id": "可复算的简化算例", "title": "可复算的简化算例"},
+      {"id": "工程分析与数据处理步骤", "title": "工程分析与数据处理步骤"},
+      {"id": "常见误区与失效边界", "title": "常见误区与失效边界"},
+      {"id": "与整机控制及其他部件的耦合", "title": "与整机、控制及其他部件的耦合"},
+      {"id": "自测题", "title": "自测题"},
+      {"id": "答案与下一期衔接", "title": "答案与下一期衔接"},
+      {"id": "参考资料与图示许可", "title": "参考资料与图示许可"}
+    ],
+    "validationNeedles": [
+      "Nc = N / √θ",
+      "Wc = W · √θ / δ",
+      "110.34 kg/s",
+      "喘振边界",
+      "堵塞端"
+    ],
+    "figures": [
+      {
+        "src": "/p/bdbfd129/corrected-parameter-normalization.svg",
+        "fallback": "/p/bdbfd129/corrected-parameter-normalization.png",
+        "title": "进口环境变化与修正参数归一化",
+        "author": "Qzl's Blog",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceData": "/data/aeroengine/corrected-parameter-example.csv"
+      },
+      {
+        "src": "/p/bdbfd129/compressor-map-schematic.svg",
+        "fallback": "/p/bdbfd129/compressor-map-schematic.png",
+        "title": "压气机修正特性图读法",
+        "author": "Qzl's Blog",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceData": "/data/aeroengine/compressor-map-schematic.csv"
+      }
+    ],
+    "sources": [
+      {"title": "NASA/TM-2014-216663：T-MATS User's Guide", "url": "https://ntrs.nasa.gov/citations/20140012486"},
+      {"title": "NASA/TM-2007-214690：NPSS User Guide", "url": "https://ntrs.nasa.gov/citations/20070018165"},
+      {"title": "NASA/TM-2010-216831：C-MAPSS40k", "url": "https://ntrs.nasa.gov/citations/20100037767"},
+      {"title": "NASA Glenn：Corrected Airflow per Area", "url": "https://www.grc.nasa.gov/WWW/K-12/airplane/wcora.html"},
+      {"title": "NASA-CR-159812：Core Compressor Exit Stage Study", "url": "https://ntrs.nasa.gov/citations/19800014823"},
+      {"title": "NASA-TM-X-3515：J85-13 Compressor with Distorted Inlet Flow", "url": "https://ntrs.nasa.gov/citations/19770017195"},
+      {"title": "FAA Aviation Maintenance Technician Handbook—Powerplant", "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/faa-h-8083-32b-aviation-maintenance-technician"}
+    ],
+    "nextTopic": "压气机工作线与喘振裕度"
+  },
+  {
     "issue": 1,
     "slug": "aeroengine-01-brayton-cycle-matching",
     "postId": "5d68a0e8",

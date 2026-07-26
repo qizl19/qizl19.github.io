@@ -1047,6 +1047,35 @@ def load_aeroengine_posts(root: Path) -> list[dict]:
     return sorted(posts, key=lambda item: item["date"], reverse=True)
 
 
+def update_category_backgrounds(
+    root: Path,
+    weekly_posts: list[dict],
+    aeroengine_posts: list[dict],
+) -> None:
+    css_path = root / "css" / "index.css"
+    if not css_path.is_file():
+        return
+    css = css_path.read_text(encoding="utf-8")
+    selectors = (
+        ("category-cad-cae", weekly_posts, "0.58"),
+        ("category-aeroengine", aeroengine_posts, "0.62"),
+    )
+    for class_name, posts, lower_opacity in selectors:
+        if not posts:
+            continue
+        hero = posts[0]["heroImage"]
+        pattern = (
+            rf"(li\.categoryBar-list-item\.{re.escape(class_name)}\s*\{{.*?"
+            rf"background-image:\s*linear-gradient\(rgba\(0,0,0,0\.12\) 15%, "
+            rf"rgba\(0,0,0,{re.escape(lower_opacity)}\) 100%\), url\(')[^']+"
+            rf"('\) !important;)"
+        )
+        css, count = re.subn(pattern, rf"\g<1>{hero}\g<2>", css, count=1, flags=re.S)
+        if count != 1:
+            raise RuntimeError(f"Could not update category background for {class_name}")
+    css_path.write_text(css, encoding="utf-8")
+
+
 def build_aircraft_assets(root: Path, profiles: list[dict]) -> None:
     comparison = []
     for profile in profiles:
@@ -1080,6 +1109,7 @@ def main() -> None:
     build_aircraft_assets(root, profiles)
     weekly_posts = load_weekly_posts(root)
     aeroengine_posts = load_aeroengine_posts(root)
+    update_category_backgrounds(root, weekly_posts, aeroengine_posts)
     build_posts(root, profiles, weekly_posts, aeroengine_posts)
     update_index_pages(root, profiles, weekly_posts, aeroengine_posts)
     update_search(root, profiles, weekly_posts, aeroengine_posts)

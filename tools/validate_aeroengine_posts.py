@@ -8,7 +8,7 @@ from pathlib import Path
 
 CATEGORY_URL = "/categories/%E8%88%AA%E7%A9%BA%E5%8F%91%E5%8A%A8%E6%9C%BA/"
 TAG_URL = "/tags/%E8%88%AA%E7%A9%BA%E5%8F%91%E5%8A%A8%E6%9C%BA/"
-REQUIRED_SECTIONS = [
+BRIEFING_01_SECTIONS = [
     "本期问题与学习目标",
     "核心结论",
     "站位与总参数",
@@ -22,6 +22,7 @@ REQUIRED_SECTIONS = [
     "答案与下一期衔接",
     "参考资料与图示许可",
 ]
+BRIEFING_01_NEEDLES = ["Tt3s", "πc", "轴功平衡", "ηth", "Pt5/Pt0≈3.83"]
 
 
 def main() -> None:
@@ -46,6 +47,7 @@ def main() -> None:
     if len({post.get("postId") for post in posts}) != len(posts):
         errors.append("Duplicate postId")
 
+    character_counts: dict[int, int] = {}
     for post in posts:
         source = root / post["contentFile"]
         page = root / "p" / f"{post['postId']}.html"
@@ -55,16 +57,19 @@ def main() -> None:
         source_html = source.read_text(encoding="utf-8")
         plain = re.sub(r"<[^>]+>", " ", source_html)
         cjk_count = len(re.findall(r"[\u4e00-\u9fff]", plain))
+        character_counts[int(post["issue"])] = cjk_count
         if not 2500 <= cjk_count <= 4500:
             errors.append(f"Chinese character count out of range in {source.name}: {cjk_count}")
         if len(re.findall(r"<li>", source_html)) < 20:
             errors.append(f"Insufficient structured steps/tests in {source.name}")
         if len(re.findall(r"<h2 id=", source_html)) != len(post["headings"]):
             errors.append(f"Source heading count mismatch in {source.name}")
-        for required in REQUIRED_SECTIONS:
+        required_sections = [heading["title"] for heading in post["headings"]]
+        for required in required_sections:
             if required not in source_html:
                 errors.append(f"Missing section {required} in {source.name}")
-        for formula in ["Tt3s", "πc", "轴功平衡", "ηth", "Pt5/Pt0≈3.83"]:
+        validation_needles = post.get("validationNeedles", BRIEFING_01_NEEDLES)
+        for formula in validation_needles:
             if formula not in source_html:
                 errors.append(f"Missing formula or result {formula} in {source.name}")
         for source_item in post.get("sources", []):
@@ -84,7 +89,7 @@ def main() -> None:
             errors.append(f"Missing generated page: {page}")
             continue
         content = page.read_text(encoding="utf-8")
-        for required in [post["title"], post["subtitle"], *REQUIRED_SECTIONS]:
+        for required in [post["title"], post["subtitle"], *required_sections]:
             if required not in content:
                 errors.append(f"Missing {required} in {page.name}")
         if f'href="{CATEGORY_URL}"' not in content or f'href="{TAG_URL}"' not in content:
@@ -102,7 +107,7 @@ def main() -> None:
         root / "categories" / "航空发动机" / "index.html": [newest["title"]],
         root / "tags" / "航空发动机" / "index.html": [newest["title"]],
         root / "archives" / "index.html": [newest["title"]],
-        root / "search.xml": [newest["title"], "轴功平衡"],
+        root / "search.xml": [newest["title"], newest.get("validationNeedles", BRIEFING_01_NEEDLES)[0]],
         root / "css" / "index.css": [".category-aeroengine", newest["heroImage"]],
     }
     for path, needles in checks.items():
@@ -126,7 +131,8 @@ def main() -> None:
         raise SystemExit(1)
     print(
         f"Validation passed: {len(posts)} aeroengine briefing(s), "
-        f"{len(REQUIRED_SECTIONS)} sections, {cjk_count} Chinese characters"
+        f"{len(newest['headings'])} latest sections, "
+        f"{character_counts[int(newest['issue'])]} latest Chinese characters"
     )
 
 

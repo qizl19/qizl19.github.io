@@ -108,13 +108,16 @@ def render_section(root: Path, body: str, styles: dict[str, ParagraphStyle]):
     return flows
 
 
-def page_footer(canvas, doc) -> None:
-    canvas.saveState()
-    canvas.setFont("MicrosoftYaHei", 8)
-    canvas.setFillColor(colors.HexColor("#607487"))
-    canvas.drawString(20 * mm, 11 * mm, "航空发动机学习简报 · 第 01 期")
-    canvas.drawRightString(190 * mm, 11 * mm, f"{doc.page}")
-    canvas.restoreState()
+def make_page_footer(issue: int):
+    def page_footer(canvas, doc) -> None:
+        canvas.saveState()
+        canvas.setFont("MicrosoftYaHei", 8)
+        canvas.setFillColor(colors.HexColor("#607487"))
+        canvas.drawString(20 * mm, 11 * mm, f"航空发动机学习简报 · 第 {issue:02d} 期")
+        canvas.drawRightString(190 * mm, 11 * mm, f"{doc.page}")
+        canvas.restoreState()
+
+    return page_footer
 
 
 def build(root: Path, post: dict, output: Path) -> None:
@@ -177,20 +180,25 @@ def build(root: Path, post: dict, output: Path) -> None:
         title=post["title"], author="Qzl's Blog",
     )
     hero = root / post["heroImage"].lstrip("/")
+    issue = int(post["issue"])
+    topic = post["title"].split("｜")[-1].strip()
     story = [
         Spacer(1, 10 * mm),
         Paragraph("航空发动机学习简报", styles["title"]),
         Spacer(1, 3 * mm),
-        Paragraph("第 01 期 · Brayton 循环与部件匹配", styles["subtitle"]),
+        Paragraph(f"第 {issue:02d} 期 · {html.escape(topic)}", styles["subtitle"]),
         Spacer(1, 8 * mm),
         Image(str(hero), width=170 * mm, height=95.625 * mm),
         Spacer(1, 8 * mm),
         Paragraph(post["summary"], styles["quote"]),
         Spacer(1, 5 * mm),
-        Paragraph("基础与前置知识　｜　2026-07-22　｜　预计学习 12-15 分钟", styles["subtitle"]),
+        Paragraph(
+            f'{html.escape(post["type"])}　｜　{html.escape(post["date"])}　｜　预计学习 12-15 分钟',
+            styles["subtitle"],
+        ),
         PageBreak(),
     ]
-    page_break_after = {2, 4, 5, 7, 9}
+    page_break_after = {2, 4, 5, 7}
     for index, ((_, body), heading) in enumerate(zip(sections, post["headings"]), 1):
         story.append(Paragraph(f"{index:02d}　{html.escape(heading['title'])}", styles["h2"]))
         story.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor("#b8cbd8")))
@@ -199,7 +207,8 @@ def build(root: Path, post: dict, output: Path) -> None:
         if index in page_break_after:
             story.append(PageBreak())
 
-    doc.build(story, onFirstPage=page_footer, onLaterPages=page_footer)
+    footer = make_page_footer(issue)
+    doc.build(story, onFirstPage=footer, onLaterPages=footer)
 
 
 def main() -> None:

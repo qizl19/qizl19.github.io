@@ -228,7 +228,132 @@
 </ul>
 
 <blockquote><p><strong>方法与边界：</strong>本报告只将检索窗口内、可由官方发布 / 仓库 / 论文原文或明确时间戳的社区帖子核验的信息列为“本周变化”。开发主干与 weekly / WIP / Beta 均不等同于正式发布；社区帖子仅作为问题信号。商业 CATIA 的授权门户内容可能不在公开检索范围内。</p></blockquote>
-]]></content><categories><category> CAD/CAE 生态周报 </category></categories><tags><tag> CAD/CAE </tag></tags></entry><entry><title>航空发动机学习简报｜第01期｜Brayton 循环与部件匹配</title><link href="/p/5d68a0e8.html"/><url>/p/5d68a0e8.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 01 期</strong></p>
+]]></content><categories><category> CAD/CAE 生态周报 </category></categories><tags><tag> CAD/CAE </tag></tags></entry><entry><title>航空发动机学习简报｜第02期｜修正转速、修正流量与压气机特性图</title><link href="/p/bdbfd129.html"/><url>/p/bdbfd129.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 02 期</strong></p>
+<p><strong>副题：</strong>把不同高度和温度下的压气机数据放回同一张图</p>
+<p><strong>主题类型：</strong>基础与前置知识　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-07-25</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote>
+  <p><strong>本期问题：</strong>同一台压气机在地面热天和高空冷态下，即使叶片相对流动相似，实际转速与质量流量为什么不同？工程师怎样用修正转速、修正流量和特性图把这些状态放到同一套可比较坐标中？</p>
+</blockquote>
+<p>学完本期，你应当能够：从进口总温、总压计算修正转速和修正流量；解释修正量背后的相似准则；识别压气机特性图中的等修正转速线、喘振边界、堵塞端、效率岛和工作线；用一个公开口径的简化算例复算归一化过程；判断环境变化、进气损失和控制动作如何推动工作点移动。</p>
+<p><strong>前置知识：</strong>需要理解第 01 期的站位、总温总压、压气机总压比和轴功平衡。本文以站位 2 的压气机进口总参数为边界；若资料使用风扇进口、核心机进口或其他站位，必须先统一定义。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol>
+  <li><strong>修正量不是传感器误差补偿。</strong>它把进口总温、总压对密度、声速和叶尖相对马赫数的影响移出，使不同环境下的压气机状态可按相似条件比较。</li>
+  <li><strong>修正转速主要保持速度尺度相似。</strong>在几何不变、气体性质近似不变时，<code>Nc=N/√θ</code>使叶尖速度相对于进口声速的比例得到归一化。</li>
+  <li><strong>修正流量同时考虑温度与压力。</strong><code>Wc=W·√θ/δ</code>把质量流量折算到参考总温总压；它仍然依赖站位、单位和参考状态，不能脱离定义比较。</li>
+  <li><strong>特性图是部件工作域，不是一条“最佳曲线”。</strong>一条等修正转速线连接同一速度尺度下从近喘振到近堵塞的状态；效率岛和工作线必须与喘振裕度、涡轮匹配和控制限制一起读。</li>
+  <li><strong>相似准则有边界。</strong>雷诺数、间隙、表面粗糙度、进气畸变、可调静子、放气、湿空气和高温真实气体效应不一定被两个修正量完全消除。</li>
+</ol>
+
+<h2 id="为什么要修正"><a href="#为什么要修正" class="headerlink" title="为什么要修正"></a>为什么要修正</h2>
+<p>压气机叶片看到的并不是“每分钟多少转”这一孤立数字，而是叶尖速度、进口轴向速度、声速、密度和流道几何共同形成的速度三角形。进口总温降低时，声速尺度约按 <code>√Tt</code>下降；同一实际转速会对应更高的相对马赫数。进口总压降低时，密度尺度下降；为了保持相似的流量系数，实际质量流量也应随之变化。</p>
+<p>因此，若把高空试验的实际转速和流量直接与海平面台架数据比较，差异中既包含压气机气动变化，也混入环境状态变化。修正量的目的，就是把后者按参考状态折算出去。NASA 的 NPSS、TMATS 与 C-MAPSS 等公开模型都以修正转速、修正流量、压比和效率组织部件特性图，因为循环求解器需要在不同高度、马赫数与控制状态下重复调用同一套部件数据。</p>
+<p>修正前的两个点可以相距很远，修正后却可能落到同一个相似工作点。这个“折叠”并不证明两点所有损失完全相同，只说明在采用的简化相似关系下，它们的主要速度和流量尺度相当。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/bdbfd129/corrected-parameter-normalization.svg" alt="不同进口总温总压下实际转速流量折算为同一修正工作点的原创工程图">
+  <figcaption>图 1　两个环境条件的实际读数不同，但按 Tref=288.15 K、Pref=101.325 kPa 修正后落到同一教学工作点。数据与计算过程见公开 CSV；原创图，CC BY 4.0。</figcaption>
+</figure>
+
+<h2 id="修正转速与修正流量"><a href="#修正转速与修正流量" class="headerlink" title="修正转速与修正流量"></a>修正转速与修正流量</h2>
+<p>令压气机进口总温、总压分别为 <code>Tt,in</code> [K] 和 <code>Pt,in</code> [kPa]；参考状态为 <code>Tref</code> 与 <code>Pref</code>；实际机械转速为 <code>N</code> [rpm]，实际质量流量为 <code>W</code> [kg/s]。先定义无量纲环境比：</p>
+<div class="aeroengine-formula"><strong>温度比：</strong> θ = Tt,in / Tref　　<strong>压力比：</strong> δ = Pt,in / Pref</div>
+<div class="aeroengine-formula"><strong>修正转速：</strong> Nc = N / √θ</div>
+<div class="aeroengine-formula"><strong>修正流量：</strong> Wc = W · √θ / δ</div>
+<p><code>Nc</code>仍用 rpm，<code>Wc</code>仍用 kg/s；“修正”来自参考状态，而不是变成无量纲量。若需要无量纲特性图，还可再除以设计点修正值，得到 <code>Nc/Nc,design</code> 与 <code>Wc/Wc,design</code>。一些软件把参考温度、压力或设计点缩放直接吸收到表格中，因此导入特性图前必须查清定义，不能只凭变量名 <code>Wc</code> 或 <code>Nc</code>猜公式。</p>
+<p>物理上，<code>N/√Tt</code>与叶尖速度相对于声速的尺度有关；<code>W√Tt/Pt</code>与质量流量参数有关。这个推导采用准一维、理想气体、几何固定和气体性质近似不变。若跨越大温度范围、组分明显变化或雷诺数效应显著，应使用更完整的相似参数或单独修正。</p>
+
+<h2 id="压气机特性图怎么读"><a href="#压气机特性图怎么读" class="headerlink" title="压气机特性图怎么读"></a>压气机特性图怎么读</h2>
+<p>典型压气机图以修正流量为横轴、总压比 <code>πc=Pt,out/Pt,in</code>为纵轴。每条等修正转速线从左侧近喘振区域延伸到右侧近堵塞区域；高修正转速线通常能达到更高压比和更大通流能力，但真实线形取决于级数、几何和可调机构。</p>
+<ul>
+  <li><strong>喘振边界：</strong>连接各转速线低流量端的稳定性边界。继续减小流量或增加背压，可能先出现旋转失速并进一步发展为系统级喘振。</li>
+  <li><strong>堵塞端：</strong>流道某处接近声速限制后，进一步降低背压也难以显著增加修正流量；“堵塞”不等于所有叶排同时达到马赫数 1。</li>
+  <li><strong>效率岛：</strong>相同等熵效率的闭合曲线。最高效率区通常位于工作域内部，但发动机设计不能只追求峰值效率，还要保留稳定裕度和瞬态通道。</li>
+  <li><strong>工作线：</strong>压气机与涡轮、喷管、燃油和可调几何在一系列稳态条件下匹配得到的轨迹。它不是压气机单独指定的，也会随发动机安装和控制规律改变。</li>
+</ul>
+<figure class="aeroengine-figure">
+  <img src="/p/bdbfd129/compressor-map-schematic.svg" alt="含等修正转速线喘振边界工作线堵塞端和效率岛的压气机特性图">
+  <figcaption>图 2　压气机特性图读法。曲线由明确的教学函数生成，不代表任何真实型号的台架数据；横轴与转速均按设计点归一化，原创图，CC BY 4.0。</figcaption>
+</figure>
+
+<h2 id="可复算的简化算例"><a href="#可复算的简化算例" class="headerlink" title="可复算的简化算例"></a>可复算的简化算例</h2>
+<p><strong>已知：</strong>某次试验在压气机进口测得 <code>Tt,in=270 K</code>、<code>Pt,in=80.0 kPa</code>、<code>N=9000 rpm</code>、<code>W=90.0 kg/s</code>。取参考状态 <code>Tref=288.15 K</code>、<code>Pref=101.325 kPa</code>。所有压力都用绝对压力，总温用开尔文。</p>
+<ol>
+  <li>计算环境比：<code>θ=270/288.15=0.9370</code>，<code>δ=80.0/101.325=0.7895</code>。</li>
+  <li>修正转速：<code>Nc=9000/√0.9370=9298 rpm</code>。</li>
+  <li>修正流量：<code>Wc=90.0×√0.9370/0.7895=110.34 kg/s</code>。</li>
+  <li>反算核对：<code>N=Nc√θ≈9000 rpm</code>，<code>W=Wcδ/√θ≈90.0 kg/s</code>，说明代数闭合。</li>
+</ol>
+<p>若另一个状态为 <code>Tt,in=310 K</code>、<code>Pt,in=95 kPa</code>，希望保持同一教学修正点 <code>Nc=9298 rpm</code>、<code>Wc=110.34 kg/s</code>，则实际转速约为 <code>9644 rpm</code>，实际流量约为 <code>99.74 kg/s</code>。这两个实际点不同，但在简化相似关系下可落入同一张特性图的同一点。</p>
+<p><strong>边界提醒：</strong>若把 80 kPa 误当成表压、把 270 ℃直接代入，或把静压静温当作进口总参数，结果都会失去物理意义。测点位置、传感器恢复、进气道损失和单位必须先审计。</p>
+
+<h2 id="工程分析与数据处理步骤"><a href="#工程分析与数据处理步骤" class="headerlink" title="工程分析与数据处理步骤"></a>工程分析与数据处理步骤</h2>
+<ol>
+  <li><strong>确认站位与参考状态：</strong>记录 Tt、Pt 的测点、参考温度压力、绝对/表压、质量流量与转速单位；同一项目只保留一套明确定义。</li>
+  <li><strong>清洗测量数据：</strong>剔除未稳态区间、传感器越界和时间不同步数据；对总压耙、流量计与转速信号保留校准和不确定度。</li>
+  <li><strong>计算 θ、δ、Nc、Wc：</strong>逐点计算并做反算闭合；将公式、参考状态和软件版本写入数据字典。</li>
+  <li><strong>构造转速线：</strong>按修正转速分箱或插值，绘制压比对修正流量；不要跨越可调静子、放气阀或几何状态直接拼接。</li>
+  <li><strong>计算效率：</strong>由进口/出口总参数和气体性质求等熵效率；高温或跨大压比时采用变比热模型，并传播测量不确定度。</li>
+  <li><strong>识别边界：</strong>区分稳定工作点、失速先兆、喘振事件和堵塞端；喘振线必须基于试验判据或经验证模型，不能靠视觉猜测。</li>
+  <li><strong>与循环模型匹配：</strong>把特性图缩放到设计点，联立涡轮图、轴功平衡、流量连续、喷管和燃油控制，迭代得到整机工作线。</li>
+  <li><strong>做包线与瞬态验证：</strong>检查热天、高空、进气畸变、加速/减速、可调静子和放气调度，保留喘振裕度与温度/转速限制。</li>
+</ol>
+
+<h2 id="常见误区与失效边界"><a href="#常见误区与失效边界" class="headerlink" title="常见误区与失效边界"></a>常见误区与失效边界</h2>
+<ul>
+  <li><strong>把修正值叫作“海平面实际值”：</strong>它是按参考状态定义的相似坐标，不表示发动机真的在海平面运行。</li>
+  <li><strong>混用静参数与总参数：</strong>压气机图通常采用进口总参数；高速来流中静温静压与总温总压差异显著。</li>
+  <li><strong>忽略参考状态：</strong>ISA 标准值、软件内部标幺值和企业设计点定义可能不同；公式相同也会得到不同数值。</li>
+  <li><strong>把高修正转速等同高实际转速：</strong>进口总温变化后，两者排序可能不同；控制器必须同时关注机械转速与修正工作点。</li>
+  <li><strong>把喘振线当成无限精确的墙：</strong>畸变、雷诺数、退化、间隙和瞬态会移动稳定边界，工程上需要裕度而不是贴线运行。</li>
+  <li><strong>把效率岛当作测量真值：</strong>插值、平滑和传感器误差都会影响等值线；图 2 的效率岛更只是教学示意。</li>
+  <li><strong>只缩放流量不缩放压比/效率：</strong>从通用图匹配具体发动机时，流量、压比和效率通常需要各自的设计点缩放因子。</li>
+</ul>
+
+<h2 id="与整机控制及其他部件的耦合"><a href="#与整机控制及其他部件的耦合" class="headerlink" title="与整机、控制及其他部件的耦合"></a>与整机、控制及其他部件的耦合</h2>
+<p><strong>进气道：</strong>总压恢复降低会使 δ 下降，同一实际流量对应更高修正流量；畸变还可能让平均修正点看似安全而局部叶片已接近失速。<strong>涡轮与喷管：</strong>涡轮流量能力、喷口面积和背压共同决定压气机工作线，不能单独在压气机图上指定一个点。</p>
+<p><strong>FADEC：</strong>加速时增加燃油会提高涡轮功和轴转速，却也可能把压气机工作点推向喘振边界。控制系统会利用燃油流量、可调静子、放气阀和可调喷口，在加速率、温度、机械转速与喘振裕度之间调度。<strong>健康管理：</strong>叶片污损、间隙增大和侵蚀会改变流量、压比和效率；比较退化前后数据必须先统一修正定义和测量条件。</p>
+<p><strong>整机任务：</strong>高度与马赫数改变站位 2 的总参数，飞行员推力需求改变燃油和转速命令。最终关心的是净推力、耗油率、稳定裕度和寿命，而不是把工作点永远压在最高效率岛中心。</p>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol>
+  <li>判断：修正转速是对转速传感器读数误差的校准值。</li>
+  <li>判断：进口总温降低而实际转速不变时，修正转速上升。</li>
+  <li>在 Tref=288.15 K 下，Tt=288.15 K、N=10,000 rpm 时，Nc 是多少？</li>
+  <li>在 Pref=101.325 kPa 下，Tt=288.15 K、Pt=50.6625 kPa、W=40 kg/s 时，Wc 是多少？</li>
+  <li>若同一压气机工作点向喘振线左侧移动，修正流量和稳定风险通常怎样变化？</li>
+  <li>为什么工作线不是压气机制造商单独给定的一条固定曲线？</li>
+  <li>列出至少三项可能使两个“修正后相同”的状态仍不完全相似的因素。</li>
+  <li>将台架特性图导入循环模型前，最少要核对哪些坐标定义和缩放量？</li>
+</ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<ol>
+  <li>错误。修正量是环境与相似尺度归一化，不是传感器校准。</li>
+  <li>正确。<code>Nc=N/√θ</code>，温度比下降会使分母减小。</li>
+  <li><code>θ=1</code>，所以 <code>Nc=10,000 rpm</code>。</li>
+  <li><code>θ=1</code>、<code>δ=0.5</code>，所以 <code>Wc=40/0.5=80 kg/s</code>。</li>
+  <li>修正流量通常减小，旋转失速与系统喘振风险上升。</li>
+  <li>它由压气机、涡轮、燃烧、喷管、安装条件和控制规律共同匹配形成。</li>
+  <li>雷诺数、间隙、粗糙度、畸变、可调静子/放气、湿度和真实气体效应均可破坏完全相似。</li>
+  <li>核对进口站位、总/静参数、Tref/Pref、单位、修正公式、压比定义、效率定义，以及流量/压比/效率设计点缩放因子。</li>
+</ol>
+<p><strong>下一期建议：</strong>进入“压气机工作线与喘振裕度”，给出常用裕度定义，解释加速线、稳态线、进气畸变和控制调度如何改变离喘振边界的距离。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ol>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/20140012486">NASA/TM-2014-216663：Toolbox for the Modeling and Analysis of Thermodynamic Systems (T-MATS) User's Guide</a>，用于修正转速、修正流量与部件特性图接口。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/20070018165">NASA/TM-2007-214690：Introduction to Thermodynamic Performance Analysis Using NPSS</a>，用于部件特性、修正参数和循环匹配框架。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/20100037767">NASA/TM-2010-216831：C-MAPSS40k</a>，用于以修正轴速、修正流量、压比和效率组织压气机图的公开模型实例。</li>
+  <li><a target="_blank" rel="noopener" href="https://www.grc.nasa.gov/WWW/K-12/airplane/wcora.html">NASA Glenn：Corrected Airflow per Area</a>，用于质量流量参数与可压缩流关系。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19800014823">NASA-CR-159812：Core Compressor Exit Stage Study, Part 2</a>，用于修正流量、压比、效率和喘振裕度的公开试验口径示例。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19770017195">NASA-TM-X-3515：J85-13 Compressor with Distorted Inlet Flow</a>，用于进气畸变与喘振边界适用性的工程提醒。</li>
+  <li><a target="_blank" rel="noopener" href="https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/faa-h-8083-32b-aviation-maintenance-technician">FAA-H-8083-32B：Aviation Maintenance Technician Handbook - Powerplant</a>，用于压气机失速、喘振与发动机运行背景。</li>
+</ol>
+<p><strong>图示许可：</strong>图 1、图 2 和封面均由本站用 Python/matplotlib 原创绘制，采用 CC BY 4.0。图 1 的数值由文中修正公式生成；图 2 的转速线、效率岛、喘振边界与工作线为明确标注的教学数据，不代表任何真实发动机或压气机的试验结果。</p>
+]]></content><categories><category> 航空发动机 </category></categories><tags><tag> 航空发动机 </tag></tags></entry><entry><title>航空发动机学习简报｜第01期｜Brayton 循环与部件匹配</title><link href="/p/5d68a0e8.html"/><url>/p/5d68a0e8.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 01 期</strong></p>
 <p><strong>副题：</strong>从能量账本读懂压气机、燃烧室、涡轮与喷管</p>
 <p><strong>主题类型：</strong>基础与前置知识　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-07-22</p>
 

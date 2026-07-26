@@ -19,6 +19,10 @@ Evidence hierarchy:
 Reviewer risk:
     Readers may mistake ideal-cycle trends or normalized station values for a
     real engine data set. Every figure therefore labels its assumptions.
+
+Briefing 02 adds corrected-parameter normalization and a schematic compressor
+map. Those curves are generated from transparent teaching equations and are
+explicitly not a measured compressor data set.
 """
 
 from __future__ import annotations
@@ -311,6 +315,339 @@ def draw_cover(output_dir: Path) -> None:
     plt.close(fig)
 
 
+def corrected_parameter_example() -> dict[str, object]:
+    reference_temperature = 288.15
+    reference_pressure = 101.325
+    base_temperature = 270.0
+    base_pressure = 80.0
+    base_speed = 9000.0
+    base_flow = 90.0
+    base_theta = base_temperature / reference_temperature
+    base_delta = base_pressure / reference_pressure
+    corrected_speed = base_speed / np.sqrt(base_theta)
+    corrected_flow = base_flow * np.sqrt(base_theta) / base_delta
+    conditions = [
+        {
+            "name": "高空冷态 A",
+            "temperature": base_temperature,
+            "pressure": base_pressure,
+        },
+        {"name": "较暖高压 B", "temperature": 310.0, "pressure": 95.0},
+    ]
+    for condition in conditions:
+        theta = condition["temperature"] / reference_temperature
+        delta = condition["pressure"] / reference_pressure
+        condition["theta"] = theta
+        condition["delta"] = delta
+        condition["actualSpeed"] = corrected_speed * np.sqrt(theta)
+        condition["actualFlow"] = corrected_flow * delta / np.sqrt(theta)
+    return {
+        "referenceTemperatureK": reference_temperature,
+        "referencePressureKPa": reference_pressure,
+        "correctedSpeedRpm": corrected_speed,
+        "correctedFlowKgS": corrected_flow,
+        "conditions": conditions,
+    }
+
+
+def draw_corrected_parameters(
+    output_dir: Path, source_dir: Path, qa_dir: Path
+) -> dict[str, object]:
+    example = corrected_parameter_example()
+    conditions = example["conditions"]
+    fig, axes = plt.subplots(1, 2, figsize=(7.20, 3.45), constrained_layout=True)
+
+    ax = axes[0]
+    for index, condition in enumerate(conditions):
+        ax.scatter(
+            condition["actualFlow"],
+            condition["actualSpeed"],
+            s=66,
+            color=[COLORS["orange"], COLORS["blue"]][index],
+            edgecolor="white",
+            linewidth=0.8,
+            zorder=4,
+            label=(
+                f'{condition["name"]}: Tt={condition["temperature"]:.0f} K, '
+                f'Pt={condition["pressure"]:.0f} kPa'
+            ),
+        )
+        ax.annotate(
+            f'W={condition["actualFlow"]:.1f} kg/s\nN={condition["actualSpeed"]:.0f} rpm',
+            (condition["actualFlow"], condition["actualSpeed"]),
+            xytext=(7, 7 if index == 0 else -30),
+            textcoords="offset points",
+            fontsize=7.2,
+        )
+    ax.set_xlabel("实际质量流量 W  [kg/s]")
+    ax.set_ylabel("实际转速 N  [rpm]")
+    ax.set_title("a  实际读数受进口总温、总压影响", loc="left", weight="bold")
+    ax.grid(alpha=0.2)
+    ax.legend(fontsize=6.8, loc="best")
+
+    ax2 = axes[1]
+    offsets = [-0.16, 0.16]
+    for index, condition in enumerate(conditions):
+        ax2.scatter(
+            example["correctedFlowKgS"] + offsets[index],
+            example["correctedSpeedRpm"] + offsets[index] * 20,
+            s=70,
+            color=[COLORS["orange"], COLORS["blue"]][index],
+            edgecolor="white",
+            linewidth=0.8,
+            zorder=4,
+            label=condition["name"],
+        )
+    ax2.axvline(example["correctedFlowKgS"], color=COLORS["gray"], lw=0.9, ls=":")
+    ax2.axhline(example["correctedSpeedRpm"], color=COLORS["gray"], lw=0.9, ls=":")
+    ax2.set_xlim(example["correctedFlowKgS"] - 4.0, example["correctedFlowKgS"] + 4.0)
+    ax2.set_ylim(example["correctedSpeedRpm"] - 330, example["correctedSpeedRpm"] + 330)
+    ax2.set_xlabel("修正流量 Wc  [kg/s]")
+    ax2.set_ylabel("修正转速 Nc  [rpm]")
+    ax2.set_title("b  修正后折叠到同一相似工作点", loc="left", weight="bold")
+    ax2.grid(alpha=0.2)
+    ax2.text(
+        0.03,
+        0.04,
+        "Nc = N / √θ\nWc = W·√θ / δ\nθ=Tt/Tref，δ=Pt/Pref",
+        transform=ax2.transAxes,
+        color=COLORS["navy"],
+        fontsize=8.0,
+        bbox=dict(boxstyle="round,pad=0.35", facecolor=COLORS["light"], edgecolor="#b8cbd8"),
+    )
+    ax2.text(
+        0.97,
+        0.96,
+        f'Nc={example["correctedSpeedRpm"]:.0f} rpm\nWc={example["correctedFlowKgS"]:.1f} kg/s',
+        transform=ax2.transAxes,
+        ha="right",
+        va="top",
+        color=COLORS["red"],
+        fontsize=8.1,
+        weight="bold",
+    )
+    save_web_figure(fig, output_dir / "corrected-parameter-normalization", qa_dir)
+
+    csv_path = source_dir / "corrected-parameter-example.csv"
+    with csv_path.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.writer(stream)
+        writer.writerow(
+            [
+                "condition",
+                "inlet_total_temperature_K",
+                "inlet_total_pressure_kPa",
+                "actual_speed_rpm",
+                "actual_flow_kg_s",
+                "corrected_speed_rpm",
+                "corrected_flow_kg_s",
+            ]
+        )
+        for condition in conditions:
+            writer.writerow(
+                [
+                    condition["name"],
+                    f'{condition["temperature"]:.2f}',
+                    f'{condition["pressure"]:.3f}',
+                    f'{condition["actualSpeed"]:.3f}',
+                    f'{condition["actualFlow"]:.3f}',
+                    f'{example["correctedSpeedRpm"]:.3f}',
+                    f'{example["correctedFlowKgS"]:.3f}',
+                ]
+            )
+    return example
+
+
+def compressor_map_curves() -> list[dict[str, object]]:
+    curves: list[dict[str, object]] = []
+    for corrected_speed_ratio in [0.70, 0.80, 0.90, 1.00, 1.05]:
+        normalized = (corrected_speed_ratio - 0.70) / 0.35
+        surge_flow = 0.53 + 0.30 * normalized
+        choke_flow = surge_flow + 0.23 + 0.05 * normalized
+        flow = np.linspace(surge_flow, choke_flow, 42)
+        pressure_at_surge = 1.0 + 4.0 * corrected_speed_ratio**2
+        span = (flow - surge_flow) / (choke_flow - surge_flow)
+        pressure_ratio = 1.0 + (pressure_at_surge - 1.0) * (
+            1.0 - 0.18 * span - 0.18 * span**3
+        )
+        curves.append(
+            {
+                "speed": corrected_speed_ratio,
+                "flow": flow,
+                "pressure": pressure_ratio,
+                "surgeFlow": surge_flow,
+                "surgePressure": pressure_at_surge,
+            }
+        )
+    return curves
+
+
+def draw_compressor_map(output_dir: Path, source_dir: Path, qa_dir: Path) -> None:
+    curves = compressor_map_curves()
+    fig, ax = plt.subplots(figsize=(7.20, 4.15), constrained_layout=True)
+    speed_colors = mpl.colormaps["viridis"](np.linspace(0.20, 0.84, len(curves)))
+    for curve, color in zip(curves, speed_colors):
+        ax.plot(curve["flow"], curve["pressure"], lw=2.0, color=color)
+        ax.text(
+            float(curve["flow"][-1]) + 0.012,
+            float(curve["pressure"][-1]),
+            f'{curve["speed"]:.0%} Nc',
+            fontsize=7.3,
+            color=color,
+            va="center",
+        )
+    surge_x = np.asarray([curve["surgeFlow"] for curve in curves])
+    surge_y = np.asarray([curve["surgePressure"] for curve in curves])
+    ax.plot(surge_x, surge_y, color=COLORS["red"], lw=2.5, marker="o", ms=4.0, label="喘振边界（示意）")
+
+    operating_x = surge_x + np.asarray([0.08, 0.09, 0.10, 0.11, 0.115])
+    operating_y = []
+    for curve, flow_value in zip(curves, operating_x):
+        operating_y.append(float(np.interp(flow_value, curve["flow"], curve["pressure"])))
+    ax.plot(
+        operating_x,
+        operating_y,
+        color=COLORS["orange"],
+        lw=2.3,
+        marker="s",
+        ms=4.2,
+        label="稳态工作线（示意）",
+    )
+
+    flow_grid = np.linspace(0.50, 1.14, 180)
+    pressure_grid = np.linspace(1.0, 5.6, 180)
+    x_grid, y_grid = np.meshgrid(flow_grid, pressure_grid)
+    efficiency = 0.875 - 0.58 * (x_grid - 0.86) ** 2 - 0.020 * (y_grid - 3.6) ** 2
+    contours = ax.contour(
+        x_grid,
+        y_grid,
+        efficiency,
+        levels=[0.78, 0.82, 0.85, 0.87],
+        colors=COLORS["gray"],
+        linewidths=0.75,
+        linestyles="--",
+        alpha=0.80,
+    )
+    ax.clabel(contours, inline=True, fmt=lambda value: f"η={value:.2f}", fontsize=6.6)
+    ax.annotate(
+        "左侧：流量不足，失速/喘振风险上升",
+        xy=(surge_x[-2], surge_y[-2]),
+        xytext=(0.54, 5.25),
+        arrowprops=dict(arrowstyle="->", color=COLORS["red"]),
+        color=COLORS["red"],
+        fontsize=7.6,
+    )
+    ax.annotate(
+        "右端：通流能力接近堵塞",
+        xy=(float(curves[-1]["flow"][-1]), float(curves[-1]["pressure"][-1])),
+        xytext=(0.91, 1.38),
+        arrowprops=dict(arrowstyle="->", color=COLORS["gray"]),
+        color=COLORS["navy"],
+        fontsize=7.6,
+    )
+    ax.set_xlim(0.48, 1.18)
+    ax.set_ylim(1.0, 5.65)
+    ax.set_xlabel("归一化修正流量 Wc / Wc,design")
+    ax.set_ylabel("压气机总压比 πc")
+    ax.set_title("压气机特性图：修正转速线、喘振边界与工作线", loc="left", weight="bold")
+    ax.grid(alpha=0.16)
+    ax.legend(loc="lower left")
+    ax.text(
+        0.99,
+        0.98,
+        "原创教学曲线；非真实压气机台架数据\n效率岛仅用于解释读图方法",
+        transform=ax.transAxes,
+        ha="right",
+        va="top",
+        fontsize=7.1,
+        color=COLORS["gray"],
+    )
+    save_web_figure(fig, output_dir / "compressor-map-schematic", qa_dir)
+
+    csv_path = source_dir / "compressor-map-schematic.csv"
+    with csv_path.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.writer(stream)
+        writer.writerow(
+            [
+                "corrected_speed_ratio",
+                "normalized_corrected_flow",
+                "pressure_ratio",
+                "teaching_data_only",
+            ]
+        )
+        for curve in curves:
+            for flow, pressure in zip(curve["flow"], curve["pressure"]):
+                writer.writerow(
+                    [
+                        f'{curve["speed"]:.3f}',
+                        f"{float(flow):.6f}",
+                        f"{float(pressure):.6f}",
+                        "true",
+                    ]
+                )
+
+
+def draw_corrected_map_cover(output_dir: Path) -> None:
+    curves = compressor_map_curves()
+    fig, ax = plt.subplots(figsize=(12.8, 7.2))
+    fig.patch.set_facecolor("#071521")
+    ax.set_facecolor("#071521")
+    speed_colors = ["#3ba4c5", "#3f8fc0", "#4d7eb4", "#7886bd", "#d68a42"]
+    for curve, color in zip(curves, speed_colors):
+        ax.plot(curve["flow"], curve["pressure"], lw=4.2, color=color, alpha=0.96)
+    surge_x = [curve["surgeFlow"] for curve in curves]
+    surge_y = [curve["surgePressure"] for curve in curves]
+    ax.plot(surge_x, surge_y, color="#ff766e", lw=5.0, marker="o", ms=9)
+    operating_x = np.asarray(surge_x) + np.asarray([0.08, 0.09, 0.10, 0.11, 0.115])
+    operating_y = [
+        float(np.interp(flow, curve["flow"], curve["pressure"]))
+        for curve, flow in zip(curves, operating_x)
+    ]
+    ax.plot(operating_x, operating_y, color="#ffbd63", lw=4.5, marker="s", ms=8)
+    for x in np.linspace(0.50, 1.16, 9):
+        ax.axvline(x, color="#17394e", lw=0.9, zorder=0)
+    for y in np.linspace(1.0, 5.6, 8):
+        ax.axhline(y, color="#17394e", lw=0.9, zorder=0)
+    ax.set_xlim(0.48, 1.18)
+    ax.set_ylim(1.0, 5.65)
+    ax.axis("off")
+    fig.savefig(
+        output_dir / "aeroengine-corrected-map-cover.webp",
+        dpi=360,
+        bbox_inches="tight",
+        facecolor=fig.get_facecolor(),
+        format="webp",
+    )
+    plt.close(fig)
+
+
+def generate_briefing_02(
+    output_dir: Path, source_dir: Path, qa_dir: Path
+) -> dict[str, object]:
+    example = draw_corrected_parameters(output_dir, source_dir, qa_dir)
+    draw_compressor_map(output_dir, source_dir, qa_dir)
+    draw_corrected_map_cover(output_dir)
+    notes = {
+        "briefing": 2,
+        "backend": "Python/matplotlib",
+        "coreConclusion": "修正转速和修正流量把进口总温、总压影响移出，允许在相似条件下读取压气机特性图。",
+        "reference": {
+            "temperatureK": example["referenceTemperatureK"],
+            "pressureKPa": example["referencePressureKPa"],
+        },
+        "correctedPoint": {
+            "speedRpm": example["correctedSpeedRpm"],
+            "flowKgS": example["correctedFlowKgS"],
+        },
+        "conditions": example["conditions"],
+        "integrity": "原创工程示意；压气机特性曲线为明确标注的教学数据，不是实测发动机数据。",
+    }
+    (source_dir / "corrected-parameters-briefing-02-figure-notes.json").write_text(
+        json.dumps(notes, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return notes
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate aeroengine learning figures with Python/matplotlib.")
     parser.add_argument("--root", type=Path, default=Path.cwd())
@@ -325,35 +662,39 @@ def main() -> None:
     source_dir.mkdir(parents=True, exist_ok=True)
     qa_dir.mkdir(parents=True, exist_ok=True)
     configure_matplotlib()
-    state = draw_brayton_map(output_dir, source_dir, qa_dir)
-    draw_station_map(output_dir, state, qa_dir)
-    draw_cover(output_dir)
-    notes = {
-        "briefing": 1,
-        "backend": "Python/matplotlib",
-        "coreConclusion": "压气机功、涡轮功与喷管剩余能量必须共同平衡，单独提高压气机总压比不能代表发动机更好。",
-        "assumptions": {
-            "compressorPressureRatio": state["pressure_ratio"],
-            "compressorEfficiency": state["eta_c"],
-            "turbineEfficiency": state["eta_t"],
-            "mechanicalEfficiency": state["eta_m"],
-            "burnerTotalPressureRatio": state["burner_pressure_ratio"],
-            "turbineInletTotalTemperatureK": state["t4"],
-            "variableCp": False,
-            "coolingBleedAccessoryLoads": "omitted in the simplified numerical example",
-        },
-        "derived": {
-            "compressorExitIsentropicK": round(state["t3s"], 2),
-            "compressorExitActualK": round(state["t3"], 2),
-            "compressorSpecificWorkKJkg": round(state["compressor_work"], 2),
-            "turbineExitTotalTemperatureK": round(state["t5"], 2),
-            "turbineExitTotalPressureRatioToAmbient": round(state["p5"], 3),
-        },
-        "integrity": "原创工程示意；曲线由列明公式和假设生成，不是实测发动机数据。",
-    }
-    (source_dir / "brayton-briefing-01-figure-notes.json").write_text(
-        json.dumps(notes, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-    )
+    if args.post_id == "bdbfd129":
+        notes = generate_briefing_02(output_dir, source_dir, qa_dir)
+    else:
+        state = draw_brayton_map(output_dir, source_dir, qa_dir)
+        draw_station_map(output_dir, state, qa_dir)
+        draw_cover(output_dir)
+        notes = {
+            "briefing": 1,
+            "backend": "Python/matplotlib",
+            "coreConclusion": "压气机功、涡轮功与喷管剩余能量必须共同平衡，单独提高压气机总压比不能代表发动机更好。",
+            "assumptions": {
+                "compressorPressureRatio": state["pressure_ratio"],
+                "compressorEfficiency": state["eta_c"],
+                "turbineEfficiency": state["eta_t"],
+                "mechanicalEfficiency": state["eta_m"],
+                "burnerTotalPressureRatio": state["burner_pressure_ratio"],
+                "turbineInletTotalTemperatureK": state["t4"],
+                "variableCp": False,
+                "coolingBleedAccessoryLoads": "omitted in the simplified numerical example",
+            },
+            "derived": {
+                "compressorExitIsentropicK": round(state["t3s"], 2),
+                "compressorExitActualK": round(state["t3"], 2),
+                "compressorSpecificWorkKJkg": round(state["compressor_work"], 2),
+                "turbineExitTotalTemperatureK": round(state["t5"], 2),
+                "turbineExitTotalPressureRatioToAmbient": round(state["p5"], 3),
+            },
+            "integrity": "原创工程示意；曲线由列明公式和假设生成，不是实测发动机数据。",
+        }
+        (source_dir / "brayton-briefing-01-figure-notes.json").write_text(
+            json.dumps(notes, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
     print(json.dumps(notes, ensure_ascii=False, indent=2))
 
 

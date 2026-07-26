@@ -1,0 +1,3 @@
+condition,inlet_total_temperature_K,inlet_total_pressure_kPa,actual_speed_rpm,actual_flow_kg_s,corrected_speed_rpm,corrected_flow_kg_s
+高空冷态 A,270.00,80.000,9000.000,90.000,9297.580,110.342
+较暖高压 B,310.00,95.000,9643.651,99.742,9297.580,110.342

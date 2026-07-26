@@ -89,7 +89,7 @@ async function main() {
   await settle(page);
   if ((await page.locator(`a[href="/p/${latest.postId}.html"]`).count()) === 0) throw new Error("Homepage missing latest aeroengine briefing");
   const background = await page.locator(".category-aeroengine").evaluate((element) => getComputedStyle(element).backgroundImage);
-  if (!background.includes("aeroengine-brayton-cover.webp")) throw new Error("Aeroengine category card has no local cover");
+  if (!background.includes(path.basename(latest.heroImage))) throw new Error("Aeroengine category card has no latest local cover");
   if ((await page.locator('script[src="/js/aircraft-article.js"]').count()) !== 0) throw new Error("Homepage loads heavy aircraft script");
   await page.screenshot({ path: path.join(output, "home-desktop.png"), fullPage: true });
 
