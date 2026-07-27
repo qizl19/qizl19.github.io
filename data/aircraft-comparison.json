@@ -1,5 +1,16 @@
 [
   {
+    "slug": "harbin-z-20",
+    "name": "直-20",
+    "url": "/p/f72a55dd.html",
+    "firstFlightYear": 2013,
+    "lengthM": 20.0,
+    "wingspanM": 16.0,
+    "maxTakeoffWeightT": 10.0,
+    "speedLabel": "官方未公开；常见公开估算约 320–360 km/h",
+    "rangeLabel": "官方未公开；部分公开报道估计约 600 km"
+  },
+  {
     "slug": "comac-c919",
     "name": "中国商飞 C919",
     "url": "/p/45eadabd.html",

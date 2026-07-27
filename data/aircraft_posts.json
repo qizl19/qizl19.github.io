@@ -1,5 +1,272 @@
 [
   {
+    "slug": "harbin-z-20",
+    "nameZh": "直-20",
+    "nameEn": "Harbin Z-20",
+    "eyebrow": "飞机资料整理 · 第 8 期",
+    "subtitle": "中国自主研制的十吨级中型战术通用直升机，以电传飞控、高原适应和系列化任务平台为公开技术主线",
+    "date": "2026-07-27",
+    "updated": "2026-07-27",
+    "nation": "中国",
+    "category": "中型战术通用直升机",
+    "era": "2010年代至今",
+    "tags": [
+      "航空",
+      "直升机",
+      "中国军机"
+    ],
+    "status": "现役 / 系列化发展",
+    "metrics": {
+      "firstFlightYear": 2013,
+      "lengthM": 20.0,
+      "wingspanM": 16.0,
+      "maxTakeoffWeightT": 10.0,
+      "speedLabel": "官方未公开；常见公开估算约 320–360 km/h",
+      "rangeLabel": "官方未公开；部分公开报道估计约 600 km"
+    },
+    "diagram": [
+      "公开需求：中型战术通用与高原使用",
+      "核心技术：电传飞控与旋翼防除冰",
+      "平台布局：五叶主旋翼、双发与通用任务舱",
+      "系列化：陆军通用、舰载 / 海基与突击构型"
+    ],
+    "firstFlight": "2013 年首飞；公开资料通常记载日期为 2013 年 12 月 23 日",
+    "accent": "#526b55",
+    "heroImage": "/p/f72a55dd/z20-002.webp",
+    "model": {
+      "kind": "triposg-image-reconstruction",
+      "src": "/p/f72a55dd/models/harbin-z-20-reference.glb",
+      "poster": "/p/f72a55dd/z20-002.webp",
+      "author": "Qzl's Blog / TripoSG 外形重建",
+      "sourceUrl": "https://github.com/qizl19/qizl19.github.io/blob/main/tools/reconstruct_aircraft_triposg.py",
+      "license": "CC BY 4.0（遵循输入照片署名）",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "inputImage": "/p/f72a55dd/z20-002.webp",
+      "inputCredit": "China News Service",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:Z-20_Airshow_China_2022_ground.jpg",
+      "engine": "TripoSG",
+      "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "engineLicense": "MIT",
+      "outputSha256": "a1193e2e1cca271cd79583a77c0bd5ad42147cfb542cef667a27745829d3e8d2",
+      "generation": {
+        "steps": 40,
+        "seed": 42,
+        "guidanceScale": 7.0,
+        "denseDepth": 8,
+        "hierarchicalDepth": 9,
+        "targetFaces": 80000,
+        "flashDecoder": false
+      },
+      "note": "由许可明确的直-20三分之四地面照片使用 VAST-AI 官方 TripoSG 单图重建。模型保留了可辨认的机身、五叶主旋翼、尾梁、尾桨、双发动机舱和起落架总体轮廓；遮挡侧、薄旋翼和局部附件由 AI 推断，不能据此确认真实尺寸、结构或系统配置。该模型仅作公开外形可视化示意，非工程 CAD，不可用于制造、仿真、性能计算或任务规划。"
+    },
+    "statement": "直-20最值得关注的不是与某一国外机型进行外形对照，而是它把国产电传飞控、旋翼防除冰、高原试飞和多军兵种平台化发展组织到同一十吨级直升机体系中。公开资料仍未给出完整性能手册，因此所有精确尺寸、速度、航程和载荷数字都应按“公开估算”处理。",
+    "summary": "直-20是中国自主研制的十吨级中型战术通用直升机。官方报道确认它在 2013 年首飞、2019 年国庆阅兵首次公开亮相，并称其为中国首型采用电传飞控的国产直升机。公开资料显示，研制团队围绕高原使用完成了国产涡轴动力适配和旋翼防除冰试验；五叶主旋翼、双发、侧门通用任务舱和固定轮式起落架构成了易于识别的总体布局。此后公开出现陆军通用型、舰载 / 海基构型和直-20T突击型，说明它正在从单一型号转向系列化平台。由于制造方和军方没有公开完整型号手册，本文把长度、旋翼直径、速度、航程等数字明确标为近似或未确认，不把二手估算写成定型数据。",
+    "facts": [
+      {
+        "label": "首飞",
+        "value": "2013 年（常见公开日期：2013-12-23）",
+        "note": "国防部与军方报道确认 2013 年首飞；具体日期来自公开航空资料，未见制造方完整试飞公报。"
+      },
+      {
+        "label": "首次公开亮相",
+        "value": "2019-10-01",
+        "note": "在新中国成立 70 周年阅兵中作为陆军航空兵现役主战装备公开出现。"
+      },
+      {
+        "label": "级别",
+        "value": "约 10 吨级中型战术通用直升机",
+        "note": "十吨级为多家官方及公开资料的一致口径；不等同于每一改型的精确最大起飞重量。"
+      },
+      {
+        "label": "总体长度",
+        "value": "约 20 m",
+        "note": "公开估算，制造方未公布可核对的型号尺寸手册。"
+      },
+      {
+        "label": "主旋翼直径",
+        "value": "约 16 m",
+        "note": "公开估算；网页图表中的“翼展”栏对直升机按主旋翼直径理解。"
+      },
+      {
+        "label": "旋翼",
+        "value": "五叶主旋翼",
+        "note": "官方报道与公开照片均可核验；相对四叶布局，公开解读强调升力、噪声与悬停效率方面的设计收益。"
+      },
+      {
+        "label": "动力布局",
+        "value": "双涡轴发动机",
+        "note": "官方报道确认采用适应高原飞行的国产涡轴动力，但具体型号、额定功率及各批次配置未公开确认。"
+      },
+      {
+        "label": "飞控",
+        "value": "电传飞控",
+        "note": "官方军方报道将其称为中国首型采用电传飞控的国产直升机。"
+      },
+      {
+        "label": "速度 / 航程",
+        "value": "官方完整口径未公开",
+        "note": "常见公开估算约 320–360 km/h、约 600 km，但测试条件与改型不明，不作为定型性能。"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "2008",
+        "event": "公开人物报道记载，国产直升机高原使用能力不足促使研制团队把全疆域、全天候能力作为重要目标。"
+      },
+      {
+        "year": "2013",
+        "event": "直-20首飞成功；公开资料通常把具体日期记为 12 月 23 日。"
+      },
+      {
+        "year": "2018-02",
+        "event": "研制团队在海拔 5,000 m 以上高原完成最后一轮相关试飞，公开报道重点提到旋翼防除冰技术的真实环境验证。"
+      },
+      {
+        "year": "2019-10-01",
+        "event": "直-20在国庆 70 周年阅兵中首次公开亮相，官方报道将其列为陆军航空兵新列装装备。"
+      },
+      {
+        "year": "2020",
+        "event": "官方军方报道进一步公开电传飞控、国产高原适配涡轴动力、防除冰和多用途平台等技术主线。"
+      },
+      {
+        "year": "2022",
+        "event": "直-20参加第十四届中国航展飞行与地面展示，五叶主旋翼、通用舱和起落架布局得到更清晰的公开影像记录。"
+      },
+      {
+        "year": "2024-11",
+        "event": "直-20J舰载型和直-20突击型在第十五届中国航展公开亮相；直-20J进行了飞行展示。"
+      },
+      {
+        "year": "2025-10",
+        "event": "国防部英文报道确认直-20T在第七届中国天津国际直升机博览会首次亮相。"
+      },
+      {
+        "year": "2026-05",
+        "event": "中国军网英文版发布直-20通用型与直-20T参加高原训练的公开照片，显示系列化构型已进入日常训练场景。"
+      }
+    ],
+    "designPoints": [
+      "五叶主旋翼是直-20最鲜明的可见特征。公开报道把它与升力、噪声和悬停效率联系起来；桨尖后掠削尖则用于降低局部阻力并推迟桨尖跨声速效应。",
+      "双涡轴发动机置于机身顶部两侧，驱动主减速器与五叶旋翼。双发布局提供中型通用直升机所需的动力冗余，但具体型号、功率和各批次差异没有完整公开。",
+      "座舱之后是侧门通用任务舱，适合在运输、人员机动、救援和特种任务间改装。本文只描述公开可见布局，不涉及内部任务系统或武器接口。",
+      "电传飞控用计算机处理飞行员输入并驱动作动系统。官方公开表述强调操纵灵敏、安全性、机动性和减重收益；具体控制律、冗余架构和限制逻辑未公开。",
+      "旋翼防除冰是高原和复杂气象能力的关键。公开报道记载团队通过真实结冰云环境试飞验证技术，但没有公开加热功率、控制策略或包线边界。",
+      "舰载 / 海基构型在机鼻、任务设备、尾段及旋翼折叠需求上与陆军通用型不同。外形相似不代表内部结构、航电和任务设备完全相同。"
+    ],
+    "power": "公开资料确认直-20采用双涡轴动力，并称新国产发动机解决了高原飞行的一项关键问题；但制造方没有公开可交叉核验的发动机型号、额定功率、耗油率和不同批次配置。因而本文不把网络上常见的“涡轴-10”“约 2,000 马力级”等说法写成确定事实。工程上，高原能力取决于发动机功率保持、旋翼效率、传动系统限制、机体重量和环境温度的共同作用，不能仅由单一功率数字推导。",
+    "variants": [
+      {
+        "name": "直-20陆军通用型",
+        "description": "公开亮相最早、影像最多的基础战术通用构型，承担人员与物资机动等平台化任务。"
+      },
+      {
+        "name": "直-20舰载 / 海基构型（公开常见称呼含直-20J）",
+        "description": "为舰上起降、存放和海上任务适配的构型。2024 年中国航展公开出现直-20J；具体折叠机构、任务系统和性能未完整公开。"
+      },
+      {
+        "name": "海军反潜 / 任务构型（公开报道中常见称呼含直-20F）",
+        "description": "官方军方报道提到海上运输与反潜用途，但公开名称和配置口径并不完全一致，本文不据外形推断内部设备。"
+      },
+      {
+        "name": "直-20T突击型",
+        "description": "2024 年中国航展出现、2025 年天津直博会由官方报道确认公开亮相的突击构型；本文只记录公开存在与外形差异。"
+      }
+    ],
+    "strengths": [
+      "把中型通用直升机平台、高原适应、电传飞控和旋翼防除冰纳入同一国产型号体系，提升了全疆域使用的公开能力边界。",
+      "五叶主旋翼、双发和通用任务舱提供了从陆上机动到海基任务的系列化基础，公开构型已覆盖多个军兵种需求。",
+      "公开试飞与服役节点较清晰，能够用官方报道和授权照片交叉核验首飞、高原验证、公开亮相和后续改型。"
+    ],
+    "limits": [
+      "制造方和用户没有公开完整飞行手册；长度、旋翼直径、速度、航程、载荷和发动机功率多为二手估算，不能作为工程输入。",
+      "不同军兵种、批次和任务构型的机鼻、天线、舱门、尾段及任务设备差异明显，不能把一张照片的配置推广到整个系列。",
+      "公开资料可以说明高原试飞与防除冰技术存在，但不足以确定实际结冰包线、控制策略、可靠性和维护成本。",
+      "本文三维模型来自单张照片；遮挡侧、薄旋翼、尾桨和局部附件由 AI 推断，网格非水密且不具备真实尺度。"
+    ],
+    "photos": [
+      {
+        "src": "/p/f72a55dd/z20-001.webp",
+        "alt": "2022年中国航展飞行展示中的直-20",
+        "caption": "直-20在 2022 年中国航展飞行展示中低空通过，可清楚辨认机身、五叶主旋翼、尾梁、尾桨和固定轮式起落架。",
+        "credit": "China News Service",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Z-20_Airshow_China_2022_fly.jpg",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "src": "/p/f72a55dd/z20-002.webp",
+        "alt": "2022年中国航展地面展示中的直-20",
+        "caption": "2022 年中国航展地面展示的直-20三分之四视图；该图轮廓完整、旋翼与发动机舱可辨，用作本期 TripoSG 单图重建输入。",
+        "credit": "China News Service",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Z-20_Airshow_China_2022_ground.jpg",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "src": "/p/f72a55dd/z20-003.webp",
+        "alt": "2024年中国航展中的直-20J舰载型",
+        "caption": "2024 年中国航展中的直-20J三分之四近景，展示舰载 / 海基构型与陆军通用型在机鼻、任务设备和外形附件上的可见差异。",
+        "credit": "Z3144228",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Z-20J_helicopter_20241115.jpg",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      {
+        "src": "/p/f72a55dd/z20-004.webp",
+        "alt": "2024年中国航展直-20J飞行吊运展示",
+        "caption": "直-20J在 2024 年中国航展进行飞行吊运展示；照片用于说明系列化任务构型的公开运用场景，不据此推断内部系统。",
+        "credit": "Z3144228",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Z-20J_Helicopter_flying_demonstration_20241115.jpg",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "中国政府网：直-20在 2019 年国庆阅兵首次公开亮相并已列装",
+        "url": "https://english.www.gov.cn/news/topnews/201910/01/content_WS5d93002bc6d0bcf8c4c147c7.html"
+      },
+      {
+        "label": "中国军网：直-20电传飞控、高原动力、防除冰和多用途平台公开说明",
+        "url": "https://eng.chinamil.com.cn/CHINA_209163/TopStories_209189/9955018.html"
+      },
+      {
+        "label": "中国军网：总设计师邓景辉与 5,000 m 以上高原防除冰试飞",
+        "url": "https://eng.chinamil.com.cn/CHINA_209163/TopStories_209189/9940230.html"
+      },
+      {
+        "label": "国防部：直-20研制、高原试飞与 2013 / 2019 关键节点",
+        "url": "https://www.mod.gov.cn/gfbw/wzll/16343056.html"
+      },
+      {
+        "label": "国防科工局：直升机总设计师邓景辉与第四代直升机技术研制",
+        "url": "https://www.sastind.gov.cn/n10086205/n10086389/c10280994/content.html"
+      },
+      {
+        "label": "天津政务网：2024 中国航展直-20突击型与直-20J首次公开",
+        "url": "https://www.tj.gov.cn/sy/tjxw/202411/t20241114_6779096.html"
+      },
+      {
+        "label": "退役军人事务部：2024 中国航展直-20J飞行展示",
+        "url": "https://www.mva.gov.cn/sy/xx/gfxx/202411/t20241113_452923.html"
+      },
+      {
+        "label": "国防部英文版：直-20T在第七届中国天津国际直升机博览会亮相",
+        "url": "https://eng.mod.gov.cn/2025xb/D/S/16414990.html"
+      },
+      {
+        "label": "中国军网英文版：2026 年直-20与直-20T高原训练公开照片",
+        "url": "https://eng.chinamil.com.cn/2025xb/M_251449/P_251468/16467091.html"
+      },
+      {
+        "label": "Wikimedia Commons：Harbin Z-20授权媒体分类",
+        "url": "https://commons.wikimedia.org/wiki/Category:Harbin_Z-20"
+      }
+    ],
+    "postId": "f72a55dd"
+  },
+  {
     "slug": "comac-c919",
     "nameZh": "中国商飞 C919",
     "nameEn": "COMAC C919",
@@ -749,7 +1016,15 @@
       "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
       "engineLicense": "MIT",
       "outputSha256": "d2d7fcc7a1b01f6b70954a11f8a9ea428e5679cf95aec78650caa3f654dda7c9",
-      "generation": {"steps": 40, "seed": 42, "guidanceScale": 7.0, "denseDepth": 8, "hierarchicalDepth": 9, "targetFaces": 80000, "flashDecoder": false},
+      "generation": {
+        "steps": 40,
+        "seed": 42,
+        "guidanceScale": 7.0,
+        "denseDepth": 8,
+        "hierarchicalDepth": 9,
+        "targetFaces": 80000,
+        "flashDecoder": false
+      },
       "note": "由单张三分之四视图照片经 TripoSG 补全，能够表达运-20的四发运输机总体轮廓；遮挡侧、薄翼边缘和局部细节属于模型推断，网格不代表工程尺寸，不可用于制造或工程分析。"
     },
     "statement": "价值不只在“能装多少”，而在于获得了可持续生产、可派生的大型空中平台。",
@@ -942,7 +1217,15 @@
       "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
       "engineLicense": "MIT",
       "outputSha256": "3ed8c4934ccb318c1915f24ff5b224f2ad59483fff67bac8c40c2f0d02e96452",
-      "generation": {"steps": 40, "seed": 42, "guidanceScale": 7.0, "denseDepth": 8, "hierarchicalDepth": 9, "targetFaces": 80000, "flashDecoder": false},
+      "generation": {
+        "steps": 40,
+        "seed": 42,
+        "guidanceScale": 7.0,
+        "denseDepth": 8,
+        "hierarchicalDepth": 9,
+        "targetFaces": 80000,
+        "flashDecoder": false
+      },
       "note": "由单张三分之四视图照片经 TripoSG 补全，细长机身、三角翼和可见侧细节清晰；尾部未闭合区域、遮挡侧与起落架属于模型推断，不代表生产批次工程几何。"
     },
     "statement": "它把大西洋时间压缩一半，也把噪声、油耗和维护成本推到商业航空必须面对的前台。",
@@ -1140,7 +1423,15 @@
       "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
       "engineLicense": "MIT",
       "outputSha256": "f8877686c2762b8e0c37a6074dc9c4c58fa959959282feec746dda3a33565a48",
-      "generation": {"steps": 40, "seed": 42, "guidanceScale": 7.0, "denseDepth": 8, "hierarchicalDepth": 9, "targetFaces": 80000, "flashDecoder": false},
+      "generation": {
+        "steps": 40,
+        "seed": 42,
+        "guidanceScale": 7.0,
+        "denseDepth": 8,
+        "hierarchicalDepth": 9,
+        "targetFaces": 80000,
+        "flashDecoder": false
+      },
       "note": "由单张空中三分之四视图照片经 TripoSG 补全，双发、双垂尾与螺旋桨特征可辨；遮挡侧、短舱细节和少量微小碎片属于模型推断，不可用于工程分析。"
     },
     "statement": "它证明“去掉非必要重量，把性能集中到任务核心”可以形成强大的系统优势。",
@@ -1338,7 +1629,15 @@
       "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
       "engineLicense": "MIT",
       "outputSha256": "e60e35f146f3df797b9f720fa6e53ac988d4a2a9bba5c2148a56d1946dc69607",
-      "generation": {"steps": 40, "seed": 42, "guidanceScale": 7.0, "denseDepth": 8, "hierarchicalDepth": 9, "targetFaces": 80000, "flashDecoder": false},
+      "generation": {
+        "steps": 40,
+        "seed": 42,
+        "guidanceScale": 7.0,
+        "denseDepth": 8,
+        "hierarchicalDepth": 9,
+        "targetFaces": 80000,
+        "flashDecoder": false
+      },
       "note": "由一张许可明确的 747-8F 三分之四视图照片经 TripoSG 补全，可辨四发、后掠翼和前部上层甲板；遮挡侧、薄翼边缘与起落架属于模型推断，不可用于工程分析。"
     },
     "statement": "747 的历史价值在于把远程航空运输做大；今天的持续价值则集中在重型货运与特殊任务。",
