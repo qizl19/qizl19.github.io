@@ -31,13 +31,12 @@ def main() -> None:
 
     if not posts:
         errors.append("CAD/CAE weekly metadata is empty")
-    cover = root / "images" / "cad-cae-weekly-cover-v2.webp"
-    if not cover.is_file():
-        errors.append("Missing CAD/CAE weekly cover")
-
     for post in posts:
         source = root / post["contentFile"]
         page = root / "p" / f"{post['postId']}.html"
+        cover = root / post["heroImage"].lstrip("/")
+        if not cover.is_file():
+            errors.append(f"Missing CAD/CAE weekly cover: {cover}")
         if not source.is_file():
             errors.append(f"Missing article source: {source}")
             continue
@@ -56,14 +55,16 @@ def main() -> None:
             if forbidden in content:
                 errors.append(f"Forbidden PDF-style content {forbidden} in {page.name}")
 
+    latest = posts[0]
+    latest_url = f"/p/{latest['postId']}.html"
     checks = {
-        root / "index.html": ["category-aircraft", "category-cad-cae", CATEGORY_URL, "/p/44bc590d.html"],
+        root / "index.html": ["category-aircraft", "category-cad-cae", CATEGORY_URL, latest_url],
         root / "categories" / "index.html": ["CAD/CAE 生态周报", CATEGORY_URL],
-        root / "categories" / "CAD-CAE生态周报" / "index.html": ["CAD/CAE 生态周报", "/p/44bc590d.html"],
-        root / "tags" / "CAD-CAE" / "index.html": ["CAD/CAE", "/p/44bc590d.html"],
-        root / "archives" / "index.html": ["CAD/CAE 生态周报｜2026-07-13"],
-        root / "search.xml": ["CAD/CAE 生态周报｜2026-07-13", "FreeCAD Assembly"],
-        root / "css" / "index.css": ["/p/eacebbb9/y20-000.jpg", "/images/cad-cae-weekly-cover-v2.webp"],
+        root / "categories" / "CAD-CAE生态周报" / "index.html": ["CAD/CAE 生态周报", latest_url],
+        root / "tags" / "CAD-CAE" / "index.html": ["CAD/CAE", latest_url],
+        root / "archives" / "index.html": [latest["title"]],
+        root / "search.xml": [latest["title"], "FreeCAD Assembly"],
+        root / "css" / "index.css": ["/p/eacebbb9/y20-000.jpg", latest["heroImage"]],
     }
     for path, needles in checks.items():
         if not path.is_file():
