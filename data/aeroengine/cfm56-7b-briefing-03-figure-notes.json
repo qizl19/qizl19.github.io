@@ -1,0 +1,30 @@
+{
+  "briefing": 3,
+  "backend": "Python/matplotlib",
+  "topic": "CFM56-7B architecture, ratings, control, and life management",
+  "ratingSource": "EASA TCDS E.004 Issue 07, 9 January 2023",
+  "architectureSource": "EASA TCDS E.004 Issue 07; NTSB/AAR-19/03",
+  "ratings": [
+    {
+      "model": "CFM56-7B20",
+      "takeoff_kN": 91.63
+    },
+    {
+      "model": "CFM56-7B22",
+      "takeoff_kN": 100.97
+    },
+    {
+      "model": "CFM56-7B24",
+      "takeoff_kN": 107.65
+    },
+    {
+      "model": "CFM56-7B26",
+      "takeoff_kN": 116.99
+    },
+    {
+      "model": "CFM56-7B27",
+      "takeoff_kN": 121.43
+    }
+  ],
+  "integrity": "原创工程示意；流路图不按比例，推力数据为 EASA 认证额定值换算。"
+}

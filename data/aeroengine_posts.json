@@ -1,5 +1,179 @@
 [
   {
+    "issue": 3,
+    "slug": "aeroengine-03-cfm56-7b-anatomy",
+    "postId": "0843e1c1",
+    "title": "航空发动机学习简报｜第03期｜CFM56-7B：双转子流路、推力等级与寿命管理",
+    "subtitle": "从双转子流路、推力等级到风扇叶片寿命管理",
+    "type": "经典发动机剖析",
+    "date": "2026-07-28",
+    "updated": "2026-07-28",
+    "heroImage": "/p/0843e1c1/cfm56-7b24e-qantas.webp",
+    "summary": "以 EASA 型号数据、CFM/GE 制造商资料和 NTSB 调查为主线，拆解 CFM56-7B 的双转子流路、认证推力等级、FADEC、改型谱系、长期运营与风扇叶片寿命管理。",
+    "contentFile": "data/aeroengine/2026-07-28-cfm56-7b-anatomy.html",
+    "keyConcepts": [
+      "CFM56-7B",
+      "双转子涡扇",
+      "N1/N2 轴功平衡",
+      "推力等级",
+      "FADEC",
+      "Tech Insertion",
+      "风扇叶片寿命管理",
+      "短舱安装安全"
+    ],
+    "headings": [
+      {
+        "id": "本期问题与学习目标",
+        "title": "本期问题与学习目标"
+      },
+      {
+        "id": "核心结论",
+        "title": "核心结论"
+      },
+      {
+        "id": "公开参数与型号口径",
+        "title": "公开参数与型号口径"
+      },
+      {
+        "id": "双转子流路与站位",
+        "title": "双转子流路与站位"
+      },
+      {
+        "id": "部件设计与改型谱系",
+        "title": "部件设计与改型谱系"
+      },
+      {
+        "id": "推力等级与可复算的简化算例",
+        "title": "推力等级与可复算的简化算例"
+      },
+      {
+        "id": "fadec与运行限制",
+        "title": "FADEC 与运行限制"
+      },
+      {
+        "id": "服役改进与寿命管理",
+        "title": "服役改进与寿命管理"
+      },
+      {
+        "id": "事件案例与失效边界",
+        "title": "事件案例与失效边界"
+      },
+      {
+        "id": "工程分析步骤",
+        "title": "工程分析步骤"
+      },
+      {
+        "id": "与整机和维修体系的耦合",
+        "title": "与整机和维修体系的耦合"
+      },
+      {
+        "id": "自测题",
+        "title": "自测题"
+      },
+      {
+        "id": "答案与下一期衔接",
+        "title": "答案与下一期衔接"
+      },
+      {
+        "id": "参考资料与图示许可",
+        "title": "参考资料与图示许可"
+      }
+    ],
+    "validationNeedles": [
+      "1 级风扇 + 3 级 LPC + 9 级 HPC",
+      "121.43 kN",
+      "ΔFrel",
+      "双通道 FADEC",
+      "Southwest 1380",
+      "每 3,000 循环"
+    ],
+    "figures": [
+      {
+        "src": "/p/0843e1c1/cfm56-7b24e-qantas.webp",
+        "title": "CFM56-7B24E 装机风扇与短舱",
+        "author": "Bidgee",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:CFM_International_CFM56-7B24E_engine_mounted_on_Qantas_(VH-XZP)_Boeing_737-838(WL)_01.jpg",
+        "license": "CC BY-SA 3.0 AU",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/au/deed.en",
+        "modification": "缩放并转换为 WebP"
+      },
+      {
+        "src": "/p/0843e1c1/cfm56-7b-flowpath.svg",
+        "fallback": "/p/0843e1c1/cfm56-7b-flowpath.png",
+        "title": "CFM56-7B 双转子流路与公开级数",
+        "author": "Qzl's Blog",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "src": "/p/0843e1c1/cfm56-7b-display.webp",
+        "title": "新加坡航展 CFM56-7B 展示件",
+        "author": "Kentaro Iemoto",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:CFM56-7B_(4340708318).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "modification": "原图曾裁切；网页副本缩放并转换为 WebP"
+      },
+      {
+        "src": "/p/0843e1c1/cfm56-7b-rating-ladder.svg",
+        "fallback": "/p/0843e1c1/cfm56-7b-rating-ladder.png",
+        "title": "CFM56-7B 主推力等级",
+        "author": "Qzl's Blog",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceData": "/data/aeroengine/cfm56-7b-rating-data.csv"
+      },
+      {
+        "src": "/p/0843e1c1/swa1380-fan-cowl.webp",
+        "title": "SWA1380 事故后风扇罩损伤",
+        "author": "NTSBgov",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Print_(49090313831).jpg",
+        "license": "Public Domain (U.S. NTSB)",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-USGov-NTSB",
+        "modification": "缩放并转换为 WebP"
+      }
+    ],
+    "sources": [
+      {
+        "title": "EASA TCDS E.004 Issue 07：CFM56-7B series engines",
+        "url": "https://www.easa.europa.eu/en/document-library/type-certificates/engine-cs-e/easae004-cfm-international-sa-cfm56-7b-series"
+      },
+      {
+        "title": "NTSB/AAR-19/03：Southwest Airlines Flight 1380",
+        "url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR1903.pdf"
+      },
+      {
+        "title": "NTSB Safety Recommendations A-19-017 through A-19-023",
+        "url": "https://www.ntsb.gov/safety/safety-recs/recletters/A-19-017-023.pdf"
+      },
+      {
+        "title": "CFM International：CFM56-5B & CFM56-7B",
+        "url": "https://www.cfmaeroengines.com/cfm56/CFM56-5B-CFM56-7B"
+      },
+      {
+        "title": "GE Aerospace and Safran：CFM 50th Anniversary Timeline",
+        "url": "https://www.geaerospace.com/news/articles/extraordinary-together-ge-aerospace-and-safran-aircraft-engines-celebrate-50th-anniversary"
+      },
+      {
+        "title": "CFM56-7B with Tech Insertion Enters Service",
+        "url": "https://www.geaerospace.com/news/press-releases/joint-ventures/cfm56-7b-tech-insertion-enters-service"
+      },
+      {
+        "title": "CFM International issues new service bulletin to CFM56-7B operators",
+        "url": "https://www.geaerospace.com/news/press-releases/other-news-information/cfm-international-issues-new-service-bulletin-cfm56-7b"
+      },
+      {
+        "title": "EASA SIB 2019-18：Fan blades – Life Limitation",
+        "url": "https://ad.easa.europa.eu/ad/2019-18"
+      },
+      {
+        "title": "FAA Aviation Maintenance Technician Handbook—Powerplant",
+        "url": "https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/faa-h-8083-32b-aviation-maintenance-technician"
+      }
+    ],
+    "nextTopic": "压气机工作线与喘振裕度"
+  },
+  {
     "issue": 2,
     "slug": "aeroengine-02-corrected-parameters-compressor-map",
     "postId": "bdbfd129",

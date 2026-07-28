@@ -648,6 +648,203 @@ def generate_briefing_02(
     return notes
 
 
+def draw_cfm56_flowpath(output_dir: Path, qa_dir: Path) -> None:
+    fig, ax = plt.subplots(figsize=(12.8, 6.6))
+    fig.patch.set_facecolor("#f5f8fb")
+    ax.set_facecolor("#f5f8fb")
+
+    sections = [
+        ("风扇\n1 级", 0.35, 1.55, "#3f8fc0"),
+        ("增压级 LPC\n3 级", 2.05, 1.25, "#56a6b8"),
+        ("高压压气机 HPC\n9 级", 3.45, 1.45, "#4675a9"),
+        ("环形\n燃烧室", 5.05, 1.10, "#d98445"),
+        ("高压涡轮 HPT\n1 级", 6.30, 1.05, "#c9604d"),
+        ("低压涡轮 LPT\n4 级", 7.50, 1.55, "#7765a7"),
+        ("排气", 9.20, 0.85, "#586b78"),
+    ]
+    for label, x, width, color in sections:
+        ax.add_patch(
+            plt.Rectangle(
+                (x, 2.15),
+                width,
+                1.25,
+                facecolor=color,
+                edgecolor="#17394e",
+                linewidth=1.6,
+                alpha=0.96,
+            )
+        )
+        ax.text(
+            x + width / 2,
+            2.78,
+            label,
+            ha="center",
+            va="center",
+            color="white",
+            fontsize=10.2,
+            fontweight="bold",
+        )
+
+    ax.annotate(
+        "主流方向",
+        xy=(10.10, 3.62),
+        xytext=(0.15, 3.62),
+        arrowprops=dict(arrowstyle="->", color="#0d2d45", lw=2.5),
+        ha="left",
+        va="bottom",
+        color="#0d2d45",
+        fontsize=10,
+    )
+    ax.annotate(
+        "",
+        xy=(7.45, 1.83),
+        xytext=(3.55, 1.83),
+        arrowprops=dict(arrowstyle="<->", color="#c9604d", lw=2.3),
+    )
+    ax.text(
+        5.50,
+        1.52,
+        "N2 高压轴：HPT 驱动 HPC",
+        ha="center",
+        color="#9c3e34",
+        fontsize=10.5,
+        fontweight="bold",
+    )
+    ax.annotate(
+        "",
+        xy=(8.90, 0.97),
+        xytext=(0.55, 0.97),
+        arrowprops=dict(arrowstyle="<->", color="#61528c", lw=2.3),
+    )
+    ax.text(
+        4.72,
+        0.64,
+        "N1 低压轴：LPT 驱动风扇与增压级",
+        ha="center",
+        color="#514277",
+        fontsize=10.5,
+        fontweight="bold",
+    )
+
+    ax.text(
+        1.05,
+        4.18,
+        "旁通流",
+        color="#287d9b",
+        fontsize=10,
+        fontweight="bold",
+        ha="center",
+    )
+    ax.annotate(
+        "",
+        xy=(9.65, 4.18),
+        xytext=(1.55, 4.18),
+        arrowprops=dict(arrowstyle="->", color="#3ba4c5", lw=4.2),
+    )
+    ax.text(
+        5.10,
+        5.25,
+        "CFM56-7B 双转子高涵道比涡扇：公开架构示意",
+        ha="center",
+        color="#0d2d45",
+        fontsize=16,
+        fontweight="bold",
+    )
+    ax.text(
+        5.10,
+        0.25,
+        "示意不按比例；级数与控制架构依据 EASA TCDS E.004 Issue 07 和 NTSB/AAR-19/03。",
+        ha="center",
+        color="#607487",
+        fontsize=8.5,
+    )
+    ax.set_xlim(0, 10.35)
+    ax.set_ylim(0, 5.65)
+    ax.axis("off")
+    save_web_figure(fig, output_dir / "cfm56-7b-flowpath", qa_dir)
+
+
+def draw_cfm56_rating_chart(
+    output_dir: Path, source_dir: Path, qa_dir: Path
+) -> list[dict[str, float | str]]:
+    rows = [
+        {"model": "CFM56-7B20", "takeoff_kN": 91.63},
+        {"model": "CFM56-7B22", "takeoff_kN": 100.97},
+        {"model": "CFM56-7B24", "takeoff_kN": 107.65},
+        {"model": "CFM56-7B26", "takeoff_kN": 116.99},
+        {"model": "CFM56-7B27", "takeoff_kN": 121.43},
+    ]
+    labels = [row["model"].replace("CFM56-", "") for row in rows]
+    values = [float(row["takeoff_kN"]) for row in rows]
+
+    fig, ax = plt.subplots(figsize=(11.8, 6.2))
+    fig.patch.set_facecolor("#f7fafc")
+    ax.set_facecolor("#f7fafc")
+    colors = ["#78b7c8", "#5aa5bc", "#4b8fb3", "#4c75a8", "#765e9d"]
+    bars = ax.bar(labels, values, color=colors, width=0.66)
+    ax.set_ylim(84, 126.5)
+    ax.set_ylabel("EASA 认证起飞推力 / kN", color="#263746")
+    ax.set_title(
+        "CFM56-7B 主推力等级：共用架构上的分级额定",
+        color="#0d2d45",
+        fontsize=15,
+        fontweight="bold",
+        pad=16,
+    )
+    ax.grid(axis="y", color="#d9e2e8", linewidth=0.8)
+    ax.set_axisbelow(True)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.spines[["left", "bottom"]].set_color("#8ca0ad")
+    for bar, value in zip(bars, values):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            value + 0.8,
+            f"{value:.2f}",
+            ha="center",
+            va="bottom",
+            color="#263746",
+            fontsize=9.5,
+            fontweight="bold",
+        )
+    ax.text(
+        0.01,
+        -0.18,
+        "注：认证额定值按 1 daN = 0.01 kN 换算；不同后缀代表燃烧室、技术插入或增强构型，不能只凭推力数字互换硬件。",
+        transform=ax.transAxes,
+        color="#607487",
+        fontsize=8.2,
+    )
+    save_web_figure(fig, output_dir / "cfm56-7b-rating-ladder", qa_dir)
+
+    csv_path = source_dir / "cfm56-7b-rating-data.csv"
+    with csv_path.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.DictWriter(stream, fieldnames=["model", "takeoff_kN"])
+        writer.writeheader()
+        writer.writerows(rows)
+    return rows
+
+
+def generate_briefing_03(
+    output_dir: Path, source_dir: Path, qa_dir: Path
+) -> dict[str, object]:
+    draw_cfm56_flowpath(output_dir, qa_dir)
+    ratings = draw_cfm56_rating_chart(output_dir, source_dir, qa_dir)
+    notes = {
+        "briefing": 3,
+        "backend": "Python/matplotlib",
+        "topic": "CFM56-7B architecture, ratings, control, and life management",
+        "ratingSource": "EASA TCDS E.004 Issue 07, 9 January 2023",
+        "architectureSource": "EASA TCDS E.004 Issue 07; NTSB/AAR-19/03",
+        "ratings": ratings,
+        "integrity": "原创工程示意；流路图不按比例，推力数据为 EASA 认证额定值换算。",
+    }
+    (source_dir / "cfm56-7b-briefing-03-figure-notes.json").write_text(
+        json.dumps(notes, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return notes
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate aeroengine learning figures with Python/matplotlib.")
     parser.add_argument("--root", type=Path, default=Path.cwd())
@@ -662,7 +859,9 @@ def main() -> None:
     source_dir.mkdir(parents=True, exist_ok=True)
     qa_dir.mkdir(parents=True, exist_ok=True)
     configure_matplotlib()
-    if args.post_id == "bdbfd129":
+    if args.post_id == "0843e1c1":
+        notes = generate_briefing_03(output_dir, source_dir, qa_dir)
+    elif args.post_id == "bdbfd129":
         notes = generate_briefing_02(output_dir, source_dir, qa_dir)
     else:
         state = draw_brayton_map(output_dir, source_dir, qa_dir)

@@ -1,0 +1,140 @@
+<p><strong>航空发动机学习简报 · 第 03 期</strong></p>
+<p><strong>副题：</strong>从双转子流路、推力等级到风扇叶片寿命管理</p>
+<p><strong>主题类型：</strong>经典发动机剖析　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-07-28</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote>
+  <p><strong>本期问题：</strong>CFM56-7B 为什么能以一套基本流路覆盖 7B20 至 7B27 多个推力等级，并在 Boeing 737 Next-Generation 上形成大规模长期运营？读公开资料时，怎样把架构、认证额定、控制、改型与寿命管理放进同一张工程地图？</p>
+</blockquote>
+<p>学完本期，你应当能够：按 N1、N2 两根转子解释风扇、增压级、高压压气机和两级涡轮系统的功率传递；识别 SAC、DAC、Tech Insertion 与 Enhanced 后缀的公开含义；从 EASA 认证数据表读取推力、干重、尺寸和控制口径；用一个可复算算例比较推力等级；并从 Southwest 1380 事故理解发动机、短舱、适航和维修为什么必须联合分析。</p>
+<p><strong>前置知识：</strong>需要理解第 01 期的总参数和轴功平衡，以及第 02 期的修正转速、工作线和喘振边界。本文只整理公开民用资料；未公开的部件几何、控制调度、材料细节和寿命模型不作推断。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol>
+  <li><strong>它是双转子高涵道比涡扇。</strong>N1 低压转子由四级低压涡轮驱动风扇和三级增压级，N2 高压转子由单级高压涡轮驱动九级高压压气机；两根同轴转子可在各自更合适的转速范围工作。</li>
+  <li><strong>推力等级不是“换一台完全不同的发动机”。</strong>EASA 给出的 7B20、22、24、26、27 起飞推力从 91.63 到 121.43 kN；共同架构配合型号识别插头、控制软件和经批准的硬件构型实现分级，但不同后缀不能仅凭数字互换。</li>
+  <li><strong>成熟来自持续改进，而不是冻结设计。</strong>公开谱系从 SAC、DAC 发展到 Tech Insertion（/3）和 Enhanced（E）；改动涉及压气机、燃烧室和涡轮，目标包括耐久、维护成本、温度裕度和油耗。</li>
+  <li><strong>可靠性指标必须带时间和来源。</strong>CFM 当前页面称 7B 已交付超过 15,000 台并累计超过 5 亿发动机飞行小时；2017 年制造商材料给出的 99.96% 发动机签派可靠度和平均约 18,000 循环首次大修，是当时机队统计，不是每台发动机的保证值。</li>
+  <li><strong>风扇叶片失效是整机系统问题。</strong>NTSB 对 SWA1380 的结论不只指向叶片裂纹，还要求发动机与飞机制造商联合分析叶片释放、短舱载荷路径和关键撞击位置；寿命限制、无损检测、短舱结构和运营应急不能割裂。</li>
+</ol>
+
+<h2 id="公开参数与型号口径"><a href="#公开参数与型号口径" class="headerlink" title="公开参数与型号口径"></a>公开参数与型号口径</h2>
+<p>EASA TCDS E.004 Issue 07 把 CFM56-7B 分为 SAC、DAC、TI 和 E 四组。SAC 为单环形燃烧室，DAC 为双环形燃烧室；TI（Tech Insertion）修改高压压气机、单环形燃烧室和高压涡轮；E（Enhanced）修改高压与低压涡轮。后缀 <code>/F</code>还有单独的 EGT 限制口径。型号名因此同时编码推力等级与批准构型，不能把 <code>7B27E</code>简化成“只比 7B24 多 3 千磅推力”。</p>
+<table>
+  <thead><tr><th>项目</th><th>公开值</th><th>口径</th></tr></thead>
+  <tbody>
+    <tr><td>总体</td><td>双转子、轴流、高涵道比涡扇</td><td>EASA TCDS</td></tr>
+    <tr><td>压气系统</td><td>1 级风扇 + 3 级 LPC + 9 级 HPC</td><td>EASA、NTSB 交叉核验</td></tr>
+    <tr><td>燃烧与涡轮</td><td>环形燃烧室；1 级 HPT + 4 级 LPT</td><td>具体燃烧室随后缀变化</td></tr>
+    <tr><td>控制</td><td>双通道 FADEC</td><td>软件版本属于型号设计的一部分</td></tr>
+    <tr><td>外廓尺寸</td><td>长 2508 mm、宽 2118 mm、高 1829 mm</td><td>发动机外廓，不等于短舱安装包络</td></tr>
+    <tr><td>干重</td><td>SAC/TI 2386 kg；E 2395 kg；DAC 2431 kg</td><td>不同构型分别列值</td></tr>
+    <tr><td>应用</td><td>Boeing 737NG 及其军用衍生型的独家动力</td><td>CFM 官方产品页面</td></tr>
+  </tbody>
+</table>
+<figure class="aeroengine-figure">
+  <img src="/p/0843e1c1/cfm56-7b24e-qantas.webp" alt="安装在 Qantas Boeing 737-838 上的 CFM56-7B24E 风扇与短舱">
+  <figcaption>图 1　CFM56-7B24E 装机状态，可辨认宽弦风扇、进气唇口和 737NG 低翼安装关系。摄影：Bidgee；来源：<a href="https://commons.wikimedia.org/wiki/File:CFM_International_CFM56-7B24E_engine_mounted_on_Qantas_(VH-XZP)_Boeing_737-838(WL)_01.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>；许可：<a href="https://creativecommons.org/licenses/by-sa/3.0/au/deed.en" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0 AU</a>，网页副本转为 WebP。</figcaption>
+</figure>
+
+<h2 id="双转子流路与站位"><a href="#双转子流路与站位" class="headerlink" title="双转子流路与站位"></a>双转子流路与站位</h2>
+<p>来流先进入单级风扇。大部分空气进入旁通道，核心流则经三级增压级和九级高压压气机继续压缩，再进入环形燃烧室。燃气先通过单级 HPT，把功率交给 N2 轴上的 HPC；随后通过四级 LPT，把功率交给 N1 轴上的风扇与增压级。两根轴机械上独立、气动上强耦合：任一部件流量、效率、放气或间隙变化，都会通过流量连续、轴功平衡与喷口背压移动另一个转子的工作点。</p>
+<p>NTSB 记录 7B 风扇盘有 24 个叶片槽，风扇叶片采用 Ti-6Al-4V 钛合金。这个公开细节有助于理解大涵道比发动机的前端风险：风扇叶片具有较大质量和半径，局部裂纹、外物损伤或叶片释放带来的不平衡与短舱载荷不能只按“核心机故障”处理。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/0843e1c1/cfm56-7b-flowpath.svg" alt="CFM56-7B 双转子流路和公开级数工程示意">
+  <figcaption>图 2　CFM56-7B 公开架构示意，不按比例。级数与功率连接依据 EASA TCDS E.004 Issue 07 和 NTSB/AAR-19/03；原创图，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption>
+</figure>
+
+<h2 id="部件设计与改型谱系"><a href="#部件设计与改型谱系" class="headerlink" title="部件设计与改型谱系"></a>部件设计与改型谱系</h2>
+<p>CFM 的分工也映射到流路：GE 负责 HPC、燃烧室和 HPT 组成的核心机，Safran 负责风扇和 LPT；双方均可总装。1993 年 7B 作为 737NG 的唯一发动机项目启动，1997 年随 Southwest 投入运营。Tech Insertion 于 2007 年进入 737NG 服务并成为生产标准，制造商公开说明其改进 HPC、燃烧室、HPT 与 LPT；当时目标包括增加约 15–20 ℃ EGT 裕度、按推力等级降低 5%–12% 维护成本，并使比油耗最多改善约 1%。这些是制造商发布时的项目目标，实际机队效果仍取决于构型、任务与维修状态。</p>
+<p>EASA 还列出 E 构型修改 HPT 与 LPT，控制软件也随 SAC、DAC、TI、E 采用不同批准版本。由此可见，经典型号剖析不能只数级数：相同“1-3-9-1-4”骨架下面，气动外形、热端耐久、燃烧室和控制基线持续演进。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/0843e1c1/cfm56-7b-display.webp" alt="新加坡航展展示的 CFM56-7B 发动机">
+  <figcaption>图 3　新加坡航展 CFM56-7B 展示件，能看到风扇、机匣和附件区域；它是展示状态，不应据此推断内部装机细节。摄影：Kentaro Iemoto；来源：<a href="https://commons.wikimedia.org/wiki/File:CFM56-7B_(4340708318).jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>；许可：<a href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0</a>，原图曾裁切，网页副本转为 WebP。</figcaption>
+</figure>
+
+<h2 id="推力等级与可复算的简化算例"><a href="#推力等级与可复算的简化算例" class="headerlink" title="推力等级与可复算的简化算例"></a>推力等级与可复算的简化算例</h2>
+<p>EASA 对主要等级给出的起飞静推力依次为 9163、10097、10765、11699、12143 daN。因为 <code>1 daN = 10 N = 0.01 kN</code>，这些数可直接转换为 91.63–121.43 kN。认证额定是在规定条件与限制下的型号数据，不等于任意高度、温度、安装损失和引气条件下的实际净推力。</p>
+<div class="aeroengine-formula"><strong>推力等级跨度：</strong> ΔFrel = (F7B27 − F7B20) / F7B20 = (121.43 − 91.63) / 91.63 = 0.325 ≈ 32.5%</div>
+<p><strong>可复算算例：</strong>若一架飞机采用 7B24，认证起飞推力为 <code>10765 daN</code>，则 <code>F=10765×10=107650 N=107.65 kN</code>。与 7B27 的 121.43 kN 比较，差值为 <code>13.78 kN</code>，7B27 约高 <code>12.8%</code>。这个计算只能比较铭牌等级；若要评估起飞性能，还必须输入环境、进气与喷口安装损失、引气/取功、发动机退化以及飞机限重。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/0843e1c1/cfm56-7b-rating-ladder.svg" alt="CFM56-7B20至7B27认证起飞推力柱状图">
+  <figcaption>图 4　CFM56-7B 主推力等级。数据来自 EASA TCDS E.004 Issue 07，并按 1 daN=0.01 kN 换算；公开 CSV 可复算。原创图，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption>
+</figure>
+
+<h2 id="fadec与运行限制"><a href="#fadec与运行限制" class="headerlink" title="FADEC与运行限制"></a>FADEC 与运行限制</h2>
+<p>EASA 将双通道 FADEC 和相应软件列为型号设计的一部分：SAC、DAC、TI 与 E 构型对应不同批准软件版本，TI/E 还可能使用 FADEC 2 或 FADEC 3 硬件。公开 TCDS 能确认控制系统边界与部分限制，例如显示 EGT、N1/N2、引气和附件取功口径；但并不公开完整燃油调度、可调静子、放气阀和保护逻辑。因此，工程分析应把“已认证的控制系统存在”与“已知内部控制律”严格区分。</p>
+<p>概念上，油门请求会经过飞机/发动机接口变成受限的推力指令；FADEC 同时监视转速、温度、压力和执行机构状态，在起动、加速、稳态与减速之间调度燃油及可调部件。任何仿真若只用一个“油门到推力”的静态比例，都会漏掉热端限制、加速裕度、喘振裕度、传感器故障与双通道切换。</p>
+
+<h2 id="服役改进与寿命管理"><a href="#服役改进与寿命管理" class="headerlink" title="服役改进与寿命管理"></a>服役改进与寿命管理</h2>
+<p>CFM 当前产品页称 7B 已交付超过 15,000 台、累计超过 5 亿发动机飞行小时。大机队带来两种相反效应：一方面，统计样本和维修网络足够大，能快速识别耐久模式并形成服务通告；另一方面，同一建议会影响大量发动机，检查能力、备件和停场安排成为系统工程约束。</p>
+<p>2018 年 CFM 在与 FAA、EASA、Boeing 和运营人协调后发布风扇叶片超声检查建议：当时对超过 30,000 循环的叶片要求在 20 天内检查，对达到 20,000 循环的叶片安排检查，并建议此后每 3,000 循环重复。2019 年 EASA SIB 2019-18 又明确关联 CFM56-7B S/B 72-1050 与 AD 2019-0018。这里的关键不是死记某个阈值，而是认识到寿命管理以部件序列、循环计数、无损检测能力、服务通告和适航指令共同闭环；当前维修必须使用运营人获批的最新文件，本文不能替代维修数据。</p>
+
+<h2 id="事件案例与失效边界"><a href="#事件案例与失效边界" class="headerlink" title="事件案例与失效边界"></a>事件案例与失效边界</h2>
+<p>2018 年 Southwest 1380 的左发风扇叶片发生疲劳断裂，继而造成进气道和风扇罩部分脱落，碎片损伤机身窗区并导致快速失压。NTSB 认为实际叶片释放后的短舱破坏行为与认证分析假设之间存在差距，建议 Boeing 确定关键撞击位置并重新设计风扇罩，也建议适航当局要求飞机与发动机制造商联合分析不同工况下的叶片碎裂、载荷和短舱响应。</p>
+<p>这揭示了三个边界：风扇机匣能包容部分碎片，不代表整个进气道和风扇罩在所有撞击位置都自动保持完整；发动机通过自身 Part 33 要求，不代表安装后的飞机系统风险已经穷尽；检查发现率也不是 100%，必须结合裂纹萌生、循环增长、检测间隔和结构后果做风险闭环。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/0843e1c1/swa1380-fan-cowl.webp" alt="Southwest 1380事故后CFM56-7B风扇罩损伤">
+  <figcaption>图 5　SWA1380 事故后的左侧风扇罩损伤，箭头标示前方。作者/机构：NTSBgov；来源：<a href="https://commons.wikimedia.org/wiki/File:Print_(49090313831).jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons / NTSB</a>；许可：<a href="https://commons.wikimedia.org/wiki/Template:PD-USGov-NTSB" target="_blank" rel="noopener noreferrer">Public Domain (U.S. NTSB)</a>，网页副本转为 WebP。</figcaption>
+</figure>
+
+<h2 id="工程分析步骤"><a href="#工程分析步骤" class="headerlink" title="工程分析步骤"></a>工程分析步骤</h2>
+<ol>
+  <li><strong>锁定构型：</strong>记录完整型号、后缀、发动机序列号、软件和服务通告状态，禁止用“CFM56-7B”泛称替代配置管理。</li>
+  <li><strong>统一额定口径：</strong>区分起飞、最大连续、海平面静态、平额温度与实际飞行推力；压力、温度和推力单位必须显式转换。</li>
+  <li><strong>建立双转子模型：</strong>分别写 N1、N2 轴功平衡与流量连续，再联立风扇、压气机、燃烧室、涡轮和喷口特性。</li>
+  <li><strong>加入安装与取功：</strong>考虑进气恢复、短舱阻力、引气、电力和液压取功；TCDS 的附件和引气限制是边界，不是性能地图。</li>
+  <li><strong>校核控制限制：</strong>在稳态与瞬态中检查 N1/N2、EGT、喘振裕度和执行机构范围；未公开调度只能用经验证的代理模型并标注不确定度。</li>
+  <li><strong>连接寿命数据：</strong>按循环、小时、部件序列和检查结果追踪风扇叶片与寿命件，使用最新适航指令和获批维修文件。</li>
+  <li><strong>做安装后安全分析：</strong>把叶片释放、机匣、短舱、机翼/机身、线束管路和客舱后果放入同一失效链，不把发动机包容试验等同飞机级验证。</li>
+  <li><strong>保留证据边界：</strong>把制造商宣传统计、认证数据、事故事实、工程推断和仿真结果分栏记录，避免用高可靠度均值掩盖低概率高后果事件。</li>
+</ol>
+
+<h2 id="与整机和维修体系的耦合"><a href="#与整机和维修体系的耦合" class="headerlink" title="与整机和维修体系的耦合"></a>与整机和维修体系的耦合</h2>
+<ul>
+  <li><strong>飞机性能：</strong>推力等级影响起飞场长、单发爬升和限重，但机翼、短舱、重量和发动机平额共同决定可用性能。</li>
+  <li><strong>短舱与地面间隙：</strong>737 的低翼安装使发动机、进气道、附件和整流外形成为联合设计，不能把“裸机尺寸”直接当作安装包络。</li>
+  <li><strong>环控与取功：</strong>高压压气机引气和附件功率改变核心机匹配及 EGT 裕度；不同飞行阶段的可用量受限制。</li>
+  <li><strong>MRO 网络：</strong>大机队让航材、在翼支持和修理能力规模化，也要求严格的构型一致性、可追溯性与全球适航协调。</li>
+  <li><strong>运营数据：</strong>签派可靠度和在翼时间是机队层统计，受航线长度、环境、推力使用率与维修策略影响，不能简单外推到单台发动机剩余寿命。</li>
+</ul>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol>
+  <li>CFM56-7B 的 N1 与 N2 各连接哪些主要部件？</li>
+  <li>为什么九级 HPC 不能直接由四级 LPT 驱动？请从双转子分工解释。</li>
+  <li>计算题：把 7B24 的 10765 daN 转换为 kN。</li>
+  <li>计算题：7B27 的 121.43 kN 比 7B20 的 91.63 kN 高百分之多少？</li>
+  <li>判断题：7B27E 与 7B27/3 的推力等级接近，因此硬件和控制软件必然相同。</li>
+  <li>判断题：风扇机匣通过包容验证，就足以证明所有短舱部件在任意叶片释放位置都保持完整。</li>
+  <li>Tech Insertion 公开修改了哪些主要部件？制造商当时声明的目标是什么？</li>
+  <li>为什么 99.96% 签派可靠度不能替代部件寿命管理和飞机级安全分析？</li>
+</ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<ol>
+  <li>N1 连接风扇、三级增压级与四级 LPT；N2 连接九级 HPC 与单级 HPT。</li>
+  <li>两根同轴转子机械独立，HPT 处在高温高压核心流前段并为 HPC 提供功，LPT 利用后续膨胀驱动大流量风扇与增压级，使两套转子各自匹配速度和负荷。</li>
+  <li><code>10765×0.01=107.65 kN</code>。</li>
+  <li><code>(121.43−91.63)/91.63≈32.5%</code>。</li>
+  <li>错误。后缀代表经批准的燃烧室、压气机/涡轮修改和软件构型，必须按完整型号管理。</li>
+  <li>错误。NTSB 要求进一步分析关键撞击位置、碎片与短舱结构响应。</li>
+  <li>公开资料列出 HPC、燃烧室、HPT、LPT 改进；目标包括 EGT 裕度、耐久/维修成本与至多约 1% 的比油耗改善。</li>
+  <li>它是特定时期的机队平均运营统计，不描述单个寿命件裂纹、检测漏检和低概率高后果安装风险。</li>
+</ol>
+<p><strong>下一期衔接：</strong>回到设计与控制方法，学习“压气机工作线与喘振裕度”：把本期的双转子耦合具体落到特性图、放气/可调静子和加速调度上。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ul>
+  <li><a href="https://www.easa.europa.eu/en/document-library/type-certificates/engine-cs-e/easae004-cfm-international-sa-cfm56-7b-series" target="_blank" rel="noopener noreferrer">EASA TCDS E.004 Issue 07：CFM56-7B series engines</a>：型号、构型、尺寸、干重、推力、控制与限制的主要认证依据。</li>
+  <li><a href="https://www.ntsb.gov/investigations/AccidentReports/Reports/AAR1903.pdf" target="_blank" rel="noopener noreferrer">NTSB/AAR-19/03：Southwest Airlines Flight 1380</a>：架构、风扇叶片、事故链和调查结论。</li>
+  <li><a href="https://www.ntsb.gov/safety/safety-recs/recletters/A-19-017-023.pdf" target="_blank" rel="noopener noreferrer">NTSB A-19-017 至 A-19-023 安全建议</a>：关键撞击位置和发动机/飞机联合认证分析。</li>
+  <li><a href="https://www.cfmaeroengines.com/cfm56/CFM56-5B-CFM56-7B" target="_blank" rel="noopener noreferrer">CFM International：CFM56-5B &amp; CFM56-7B</a>：应用、交付量与累计飞行小时的制造商当前统计。</li>
+  <li><a href="https://www.geaerospace.com/news/articles/extraordinary-together-ge-aerospace-and-safran-aircraft-engines-celebrate-50th-anniversary" target="_blank" rel="noopener noreferrer">GE Aerospace / CFM 50 周年时间线</a>：1993 年项目启动、1997 年投入运营与 1999 年 ETOPS 里程碑。</li>
+  <li><a href="https://www.geaerospace.com/news/press-releases/joint-ventures/cfm56-7b-tech-insertion-enters-service" target="_blank" rel="noopener noreferrer">CFM56-7B with Tech Insertion Enters Service</a>：2007 年 Tech Insertion 构型与当时项目目标。</li>
+  <li><a href="https://www.geaerospace.com/news/articles/product/did-you-know-cfm56-engines-performance-extended-time-wing-advantage" target="_blank" rel="noopener noreferrer">GE Aerospace：CFM56 time-on-wing facts（2017）</a>：带日期的制造商可靠度与在翼时间统计。</li>
+  <li><a href="https://www.geaerospace.com/news/press-releases/other-news-information/cfm-international-issues-new-service-bulletin-cfm56-7b" target="_blank" rel="noopener noreferrer">CFM 2018 风扇叶片检查服务通告新闻稿</a>：当时超声检查阈值与重复间隔。</li>
+  <li><a href="https://ad.easa.europa.eu/ad/2019-18" target="_blank" rel="noopener noreferrer">EASA SIB 2019-18：Fan blades – Life Limitation</a>：关联服务通告与适航指令。</li>
+  <li><a href="https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/faa-h-8083-32b-aviation-maintenance-technician" target="_blank" rel="noopener noreferrer">FAA-H-8083-32B：Aviation Maintenance Technician Handbook—Powerplant</a>：涡扇、压气机、燃烧室和涡轮的通用背景。</li>
+</ul>
+<p><strong>原创图许可：</strong>图 2、图 4 由 Qzl's Blog 依据所列认证与调查资料绘制，CC BY 4.0；图 4 数据副本为 <a href="/data/aeroengine/cfm56-7b-rating-data.csv">cfm56-7b-rating-data.csv</a>。外部照片的作者、来源、修改状态和许可均在各自图注中列明。</p>
