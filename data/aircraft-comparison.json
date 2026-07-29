@@ -1,5 +1,16 @@
 [
   {
+    "slug": "chengdu-j-20",
+    "name": "歼-20“威龙”",
+    "url": "/p/f7fb98f8.html",
+    "firstFlightYear": 2011,
+    "lengthM": 20.3,
+    "wingspanM": 12.9,
+    "maxTakeoffWeightT": 37.0,
+    "speedLabel": "官方未公开；公开二手估算常见约 Mach 2",
+    "rangeLabel": "官方未公开"
+  },
+  {
     "slug": "harbin-z-20",
     "name": "直-20",
     "url": "/p/f72a55dd.html",

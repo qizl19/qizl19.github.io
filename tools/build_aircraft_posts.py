@@ -250,6 +250,20 @@ def render_photo(photo: dict) -> str:
 
 def render_model_widget(profile: dict) -> str:
     model = profile["model"]
+    if model.get("kind") == "unavailable":
+        return (
+            '<section class="aircraft-widget aircraft-model-card" data-aircraft-model-unavailable>'
+            '<div class="aircraft-widget-heading"><div><span class="aircraft-widget-kicker">3D QA FALLBACK</span>'
+            f'<h3>{esc(profile["nameZh"])}：暂无可验证模型</h3></div><span class="aircraft-widget-badge">保留静态照片</span></div>'
+            '<div class="aircraft-model-poster">'
+            f'<img src="{LAZY_PLACEHOLDER}" data-original="{esc(model["poster"])}" alt="{esc(profile["nameZh"])}三维模型缺席时的静态全机照片">'
+            '</div><p class="aircraft-widget-status" role="status">未下载 GLB，也未初始化 WebGL。</p>'
+            f'<p id="aircraft-model-note" class="aircraft-model-note"><strong>暂无可验证模型。</strong> {esc(model["note"])}</p>'
+            f'<p class="aircraft-model-credit">质检方法：<a target="_blank" rel="noopener" href="{esc(model["sourceUrl"])}">{esc(model["method"])}</a>；'
+            f'输入照片：{esc(model["inputCredit"])}（<a target="_blank" rel="noopener" href="{esc(model["inputSourceUrl"])}">原始来源</a>，'
+            f'<a target="_blank" rel="noopener license" href="{esc(model["licenseUrl"])}">{esc(model["license"])}</a>）。</p>'
+            '</section>'
+        )
     reconstruction_credit = ""
     if model.get("kind") in {"triposr-image-reconstruction", "triposg-image-reconstruction"}:
         reconstruction_credit = (

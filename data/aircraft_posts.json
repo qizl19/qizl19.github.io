@@ -1,5 +1,296 @@
 [
   {
+    "slug": "chengdu-j-20",
+    "nameZh": "歼-20“威龙”",
+    "nameEn": "Chengdu J-20",
+    "eyebrow": "飞机资料整理 · 第 9 期",
+    "subtitle": "从2011年首飞到系列化发展的中国双发隐身战斗机：只按公开资料梳理时间线、总体布局与资料边界",
+    "date": "2026-07-29",
+    "updated": "2026-07-29",
+    "nation": "中国",
+    "category": "中远程隐身战斗机（官方公开口径）",
+    "era": "2010年代至今",
+    "tags": [
+      "航空",
+      "中国军机",
+      "隐身战斗机"
+    ],
+    "status": "现役 / 系列化发展",
+    "metrics": {
+      "firstFlightYear": 2011,
+      "lengthM": 20.3,
+      "wingspanM": 12.9,
+      "maxTakeoffWeightT": 37.0,
+      "speedLabel": "官方未公开；公开二手估算常见约 Mach 2",
+      "rangeLabel": "官方未公开"
+    },
+    "diagram": [
+      "需求与技术验证：国产隐身战斗机平台",
+      "总体方案：鸭翼、三角翼、双发与双外倾垂尾",
+      "试飞定型：2011首飞、2016公开、2018进入作战部队",
+      "系列化发展：单座基型持续改进与双座J-20S公开"
+    ],
+    "firstFlight": "2011 年 1 月 11 日 13:11 在成都完成首次飞行",
+    "accent": "#41556d",
+    "heroImage": "/p/f7fb98f8/j20-002.webp",
+    "model": {
+      "kind": "unavailable",
+      "poster": "/p/f7fb98f8/j20-002.webp",
+      "method": "TripoSG 三候选单图重建与八视角网格审计",
+      "sourceUrl": "https://github.com/qizl19/qizl19.github.io/blob/main/tools/reconstruct_aircraft_triposg.py",
+      "inputImage": "/p/f7fb98f8/j20-002.webp",
+      "inputCredit": "N509FZ",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:J-20_at_CCAS2022_(20220827103424).jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attemptedEngine": "TripoSG",
+      "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "engineLicense": "MIT",
+      "channel": "local-offline-rtx3060",
+      "candidates": [
+        {
+          "input": "j20-002-original.jpg",
+          "inputSha256": "19caf3d564bddeae89c911999ee866ef73f9ca965f3c90712492ce8da2e939ab",
+          "seed": 42,
+          "steps": 40,
+          "guidanceScale": 7.0,
+          "denseDepth": 8,
+          "hierarchicalDepth": 9,
+          "targetFaces": 80000,
+          "outputSha256": "3aab9c9ef73df925a3788cbf2c17125e9fc48db57f3f70322a7fe09ec0fb2081",
+          "bytes": 1440760,
+          "components": 4,
+          "accepted": false,
+          "reason": "八视角显示主连通体带有异常大片和明显外形粘连，未通过轮廓审计。"
+        },
+        {
+          "input": "j20-005-original.jpg",
+          "inputSha256": "8cf66243fdf89948ee5515539763496fdb33a26f89ba34466d58510245a0a11b",
+          "seed": 42,
+          "steps": 40,
+          "guidanceScale": 7.0,
+          "denseDepth": 8,
+          "hierarchicalDepth": 9,
+          "targetFaces": 80000,
+          "outputSha256": "6f38ee3a5fbe441a2cd05486d738b70b40bbd80129b1b0c4c3861134adc00268",
+          "bytes": 1441028,
+          "components": 30,
+          "accepted": false,
+          "reason": "输入抠图包含凝结云，网格出现大量游离部件和尾部粘连，未通过审计。"
+        },
+        {
+          "input": "j20-002-original.jpg",
+          "inputSha256": "19caf3d564bddeae89c911999ee866ef73f9ca965f3c90712492ce8da2e939ab",
+          "seed": 7,
+          "steps": 40,
+          "guidanceScale": 7.0,
+          "denseDepth": 8,
+          "hierarchicalDepth": 9,
+          "targetFaces": 80000,
+          "outputSha256": "1c8acd559f20168a1c44c92e0eb6309e2783133f648e3b2b749931384f4bfeb9",
+          "bytes": 1441144,
+          "components": 22,
+          "accepted": false,
+          "reason": "更换seed后仍有异常大片与多分量，整体辨识度不足以作为可验证模型。"
+        }
+      ],
+      "note": "已用两张许可明确的公开全机照片完成三次 VAST-AI 官方 TripoSG 本机离线单图重建，并检查抠图、八视角质检图、GLB文件头、面数、连通分量、尺度、绕序与哈希。三份候选均出现主轮廓粘连、异常大片或大量游离部件，未达到网页展示门槛，因此不上传GLB。暂无可验证模型；静态照片仅用于识别公开外形，不能据此确认尺寸、内部结构、任务系统或性能。"
+    },
+    "statement": "歼-20资料整理最重要的不是把网络推测拼成一张“精确参数表”，而是把官方已经确认的首飞、公开亮相、进入作战部队和J-20S公开节点，与仍未公开的尺寸、重量、速度、航程、发动机批次和系统细节明确分开。",
+    "summary": "歼-20是中国自主研制的双发隐身战斗机。国防部与中国军网公开时间线确认：2011年1月11日首飞，2016年11月在中国航展首次公开飞行展示，2017年以作战姿态参加阅兵，2018年进入空军作战部队，2019年进入空军“王牌部队”。官方常用“中国第四代中远程战斗机”表述；按欧美常见代际划分，外部资料通常称其为第五代战斗机。公开照片能够确认鸭翼、三角翼、双发、双外倾垂尾、机身与机翼融合等总体特征，但制造方没有发布完整型号手册。本文因此把20.3–20.5米机长、12.88–13.5米翼展、34–37吨最大起飞重量等数字明确标为外部估算，不把它们当作定型数据。2024年，航空工业集团首次正式确认双座J-20S；这说明平台已从单一单座型号进入公开可见的系列化发展阶段。",
+    "facts": [
+      {
+        "label": "首飞",
+        "value": "2011-01-11 13:11",
+        "note": "国防部十周年时间线给出精确日期与时刻。"
+      },
+      {
+        "label": "首次公开飞行展示",
+        "value": "2016-11-01 10:20",
+        "note": "两架歼-20在第十一届中国航展完成首次公开飞行展示。"
+      },
+      {
+        "label": "进入作战部队",
+        "value": "2018年2月公开确认",
+        "note": "空军发言人确认歼-20开始列装作战部队；2017年已参加“红剑”体系对抗演习。"
+      },
+      {
+        "label": "官方类型口径",
+        "value": "中国第四代中远程战斗机",
+        "note": "中国官方代际口径与欧美常见“第五代”称呼不同，二者不能不加说明地混用。"
+      },
+      {
+        "label": "总体布局",
+        "value": "单座 / 双座、双发、鸭翼、三角翼、双外倾垂尾",
+        "note": "均可从公开航展照片核验；具体气动参数和控制律未公开。"
+      },
+      {
+        "label": "外形尺寸",
+        "value": "约20.3–20.5 m长、12.88–13.5 m翼展",
+        "note": "来自CSIS ChinaPower整理的公开估算，制造方未发布可核对的型号尺寸表。"
+      },
+      {
+        "label": "最大起飞重量",
+        "value": "外部估算约34–37 t",
+        "note": "非官方数据；不同原型、批次和构型可能存在差异。"
+      },
+      {
+        "label": "速度 / 航程 / 升限",
+        "value": "官方完整口径未公开",
+        "note": "网络常见数字缺少统一测试条件与型号批次，本文不作为定型性能引用。"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "2011-01-11",
+        "event": "首架公开原型机在成都完成首次飞行，标志着项目从地面验证进入飞行试验。"
+      },
+      {
+        "year": "2016-11-01",
+        "event": "两架歼-20在第十一届中国航展首次公开飞行展示，型号由试飞场走入公众视野。"
+      },
+      {
+        "year": "2017-07-30",
+        "event": "三架歼-20以楔形编队参加庆祝建军90周年阅兵，官方称其首次以作战姿态公开出现。"
+      },
+      {
+        "year": "2018-02",
+        "event": "空军发言人确认歼-20进入作战部队，向形成综合作战能力迈出重要一步。"
+      },
+      {
+        "year": "2019-10",
+        "event": "五架歼-20参加国庆70周年阅兵；同月官方确认歼-20进入空军某“王牌部队”。"
+      },
+      {
+        "year": "2021",
+        "event": "国防部表示歼-20作战能力逐步得到检验，并已开始列装部队；同年参加第十三届中国航展。"
+      },
+      {
+        "year": "2022",
+        "event": "歼-20继续参加中国航展和空军航空开放活动，公开影像显示不同批次涂装与外形细节持续演变。"
+      },
+      {
+        "year": "2024-11",
+        "event": "航空工业集团首次正式确认双座歼-20S，并在第十五届中国航展公开模型与官方定位。"
+      },
+      {
+        "year": "2026-01-11",
+        "event": "中国军网发布歼-20首飞15周年报道，再次确认2011年首飞与国产隐身战斗机发展节点。"
+      }
+    ],
+    "designPoints": [
+      "鸭翼与大后掠三角翼共同承担升力、俯仰控制和跨速度范围配平。公开照片能确认布局，但具体翼型、气动导数、控制律和包线属于未公开信息。",
+      "机身与机翼高度融合，边缘方向和舱门轮廓具有明显的外形管理特征。外形观察只能说明设计取向，不能直接推出真实雷达散射截面。",
+      "双发与双外倾垂尾构成尾部主要特征。公开照片可辨发动机数量与喷口外形变化，但无法可靠确认不同批次的发动机型号、额定推力和寿命。",
+      "机鼻、座舱、进气道、鸭翼、主翼与尾段形成较长的纵向布局。外部估算的20米级机长只能用于比例认知，不可作为制造、仿真或性能计算输入。",
+      "隐身、气动、结构、热管理、航电与维护性之间存在强耦合。任何单一外形特征都不足以说明整机的真实探测距离、机动性能或任务能力。",
+      "J-20S在单座基型上增加第二座舱。官方已确认其存在和多功能定位，但内部任务分工、系统配置与控制逻辑没有公开。"
+    ],
+    "power": "公开资料能够确认歼-20采用双涡扇动力，也能从不同年份公开照片观察到喷口外形变化；但制造方和用户没有发布完整、可交叉核验的发动机批次表、额定推力、推重比、油耗或换装时间线。网络上常把AL-31系列、涡扇-10改型和涡扇-15分别对应不同阶段，这些说法涉及大量推测，本文不把具体型号与批次绑定为确定事实。工程上，最大速度、超声速巡航、航程和机动能力由发动机、进气道、阻力、重量、燃油、任务构型和控制限制共同决定，不能由单一推力数字外推。",
+    "variants": [
+      {
+        "name": "技术验证机 / 原型机",
+        "description": "用于总体方案、气动、结构、动力和系统试飞的早期构型；公开照片显示不同原型之间存在机鼻、座舱、进气道、尾段和涂装差异。"
+      },
+      {
+        "name": "歼-20单座基型及后续批次",
+        "description": "进入空军作战部队的主线构型。公开资料确认持续升级和扩大列装，但批次编号、发动机配置与具体系统差异未完整公开。"
+      },
+      {
+        "name": "歼-20S双座型",
+        "description": "航空工业集团于2024年首次正式确认。官方称其在单座基型上发展，强调远程、多功能、态势感知与有人—无人协同等方向；本文不推断内部系统和控制律。"
+      }
+    ],
+    "strengths": [
+      "官方时间线清晰：首飞、公开展示、进入作战部队和双座型公开均有可核验节点。",
+      "双发、鸭翼、三角翼和融合机体形成鲜明且可由公开影像验证的总体布局，平台具备持续改进和系列化发展的公开迹象。",
+      "国产隐身战斗机从原型试飞到部队列装的路径，为理解试飞、定型、训练和平台迭代之间的关系提供了代表性案例。"
+    ],
+    "limits": [
+      "制造方没有公开完整型号手册；尺寸、重量、速度、航程、升限和推力等精确数字大多是外部估算。",
+      "不同原型、生产批次、发动机状态和双座型的外形与系统差异不能由少量照片可靠归纳。",
+      "隐身、航电、数据链、电子战、武器与控制律等关键能力无法从公开外形推断，本文不提供敏感或可操作性细节。",
+      "三次TripoSG单图重建均未通过八视角和网格审计，因此本期不上传GLB；静态照片与尺寸图表也不能替代工程模型。"
+    ],
+    "photos": [
+      {
+        "src": "/p/f7fb98f8/j20-002.webp",
+        "alt": "2022年长春航空开放活动中的歼-20三分之四飞行视图",
+        "caption": "歼-20在2022年长春航空开放活动中转弯飞行，机身、鸭翼、三角翼、双垂尾与双发尾段轮廓清晰；该图亦作为TripoSG候选输入。",
+        "credit": "N509FZ",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:J-20_at_CCAS2022_(20220827103424).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/p/f7fb98f8/j20-005.webp",
+        "alt": "2016年中国航展首次公开展示期间的歼-20完整侧上方视图",
+        "caption": "2016年中国航展飞行展示中的歼-20，完整外形占画面比例高，可观察早期公开构型的总体布局。",
+        "credit": "Alert5",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:J-20_at_Airshow_China_2016.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/p/f7fb98f8/j20-003.webp",
+        "alt": "2022年长春航空开放活动中歼-20后上方爬升视图",
+        "caption": "歼-20爬升时的后上方视角，可清楚辨认双发尾段、双外倾垂尾、主翼与鸭翼的相对位置。",
+        "credit": "N509FZ",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:J-20_at_CCAS2022_(20220827103604).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/p/f7fb98f8/j20-004.webp",
+        "alt": "2018年中国航展歼-20双机编队",
+        "caption": "2018年中国航展的歼-20双机交叉编队，展示了公开飞行表演中的编队姿态，不据此推断训练战术或任务能力。",
+        "credit": "emperornie",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:J-20_formation.jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "中国国防部：歼-20首飞十周年官方时间线",
+        "url": "https://eng.mod.gov.cn/xb/News_213114/TopStories/4876978.html"
+      },
+      {
+        "label": "中国国防部：歼-20进入空军作战部队",
+        "url": "https://eng.mod.gov.cn/xb/Home/Focus/4804598.html"
+      },
+      {
+        "label": "中国国防部：2021年记者会说明歼-20能力检验与部队列装",
+        "url": "https://eng.mod.gov.cn/xb/News_213114/NewsRelease/4878386.html"
+      },
+      {
+        "label": "中国国防部：歼-20持续改进与系列化发展公开表述",
+        "url": "https://eng.mod.gov.cn/xb/News_213114/TopStories/4806666.html"
+      },
+      {
+        "label": "中国国防部：航空工业集团首次正式确认双座歼-20S",
+        "url": "https://eng.mod.gov.cn/xb/News_213114/TopStories/16351084.html"
+      },
+      {
+        "label": "中国国防部：歼-20、歼-16、歼-10C与歼-35A构成空军战斗机骨干",
+        "url": "https://eng.mod.gov.cn/xb/News_213114/TopStories/16351801.html"
+      },
+      {
+        "label": "中国军网 / 国防部：歼-20首飞十五周年",
+        "url": "https://eng.mod.gov.cn/2025xb/D/V/16436843.html"
+      },
+      {
+        "label": "CSIS ChinaPower：歼-20外部尺寸与重量估算（明确标注为估算）",
+        "url": "https://chinapower.csis.org/china-chengdu-j-20/"
+      },
+      {
+        "label": "Wikimedia Commons：Chengdu J-20授权媒体分类",
+        "url": "https://commons.wikimedia.org/wiki/Category:Chengdu_J-20"
+      }
+    ],
+    "postId": "f7fb98f8"
+  },
+  {
     "slug": "harbin-z-20",
     "nameZh": "直-20",
     "nameEn": "Harbin Z-20",

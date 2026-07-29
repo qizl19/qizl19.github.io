@@ -118,7 +118,13 @@ async function main() {
     await settle(page);
     if ((await page.locator("#article-container > h2").count()) !== 11) throw new Error(`${id} does not have eleven sections`);
     if ((await page.locator("#card-toc .toc-item").count()) !== 11) throw new Error(`${id} TOC does not have eleven entries`);
-    for (const selector of ["[data-aircraft-model]", "[data-aircraft-comparison]", "[data-aircraft-chart]", "[data-aircraft-mermaid]"]) {
+    const modelCards = await page.locator("[data-aircraft-model], [data-aircraft-model-unavailable]").count();
+    if (modelCards !== 1) throw new Error(`${id} has ${modelCards} model cards, expected one`);
+    if ((await page.locator("[data-aircraft-model-unavailable]").count()) === 1 &&
+        (await page.getByText("暂无可验证模型", { exact: false }).count()) === 0) {
+      throw new Error(`${id} unavailable-model fallback is missing its explicit statement`);
+    }
+    for (const selector of ["[data-aircraft-comparison]", "[data-aircraft-chart]", "[data-aircraft-mermaid]"]) {
       if ((await page.locator(selector).count()) !== 1) throw new Error(`${id} is missing ${selector}`);
     }
     if ((await page.locator('script[src="/js/aircraft-article.js"]').count()) !== 1) throw new Error(`${id} has an invalid aircraft script count`);
@@ -145,6 +151,8 @@ async function main() {
   await page.screenshot({ path: path.join(output, "article-desktop.png"), fullPage: false });
   await page.locator("#基本资料").scrollIntoViewIfNeeded();
   await page.screenshot({ path: path.join(output, "article-content.png"), fullPage: false });
+  await page.locator("#三维外形示意").scrollIntoViewIfNeeded();
+  await page.screenshot({ path: path.join(output, "article-model-fallback.png"), fullPage: false });
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`${origin}/p/${postIds[0]}.html`, { waitUntil: "domcontentloaded" });

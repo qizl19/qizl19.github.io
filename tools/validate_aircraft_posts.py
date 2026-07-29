@@ -89,20 +89,32 @@ def main() -> None:
             'data-aircraft-chart',
             'data-aircraft-mermaid',
             '<script defer src="/js/aircraft-article.js"></script>',
-            '点击后下载 GLB',
             '进入视口后加载',
             '进入视口后渲染',
             'aircraft-chart-fallback',
             'aircraft-mermaid-fallback',
-            '非工程模型',
         ]
+        model = profile.get("model", {})
+        if model.get("kind") == "unavailable":
+            widget_needles.extend(["暂无可验证模型", "未下载 GLB，也未初始化 WebGL"])
+        else:
+            widget_needles.extend(["点击后下载 GLB", "非工程模型"])
         for needle in widget_needles:
             if needle not in content and not (needle == "非工程模型" and "不可用于工程分析" in content):
                 errors.append(f"Missing aircraft widget marker {needle} in {page.name}")
         if content.count('<script defer src="/js/aircraft-article.js"></script>') != 1:
             errors.append(f"Aircraft widget script count must be one in {page.name}")
-        model = profile.get("model", {})
         if model:
+            if model.get("kind") == "unavailable":
+                for field in ["poster", "note", "sourceUrl", "method", "inputCredit", "inputSourceUrl", "license", "licenseUrl"]:
+                    if not model.get(field):
+                        errors.append(f"Missing unavailable-model field {field}: {profile['nameZh']}")
+                poster = root / model.get("poster", "").lstrip("/")
+                if not poster.is_file():
+                    errors.append(f"Missing unavailable-model poster: {poster}")
+                if "暂无可验证模型" not in content:
+                    errors.append(f"Missing unavailable-model statement: {page.name}")
+                continue
             model_path = root / model["src"].lstrip("/")
             if not model_path.is_file():
                 errors.append(f"Missing GLB model: {model_path}")
