@@ -1,5 +1,16 @@
 [
   {
+    "slug": "shenyang-j-16",
+    "name": "歼-16",
+    "url": "/p/8405a038.html",
+    "firstFlightYear": 2011,
+    "lengthM": 21.9,
+    "wingspanM": 14.7,
+    "maxTakeoffWeightT": 35.0,
+    "speedLabel": "官方未公开；外部资料常见 Mach 2 级估算",
+    "rangeLabel": "官方未公开；随任务剖面与外挂显著变化"
+  },
+  {
     "slug": "chengdu-j-20",
     "name": "歼-20“威龙”",
     "url": "/p/f7fb98f8.html",

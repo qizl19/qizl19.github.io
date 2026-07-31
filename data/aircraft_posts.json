@@ -1,5 +1,330 @@
 [
   {
+    "slug": "shenyang-j-16",
+    "nameZh": "歼-16",
+    "nameEn": "Shenyang J-16",
+    "eyebrow": "飞机资料整理 · 第 10 期",
+    "subtitle": "从2017年首次公开亮相到多用途体系训练：按公开资料理解中国双发双座重型战斗机",
+    "date": "2026-07-31",
+    "updated": "2026-07-31",
+    "nation": "中国",
+    "category": "双发双座重型多用途战斗机",
+    "era": "2010年代至今",
+    "tags": [
+      "航空",
+      "中国军机",
+      "多用途战斗机"
+    ],
+    "status": "现役 / 持续训练与改进",
+    "metrics": {
+      "firstFlightYear": 2011,
+      "lengthM": 21.9,
+      "wingspanM": 14.7,
+      "maxTakeoffWeightT": 35.0,
+      "speedLabel": "官方未公开；外部资料常见 Mach 2 级估算",
+      "rangeLabel": "官方未公开；随任务剖面与外挂显著变化"
+    },
+    "diagram": [
+      "平台基础：继承歼-11系列的大边条翼身融合、双发与双垂尾总体布局",
+      "任务扩展：串列双座、综合航电与多用途任务管理",
+      "公开列装：2017阅兵首次亮相，2018多支部队训练形成体系能力",
+      "家族发展：歼-16基型与歼-16D电子战型公开出现"
+    ],
+    "firstFlight": "外部公开资料多称约 2011 年首飞；中国官方公开材料尚未给出可核对的首飞日期",
+    "accent": "#4d6375",
+    "heroImage": "/p/8405a038/j16-001.webp",
+    "model": {
+      "kind": "unavailable",
+      "poster": "/p/8405a038/j16-001.webp",
+      "method": "许可模型检索与 TripoSG 两图三候选单图重建、八视角网格审计",
+      "sourceUrl": "https://github.com/qizl19/qizl19.github.io/blob/main/tools/reconstruct_aircraft_triposg.py",
+      "inputImage": "/p/8405a038/j16-002.webp",
+      "inputCredit": "颐园居",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:J-16_at_Changchun_Air_Show_20250921.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attemptedEngine": "TripoSG",
+      "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "engineLicense": "MIT",
+      "channel": "local-offline-rtx3060",
+      "existingModelSearch": {
+        "title": "Shenyang J16 “Hidden Dragon”",
+        "author": "andertan",
+        "sourceUrl": "https://sketchfab.com/3d-models/shenyang-j16-hidden-dragon-2b950f910677457fbb52b6096f81e70b",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "reportedTriangles": 14442,
+        "reportedVertices": 7944,
+        "format": "官方匿名接口未提供下载包格式",
+        "size": "未取得",
+        "sha256": "未取得（官方下载接口要求登录，匿名请求返回 401）",
+        "decision": "许可合格但本次无法在不使用用户凭据的情况下取得原始文件，未用于发布。"
+      },
+      "candidates": [
+        {
+          "input": "candidate-a.jpg",
+          "inputSha256": "f6994563707b355964d823fd01298ba32d133d1f8acb7eabd218aa8b2d86c9d1",
+          "seed": 42,
+          "steps": 40,
+          "guidanceScale": 7.0,
+          "denseDepth": 8,
+          "hierarchicalDepth": 9,
+          "targetFaces": 80000,
+          "outputSha256": "c8abae8f70f83cd7bf2911bb36ac4961c7739ee4402666bdf4c796a34895b919",
+          "bytes": 1440904,
+          "components": 38,
+          "accepted": false,
+          "reason": "八视角显示外挂与机翼、尾部发生粘连，左右轮廓不一致且存在多处分离小件。"
+        },
+        {
+          "input": "candidate-b.jpg",
+          "inputSha256": "3b6846b85a7b6d976969948880a6708c8a1610e9a8c8d4eec4e888a337e3ac1f",
+          "seed": 42,
+          "steps": 40,
+          "guidanceScale": 7.0,
+          "denseDepth": 8,
+          "hierarchicalDepth": 9,
+          "targetFaces": 80000,
+          "outputSha256": "b2557021206111adde8e02f6dab8cd212874a2f6bc32034ae369997b7a7757cb",
+          "bytes": 1444024,
+          "components": 173,
+          "accepted": false,
+          "reason": "俯视轮廓被纵向拉伸，机翼和垂尾不对称，且网格含大量游离分量。"
+        },
+        {
+          "input": "candidate-b.jpg",
+          "inputSha256": "3b6846b85a7b6d976969948880a6708c8a1610e9a8c8d4eec4e888a337e3ac1f",
+          "seed": 7,
+          "steps": 40,
+          "guidanceScale": 7.0,
+          "denseDepth": 8,
+          "hierarchicalDepth": 9,
+          "targetFaces": 80000,
+          "outputSha256": "d3841c6e54dd95e73ebb71c59340739382a94cb4bc9718b42cb54ccc4bbe886b",
+          "bytes": 1441172,
+          "components": 47,
+          "accepted": false,
+          "reason": "更换 seed 后游离分量减少，但机翼、垂尾和双发尾段仍明显不对称，辨识度不足。"
+        }
+      ],
+      "note": "先检索到一份可下载、CC BY 4.0 的歼-16精简模型，但 Sketchfab 官方下载接口要求登录，未在匿名环境取得文件，也未绕过授权。随后以两张许可明确的公开全机照片完成三次 VAST-AI 官方 TripoSG 本机离线单图重建，并检查输入抠图、八视角质检图、GLB文件头、面数、连通分量、尺度、绕序和哈希。三份候选均存在主轮廓粘连、严重不对称或大量游离部件，因此不上传GLB。暂无可验证模型；静态照片仅用于公开外形识别，遮挡区域不作事实补写，也不能用于制造、仿真或性能计算。"
+    },
+    "statement": "理解歼-16的关键不在于堆叠未经证实的速度、航程和载荷数字，而在于看清它如何以双发、双座、重型平台承接制空、对地、对海与体系协同等多用途需求，并把官方已确认的布局、首次公开亮相、部队训练和歼-16D发展，与外部估算的尺寸、重量、动力和性能明确分开。",
+    "summary": "歼-16是中国自主研发的双发双座重型多用途战斗机。中国国防部与中国军网公开资料确认：它采用双发、串列双座、双垂尾和大边条翼身融合总体布局，既承担制空任务，也能执行对地、对海等多用途任务；2017年7月30日在庆祝建军90周年阅兵中首次公开亮相，2018年已有多支航空兵部队常态化开展异型机对抗、空中加油等训练。2021年，电子战型歼-16D公开参加实战化训练，显示家族化发展。制造方没有发布完整型号手册，因此本文把约21.9米机长、14.7米翼展和35吨最大起飞重量明确列为外部估算；首飞年份、发动机具体批次、额定推力、最大速度、航程和载荷也不作为官方定型数据。2026年中国军网仍持续发布歼-16部队训练影像，可确认其现役状态，但不能据此推断机队规模或敏感作战能力。",
+    "facts": [
+      {
+        "label": "官方定位",
+        "value": "双发双座重型多用途战斗机",
+        "note": "国防部、中国军网多次使用这一表述。"
+      },
+      {
+        "label": "首次公开亮相",
+        "value": "2017-07-30",
+        "note": "庆祝中国人民解放军建军90周年阅兵。"
+      },
+      {
+        "label": "首飞",
+        "value": "外部资料多称约2011年",
+        "note": "官方公开材料未给出可核对的首飞日期，不能写成确定时间点。"
+      },
+      {
+        "label": "乘员与动力",
+        "value": "串列双座、双发",
+        "note": "可由官方文字与公开照片交叉确认；具体发动机批次和推力未公开。"
+      },
+      {
+        "label": "总体布局",
+        "value": "大边条翼身融合、双垂尾、常规尾翼",
+        "note": "公开近景照片可辨；内部结构与控制律不可由外形推断。"
+      },
+      {
+        "label": "外部尺寸估算",
+        "value": "约21.9 m长、14.7 m翼展",
+        "note": "GlobalSecurity与Mitchell Institute等外部资料口径接近，非制造方定型值。"
+      },
+      {
+        "label": "最大起飞重量估算",
+        "value": "约35 t",
+        "note": "外部公开资料常见值；不同批次和任务构型可能不同。"
+      },
+      {
+        "label": "性能口径",
+        "value": "官方完整数据未公开",
+        "note": "速度、航程、升限和任务载荷不采用网络单一数字。"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "约2011",
+        "event": "外部公开资料普遍把歼-16首飞放在这一时期；中国官方公开材料未给出可交叉核验的精确日期。"
+      },
+      {
+        "year": "2017-07-30",
+        "event": "歼-16在庆祝建军90周年阅兵中首次公开亮相，以战斗姿态进入公众视野。"
+      },
+      {
+        "year": "2018-02",
+        "event": "中国空军发布歼-16宣传片和纪念封，公开强调其与歼-20等平台形成制空、制海、制地的功能组合。"
+      },
+      {
+        "year": "2018-08",
+        "event": "国防部报道先期装备部队常态化开展异型机对抗、实弹打靶、突防突击和空中加油等训练，并称已装备多支航空兵部队。"
+      },
+      {
+        "year": "2021-08",
+        "event": "歼-16赴俄罗斯参加“航空飞镖”相关活动，形成多张许可明确、可核验完整外形的公开照片。"
+      },
+      {
+        "year": "2021-09",
+        "event": "歼-16D在第十三届中国航展公开出现；同年11月，国防部报道该型已投入实战化训练。"
+      },
+      {
+        "year": "2023-07",
+        "event": "长春航空开放活动出现运油-20A、歼-20与歼-16编队展示，公开呈现空中加油体系的外部训练场景。"
+      },
+      {
+        "year": "2025-09",
+        "event": "歼-16D与多型新一代战斗机参加阅兵梯队，新华社公开确认其为中国自主研制的新型电子战飞机。"
+      },
+      {
+        "year": "2026",
+        "event": "中国军网持续发布歼-16部队昼夜与常规飞行训练影像，确认平台仍处于现役训练状态。"
+      }
+    ],
+    "designPoints": [
+      "双发与双垂尾构成最醒目的总体特征。双发重型平台通常为航程、载荷、冗余与高速性能提供空间，但实际收益取决于重量、阻力、任务剖面和保障体系。",
+      "串列双座不是简单增加一名乘员。多用途任务中的飞行、传感器、通信和任务管理需要分工，但官方没有公开具体席位职责和控制逻辑。",
+      "大边条翼身融合、后掠主翼、全动平尾与双垂尾形成典型重型战斗机气动布局。公开照片能验证外形，不能反推出真实气动导数、稳定裕度或飞控律。",
+      "机鼻没有早期歼-11常见的长空速管，公开报道提到雷达、航电和操纵系统更新；具体硬件型号、探测距离和抗干扰指标未公开。",
+      "宽大的机翼和机身下方可见多个外挂位置说明其多用途取向，但本文不整理敏感挂载组合、使用程序或可操作性武器细节。",
+      "空中加油、异型机对抗和跨任务训练反映整机必须与预警、加油、指挥和保障节点耦合；单机参数并不能代表体系能力。"
+    ],
+    "power": "官方公开资料能够确认歼-16采用两台涡扇发动机，公开照片也能辨认双喷口与不同训练状态；但制造方与用户没有发布可核对的发动机批次表、额定推力、油耗、寿命或换装时间线。外部资料常将WS-10系列与歼-16关联，但具体子型号、批次和参数口径并不统一，本文不把它们写成确定事实。工程上，最大速度、航程、爬升和任务载荷由发动机、进气道、阻力、重量、燃油、外挂、环境和控制限制共同决定；脱离测试高度、速度、推力等级和任务构型的单一数字没有可比性。",
+    "variants": [
+      {
+        "name": "歼-16基型",
+        "description": "串列双座、双发重型多用途构型，公开承担制空、对地和对海等任务训练；不同生产批次的航电、动力和细节差异未完整公开。"
+      },
+      {
+        "name": "歼-16D",
+        "description": "中国官方确认的电子战型，2021年公开出现在中国航展并投入实战化训练；本文只说明公开外形与官方定位，不推断内部电子系统、功率或工作模式。"
+      },
+      {
+        "name": "训练与展示构型",
+        "description": "公开照片可见空中加油、编队和飞行展示等状态；外挂、涂装与外部设备随任务变化，不能据单张照片判断完整作战配置。"
+      }
+    ],
+    "strengths": [
+      "双发双座重型平台为多用途任务管理、航程、载荷和体系协同提供较充足的空间与能源基础。",
+      "官方公开训练覆盖制空、对地、对海、空中加油和异型机对抗，说明平台围绕多任务与体系运用持续形成能力。",
+      "歼-16D的公开出现显示基础平台具备家族化发展空间，可在通用气动与保障基础上承载差异化任务。"
+    ],
+    "limits": [
+      "没有公开完整型号手册；首飞、尺寸、重量、发动机、速度、航程与载荷的精确数字多来自外部估算。",
+      "重型双发平台通常伴随更高采购、燃油、维护与机场保障需求，不能只比较载荷或航程优势。",
+      "不同批次、训练构型和歼-16D的差异不能从少量公开照片可靠归纳；内部航电、电子战和控制逻辑不作推测。",
+      "三次TripoSG单图重建均未通过八视角与网格审计，因此本期不上传GLB；静态照片也不能替代工程模型。"
+    ],
+    "photos": [
+      {
+        "src": "/p/8405a038/j16-001.webp",
+        "alt": "2021年航空飞镖活动中的歼-16完整三分之四飞行视图",
+        "caption": "歼-16三分之四飞行视图，串列双座、双发、双垂尾、主翼与平尾轮廓清晰；该图作为TripoSG候选A输入。",
+        "credit": "Anna Zvereva",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chinese_Air_Force,_61248,_Shenyang_J-16_(51524684603).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+      },
+      {
+        "src": "/p/8405a038/j16-002.webp",
+        "alt": "2025年长春航空展歼-16后下方三分之四完整飞行视图",
+        "caption": "2025年长春航空展中的歼-16，背景简单、全机轮廓完整；裁剪副本作为TripoSG候选B输入。",
+        "credit": "颐园居",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:J-16_at_Changchun_Air_Show_20250921.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/p/8405a038/j16-003.webp",
+        "alt": "2025年长春航空展地面展示的歼-16座舱和前机身近景",
+        "caption": "歼-16地面近景，可辨串列双座座舱、机鼻、进气道、主起落架与翼身过渡；不据此推断内部系统。",
+        "credit": "颐园居",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:J-16_at_China%27s_Air_Force_Aviation_Open_Day_20250921.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/p/8405a038/j16-004.webp",
+        "alt": "2023年长春航空开放活动两架歼-16后视编队",
+        "caption": "两架歼-16在2023年长春航空开放活动中编队飞行，双发尾段、双垂尾和左右机翼轮廓清晰。",
+        "credit": "N509FZ",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Two_J-16s_using_afterburners_at_CCAS2023_(20230724102606).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/p/8405a038/j16-005.webp",
+        "alt": "2023年运油-20A、歼-20和歼-16空中加油展示编队",
+        "caption": "运油-20A、歼-20与歼-16公开展示编队，说明重型战斗机的任务半径与体系运用需要加油、指挥和保障节点共同支撑。",
+        "credit": "N509FZ",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aerial_refueling_formation_of_YY-20A,_J-20_and_J-16_at_CCAS2023_(20230724102118).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "中国国防部：中国空军发布歼-16宣传片和纪念封（2018）",
+        "url": "https://www.mod.gov.cn/gfbw/sy/rt/15984664_2.html"
+      },
+      {
+        "label": "中国国防部：我国自主研发的歼-16战机列阵长空（2018）",
+        "url": "https://www.mod.gov.cn/gfbw/wzll/16128119.html"
+      },
+      {
+        "label": "中国国防部：三款国产新战机罕见同框（2018）",
+        "url": "https://www.mod.gov.cn/gfbw/wzll/yw_214068/4830500.html"
+      },
+      {
+        "label": "国家国防科技工业局：歼-16在2017年阅兵首次展示",
+        "url": "https://www.sastind.gov.cn/n10086200/n10086331/c10326285/content.html"
+      },
+      {
+        "label": "中国国防部英文版：J-16D joins realistic combat training（2021）",
+        "url": "https://eng.mod.gov.cn/xb/News_213114/TopStories/4898565.html"
+      },
+      {
+        "label": "中国军网：歼-16总体布局与多用途定位（2025）",
+        "url": "https://www.81.cn/bq_208581/jdt_208582/16397209.html"
+      },
+      {
+        "label": "中国军网英文版：J-16 routine flight training（2026）",
+        "url": "https://eng.chinamil.com.cn/2025xb/H_251454/F_251457/16473252.html"
+      },
+      {
+        "label": "GlobalSecurity：J-16公开尺寸与重量估算",
+        "url": "https://www.globalsecurity.org/military/world/china/j-16-specs.htm"
+      },
+      {
+        "label": "Mitchell Institute：J-16公开技术数据汇编",
+        "url": "https://www.mitchellaerospacepower.org/weapons/j-16/"
+      },
+      {
+        "label": "Wikimedia Commons：Shenyang J-16照片分类与许可",
+        "url": "https://commons.wikimedia.org/wiki/Category:Shenyang_J-16"
+      },
+      {
+        "label": "Sketchfab：andertan的CC BY 4.0歼-16精简模型",
+        "url": "https://sketchfab.com/3d-models/shenyang-j16-hidden-dragon-2b950f910677457fbb52b6096f81e70b"
+      },
+      {
+        "label": "VAST-AI Research：TripoSG官方代码与MIT许可",
+        "url": "https://github.com/VAST-AI-Research/TripoSG"
+      }
+    ],
+    "postId": "8405a038"
+  },
+  {
     "slug": "chengdu-j-20",
     "nameZh": "歼-20“威龙”",
     "nameEn": "Chengdu J-20",
