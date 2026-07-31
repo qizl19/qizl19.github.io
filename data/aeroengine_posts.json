@@ -1,5 +1,145 @@
 [
   {
+    "issue": 4,
+    "slug": "aeroengine-04-compressor-operating-line-surge-margin",
+    "postId": "358da19b",
+    "title": "航空发动机学习简报｜第04期｜压气机工作线与喘振裕度",
+    "subtitle": "稳定边界不是一条固定安全线",
+    "type": "设计与控制方法",
+    "date": "2026-07-31",
+    "updated": "2026-07-31",
+    "heroImage": "/p/358da19b/compressor-operating-line-surge-margin.png",
+    "summary": "从整机匹配出发区分工作线、喘振线与瞬态轨迹，声明并复算流量—压比综合喘振裕度，进一步把稳态裕度拆成不确定性和瞬态预留，理解燃油、可调静子、放气及 FADEC 的控制取舍。",
+    "contentFile": "data/aeroengine/2026-07-31-compressor-operating-line-surge-margin.html",
+    "keyConcepts": [
+      "压气机工作线",
+      "喘振线",
+      "旋转失速",
+      "喘振裕度",
+      "瞬态预留",
+      "进口畸变",
+      "可调静子",
+      "放气调度",
+      "FADEC"
+    ],
+    "headings": [
+      {
+        "id": "本期问题与学习目标",
+        "title": "本期问题与学习目标"
+      },
+      {
+        "id": "核心结论",
+        "title": "核心结论"
+      },
+      {
+        "id": "工作线为何由整机匹配形成",
+        "title": "工作线为何由整机匹配形成"
+      },
+      {
+        "id": "喘振线与不稳定机理",
+        "title": "喘振线与不稳定机理"
+      },
+      {
+        "id": "喘振裕度定义与口径",
+        "title": "喘振裕度定义与口径"
+      },
+      {
+        "id": "可复算的简化算例",
+        "title": "可复算的简化算例"
+      },
+      {
+        "id": "稳态线瞬态线与裕度预算",
+        "title": "稳态线、瞬态线与裕度预算"
+      },
+      {
+        "id": "控制调度与分析步骤",
+        "title": "控制调度与分析步骤"
+      },
+      {
+        "id": "常见误区与失效边界",
+        "title": "常见误区与失效边界"
+      },
+      {
+        "id": "与整机和部件耦合",
+        "title": "与整机和部件耦合"
+      },
+      {
+        "id": "自测题",
+        "title": "自测题"
+      },
+      {
+        "id": "答案与下一期衔接",
+        "title": "答案与下一期衔接"
+      },
+      {
+        "id": "参考资料与图示许可",
+        "title": "参考资料与图示许可"
+      }
+    ],
+    "validationNeedles": [
+      "SM = 100",
+      "20.48%",
+      "10.41%",
+      "不确定性预留",
+      "瞬态预留",
+      "AC 33.65-1 已于 2022 年取消"
+    ],
+    "figures": [
+      {
+        "src": "/p/358da19b/compressor-operating-line-surge-margin.svg",
+        "fallback": "/p/358da19b/compressor-operating-line-surge-margin.png",
+        "title": "压气机工作线、喘振线与快速加速瞬态",
+        "author": "Qzl's Blog",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceData": "/data/aeroengine/compressor-surge-margin-example.csv"
+      },
+      {
+        "src": "/p/358da19b/surge-margin-budget-control.svg",
+        "fallback": "/p/358da19b/surge-margin-budget-control.png",
+        "title": "喘振裕度预算与控制动作",
+        "author": "Qzl's Blog",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "sources": [
+      {
+        "title": "NASA/TM-2014-218449：Application of TTECTrA for Dynamic Systems Analysis",
+        "url": "https://ntrs.nasa.gov/citations/20150011439"
+      },
+      {
+        "title": "NASA-TM-106970：Object-Oriented Approach for Gas Turbine Engine Simulation",
+        "url": "https://ntrs.nasa.gov/citations/19950024173"
+      },
+      {
+        "title": "NASA：Closed-Loop Performance and Operability Requirements",
+        "url": "https://ntrs.nasa.gov/citations/20150021871"
+      },
+      {
+        "title": "NASA/AIAA 76-703：Instantaneous Distortion and Available Surge Margin",
+        "url": "https://ntrs.nasa.gov/citations/19760055251"
+      },
+      {
+        "title": "NASA-TM-104328：F/A-18A Inlet Distortion Assessment",
+        "url": "https://ntrs.nasa.gov/citations/19970012654"
+      },
+      {
+        "title": "NACA-RM-E53A09：Compressor Bleed and Turbojet Acceleration",
+        "url": "https://ntrs.nasa.gov/citations/19930087466"
+      },
+      {
+        "title": "NASA Glenn：Flow Range of Centrifugal Compressor Being Extended",
+        "url": "https://ntrs.nasa.gov/citations/20050196621"
+      },
+      {
+        "title": "FAA AC 33.65-1：Surge and Stall Characteristics（已取消）",
+        "url": "https://www.faa.gov/regulations_policies/advisory_circulars/index.cfm/go/document.information/documentID/22928"
+      }
+    ],
+    "nextTopic": "压气机多级匹配与级间失配"
+  },
+  {
     "issue": 3,
     "slug": "aeroengine-03-cfm56-7b-anatomy",
     "postId": "0843e1c1",

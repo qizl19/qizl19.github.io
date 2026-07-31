@@ -1,0 +1,16 @@
+{
+  "briefing": 4,
+  "backend": "Python/matplotlib",
+  "topic": "Compressor operating line and surge margin",
+  "definition": "SM = 100 * [(PRs/PRop) * (Wcop/Wcs) - 1]",
+  "example": {
+    "steadySurgeMarginPercent": 20.48,
+    "transientSurgeMarginPercent": 10.41
+  },
+  "sources": [
+    "NASA/TM-2014-218449",
+    "NASA/TM-106970",
+    "NASA NTRS 20150021871"
+  ],
+  "integrity": "原创工程示意；曲线和数值为公开公式驱动的教学数据，不是任何真实压气机试验图或认证裕度。"
+}

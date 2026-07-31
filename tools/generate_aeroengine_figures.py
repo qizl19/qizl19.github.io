@@ -23,6 +23,10 @@ Reviewer risk:
 Briefing 02 adds corrected-parameter normalization and a schematic compressor
 map. Those curves are generated from transparent teaching equations and are
 explicitly not a measured compressor data set.
+
+Briefing 04 adds a definition-explicit surge-margin example, a generic
+compressor operating map, and a margin-budget/control diagram. The values are
+teaching data derived in the article, not certification or rig-test data.
 """
 
 from __future__ import annotations
@@ -845,6 +849,234 @@ def generate_briefing_03(
     return notes
 
 
+def draw_surge_margin_map(
+    output_dir: Path, source_dir: Path, qa_dir: Path
+) -> dict[str, float]:
+    """Draw a generic compressor map with steady and transient operating points."""
+    surge_flow = np.asarray([0.64, 0.69, 0.76, 0.84, 0.90])
+    surge_pr = np.asarray([1.42, 1.70, 2.02, 2.35, 2.62])
+    speed_lines = [
+        (0.64, 1.42, 0.89, 1.18, "70% Nc"),
+        (0.69, 1.70, 0.96, 1.34, "80% Nc"),
+        (0.76, 2.02, 1.03, 1.48, "90% Nc"),
+        (0.84, 2.35, 1.08, 1.60, "100% Nc"),
+        (0.90, 2.62, 1.12, 1.70, "105% Nc"),
+    ]
+    steady_line_flow = np.asarray([0.78, 0.82, 0.87, 0.92, 0.97])
+    steady_line_pr = np.asarray([1.34, 1.57, 1.83, 2.22, 2.46])
+
+    fig, ax = plt.subplots(figsize=(7.20, 4.05), constrained_layout=True)
+    for index, (left, top, right, bottom, label) in enumerate(speed_lines):
+        x = np.linspace(left, right, 80)
+        u = (x - left) / (right - left)
+        y = top - (top - bottom) * (0.28 * u + 0.72 * u**2)
+        ax.plot(x, y, color="#8da1ae", lw=1.1)
+        ax.text(
+            x[-1] + 0.006,
+            y[-1],
+            label,
+            va="center",
+            color=COLORS["gray"],
+            fontsize=7.2,
+        )
+    ax.plot(
+        surge_flow,
+        surge_pr,
+        color=COLORS["red"],
+        lw=2.6,
+        marker="o",
+        ms=3.4,
+        label="理论喘振线（教学）",
+    )
+    ax.plot(
+        steady_line_flow,
+        steady_line_pr,
+        color=COLORS["blue"],
+        lw=2.4,
+        marker="o",
+        ms=3.2,
+        label="目标稳态工作线",
+    )
+    ax.fill_betweenx(
+        np.linspace(1.30, 2.45, 120),
+        np.interp(np.linspace(1.30, 2.45, 120), surge_pr, surge_flow),
+        np.interp(np.linspace(1.30, 2.45, 120), steady_line_pr, steady_line_flow),
+        color=COLORS["orange"],
+        alpha=0.10,
+        label="稳态裕度区域（示意）",
+    )
+
+    # The numerical example is expressed in dimensional map coordinates in the
+    # article; here it is normalized only for visual placement.
+    steady = np.asarray([0.92, 2.22])
+    transient = np.asarray([0.88, 2.30])
+    surge = np.asarray([0.84, 2.35])
+    ax.scatter(*steady, s=64, color=COLORS["green"], zorder=5)
+    ax.scatter(*transient, s=64, color=COLORS["orange"], zorder=5)
+    ax.scatter(*surge, s=64, color=COLORS["red"], zorder=5)
+    ax.annotate(
+        "快速加速：流量左移、压比上升",
+        xy=transient,
+        xytext=(1.005, 2.48),
+        arrowprops={"arrowstyle": "->", "color": COLORS["orange"], "lw": 1.6},
+        ha="center",
+        color="#8b5418",
+        fontsize=8.0,
+    )
+    ax.text(steady[0] + 0.008, steady[1] - 0.12, "稳态点\nSM=20.5%", color=COLORS["green"])
+    ax.text(transient[0] + 0.008, transient[1] + 0.02, "瞬态点\nSM=10.4%", color="#8b5418")
+    ax.text(surge[0] - 0.008, surge[1] + 0.06, "同转速喘振点", ha="right", color=COLORS["red"])
+
+    ax.set_xlim(0.60, 1.16)
+    ax.set_ylim(1.05, 2.78)
+    ax.set_xlabel("修正流量 / 设计点修正流量")
+    ax.set_ylabel("压气机总压比（教学归一化）")
+    ax.set_title("压气机工作线、喘振线与快速加速瞬态")
+    ax.grid(True, color="#d8e2e8", lw=0.55, alpha=0.8)
+    ax.legend(loc="lower left", ncol=2, fontsize=7.4)
+    ax.text(
+        0.01,
+        -0.18,
+        "注：曲线和归一化坐标为教学构造，不代表任何真实型号；裕度数值使用文中同一修正转速线上的定义与算例。",
+        transform=ax.transAxes,
+        color="#607487",
+        fontsize=8.0,
+    )
+    save_web_figure(fig, output_dir / "compressor-operating-line-surge-margin", qa_dir)
+
+    rows = [
+        {"point": "surge", "corrected_flow_kg_s": 84.0, "pressure_ratio": 8.80},
+        {"point": "steady", "corrected_flow_kg_s": 92.0, "pressure_ratio": 8.00},
+        {"point": "transient", "corrected_flow_kg_s": 88.0, "pressure_ratio": 8.35},
+    ]
+    csv_path = source_dir / "compressor-surge-margin-example.csv"
+    with csv_path.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.DictWriter(
+            stream,
+            fieldnames=["point", "corrected_flow_kg_s", "pressure_ratio"],
+        )
+        writer.writeheader()
+        writer.writerows(rows)
+
+    steady_sm = 100.0 * ((8.80 / 8.00) * (92.0 / 84.0) - 1.0)
+    transient_sm = 100.0 * ((8.80 / 8.35) * (88.0 / 84.0) - 1.0)
+    return {
+        "steadySurgeMarginPercent": round(steady_sm, 2),
+        "transientSurgeMarginPercent": round(transient_sm, 2),
+    }
+
+
+def draw_surge_margin_budget(output_dir: Path, qa_dir: Path) -> None:
+    """Draw an explicit teaching budget and the controls that influence it."""
+    fig = plt.figure(figsize=(7.20, 3.65), constrained_layout=True)
+    grid = fig.add_gridspec(1, 2, width_ratios=[1.02, 1.28])
+    ax = fig.add_subplot(grid[0, 0])
+    parts = [
+        ("不确定性\n5.0点", 5.0, COLORS["gray"]),
+        ("瞬态\n6.0点", 6.0, COLORS["orange"]),
+        ("剩余\n9.5点", 9.5, COLORS["green"]),
+    ]
+    left = 0.0
+    for label, value, color in parts:
+        ax.barh([0], [value], left=[left], color=color, height=0.42)
+        ax.text(left + value / 2, 0, label, ha="center", va="center", color="white", fontsize=6.4)
+        left += value
+    ax.set_xlim(0, 22)
+    ax.set_yticks([])
+    ax.set_xlabel("同一定义下的喘振裕度百分点")
+    ax.set_title("20.5% 稳态裕度的教学预算")
+    ax.grid(axis="x", color="#d8e2e8", lw=0.55)
+    ax.text(
+        0.02,
+        -0.22,
+        "SMremaining = SMsteady − SMuncertainty − SMtransient\n"
+        "仅演示预算思想；真实预留来自型号规范、试验和认证。",
+        transform=ax.transAxes,
+        color=COLORS["gray"],
+        fontsize=7.8,
+    )
+
+    ax2 = fig.add_subplot(grid[0, 1])
+    ax2.set_axis_off()
+    ax2.set_title("工作点移动与控制动作")
+    boxes = [
+        (0.02, 0.68, 0.27, 0.17, "燃油增加\n涡轮功上升", COLORS["orange"]),
+        (0.365, 0.68, 0.27, 0.17, "压比先升\n流量左移", COLORS["red"]),
+        (0.71, 0.68, 0.27, 0.17, "加速受限\n响应变慢", COLORS["gray"]),
+        (0.17, 0.24, 0.27, 0.17, "静子 / 放气\n重排级负荷", COLORS["blue"]),
+        (0.57, 0.24, 0.27, 0.17, "FADEC\n多约束仲裁", COLORS["green"]),
+    ]
+    for x, y, w, h, text, color in boxes:
+        ax2.add_patch(
+            FancyBboxPatch(
+                (x, y),
+                w,
+                h,
+                boxstyle="round,pad=0.018,rounding_size=0.025",
+                facecolor=color,
+                edgecolor="white",
+                linewidth=1.0,
+                transform=ax2.transAxes,
+            )
+        )
+        ax2.text(x + w / 2, y + h / 2, text, ha="center", va="center", color="white", fontsize=6.4, transform=ax2.transAxes)
+    arrows = [
+        ((0.29, 0.765), (0.365, 0.765)),
+        ((0.635, 0.765), (0.71, 0.765)),
+        ((0.305, 0.41), (0.46, 0.68)),
+        ((0.705, 0.41), (0.54, 0.68)),
+        ((0.44, 0.325), (0.57, 0.325)),
+    ]
+    for start, end in arrows:
+        ax2.add_patch(
+            FancyArrowPatch(
+                start,
+                end,
+                transform=ax2.transAxes,
+                arrowstyle="-|>",
+                mutation_scale=11,
+                color=COLORS["navy"],
+                lw=1.2,
+            )
+        )
+    ax2.text(
+        0.50,
+        0.04,
+        "控制目标不是“离线越远越好”，而是在稳定性、推力响应、温度、转速和效率之间平衡。",
+        ha="center",
+        va="bottom",
+        color=COLORS["gray"],
+        fontsize=8,
+        transform=ax2.transAxes,
+    )
+    save_web_figure(fig, output_dir / "surge-margin-budget-control", qa_dir)
+
+
+def generate_briefing_04(
+    output_dir: Path, source_dir: Path, qa_dir: Path
+) -> dict[str, object]:
+    results = draw_surge_margin_map(output_dir, source_dir, qa_dir)
+    draw_surge_margin_budget(output_dir, qa_dir)
+    notes = {
+        "briefing": 4,
+        "backend": "Python/matplotlib",
+        "topic": "Compressor operating line and surge margin",
+        "definition": "SM = 100 * [(PRs/PRop) * (Wcop/Wcs) - 1]",
+        "example": results,
+        "sources": [
+            "NASA/TM-2014-218449",
+            "NASA/TM-106970",
+            "NASA NTRS 20150021871",
+        ],
+        "integrity": "原创工程示意；曲线和数值为公开公式驱动的教学数据，不是任何真实压气机试验图或认证裕度。",
+    }
+    (source_dir / "surge-margin-briefing-04-figure-notes.json").write_text(
+        json.dumps(notes, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return notes
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate aeroengine learning figures with Python/matplotlib.")
     parser.add_argument("--root", type=Path, default=Path.cwd())
@@ -859,7 +1091,9 @@ def main() -> None:
     source_dir.mkdir(parents=True, exist_ok=True)
     qa_dir.mkdir(parents=True, exist_ok=True)
     configure_matplotlib()
-    if args.post_id == "0843e1c1":
+    if args.post_id == "358da19b":
+        notes = generate_briefing_04(output_dir, source_dir, qa_dir)
+    elif args.post_id == "0843e1c1":
         notes = generate_briefing_03(output_dir, source_dir, qa_dir)
     elif args.post_id == "bdbfd129":
         notes = generate_briefing_02(output_dir, source_dir, qa_dir)

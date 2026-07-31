@@ -1,0 +1,368 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>航空发动机学习简报｜第04期｜压气机工作线与喘振裕度 | Qzl's Blog</title><meta name="keywords" content="航空"><meta name="author" content="Qzl"><meta name="copyright" content="Qzl"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从整机匹配出发区分工作线、喘振线与瞬态轨迹，声明并复算流量—压比综合喘振裕度，进一步把稳态裕度拆成不确定性和瞬态预留，理解燃油、可调静子、放气及 FADEC 的控制取舍。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="航空发动机学习简报｜第04期｜压气机工作线与喘振裕度">
+<meta property="og:url" content="https://qizl19.github.io/p/358da19b.html">
+<meta property="og:site_name" content="Qzl&#39;s Blog">
+<meta property="og:description" content="从整机匹配出发区分工作线、喘振线与瞬态轨迹，声明并复算流量—压比综合喘振裕度，进一步把稳态裕度拆成不确定性和瞬态预留，理解燃油、可调静子、放气及 FADEC 的控制取舍。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qizl19.github.io/p/358da19b/compressor-operating-line-surge-margin.png">
+<meta property="article:published_time" content="2026-07-31T01:00:00.000Z">
+<meta property="article:modified_time" content="2026-07-31T01:00:00.000Z">
+<meta property="article:author" content="Qzl">
+<meta property="article:tag" content="航空发动机">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qizl19.github.io/p/358da19b/compressor-operating-line-surge-margin.png"><link rel="shortcut icon" href="/img/bitbug_favicon.ico"><link rel="canonical" href="https://qizl19.github.io/p/358da19b"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '航空发动机学习简报｜第04期｜压气机工作线与喘振裕度',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-07-31 09:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/gundongtiao.css"><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><a href="javascript:void(0);" onclick="preloader.endLoading();" title="点击跳过动画"><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="iron-container iron-circle"><div class="iron-box1 iron-circle iron-center"></div><div class="iron-box2 iron-circle iron-center"></div><div class="iron-box3 iron-circle iron-center"></div><div class="iron-box4 iron-circle iron-center"></div><div class="iron-box5 iron-circle iron-center"></div><div class="iron-box6 iron-circle"><div class="iron-coil" style="--i: 0"></div><div class="iron-coil" style="--i: 1"></div><div class="iron-coil" style="--i: 2"></div><div class="iron-coil" style="--i: 3"></div><div class="iron-coil" style="--i: 4"></div><div class="iron-coil" style="--i: 5"></div><div class="iron-coil" style="--i: 6"></div><div class="iron-coil" style="--i: 7"></div></div></div></div></a><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://pic3.zhimg.com/80/v2-94d674932a8c0f4a6cccc1b7a158c21a_720w.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/p/358da19b/compressor-operating-line-surge-margin.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Qzl's Blog</a></span><div id="he-plugin-simple"></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div></div></div><div id="navFn"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> search</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">航空发动机学习简报｜第04期｜压气机工作线与喘振裕度</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-07-31T01:00:00.000Z" title="发表于 2026-07-31 09:00:00">2026-07-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-31T01:00:00.000Z" title="更新于 2026-07-31 09:00:00">2026-07-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%88%AA%E7%A9%BA%E5%8F%91%E5%8A%A8%E6%9C%BA/">航空发动机</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" data-flag-title="航空发动机学习简报｜第04期｜压气机工作线与喘振裕度"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>航空发动机学习简报 · 第 04 期</strong></p>
+<p><strong>副题：</strong>稳定边界不是一条固定安全线</p>
+<p><strong>主题类型：</strong>设计与控制方法　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-07-31</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote>
+  <p><strong>本期问题：</strong>压气机图上的工作线和喘振线分别从哪里来？为什么发动机稳态时看似离喘振线很远，快速加速、进气畸变或部件退化后仍可能失去稳定性？</p>
+</blockquote>
+<p>学完本期，你应能：解释工作线是整机匹配结果而不是压气机单独指定的轨迹；区分旋转失速与系统级喘振；按明确口径计算喘振裕度；把稳态裕度拆成不确定性与瞬态预留；用燃油、可调静子和放气调度解释工作点移动；列出一套可执行的稳态与瞬态验收步骤。</p>
+<p><strong>前置知识：</strong>需要第 01 期的总参数与轴功平衡、第 02 期的修正转速/修正流量和特性图读法。本文所有比较都限定在同一压气机、同一可调几何状态与同一修正转速线附近。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol>
+  <li><strong>工作线由整机共同决定。</strong>压气机、燃烧室、涡轮、喷管、轴系、放气与控制规律联立匹配后，才得到一组稳态工作点。</li>
+  <li><strong>喘振线是带条件的试验或模型边界。</strong>它随修正转速、可调静子、放气、雷诺数、间隙、退化与进口畸变变化，不是无限精确且永不移动的墙。</li>
+  <li><strong>喘振裕度必须带公式。</strong>仅写“20% 裕度”不足以复算；要声明流量/压比定义、测点、修正方法、插值路径和百分数分母。</li>
+  <li><strong>快速加速通常消耗瞬态裕度。</strong>燃油增加使涡轮功和压气机背压先变化，转子惯性使流量响应滞后，工作点可向低流量、高压比方向靠近喘振线。</li>
+  <li><strong>控制目标是多约束平衡。</strong>过度保守会牺牲推力响应与效率；裕度不足则无法覆盖畸变、制造离散、老化和瞬态。</li>
+</ol>
+
+<h2 id="工作线为何由整机匹配形成"><a href="#工作线为何由整机匹配形成" class="headerlink" title="工作线为何由整机匹配形成"></a>工作线为何由整机匹配形成</h2>
+<p>压气机图提供的是部件在不同修正转速、修正流量、压比和效率下的可用工作域。把压气机接入发动机后，流量连续、轴功平衡、涡轮流量能力、燃烧室压损、喷管喉部面积和环境背压同时约束工作点。改变任一约束，原来的点就可能不再闭合。</p>
+<p>例如，在稳态增加燃油，涡轮进口总温提高，涡轮输出功增加，轴转速上升；新的修正转速线、压气机压比、流量和喷管状态必须重新匹配。若打开压气机放气，流经后级的质量流量与功需求改变，工作线会重新定位；可调静子改变入射角和级间匹配，也会改变特性图本身。因而“工作线”应理解为一族由飞行条件、几何状态与控制规律标识的轨迹，而不是一根永远不动的线。</p>
+
+<h2 id="喘振线与不稳定机理"><a href="#喘振线与不稳定机理" class="headerlink" title="喘振线与不稳定机理"></a>喘振线与不稳定机理</h2>
+<p>沿同一修正转速线减少流量或提高背压，部分叶排可能先因入射角过大出现分离。<strong>旋转失速</strong>表现为一个或多个失速胞沿周向传播，平均流量仍可为正；<strong>喘振</strong>则是压气机、管腔容积与下游节流共同形成的系统级低频振荡，可能出现压力大幅波动甚至瞬时倒流。二者相关但不能互换。</p>
+<p>喘振线通常连接不同转速下由试验判据或经验证动态模型识别的稳定极限。NASA 的公开研究表明，进口总压畸变会改变局部叶片负荷和平均喘振压比；动态进口压力变化还会使“可用裕度”随时间变化。F/A-18A 高攻角试验案例进一步说明，畸变水平、姿态快速变化以及由载荷引起的转静间隙变化可共同触发喘振。由一张均匀进口稳态图推断完整飞行包线，证据并不充分。</p>
+
+<figure class="aeroengine-figure">
+  <img src="/p/358da19b/compressor-operating-line-surge-margin.svg" alt="含等修正转速线、喘振线、稳态工作线与快速加速瞬态路径的原创压气机图">
+  <figcaption>图 1　工作线、喘振线与快速加速瞬态。曲线和归一化坐标由教学函数生成，不代表任何真实压气机；三个算例点对应公开 CSV，原创图，CC BY 4.0。</figcaption>
+</figure>
+
+<h2 id="喘振裕度定义与口径"><a href="#喘振裕度定义与口径" class="headerlink" title="喘振裕度定义与口径"></a>喘振裕度定义与口径</h2>
+<p>工程资料存在多种喘振裕度定义。本期采用 NASA 公开压气机对象示例中的“修正流量—压比综合定义”。在同一修正转速线、同一几何状态下，令工作点为 <code>(Wc,op, PRop)</code>，对应喘振点为 <code>(Wc,s, PRs)</code>：</p>
+<div class="aeroengine-formula"><strong>综合喘振裕度：</strong> SM = 100 × [(PRs / PRop) × (Wc,op / Wc,s) − 1]　[%]</div>
+<p><code>Wc</code>是修正质量流量 [kg/s]，<code>PR</code>是压气机出口/进口总压比 [—]。公式同时计入工作点相对喘振点的流量差和压比差。另有只比较压比、只比较流量或沿特定插值方向定义的裕度；它们都可能合理，但数值不能直接混用。</p>
+<div class="aeroengine-formula"><strong>仅压比口径示例：</strong> SMPR = 100 × (PRs − PRop) / PRop</div>
+<p>报告裕度时至少附上：进口/出口站位、总参数定义、修正参考状态、喘振线来源、同转速插值方法、可调静子/放气状态、工作点是稳态还是瞬态，以及数值是百分比还是百分点。否则“裕度提高 5%”可能既指相对增幅，也可能指增加 5 个百分点。</p>
+
+<h2 id="可复算的简化算例"><a href="#可复算的简化算例" class="headerlink" title="可复算的简化算例"></a>可复算的简化算例</h2>
+<p><strong>已知：</strong>某教学压气机在同一修正转速线上的喘振点为 <code>Wc,s=84.0 kg/s</code>、<code>PRs=8.80</code>；稳态工作点为 <code>Wc,op=92.0 kg/s</code>、<code>PRop=8.00</code>。数值仅用于公式复算。</p>
+<ol>
+  <li>压比因子：<code>PRs/PRop=8.80/8.00=1.1000</code>。</li>
+  <li>流量因子：<code>Wc,op/Wc,s=92.0/84.0=1.09524</code>。</li>
+  <li>综合裕度：<code>SM=100×(1.1000×1.09524−1)=20.48%</code>，取 <code>20.5%</code>。</li>
+  <li>若只用压比定义，则 <code>SMPR=100×(8.80−8.00)/8.00=10.0%</code>。同一对点出现两个数，证明公式必须同行给出。</li>
+</ol>
+<p>快速加速时，假设瞬态点变为 <code>Wc=88.0 kg/s</code>、<code>PR=8.35</code>，仍与同一教学喘振点比较：<code>SM=100×[(8.80/8.35)×(88/84)−1]=10.41%</code>，约 <code>10.4%</code>。工作点仅左移 4 kg/s 且压比上升 0.35，综合裕度就消耗约 10.1 个百分点。</p>
+<p><strong>适用边界：</strong>算例假设喘振点可在同一修正转速和几何状态下确定。若瞬态中转速、静子角、放气或进口畸变显著变化，应逐时刻从相应边界插值或使用动态模型，不能把一个固定喘振点套完整个过程。</p>
+
+<h2 id="稳态线瞬态线与裕度预算"><a href="#稳态线瞬态线与裕度预算" class="headerlink" title="稳态线、瞬态线与裕度预算"></a>稳态线、瞬态线与裕度预算</h2>
+<p>NASA 的 TTECTrA 工作把总预留区分为<strong>不确定性预留</strong>和<strong>瞬态预留</strong>：前者覆盖制造离散、雷诺数、进口畸变、叶尖间隙、退化和模型误差；后者覆盖从一个状态过渡到另一个状态时工作点的偏移。目标稳态线通常在满足这些预留后尽量靠近高效率区域。</p>
+<div class="aeroengine-formula"><strong>教学预算：</strong> SMremaining = SMsteady − SMuncertainty − SMtransient</div>
+<p>若沿用上例 <code>SMsteady=20.5%</code>，教学上分配 5.0 个百分点给不确定性、6.0 个百分点给瞬态，则剩余 9.5 个百分点。这里的 5 和 6 不是行业通用值，更不是认证要求；真实预算必须由型号规范、台架/飞行试验、统计离散和失效安全分析确定。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/358da19b/surge-margin-budget-control.svg" alt="喘振裕度预算与燃油可调静子放气和FADEC控制关系原创图">
+  <figcaption>图 2　喘振裕度预算与控制动作。预算数值仅复用本文教学算例；控制关系表示方向性耦合，不是具体型号控制律，原创图，CC BY 4.0。</figcaption>
+</figure>
+
+<h2 id="控制调度与分析步骤"><a href="#控制调度与分析步骤" class="headerlink" title="控制调度与分析步骤"></a>控制调度与分析步骤</h2>
+<ol>
+  <li><strong>锁定数据口径：</strong>核对压气机站位、总参数、修正公式、几何状态、单位与喘振判据；保留原始图版本和插值方法。</li>
+  <li><strong>求稳态工作线：</strong>联立压气机/涡轮图、轴功、流量连续、燃烧室压损、喷管和环境条件，覆盖慢车至最大连续/起飞状态。</li>
+  <li><strong>逐点配对喘振点：</strong>沿同修正转速与几何状态找到喘振边界，计算并记录公式化裕度，而不是量屏幕像素距离。</li>
+  <li><strong>建立动态模型：</strong>加入转子惯性、容积动态、执行机构速率、传感器延迟和燃油系统；用阶跃或规定油门历程求瞬态工作轨迹。</li>
+  <li><strong>调度控制变量：</strong>燃油率限制控制加速斜率；可调静子改善各级入射与匹配；放气扩展低速稳定域，但都会带来响应、效率或推力代价。</li>
+  <li><strong>施加不利条件：</strong>组合热天/高空、进口总压畸变、侧风/高攻角、部件退化、间隙变化和传感器偏差，识别最小瞬态裕度。</li>
+  <li><strong>做证据分级：</strong>把循环模型、部件动态模型、台架结果、整机地面试验和飞行试验分开；模型通过不等于认证通过。</li>
+  <li><strong>闭环验收：</strong>同时检查最小裕度、95% 推力响应时间、涡轮进口温度、N1/N2、执行机构饱和和故障回退，形成可复算报告。</li>
+</ol>
+
+<h2 id="常见误区与失效边界"><a href="#常见误区与失效边界" class="headerlink" title="常见误区与失效边界"></a>常见误区与失效边界</h2>
+<ul>
+  <li><strong>把图上水平距离当裕度：</strong>压比和流量同时变化，且坐标缩放会改变视觉距离；必须用声明的公式。</li>
+  <li><strong>把喘振线当旋转失速线：</strong>失速胞与系统喘振的判据、频率和后果不同，试验记录应明确事件类型。</li>
+  <li><strong>只验稳态：</strong>稳态线合格不保证快速加速、减速或负载突变合格；NASA 的闭环研究正是为暴露这类权衡。</li>
+  <li><strong>认为裕度越大越好：</strong>远离稳定边界通常要牺牲压比、效率、响应或增加可调机构复杂度。</li>
+  <li><strong>忽略多转子相互作用：</strong>低压和高压压气机的最小裕度可能出现在不同时间；只监控一个部件会漏掉限制。</li>
+  <li><strong>用均匀进口图替代安装包线：</strong>周向/径向畸变使局部叶排先失稳，平均总压和平均工作点可能仍显得正常。</li>
+  <li><strong>把历史 FAA AC 当现行要求：</strong>AC 33.65-1 已于 2022 年取消，只能作为历史方法背景，不能表述为当前强制规范。</li>
+</ul>
+
+<h2 id="与整机和部件耦合"><a href="#与整机和部件耦合" class="headerlink" title="与整机和部件耦合"></a>与整机和部件耦合</h2>
+<p><strong>进气道与飞行状态：</strong>畸变、总压恢复和快速姿态变化改变压气机进口边界。<strong>燃烧室与涡轮：</strong>燃油增加、燃烧压损和涡轮流量能力共同改变压气机背压；涡轮温度限制可能比喘振限制更早接管加速。</p>
+<p><strong>喷管与短舱：</strong>喷口面积、外界背压与反推/短舱状态影响整机流量匹配。<strong>机械系统：</strong>转子惯性决定转速响应，叶尖间隙和机匣变形会移动稳定边界。<strong>健康管理：</strong>污损、侵蚀、叶片损伤与传感器漂移既改变工作线，也改变喘振线，因此趋势监控应重算裕度而非只比较单一压力比。</p>
+<p><strong>控制与任务：</strong>FADEC 要在飞行员推力命令、发动机包线、响应时间、稳定性、温度、转速与寿命之间仲裁。NASA 的闭环方法把 95% 响应时间与最小 HPC 裕度作为成对指标，说明“更快”与“更稳”必须共同优化。</p>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol>
+  <li>判断：压气机工作线由压气机部件图单独规定，与涡轮和喷管无关。</li>
+  <li>判断：旋转失速一定伴随整台压气机平均流量周期性倒流。</li>
+  <li>用本文综合公式复算 <code>PRs=6.6</code>、<code>PRop=6.0</code>、<code>Wc,op=75</code>、<code>Wc,s=70 kg/s</code> 时的 SM。</li>
+  <li>上例若只用压比口径，SMPR 是多少？为什么不能与综合 SM 混写？</li>
+  <li>快速加速时，为什么燃油已经增加而压气机流量未必同步增加？</li>
+  <li>列出三项应计入不确定性预留的因素。</li>
+  <li>可调静子和放气分别通过什么方向改变稳定性与性能？</li>
+  <li>验证一条瞬态工作线至少需要哪些动态状态和限制器？</li>
+</ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<ol>
+  <li>错误。工作线由整机流量、功率、喷管和控制共同匹配。</li>
+  <li>错误。旋转失速可由周向传播失速胞构成；系统级喘振才可能出现全系统大幅振荡与倒流。</li>
+  <li><code>SM=100×[(6.6/6.0)×(75/70)−1]=17.86%</code>，约 <code>17.9%</code>。</li>
+  <li><code>SMPR=100×(6.6−6.0)/6.0=10.0%</code>；两式的变量和几何含义不同。</li>
+  <li>转子有惯性，容积压力与执行机构也有动态；涡轮功、背压和流量不会同相瞬时变化。</li>
+  <li>制造离散、进口畸变、雷诺数、叶尖间隙、老化和模型/传感器误差等任取三项。</li>
+  <li>静子角改善级间入射与匹配；放气降低后级流量/负荷并扩展低速稳定域，但可能损失效率与推力。</li>
+  <li>至少包含转子惯性、容积动态、燃油/静子/放气执行器、传感器延迟，以及温度、转速、裕度和执行器饱和限制。</li>
+</ol>
+<p><strong>下一期建议：</strong>进入“压气机多级匹配与级间失配”，用前级堵塞、后级失速和径向/轴向重匹配解释为什么整机喘振线不是各单级喘振线的简单相加。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ol>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/20150011439">NASA/TM-2014-218449：Application of TTECTrA for Dynamic Systems Analysis</a>，用于目标工作线、不确定性/瞬态预留和闭环权衡。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19950024173">NASA-TM-106970：Object-Oriented Approach for Gas Turbine Engine Simulation</a>，用于压气机对象、修正图与本文综合喘振裕度公式。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/20150021871">NASA：A Methodology to Assess Engine Designs against Closed-Loop Performance and Operability Requirements</a>，用于响应时间、最小 HPC 裕度、老化与控制设计权衡。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19760055251">NASA/AIAA 76-703：Instantaneous Distortion and Available Surge Margin</a>，用于动态进口压力变化与时变可用裕度。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19970012654">NASA-TM-104328：F/A-18A High-Angle-of-Attack Inlet Distortion Assessment</a>，用于畸变、姿态快速变化和间隙耦合案例。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19930087466">NACA-RM-E53A09：Compressor Bleed and Turbojet Acceleration</a>，用于放气、加速时间和靠近喘振区运行的历史分析。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/20050196621">NASA Glenn：Flow Range of Centrifugal Compressor Being Extended</a>，用于燃油加速、进口畸变与稳定域权衡。</li>
+  <li><a target="_blank" rel="noopener" href="https://www.faa.gov/regulations_policies/advisory_circulars/index.cfm/go/document.information/documentID/22928">FAA AC 33.65-1：Surge and Stall Characteristics of Aircraft Turbine Engines</a>，仅作已取消历史指南引用；FAA 页面明确标注 2022-07-20 取消。</li>
+</ol>
+<p><strong>图示许可：</strong>图 1、图 2 与封面均为本站原创教学图，采用 CC BY 4.0；不代表真实型号台架图、控制律或认证裕度。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Qzl</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://qizl19.github.io/p/358da19b.html">https://qizl19.github.io/p/358da19b.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://qizl19.github.io" target="_blank">Qzl's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%88%AA%E7%A9%BA%E5%8F%91%E5%8A%A8%E6%9C%BA/">航空发动机</a></div><div class="post_share"><div class="social-share" data-image="/p/358da19b/compressor-operating-line-surge-margin.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/p/8405a038.html"><img class="prev-cover" src="/p/8405a038/j16-001.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">歼-16</div></div></a></div><div class="next-post pull-right"><a href="/p/f7fb98f8.html"><img class="next-cover" src="/p/f7fb98f8/j20-002.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">歼-20“威龙”</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://pic3.zhimg.com/80/v2-94d674932a8c0f4a6cccc1b7a158c21a_720w.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Qzl</div><div class="author-info__description">行胜于言</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/qizl19"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/qizl19" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1073472023@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%9C%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">本期问题与学习目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%BB%93%E8%AE%BA"><span class="toc-number">2.</span> <span class="toc-text">核心结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E7%BA%BF%E4%B8%BA%E4%BD%95%E7%94%B1%E6%95%B4%E6%9C%BA%E5%8C%B9%E9%85%8D%E5%BD%A2%E6%88%90"><span class="toc-number">3.</span> <span class="toc-text">工作线为何由整机匹配形成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%96%98%E6%8C%AF%E7%BA%BF%E4%B8%8E%E4%B8%8D%E7%A8%B3%E5%AE%9A%E6%9C%BA%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">喘振线与不稳定机理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%96%98%E6%8C%AF%E8%A3%95%E5%BA%A6%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%8F%A3%E5%BE%84"><span class="toc-number">5.</span> <span class="toc-text">喘振裕度定义与口径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E5%A4%8D%E7%AE%97%E7%9A%84%E7%AE%80%E5%8C%96%E7%AE%97%E4%BE%8B"><span class="toc-number">6.</span> <span class="toc-text">可复算的简化算例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%B3%E6%80%81%E7%BA%BF%E7%9E%AC%E6%80%81%E7%BA%BF%E4%B8%8E%E8%A3%95%E5%BA%A6%E9%A2%84%E7%AE%97"><span class="toc-number">7.</span> <span class="toc-text">稳态线、瞬态线与裕度预算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%88%86%E6%9E%90%E6%AD%A5%E9%AA%A4"><span class="toc-number">8.</span> <span class="toc-text">控制调度与分析步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E8%AF%AF%E5%8C%BA%E4%B8%8E%E5%A4%B1%E6%95%88%E8%BE%B9%E7%95%8C"><span class="toc-number">9.</span> <span class="toc-text">常见误区与失效边界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E6%95%B4%E6%9C%BA%E5%92%8C%E9%83%A8%E4%BB%B6%E8%80%A6%E5%90%88"><span class="toc-number">10.</span> <span class="toc-text">与整机和部件耦合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E6%B5%8B%E9%A2%98"><span class="toc-number">11.</span> <span class="toc-text">自测题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%94%E6%A1%88%E4%B8%8E%E4%B8%8B%E4%B8%80%E6%9C%9F%E8%A1%94%E6%8E%A5"><span class="toc-number">12.</span> <span class="toc-text">答案与下一期衔接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%E4%B8%8E%E5%9B%BE%E7%A4%BA%E8%AE%B8%E5%8F%AF"><span class="toc-number">13.</span> <span class="toc-text">参考资料与图示许可</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/p/8405a038.html" title="歼-16"><img src="/p/8405a038/j16-001.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="歼-16"></a><div class="content"><a class="title" href="/p/8405a038.html" title="歼-16">歼-16</a><time datetime="2026-07-31T01:00:00.000Z" title="发表于 2026-07-31 09:00:00">2026-07-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/358da19b.html" title="航空发动机学习简报｜第04期｜压气机工作线与喘振裕度"><img src="/p/358da19b/compressor-operating-line-surge-margin.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="航空发动机学习简报｜第04期｜压气机工作线与喘振裕度"></a><div class="content"><a class="title" href="/p/358da19b.html" title="航空发动机学习简报｜第04期｜压气机工作线与喘振裕度">航空发动机学习简报｜第04期｜压气机工作线与喘振裕度</a><time datetime="2026-07-31T01:00:00.000Z" title="发表于 2026-07-31 09:00:00">2026-07-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/f7fb98f8.html" title="歼-20“威龙”"><img src="/p/f7fb98f8/j20-002.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="歼-20“威龙”"></a><div class="content"><a class="title" href="/p/f7fb98f8.html" title="歼-20“威龙”">歼-20“威龙”</a><time datetime="2026-07-29T01:00:00.000Z" title="发表于 2026-07-29 09:00:00">2026-07-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/0843e1c1.html" title="航空发动机学习简报｜第03期｜CFM56-7B：双转子流路、推力等级与寿命管理"><img src="/p/0843e1c1/cfm56-7b24e-qantas.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="航空发动机学习简报｜第03期｜CFM56-7B：双转子流路、推力等级与寿命管理"></a><div class="content"><a class="title" href="/p/0843e1c1.html" title="航空发动机学习简报｜第03期｜CFM56-7B：双转子流路、推力等级与寿命管理">航空发动机学习简报｜第03期｜CFM56-7B：双转子流路、推力等级与寿命管理</a><time datetime="2026-07-28T01:00:00.000Z" title="发表于 2026-07-28 09:00:00">2026-07-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/f72a55dd.html" title="直-20"><img src="/p/f72a55dd/z20-002.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="直-20"></a><div class="content"><a class="title" href="/p/f72a55dd.html" title="直-20">直-20</a><time datetime="2026-07-27T01:00:00.000Z" title="发表于 2026-07-27 09:00:00">2026-07-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Qzl</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script src="/js/timing.js"></script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script async src="/js/weather.js"></script><script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><script src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script src="/js/grayscale.js"></script><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><div id="ghbdages" style="overflow:hidden;max-height:90px;height:auto;text-align:center;margin-top:10px"><div class="swiper-wrapper"><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" title="博客框架为Hexo_v5.4.0"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" title="主题版本Butterfly_v3.8.2"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" title="本站使用JsDelivr为静态资源提供CDN加速"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，默认线路托管于Vercel"><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，联通线路托管于Coding"><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本站项目由Gtihub托管"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></div></div></div><style>a.github-badge:hover:before {display:none}</style>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify/lib/swiperbdage_init_js.min.js"></script><!-- hexo injector body_end end --><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body></html>

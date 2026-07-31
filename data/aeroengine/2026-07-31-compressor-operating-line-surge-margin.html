@@ -1,0 +1,125 @@
+<p><strong>航空发动机学习简报 · 第 04 期</strong></p>
+<p><strong>副题：</strong>稳定边界不是一条固定安全线</p>
+<p><strong>主题类型：</strong>设计与控制方法　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-07-31</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote>
+  <p><strong>本期问题：</strong>压气机图上的工作线和喘振线分别从哪里来？为什么发动机稳态时看似离喘振线很远，快速加速、进气畸变或部件退化后仍可能失去稳定性？</p>
+</blockquote>
+<p>学完本期，你应能：解释工作线是整机匹配结果而不是压气机单独指定的轨迹；区分旋转失速与系统级喘振；按明确口径计算喘振裕度；把稳态裕度拆成不确定性与瞬态预留；用燃油、可调静子和放气调度解释工作点移动；列出一套可执行的稳态与瞬态验收步骤。</p>
+<p><strong>前置知识：</strong>需要第 01 期的总参数与轴功平衡、第 02 期的修正转速/修正流量和特性图读法。本文所有比较都限定在同一压气机、同一可调几何状态与同一修正转速线附近。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol>
+  <li><strong>工作线由整机共同决定。</strong>压气机、燃烧室、涡轮、喷管、轴系、放气与控制规律联立匹配后，才得到一组稳态工作点。</li>
+  <li><strong>喘振线是带条件的试验或模型边界。</strong>它随修正转速、可调静子、放气、雷诺数、间隙、退化与进口畸变变化，不是无限精确且永不移动的墙。</li>
+  <li><strong>喘振裕度必须带公式。</strong>仅写“20% 裕度”不足以复算；要声明流量/压比定义、测点、修正方法、插值路径和百分数分母。</li>
+  <li><strong>快速加速通常消耗瞬态裕度。</strong>燃油增加使涡轮功和压气机背压先变化，转子惯性使流量响应滞后，工作点可向低流量、高压比方向靠近喘振线。</li>
+  <li><strong>控制目标是多约束平衡。</strong>过度保守会牺牲推力响应与效率；裕度不足则无法覆盖畸变、制造离散、老化和瞬态。</li>
+</ol>
+
+<h2 id="工作线为何由整机匹配形成"><a href="#工作线为何由整机匹配形成" class="headerlink" title="工作线为何由整机匹配形成"></a>工作线为何由整机匹配形成</h2>
+<p>压气机图提供的是部件在不同修正转速、修正流量、压比和效率下的可用工作域。把压气机接入发动机后，流量连续、轴功平衡、涡轮流量能力、燃烧室压损、喷管喉部面积和环境背压同时约束工作点。改变任一约束，原来的点就可能不再闭合。</p>
+<p>例如，在稳态增加燃油，涡轮进口总温提高，涡轮输出功增加，轴转速上升；新的修正转速线、压气机压比、流量和喷管状态必须重新匹配。若打开压气机放气，流经后级的质量流量与功需求改变，工作线会重新定位；可调静子改变入射角和级间匹配，也会改变特性图本身。因而“工作线”应理解为一族由飞行条件、几何状态与控制规律标识的轨迹，而不是一根永远不动的线。</p>
+
+<h2 id="喘振线与不稳定机理"><a href="#喘振线与不稳定机理" class="headerlink" title="喘振线与不稳定机理"></a>喘振线与不稳定机理</h2>
+<p>沿同一修正转速线减少流量或提高背压，部分叶排可能先因入射角过大出现分离。<strong>旋转失速</strong>表现为一个或多个失速胞沿周向传播，平均流量仍可为正；<strong>喘振</strong>则是压气机、管腔容积与下游节流共同形成的系统级低频振荡，可能出现压力大幅波动甚至瞬时倒流。二者相关但不能互换。</p>
+<p>喘振线通常连接不同转速下由试验判据或经验证动态模型识别的稳定极限。NASA 的公开研究表明，进口总压畸变会改变局部叶片负荷和平均喘振压比；动态进口压力变化还会使“可用裕度”随时间变化。F/A-18A 高攻角试验案例进一步说明，畸变水平、姿态快速变化以及由载荷引起的转静间隙变化可共同触发喘振。由一张均匀进口稳态图推断完整飞行包线，证据并不充分。</p>
+
+<figure class="aeroengine-figure">
+  <img src="/p/358da19b/compressor-operating-line-surge-margin.svg" alt="含等修正转速线、喘振线、稳态工作线与快速加速瞬态路径的原创压气机图">
+  <figcaption>图 1　工作线、喘振线与快速加速瞬态。曲线和归一化坐标由教学函数生成，不代表任何真实压气机；三个算例点对应公开 CSV，原创图，CC BY 4.0。</figcaption>
+</figure>
+
+<h2 id="喘振裕度定义与口径"><a href="#喘振裕度定义与口径" class="headerlink" title="喘振裕度定义与口径"></a>喘振裕度定义与口径</h2>
+<p>工程资料存在多种喘振裕度定义。本期采用 NASA 公开压气机对象示例中的“修正流量—压比综合定义”。在同一修正转速线、同一几何状态下，令工作点为 <code>(Wc,op, PRop)</code>，对应喘振点为 <code>(Wc,s, PRs)</code>：</p>
+<div class="aeroengine-formula"><strong>综合喘振裕度：</strong> SM = 100 × [(PRs / PRop) × (Wc,op / Wc,s) − 1]　[%]</div>
+<p><code>Wc</code>是修正质量流量 [kg/s]，<code>PR</code>是压气机出口/进口总压比 [—]。公式同时计入工作点相对喘振点的流量差和压比差。另有只比较压比、只比较流量或沿特定插值方向定义的裕度；它们都可能合理，但数值不能直接混用。</p>
+<div class="aeroengine-formula"><strong>仅压比口径示例：</strong> SMPR = 100 × (PRs − PRop) / PRop</div>
+<p>报告裕度时至少附上：进口/出口站位、总参数定义、修正参考状态、喘振线来源、同转速插值方法、可调静子/放气状态、工作点是稳态还是瞬态，以及数值是百分比还是百分点。否则“裕度提高 5%”可能既指相对增幅，也可能指增加 5 个百分点。</p>
+
+<h2 id="可复算的简化算例"><a href="#可复算的简化算例" class="headerlink" title="可复算的简化算例"></a>可复算的简化算例</h2>
+<p><strong>已知：</strong>某教学压气机在同一修正转速线上的喘振点为 <code>Wc,s=84.0 kg/s</code>、<code>PRs=8.80</code>；稳态工作点为 <code>Wc,op=92.0 kg/s</code>、<code>PRop=8.00</code>。数值仅用于公式复算。</p>
+<ol>
+  <li>压比因子：<code>PRs/PRop=8.80/8.00=1.1000</code>。</li>
+  <li>流量因子：<code>Wc,op/Wc,s=92.0/84.0=1.09524</code>。</li>
+  <li>综合裕度：<code>SM=100×(1.1000×1.09524−1)=20.48%</code>，取 <code>20.5%</code>。</li>
+  <li>若只用压比定义，则 <code>SMPR=100×(8.80−8.00)/8.00=10.0%</code>。同一对点出现两个数，证明公式必须同行给出。</li>
+</ol>
+<p>快速加速时，假设瞬态点变为 <code>Wc=88.0 kg/s</code>、<code>PR=8.35</code>，仍与同一教学喘振点比较：<code>SM=100×[(8.80/8.35)×(88/84)−1]=10.41%</code>，约 <code>10.4%</code>。工作点仅左移 4 kg/s 且压比上升 0.35，综合裕度就消耗约 10.1 个百分点。</p>
+<p><strong>适用边界：</strong>算例假设喘振点可在同一修正转速和几何状态下确定。若瞬态中转速、静子角、放气或进口畸变显著变化，应逐时刻从相应边界插值或使用动态模型，不能把一个固定喘振点套完整个过程。</p>
+
+<h2 id="稳态线瞬态线与裕度预算"><a href="#稳态线瞬态线与裕度预算" class="headerlink" title="稳态线、瞬态线与裕度预算"></a>稳态线、瞬态线与裕度预算</h2>
+<p>NASA 的 TTECTrA 工作把总预留区分为<strong>不确定性预留</strong>和<strong>瞬态预留</strong>：前者覆盖制造离散、雷诺数、进口畸变、叶尖间隙、退化和模型误差；后者覆盖从一个状态过渡到另一个状态时工作点的偏移。目标稳态线通常在满足这些预留后尽量靠近高效率区域。</p>
+<div class="aeroengine-formula"><strong>教学预算：</strong> SMremaining = SMsteady − SMuncertainty − SMtransient</div>
+<p>若沿用上例 <code>SMsteady=20.5%</code>，教学上分配 5.0 个百分点给不确定性、6.0 个百分点给瞬态，则剩余 9.5 个百分点。这里的 5 和 6 不是行业通用值，更不是认证要求；真实预算必须由型号规范、台架/飞行试验、统计离散和失效安全分析确定。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/358da19b/surge-margin-budget-control.svg" alt="喘振裕度预算与燃油可调静子放气和FADEC控制关系原创图">
+  <figcaption>图 2　喘振裕度预算与控制动作。预算数值仅复用本文教学算例；控制关系表示方向性耦合，不是具体型号控制律，原创图，CC BY 4.0。</figcaption>
+</figure>
+
+<h2 id="控制调度与分析步骤"><a href="#控制调度与分析步骤" class="headerlink" title="控制调度与分析步骤"></a>控制调度与分析步骤</h2>
+<ol>
+  <li><strong>锁定数据口径：</strong>核对压气机站位、总参数、修正公式、几何状态、单位与喘振判据；保留原始图版本和插值方法。</li>
+  <li><strong>求稳态工作线：</strong>联立压气机/涡轮图、轴功、流量连续、燃烧室压损、喷管和环境条件，覆盖慢车至最大连续/起飞状态。</li>
+  <li><strong>逐点配对喘振点：</strong>沿同修正转速与几何状态找到喘振边界，计算并记录公式化裕度，而不是量屏幕像素距离。</li>
+  <li><strong>建立动态模型：</strong>加入转子惯性、容积动态、执行机构速率、传感器延迟和燃油系统；用阶跃或规定油门历程求瞬态工作轨迹。</li>
+  <li><strong>调度控制变量：</strong>燃油率限制控制加速斜率；可调静子改善各级入射与匹配；放气扩展低速稳定域，但都会带来响应、效率或推力代价。</li>
+  <li><strong>施加不利条件：</strong>组合热天/高空、进口总压畸变、侧风/高攻角、部件退化、间隙变化和传感器偏差，识别最小瞬态裕度。</li>
+  <li><strong>做证据分级：</strong>把循环模型、部件动态模型、台架结果、整机地面试验和飞行试验分开；模型通过不等于认证通过。</li>
+  <li><strong>闭环验收：</strong>同时检查最小裕度、95% 推力响应时间、涡轮进口温度、N1/N2、执行机构饱和和故障回退，形成可复算报告。</li>
+</ol>
+
+<h2 id="常见误区与失效边界"><a href="#常见误区与失效边界" class="headerlink" title="常见误区与失效边界"></a>常见误区与失效边界</h2>
+<ul>
+  <li><strong>把图上水平距离当裕度：</strong>压比和流量同时变化，且坐标缩放会改变视觉距离；必须用声明的公式。</li>
+  <li><strong>把喘振线当旋转失速线：</strong>失速胞与系统喘振的判据、频率和后果不同，试验记录应明确事件类型。</li>
+  <li><strong>只验稳态：</strong>稳态线合格不保证快速加速、减速或负载突变合格；NASA 的闭环研究正是为暴露这类权衡。</li>
+  <li><strong>认为裕度越大越好：</strong>远离稳定边界通常要牺牲压比、效率、响应或增加可调机构复杂度。</li>
+  <li><strong>忽略多转子相互作用：</strong>低压和高压压气机的最小裕度可能出现在不同时间；只监控一个部件会漏掉限制。</li>
+  <li><strong>用均匀进口图替代安装包线：</strong>周向/径向畸变使局部叶排先失稳，平均总压和平均工作点可能仍显得正常。</li>
+  <li><strong>把历史 FAA AC 当现行要求：</strong>AC 33.65-1 已于 2022 年取消，只能作为历史方法背景，不能表述为当前强制规范。</li>
+</ul>
+
+<h2 id="与整机和部件耦合"><a href="#与整机和部件耦合" class="headerlink" title="与整机和部件耦合"></a>与整机和部件耦合</h2>
+<p><strong>进气道与飞行状态：</strong>畸变、总压恢复和快速姿态变化改变压气机进口边界。<strong>燃烧室与涡轮：</strong>燃油增加、燃烧压损和涡轮流量能力共同改变压气机背压；涡轮温度限制可能比喘振限制更早接管加速。</p>
+<p><strong>喷管与短舱：</strong>喷口面积、外界背压与反推/短舱状态影响整机流量匹配。<strong>机械系统：</strong>转子惯性决定转速响应，叶尖间隙和机匣变形会移动稳定边界。<strong>健康管理：</strong>污损、侵蚀、叶片损伤与传感器漂移既改变工作线，也改变喘振线，因此趋势监控应重算裕度而非只比较单一压力比。</p>
+<p><strong>控制与任务：</strong>FADEC 要在飞行员推力命令、发动机包线、响应时间、稳定性、温度、转速与寿命之间仲裁。NASA 的闭环方法把 95% 响应时间与最小 HPC 裕度作为成对指标，说明“更快”与“更稳”必须共同优化。</p>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol>
+  <li>判断：压气机工作线由压气机部件图单独规定，与涡轮和喷管无关。</li>
+  <li>判断：旋转失速一定伴随整台压气机平均流量周期性倒流。</li>
+  <li>用本文综合公式复算 <code>PRs=6.6</code>、<code>PRop=6.0</code>、<code>Wc,op=75</code>、<code>Wc,s=70 kg/s</code> 时的 SM。</li>
+  <li>上例若只用压比口径，SMPR 是多少？为什么不能与综合 SM 混写？</li>
+  <li>快速加速时，为什么燃油已经增加而压气机流量未必同步增加？</li>
+  <li>列出三项应计入不确定性预留的因素。</li>
+  <li>可调静子和放气分别通过什么方向改变稳定性与性能？</li>
+  <li>验证一条瞬态工作线至少需要哪些动态状态和限制器？</li>
+</ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<ol>
+  <li>错误。工作线由整机流量、功率、喷管和控制共同匹配。</li>
+  <li>错误。旋转失速可由周向传播失速胞构成；系统级喘振才可能出现全系统大幅振荡与倒流。</li>
+  <li><code>SM=100×[(6.6/6.0)×(75/70)−1]=17.86%</code>，约 <code>17.9%</code>。</li>
+  <li><code>SMPR=100×(6.6−6.0)/6.0=10.0%</code>；两式的变量和几何含义不同。</li>
+  <li>转子有惯性，容积压力与执行机构也有动态；涡轮功、背压和流量不会同相瞬时变化。</li>
+  <li>制造离散、进口畸变、雷诺数、叶尖间隙、老化和模型/传感器误差等任取三项。</li>
+  <li>静子角改善级间入射与匹配；放气降低后级流量/负荷并扩展低速稳定域，但可能损失效率与推力。</li>
+  <li>至少包含转子惯性、容积动态、燃油/静子/放气执行器、传感器延迟，以及温度、转速、裕度和执行器饱和限制。</li>
+</ol>
+<p><strong>下一期建议：</strong>进入“压气机多级匹配与级间失配”，用前级堵塞、后级失速和径向/轴向重匹配解释为什么整机喘振线不是各单级喘振线的简单相加。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ol>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/20150011439">NASA/TM-2014-218449：Application of TTECTrA for Dynamic Systems Analysis</a>，用于目标工作线、不确定性/瞬态预留和闭环权衡。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19950024173">NASA-TM-106970：Object-Oriented Approach for Gas Turbine Engine Simulation</a>，用于压气机对象、修正图与本文综合喘振裕度公式。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/20150021871">NASA：A Methodology to Assess Engine Designs against Closed-Loop Performance and Operability Requirements</a>，用于响应时间、最小 HPC 裕度、老化与控制设计权衡。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19760055251">NASA/AIAA 76-703：Instantaneous Distortion and Available Surge Margin</a>，用于动态进口压力变化与时变可用裕度。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19970012654">NASA-TM-104328：F/A-18A High-Angle-of-Attack Inlet Distortion Assessment</a>，用于畸变、姿态快速变化和间隙耦合案例。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19930087466">NACA-RM-E53A09：Compressor Bleed and Turbojet Acceleration</a>，用于放气、加速时间和靠近喘振区运行的历史分析。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/20050196621">NASA Glenn：Flow Range of Centrifugal Compressor Being Extended</a>，用于燃油加速、进口畸变与稳定域权衡。</li>
+  <li><a target="_blank" rel="noopener" href="https://www.faa.gov/regulations_policies/advisory_circulars/index.cfm/go/document.information/documentID/22928">FAA AC 33.65-1：Surge and Stall Characteristics of Aircraft Turbine Engines</a>，仅作已取消历史指南引用；FAA 页面明确标注 2022-07-20 取消。</li>
+</ol>
+<p><strong>图示许可：</strong>图 1、图 2 与封面均为本站原创教学图，采用 CC BY 4.0；不代表真实型号台架图、控制律或认证裕度。</p>
