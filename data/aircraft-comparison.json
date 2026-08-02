@@ -1,5 +1,16 @@
 [
   {
+    "slug": "shaanxi-y-9",
+    "name": "运-9",
+    "url": "/p/86c84fa1.html",
+    "firstFlightYear": 2010,
+    "lengthM": 36.06,
+    "wingspanM": 38.0,
+    "maxTakeoffWeightT": 65.0,
+    "speedLabel": "公开出口资料约 660 km/h（最大巡航口径）",
+    "rangeLabel": "公开出口资料最大约 5,200 km；随载荷与任务剖面变化"
+  },
+  {
     "slug": "shenyang-j-16",
     "name": "歼-16",
     "url": "/p/8405a038.html",
