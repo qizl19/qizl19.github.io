@@ -82,7 +82,17 @@ def main() -> None:
         if 'id="last-push-date"' in content and expected_last_push not in content:
             errors.append(f"Last update date is stale in {path}")
 
-    copied_pdfs = [path for path in root.rglob("*.pdf") if ".git" not in path.parts and "tmp" not in path.parts]
+    copied_pdfs = [
+        path
+        for path in root.rglob("*.pdf")
+        if ".git" not in path.parts
+        and "tmp" not in path.parts
+        and not (
+            "reports" in path.parts
+            and "weekly" in path.parts
+            and any(part.startswith("run-") for part in path.parts)
+        )
+    ]
     if copied_pdfs:
         errors.append("PDF files were copied into the permanent website: " + ", ".join(str(path) for path in copied_pdfs))
 

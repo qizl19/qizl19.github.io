@@ -1,0 +1,119 @@
+<p><strong>面向 FreeCAD 动力学自动化工作流</strong></p>
+<p><strong>报告日期：</strong>2026-08-03　<strong>检索窗口：</strong>2026-07-27 09:00 至 2026-08-03 09:00（Asia/Shanghai）　<strong>联网核验截止：</strong>2026-08-03 09:00</p>
+<style>
+@media (max-width: 768px) {
+  #article-container table { display:block; width:100%; max-width:100%; overflow-x:auto; box-sizing:border-box; }
+  #article-container th, #article-container td { min-width:7.5em; overflow-wrap:anywhere; }
+}
+</style>
+
+<h2 id="执行摘要"><a href="#执行摘要" class="headerlink" title="执行摘要"></a>执行摘要</h2>
+<blockquote>
+  <p>本周最值得进入 FreeCAD 动力学自动化回归线的信号，不是 Assembly 关节 API 的大改，而是<strong>可提取结果、二维模型口径和几何内核稳健性</strong>。FreeCAD 发布了 <a target="_blank" rel="noopener" href="https://github.com/FreeCAD/FreeCAD/releases/tag/weekly-2026.07.29">weekly-2026.07.29 开发周构建</a>；随后合并的 FEM PR #31667 将 Elmer 特征频率与屈曲因子保存成可读取的标量及元数据，PR #31610 修正二维机械方程的自由度与单位厚度口径。两项属于已合并开发变更，后者和前者是否进入某一周构建仍应按提交边界核对。</p>
+  <p><a target="_blank" rel="noopener" href="https://github.com/Open-Cascade-SAS/OCCT/releases/tag/V8.0.1">OCCT 8.0.1</a> 是窗口内正式发布：保持 8.0.0.p1 的 C++17/API/ABI 基线，集中修复 B-spline 周期参数、形状修复、STEP 输出、周期缝网格和并发圆角。公开基准中，含 2000 个孔的面校验由 9.21 秒降至 1.11 秒，曲面偏差快速路径使相关布尔工作负载改善约 17%–20%。这比“格式兼容”更直接影响 FreeCAD 的 STEP/修剪曲面/网格前处理可靠性。</p>
+  <p>IGA / CAD–分析一体化在 G+Smo、PetIGA、tIGAr、igatools 等公开主线中未发现窗口内 release 或提交，也未检出可同时满足时间窗、量化结果与开放性的强新论文，因此本期明确记为“本周无重要变化”，不以旧论文填充新闻。AI × CAD/CAE 同样没有发现比上期更强、且能在本周窗口内完成量化与复现核验的新成果；本期把重点转为覆盖矩阵和验证门禁。工程上应优先完成一个 OCCT/STEP NURBS 保真提取—IGA—Gmsh/CalculiX 对照样例，而不是将无代码预印本直接接入生产。</p>
+</blockquote>
+
+<h2 id="本周最优先的-3-项行动"><a href="#本周最优先的-3-项行动" class="headerlink" title="本周最优先的 3 项行动"></a>本周最优先的 3 项行动</h2>
+<ol>
+  <li><strong>建立 Elmer 特征值自动收集器：</strong>在隔离 FreeCAD 开发构建中复现 FEM PR #31667，用悬臂梁与屈曲柱各一个模型读取保存的频率/屈曲因子、字段名、单位和求解元数据；与 Elmer 原始输出及 CalculiX 结果逐项对账，保存重开后再次读取。</li>
+  <li><strong>冻结二维力学单位与接触回归：</strong>按 PR #31610 的“平面模型单位厚度、载荷量按单位长度”口径，分别验证平面应力、平面应变、轴对称和 Edge 接触；把总反力、能量、位移与解析/三维薄片基线纳入门禁。</li>
+  <li><strong>做一条 OCCT→IGA→FEM 保真链：</strong>从同一 STEP/OCCT 面提取次数、控制点、节点矢量、权重、参数范围、修剪环和邻接连续性；对未修剪 NURBS 与带孔修剪面分别做 IGA 和 Gmsh/CalculiX 网格加密，比较几何偏差、自由度、频率/位移、条件数、积分时间和失败单元。</li>
+</ol>
+
+<h2 id="本周态势总览"><a href="#本周态势总览" class="headerlink" title="本周态势总览"></a>本周态势总览</h2>
+<table><thead><tr><th>主题</th><th>证据类别</th><th>结论</th></tr></thead><tbody>
+<tr><th>FreeCAD Assembly / FEM</th><td>开发周构建 + 已合并 PR</td><td>Assembly 专属 API 无重大变化；Elmer 特征值结果自动提取与二维力学口径值得回归。</td></tr>
+<tr><th>IGA / CAD–分析一体化</th><td>本周无重要变化</td><td>主要开源框架无窗口内 release/commit；以 OCCT 8.0.1 为几何保真验证触发点。</td></tr>
+<tr><th>AI × CAD/CAE</th><td>本周无高置信度新结果</td><td>未发现同时满足窗口、量化、开放和 FreeCAD 可迁移性的强成果；继续物理求解器门禁。</td></tr>
+<tr><th>CATIA / Rhino / STEP / 3DM</th><td>正式发布 + 开发提交</td><td>OCCT 8.0.1 改善 STEP 与形状修复；rhino3dm 8.32.1 分支合并并调整点云 JS 缓冲，但缺完整发布说明。</td></tr>
+<tr><th>Gmsh / meshio</th><td>本周无重要变化</td><td>无窗口内稳定 release 或主线提交证据。</td></tr>
+<tr><th>VTK / ParaView</th><td>开发线变更</td><td>VTK 的 OCCT 读取器新增二进制 BREP、子面/子边颜色和 OCCT 8 支持；ParaView 修复交互撤销与代理链接崩溃。</td></tr>
+<tr><th>CalculiX / Abaqus-compatible</th><td>本周无求解器发布</td><td>重点是 FreeCAD 写入/结果端回归，不把语法兼容误写成算法等价。</td></tr>
+<tr><th>Python / C++ / pybind11 / ABI</th><td>开发线破坏性变化与修复</td><td>pybind11 主线放弃 Python 3.8、MSVC 2017，并修复 generator→string_view 生命周期风险。</td></tr>
+</tbody></table>
+
+<h2 id="freecad-assembly-自动化与-api-插件变化"><a href="#freecad-assembly-自动化与-api-插件变化" class="headerlink" title="FreeCAD Assembly 自动化与 API/插件变化"></a>FreeCAD Assembly 自动化与 API/插件变化</h2>
+<h3>开发周构建与 Assembly 边界</h3>
+<p><strong>【开发预发布】</strong><a target="_blank" rel="noopener" href="https://github.com/FreeCAD/FreeCAD/releases/tag/weekly-2026.07.29">weekly-2026.07.29</a> 于 7 月 29 日发布，官方明确标注为用于测试修复、回归和新功能的 bleeding-edge 构建，不应用于生产。本窗口检索到的 Assembly 专属已合并变更中，没有可证明关节语义、求解接口或持久化格式发生重大调整的项目。因此“有周构建”不等于 Assembly API 已稳定升级。</p>
+<h3>Elmer 特征频率与屈曲因子进入可编程结果链</h3>
+<p><strong>【已合并开发变更】</strong><a target="_blank" rel="noopener" href="https://github.com/FreeCAD/FreeCAD/pull/31667">FreeCAD FEM PR #31667</a> 于 8 月 1 日合并，使用 Elmer <code>SaveScalars</code> 保存 elasticity equation 的 eigenfrequencies 与 buckling factors，并把数值与元数据汇入输出文本对象；PR 同时更新了弯曲屈曲示例。变更规模为 3 个提交、7 个文件，核心价值是让批处理不再依赖人工抄读日志。</p>
+<p><strong>方法与开放性：</strong>代码、示例和测试均公开。<strong>量化边界：</strong>PR 没有给出求解误差或大模型性能基准，不能声称精度/速度提升。<strong>工作流影响：</strong>可把模态频率、屈曲因子、求解设置和模型哈希写入同一结果快照，适合 FreeCAD→Elmer/CalculiX 双求解器审计。<strong>失效模式：</strong>输出字段顺序、单位、重根/近重根、失败求解和保存重开可能产生空值或错配。<strong>置信度：</strong>实现证据高，工程验证中等。</p>
+<h3>二维力学模型不再假装是三维单位口径</h3>
+<p><strong>【已合并开发变更】</strong><a target="_blank" rel="noopener" href="https://github.com/FreeCAD/FreeCAD/pull/31610">FreeCAD FEM PR #31610</a> 于 7 月 28 日合并：二维 mechanical equation 的变量自由度设为 2；平面模型按单位厚度解释，相关量应按单位长度而非单位面积输入；轴对称案例维持其预期口径，并更新了轴对称轴示例。</p>
+<p><strong>风险：</strong>旧自动化如果把三维面载荷直接复用于二维平面模型，修复后可能暴露数量级错误。<strong>验证：</strong>用解析悬臂梁、轴对称厚壁筒和等效三维薄片做三组复算；报告总载荷、单位换算、反力平衡和网格收敛，不只看云图相似。</p>
+<h3>Edge 接触提示与嵌入文件 I/O</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/FreeCAD/FreeCAD/pull/31516">PR #31516</a> 仅把 FEM Contact 任务面板提示从 Faces 扩展到 Edges，以说明二维模型可选边；这是 UI/可发现性修复，不是新接触算法。<a target="_blank" rel="noopener" href="https://github.com/FreeCAD/FreeCAD/pull/30478">PR #30478</a> 把嵌入文件的逐字符读写改为固定块缓冲并新增字节完整性回归测试；作者观察到打开模型改善，但没有公开秒级基准，因此只能记为性能方向信号。</p>
+
+<h2 id="iga-cad-分析一体化"><a href="#iga-cad-分析一体化" class="headerlink" title="IGA / CAD–分析一体化"></a>IGA / CAD–分析一体化</h2>
+<h3>本周结论与检索边界</h3>
+<p><strong>【本周无重要变化】</strong>检索覆盖 IGA、IBRA、trimmed/immersed IGA，NURBS、B-spline、T-spline、THB-spline、LR-spline，以及结构动力学、壳/实体、接触、断裂、多物理、拓扑优化、并行/GPU、预条件、ROM 与神经算子组合。公开仓库窗口检查显示 <a target="_blank" rel="noopener" href="https://github.com/gismo/gismo">G+Smo</a>、<a target="_blank" rel="noopener" href="https://github.com/dalcinl/PetIGA">PetIGA</a>、<a target="_blank" rel="noopener" href="https://github.com/david-kamensky/tIGAr">tIGAr</a> 与 <a target="_blank" rel="noopener" href="https://github.com/igatoolsProject/igatools">igatools</a> 在 2026-07-27 01:00Z 至 2026-08-03 01:00Z 没有公开提交；未找到可核验的新正式版本。GeoPDEs 的公开发布渠道也未显示窗口内新版本。</p>
+<p>论文检索只把提交/发布位于本窗口、原文可访问且给出可核查 benchmark 的成果算作新闻。未检出同时满足这些条件的强新结果，故不引用 2016–2025 年的经典 trimmed IGA、扩展 B-spline 或自适应论文冒充本周进展。商业产品若只有功能声明而无模型、自由度、误差、时间与失败案例，本期不升级其证据等级。</p>
+<h3>OCCT 8.0.1 是几何入口的现实变化</h3>
+<p><strong>【正式发布】</strong>OCCT 8.0.1 保持 8.0.0.p1 的 C++17 与 API/ABI 基线，修复周期 B-spline 参数归一化导致的布尔挂起、缺失 pcurve/非流形边界的形状修复崩溃、周期缝网格约束、STEP 长字符串与 writer healing 参数。它并未提供 IGA 求解器，但直接影响从 FreeCAD/STEP 获取可分析 NURBS 与修剪拓扑的可靠性。</p>
+<p>公开量化包括：2000 个孔的面校验从 9.21 秒降到 1.11 秒，约 8 倍；曲线在曲面上的偏差快速路径使相关布尔工作负载改善约 17%–20%，并保持结果形状和测试结果不变。<strong>局限：</strong>这些是 OCCT 维护基准，不等同于 IGA 组装/求解加速；对极小 cut cell、近退化 trimming loop、跨周期缝参数映射和多 patch 连续性仍需专门测试。</p>
+<h3>面向 FreeCAD 的可复算验证实验</h3>
+<table><thead><tr><th>阶段</th><th>记录量</th><th>通过条件</th></tr></thead><tbody>
+<tr><th>几何提取</th><td>曲面次数、控制点、权重、完整节点矢量、参数范围、外/内修剪环、pcurve、邻接面</td><td>STEP 往返后控制网与权重哈希一致；最大点到面偏差小于既定建模公差</td></tr>
+<tr><th>参数映射</th><td>UV→XYZ Jacobian、法向、修剪环方向、周期缝两侧对应关系、G0/G1/G2 证据</td><td>无负 Jacobian、断裂环或法向随机翻转；连续性只按实测声明</td></tr>
+<tr><th>积分与稳健性</th><td>cut-cell 面积分数、积分点数、条件数估计、失败/近零单元、组装时间和内存</td><td>网格/样条加密时能量范数收敛，极小切割单元有稳定化或明确拒绝</td></tr>
+<tr><th>动力学对照</th><td>IGA 与 Gmsh/CalculiX 的自由度、前 10 阶频率、MAC、静力位移、总质量与时间</td><td>几何/材料/边界条件相同；差异随加密可解释，且载荷/约束映射可审计</td></tr>
+</tbody></table>
+<p><strong>Go/No-Go：</strong>只有未修剪曲面和带孔修剪面都通过几何、积分与动力学三层门禁，才进入接触/壳/拓扑优化；若 OCCT 只能提供修剪后的 B-Rep 而不能保真复原分析所需参数结构，则保留 Gmsh/CalculiX 为签署基线，IGA 仅作研究支线。</p>
+
+<h2 id="ai-cad-cae"><a href="#ai-cad-cae" class="headerlink" title="AI × CAD/CAE"></a>AI × CAD/CAE</h2>
+<h3>本周筛选结论：没有通过全部门禁的新条目</h3>
+<p><strong>【本周无高置信度新结果】</strong>本期检索了 Text-to-CAD、programmatic CAD、CAD copilot、agentic CAD、装配约束、几何理解/修复、自动参数化、拓扑优化、AI 网格、边界条件/载荷识别、参数标定、solver acceleration、ROM、surrogate、PINN、neural operator、digital twin、后处理与异常检测。只把窗口内新发布、含明确数据/benchmark、量化结果、开放性信息并能设计 FreeCAD 迁移实验的成果列为重点；未发现优于上期接触 ROM、无标签 FVM-GNN 等证据质量的新条目。</p>
+<p>这不表示领域停滞，而是新闻门槛生效：只有产品演示、未公开数据、无几何有效性指标、只报告平均场误差或没有基线的结果，均不进入“本周进展”。旧工作可作为验证方法背景，但不计为本周新闻。</p>
+<h3>覆盖矩阵与当前验证门禁</h3>
+<table><thead><tr><th>范围</th><th>本周状态</th><th>进入 FreeCAD 工作流前必须证明</th></tr></thead><tbody>
+<tr><th>Text-to-CAD / programmatic / copilot</th><td>无强新证据</td><td>可执行率、B-Rep 有效率、参数可编辑性、拓扑命名稳定和重算成功率</td></tr>
+<tr><th>agentic CAD / 可验证装配 / 约束求解</th><td>无强新证据</td><td>约束残差、自由度、过/欠约束诊断、碰撞与保存重开的一致性</td></tr>
+<tr><th>几何理解/修复 / 自动参数化</th><td>OCCT 确定性修复更值得先测</td><td>修复前后体积/惯量/拓扑映射、最大几何偏差与不可修复拒绝率</td></tr>
+<tr><th>拓扑优化 / AI 辅助网格</th><td>无强新证据</td><td>制造约束、网格无关性、真实求解复算与域外几何拒绝</td></tr>
+<tr><th>边界条件/载荷识别 / 参数标定</th><td>无强新证据</td><td>单位、作用域、可辨识性、不确定度及反问题多解报警</td></tr>
+<tr><th>solver acceleration / ROM / surrogate</th><td>沿用上期验证队列</td><td>场误差、能量/反力、接触约束、域外检测和端到端总成本</td></tr>
+<tr><th>PINN / neural operator / digital twin</th><td>无强新证据</td><td>守恒残差、边界误差、长期漂移、网格/参数外推与算力账本</td></tr>
+<tr><th>后处理 / 异常检测</th><td>优先验证 VTK 确定性变更</td><td>数组身份、时间步、阈值敏感性、假阳/假阴和可追溯截图/数据</td></tr>
+</tbody></table>
+<p><strong>风险/置信度：</strong>“本周无强新证据”基于公开窗口检索，置信度中等；私有发布、付费数据库和未索引会议材料不在覆盖内。建议把 AI 预算用于现有候选的自有 benchmark，而不是因本周缺少新品就放宽量化门槛。</p>
+
+<h2 id="catia-与-rhino-step-3dm-互操作"><a href="#catia-与-rhino-step-3dm-互操作" class="headerlink" title="CATIA 与 Rhino / STEP / 3DM 互操作"></a>CATIA 与 Rhino / STEP / 3DM 互操作</h2>
+<p><strong>【正式发布】</strong>OCCT 8.0.1 的 STEP writer 会在 transfer 前恢复缺失的 shape-processing 参数，并安全分割超过 72 字符输出缓冲的 STEP 字符串；形状修复覆盖缺失 pcurve、空线序列、非流形边界和周期圆锥面。这些修复适合用 CATIA→STEP→FreeCAD/OCCT 往返样件验证，不能自动推断 CATIA 原生特征树可保留。</p>
+<p><strong>【开发中变更】</strong><a target="_blank" rel="noopener" href="https://github.com/mcneel/rhino3dm/commit/5afb43ec414ecff59bcc5c67fefefd34922caac7">rhino3dm 合并 8.32.1 分支</a>，并在 JavaScript 侧调整 3DM point cloud 为 three.js buffers。官方 GitHub releases 没有对应完整发布说明，因此本期按开发/发布流程信号处理，不声称 3DM 几何互操作得到量化改善。</p>
+<p><strong>验证：</strong>固定 CATIA/STEP/3DM 样件，核对单位、产品层级、实例变换、颜色/属性、长名称/Unicode、NURBS 权重与 knots、修剪环、缝合容差、点云数量/颜色、体积/质心/惯量。CATIA 原生参数、Rhino 用户数据和 STEP AP242 属性必须分别列账，不用“文件能打开”代替语义保真。</p>
+
+<h2 id="gmsh-与-meshio"><a href="#gmsh-与-meshio" class="headerlink" title="Gmsh 与 meshio"></a>Gmsh 与 meshio</h2>
+<p><strong>【本周无重要变化】</strong>Gmsh 官方稳定页与 meshio 官方仓库未显示窗口内 release；meshio 主线也没有窗口内公开提交。保持当前版本，继续用 <code>.msh</code> 2.2/4.1、二阶单元、physical groups、分区、节点/单元 ID、VTK/XDMF 字段和 Abaqus 集合做黄金样例往返。</p>
+<p>IGA 对照新增两个几何：未修剪 NURBS 方板与带孔修剪面。Gmsh/FEM 路线记录几何逼近误差、网格自由度与结果收敛；IGA 路线记录控制网、cut-cell 积分和条件数。两边必须使用同一材料、载荷、约束与质量归一化，避免把几何表示差异误写成求解器优劣。</p>
+
+<h2 id="vtk-与-paraview"><a href="#vtk-与-paraview" class="headerlink" title="VTK 与 ParaView"></a>VTK 与 ParaView</h2>
+<p><strong>【开发线功能】</strong>VTK 在窗口内为 <code>vtkOCCTPDCReader</code> 合并二进制 BREP、子面/子边着色、OCCT 8 支持与颜色处理改进：<a target="_blank" rel="noopener" href="https://github.com/Kitware/VTK/commit/d0cb26904ab0a42d7045573574d4eaa5555680d3">Binary BREP</a>、<a target="_blank" rel="noopener" href="https://github.com/Kitware/VTK/commit/6048cae58f9c18ec41f1971f411fa907fb27c9b5">sub-face/sub-edge color</a>、<a target="_blank" rel="noopener" href="https://github.com/Kitware/VTK/commit/19d075282e7612f2891c8b2b32a169cac0ef910b">OCCT 8 support</a>。还新增 1D/2D extent 的 VTKHDF 写入与读取修复，并修正 String/Variant/BitArray 内存分配。</p>
+<p><strong>工作流影响：</strong>FreeCAD/OCCT 形状可更完整地进入 VTK 后处理，颜色可作为面/边集合身份的辅助证据。<strong>局限：</strong>颜色不是稳定拓扑 ID；reader 三角化结果也不是 NURBS/IGA 几何。<strong>验证：</strong>同一 BREP/STEP 比较形状数、子面/边颜色数组、包围盒、三角形数量、内存和二进制/文本 BREP 一致性。</p>
+<p><strong>【开发线修复】</strong>ParaView 修复了上下文视图交互中多余 <code>EndInteractionEvent</code> 导致的 undo set 错误，以及改变代理时 property link 崩溃，并同步轴对齐反射缓存修复。暂无窗口内稳定版本发布；升级前仍需用时间序列、缓存、反射、PythonCalculator 和远程渲染样例验收。</p>
+
+<h2 id="calculix-与-abaqus-compatible-流程"><a href="#calculix-与-abaqus-compatible-流程" class="headerlink" title="CalculiX 与 Abaqus-compatible 流程"></a>CalculiX 与 Abaqus-compatible 流程</h2>
+<p><strong>【本周无求解器正式发布】</strong><a target="_blank" rel="noopener" href="https://www.calculix.de/">CalculiX 官方站</a>未显示窗口内新稳定 release。本周动作应围绕 FreeCAD 输入/结果端：二维 Edge 接触、单位厚度载荷、模态频率/屈曲因子字段，以及 OCCT 修复后面集合是否变化。</p>
+<p>Abaqus-compatible 只描述部分输入关键字或文件结构兼容，不代表接触算法、默认积分、单元公式、收敛准则与输出变量等价。对照实验必须保存两边实际输入文件，比较自由度、质量、前 10 阶频率、MAC、反力/能量、接触穿透与警告；若集合映射改变，先修复前处理，不用结果“看起来接近”放行。</p>
+
+<h2 id="python-cpp-pybind11-abi"><a href="#python-cpp-pybind11-abi" class="headerlink" title="Python / C++ / pybind11 / ABI"></a>Python / C++ / pybind11 / ABI</h2>
+<p><strong>【开发线破坏性变化】</strong><a target="_blank" rel="noopener" href="https://github.com/pybind/pybind11/pull/6110">pybind11 PR #6110</a> 于 8 月 1 日合并，主线要求 Python 3.9+、MSVC 2019+，放弃 Python 3.8 与 MSVC 2017。这不是当前稳定版 3.0.4 的即时要求，但对下一轮依赖升级是明确门禁。</p>
+<p><strong>【开发线缺陷修复】</strong><a target="_blank" rel="noopener" href="https://github.com/pybind/pybind11/pull/6096">PR #6096</a> 修复从 generator 构造 <code>std::string_view</code> 容器时的 use-after-free，只为瞬态来源添加生命周期支撑，并以 ASAN 和新增测试验证。<a target="_blank" rel="noopener" href="https://github.com/pybind/pybind11/pull/6094">PR #6094</a> 让 CMake 4.1/CMP0190 下显式的交叉编译设置得到尊重。</p>
+<p><strong>工作流影响与风险：</strong>FreeCAD 插件若绑定 <code>string_view</code>、generator、NumPy buffer 或跨线程对象，导入成功并不能证明生命周期安全。建议固定 Python minor、MSVC runtime、Qt、OCCT、VTK 与 pybind11 版本矩阵；新增 generator/string_view 压力测试、异常跨界、对象销毁、debug/release 与保存重开测试。生产环境保持当前已验证组合，待上游正式发布并完成 ABI 回归后再升级。</p>
+
+<h2 id="决策与监控清单"><a href="#决策与监控清单" class="headerlink" title="决策与监控清单"></a>决策与监控清单</h2>
+<table><thead><tr><th>候选动作</th><th>Go 条件</th><th>No-Go / 回退</th></tr></thead><tbody>
+<tr><th>试用 weekly-2026.07.29</th><td>隔离安装；Assembly/FEM 文件、插件与结果回归通过</td><td>任何持久化或求解差异；保持稳定版</td></tr>
+<tr><th>接入 Elmer 特征值收集</th><td>与原始输出/CalculiX 对账，单位、重根、失败状态可追溯</td><td>字段错位或重开丢失；继续解析原始结果并报警</td></tr>
+<tr><th>升级 OCCT 8.0.1</th><td>STEP/形状修复、布尔、网格、插件 ABI 和历史 FCStd 全通过</td><td>拓扑映射或二进制兼容破坏；在独立转换服务验证</td></tr>
+<tr><th>启动 IGA 原型</th><td>NURBS/trim 保真、cut-cell 稳定与 FEM 对照收敛均通过</td><td>参数结构丢失或条件数失控；维持 Gmsh/CalculiX 签署链</td></tr>
+<tr><th>采用 VTK OCCT reader</th><td>形状/颜色/数组/内存黄金样例通过</td><td>颜色与拓扑身份错配；只把颜色作显示信息</td></tr>
+<tr><th>跟进 pybind11 主线</th><td>工具链满足 Python 3.9+/MSVC 2019+ 且生命周期/ABI 测试通过</td><td>旧 FreeCAD/Windows 构建仍需支持；锁定 3.0.4 或已验证版本</td></tr>
+</tbody></table>
+
+<h2 id="来源与证据边界"><a href="#来源与证据边界" class="headerlink" title="来源与证据边界"></a>来源与证据边界</h2>
+<blockquote>
+  <p>窗口固定为 2026-07-27 01:00Z 至 2026-08-03 01:00Z。主要证据来自 FreeCAD、OCCT、VTK、ParaView、pybind11、McNeel、meshio 与 IGA 框架官方仓库/发布页，以及 Gmsh、CalculiX 官方站。公开提交的“无变化”不覆盖私有分支、未索引会议或付费数据库；Gmsh canonical GitLab 若无法稳定读取，则只对官方稳定发布页作结论。</p>
+  <p>状态已分为正式发布、开发预发布、已合并开发变更、开发线修复和本周无重要变化。OCCT 的性能数字来自其 release notes 所列贡献者基准，不能外推为 FreeCAD 或 IGA 端到端加速。AI 与 IGA 的“无强新证据”是检索结论，不是对领域长期价值的否定；文中验证实验尚未在项目中实施。</p>
+</blockquote>
+<p><strong>核心来源：</strong><a target="_blank" rel="noopener" href="https://github.com/FreeCAD/FreeCAD/releases/tag/weekly-2026.07.29">FreeCAD weekly-2026.07.29</a>；<a target="_blank" rel="noopener" href="https://github.com/FreeCAD/FreeCAD/pull/31667">FEM PR #31667</a>；<a target="_blank" rel="noopener" href="https://github.com/FreeCAD/FreeCAD/pull/31610">FEM PR #31610</a>；<a target="_blank" rel="noopener" href="https://github.com/Open-Cascade-SAS/OCCT/releases/tag/V8.0.1">OCCT 8.0.1</a>；<a target="_blank" rel="noopener" href="https://github.com/Kitware/VTK/commits/master/">VTK commits</a>；<a target="_blank" rel="noopener" href="https://github.com/Kitware/ParaView/commits/master/">ParaView commits</a>；<a target="_blank" rel="noopener" href="https://github.com/pybind/pybind11/pull/6110">pybind11 PR #6110</a>；<a target="_blank" rel="noopener" href="https://github.com/pybind/pybind11/pull/6096">pybind11 PR #6096</a>。</p>
