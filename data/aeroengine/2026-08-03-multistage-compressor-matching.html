@@ -1,0 +1,124 @@
+<p><strong>航空发动机学习简报 · 第 05 期</strong></p>
+<p><strong>副题：</strong>同一根轴，并不意味着每一级都在同一个相似点</p>
+<p><strong>主题类型：</strong>设计与控制方法　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-08-03</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote><p><strong>本期问题：</strong>多级压气机明明由同一根轴驱动、通过同一股气流，为什么降低转速后前级可能接近失速，而后级反而接近堵塞？可调静子和级间放气究竟在“匹配”什么？</p></blockquote>
+<p>学完本期，你应能：写出每一级入口的修正转速与修正流量；解释总压比是各级压比的乘积而不是相加；从连续方程、环道收缩和级特性说明低速失配；用速度三角形解释 VSV；用质量流量账本解释放气；完成一个四级教学堆叠算例；列出从单级特性到整机可运行边界的验证步骤。</p>
+<p><strong>前置知识：</strong>第 01 期的总参数与轴功平衡，第 02 期的修正参数与压气机图，第 04 期的工作线、喘振线和裕度口径。本文讨论轴流多级压气机的一维/平均半径直觉，不替代三维非定常 CFD、台架应变/压力测量或型号控制律。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol>
+  <li><strong>物理转速相同，局部修正转速不同。</strong>气流逐级升温，后级入口总温更高，所以同一轴转速除以不同的温度平方根后，得到不同的局部修正转速。</li>
+  <li><strong>物理质量流量近似连续，局部修正流量仍会变化。</strong>各级入口总压、总温、环道面积和放气量不同，不能把入口修正流量原样复制到每一级。</li>
+  <li><strong>级间失配是耦合结果。</strong>某一级偏离设计流量系数，会改变其压升、效率与出口流场，下一排叶片的入射角随之改变，偏差可向后传播，也可反过来通过背压影响前级。</li>
+  <li><strong>低速常见图景是“后级趋堵、前级趋失速”。</strong>转速降低时密度升高不足，而后部环道按设计点密度增长已收缩；后级流量能力受限，整机流量下降，把前级推向高正入射。</li>
+  <li><strong>VSV 与放气是重匹配工具，不是免费性能。</strong>静子转角重排速度三角形；级间放气使前级看到较大流量、后级承受较小流量，但会损失可用流量、效率或推力。</li>
+</ol>
+
+<h2 id="同一根轴为何不是同一修正状态"><a href="#同一根轴为何不是同一修正状态" class="headerlink" title="同一根轴为何不是同一修正状态"></a>同一根轴为何不是同一修正状态</h2>
+<p>第 <code>i</code> 级入口的修正量应使用该级入口总温和总压，而不是发动机进口值：</p>
+<div class="aeroengine-formula"><strong>局部修正转速：</strong> Nc,i = N / √(Tt,i / Tref)</div>
+<div class="aeroengine-formula"><strong>局部修正流量：</strong> Wc,i = ṁi × √(Tt,i / Tref) / (Pt,i / Pref)</div>
+<p><code>N</code>为同轴物理转速 [r/min]，<code>ṁi</code>为该级入口物理质量流量 [kg/s]，<code>Tt,i</code>、<code>Pt,i</code>是该级入口总温 [K]、总压 [Pa]，参考状态 <code>Tref</code>、<code>Pref</code>必须在整套数据中一致。即便无放气、<code>ṁi</code>近似相同，逐级升高的 <code>Tt</code>、<code>Pt</code>仍会改变 <code>Wc,i</code>；有冷却抽气、密封流或级间放气时，物理流量本身也不再相等。</p>
+<p>速度三角形常用流量系数 <code>φ=Ca/U</code> 与载荷系数 <code>ψ=Δh0/U²</code> 表示。<code>Ca</code>是轴向速度 [m/s]，<code>U</code>是叶片圆周速度 [m/s]，<code>Δh0</code>是级总焓升 [J/kg]。转速、密度或环道面积变化都会移动 <code>φ</code>；前一级出口旋流又决定后一级入口相对流角，所以“每级沿自己地图取最高效率点”通常无法同时满足界面状态。</p>
+
+<h2 id="级堆叠如何闭合"><a href="#级堆叠如何闭合" class="headerlink" title="级堆叠如何闭合"></a>级堆叠如何闭合</h2>
+<p>级堆叠（stage stacking）从第一级入口状态开始，在给定轴转速、几何角和流量猜值下查询第一级特性，计算压比、效率与出口总温；再把出口状态传给第二级，直至末级，并通过流量、背压或喘振判据迭代闭合。NASA 的 <a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19820017374">STGSTK（NASA-TP-2020）</a> 就是公开的一维平均半径级堆叠代码：支持输入/计算无量纲级特性，按非设计转速和叶片设置角修正特性，并以试验关联模拟真实损失。</p>
+<div class="aeroengine-formula"><strong>整体总压比：</strong> Πc = Pt,out / Pt,in = π1 × π2 × … × πn</div>
+<p>各级压比必须相乘。例如四级均为 <code>πi=1.45</code>，整体不是 <code>5.80</code>，而是 <code>1.45⁴=4.42</code>。级总温则由功逐级累积；若采用定比热近似，可由 <code>ΔTt,i = Tt,i × (πi^((γ−1)/γ)−1) / ηi</code> 估算。真实计算还要处理变比热、雷诺数、间隙、径向分布、叶排损失和堵塞。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/5fbab4c7/multistage-compressor-matching.svg" alt="四级压气机级堆叠耦合链与低速级间失配原创示意图">
+  <figcaption>图 1　四级堆叠耦合与低速失配。右图的流量系数、风险区和 8% 放气均为教学构造，不代表真实压气机；数据见公开 CSV。原创图，CC BY 4.0。</figcaption>
+</figure>
+
+<h2 id="低速时前级失速后级堵塞"><a href="#低速时前级失速后级堵塞" class="headerlink" title="低速时为何前级失速、后级堵塞"></a>低速时为何前级失速、后级堵塞</h2>
+<p>设计点上，压气机逐级升压，密度增加，因此环道高度通常向后收缩，以维持合适轴向速度。降到部分转速后，各级压比和密度增长都比设计值低；但金属环道不会变大，后部较小面积要求更高轴向速度。后级可能先达到流量能力或堵塞边界，形成对前方的节流。</p>
+<p>整机为满足后级流量能力而降低通过流量，前级的 <code>Ca</code> 与 <code>φ</code>下降，转子相对来流角改变，正入射增大，可能出现分离和旋转失速。NACA 对 16 级压气机的试验与分析发现，中间转速的严重喘振边界由入口级失速触发，并使随后五六级性能同时下降；这说明限制不一定来自“最末级”，而是级间传播后的系统边界。</p>
+<p>这是一种常见图景而非普适定律。具体哪一级先失速/堵塞取决于级负荷、反力度、环道、可调静子、间隙、雷诺数和进口畸变。1954 年 15 级试验在 78.5% 设计转速观察到至少六条不同总体特性和 0–4 个旋转失速区，说明路径依赖和多值特性会让静态单线模型失效。</p>
+
+<h2 id="vsv与放气如何重匹配"><a href="#vsv与放气如何重匹配" class="headerlink" title="VSV 与放气如何重匹配"></a>VSV 与放气如何重匹配</h2>
+<p><strong>可调进口导叶/静子（IGV/VSV）</strong>改变进入下游转子的绝对流角和旋流，从而改变转子相对入射、级做功与流量能力。低速时适当关闭前部静子可以把前几级从高正入射区拉回可运行域；但角度过大可能降低流量、增加损失或把限制转移到别的级。</p>
+<p><strong>级间放气</strong>在抽气位置制造两个质量流量账本。若入口为 <code>100 kg/s</code>、抽取 8%，忽略密封流和燃油质量，则抽气前级仍处理约 <code>100 kg/s</code>，后级只处理约 <code>92 kg/s</code>。这既减轻后级堵塞/负荷，也允许前级在较高流量处远离失速。代价是这 8 kg/s 没有全部参与后续循环和喷管做功，且阀门、管路与热管理增加复杂性。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/5fbab4c7/multistage-matching-controls.svg" alt="低速级间失配因果链与可调静子放气控制权衡原创图">
+  <figcaption>图 2　低速失配因果链与控制权衡。右侧归一化条形仅表示方向，不是型号性能或控制律；原创图，CC BY 4.0。</figcaption>
+</figure>
+
+<h2 id="可复算的简化算例"><a href="#可复算的简化算例" class="headerlink" title="可复算的简化算例"></a>可复算的简化算例</h2>
+<p><strong>设定：</strong>一个四级教学压气机在低速无调节时，各级压比分别为 <code>[1.38, 1.30, 1.16, 1.08]</code>；局部流量系数/设计值为 <code>[0.84, 0.90, 0.99, 1.08]</code>。这表示前级靠近教学失速风险区、后级靠近教学堵塞风险区。</p>
+<ol>
+  <li>无调节整体压比：<code>Πc,0=1.38×1.30×1.16×1.08=2.248</code>，取 <code>2.25</code>。</li>
+  <li>采用 VSV 并在二、三级之间放气 8% 后，教学级压比改为 <code>[1.33, 1.30, 1.23, 1.18]</code>，流量系数比变为 <code>[0.93, 0.96, 1.00, 1.03]</code>。</li>
+  <li>重匹配整体压比：<code>Πc,1=1.33×1.30×1.23×1.18=2.509</code>，取 <code>2.51</code>。</li>
+  <li>该教学点整体压比相对变化：<code>(2.509/2.248−1)×100%=11.61%</code>。</li>
+  <li>若入口物理流量为 <code>100 kg/s</code>，8% 放气后后两级约为 <code>92 kg/s</code>；不能在四级都继续写 100 kg/s。</li>
+</ol>
+<p><strong>解释边界：</strong>算例只说明乘积、流量分叉和“把级工作点拉回中间”的概念。压比提升并不证明净推力或效率提高，因为抽气损失、静子损失、涡轮匹配和喷管流量尚未计入；图中 0.80/1.05 风险区也不是通用失速/堵塞判据。</p>
+
+<h2 id="设计分析与控制步骤"><a href="#设计分析与控制步骤" class="headerlink" title="设计、分析与控制步骤"></a>设计、分析与控制步骤</h2>
+<ol>
+  <li><strong>定义接口：</strong>为每一级记录入口/出口总温、总压、物理流量、抽气/回流、半径、面积和几何角，统一参考状态与单位。</li>
+  <li><strong>建立级特性：</strong>使用试验、经验证 RANS/URANS 或平均线关联，给出 <code>φ–ψ–η</code>、失速/堵塞边界及转速、雷诺数、间隙、静子角修正。</li>
+  <li><strong>从前向后堆叠：</strong>由本级状态计算压升、温升和出口旋流，传递给下一级；遇到放气点显式更新质量流量。</li>
+  <li><strong>闭合末端约束：</strong>用燃烧室/涡轮流量能力、轴功、背压或指定出口状态迭代入口流量与工作点，不把末级出口当自由变量。</li>
+  <li><strong>逐级检查限制：</strong>不要只画整体图；检查每级入射、扩散因子、相对速度比、效率、堵塞和失速裕度，识别真正的限制级。</li>
+  <li><strong>生成 VSV/放气候选：</strong>先按转速和修正状态扫角度/阀位，再把效率、整体压比、流量、稳定性和执行器连续性作为联合目标。</li>
+  <li><strong>加入瞬态：</strong>起动、加速和减速需包含转子惯性、容积动态、阀门/静子速率与传感器延迟；稳态重匹配不保证瞬态不越界。</li>
+  <li><strong>分级验证：</strong>单级/级组台架→全压气机台架→核心机/整机；保存原始压力、温度、流量、动态谱和控制命令，明确模型与试验证据等级。</li>
+</ol>
+<p>2012 年 NASA/ASME 的 13 级级堆叠研究用分组 CFD 构造级特性和堵塞项，与全压气机 CFD 相比，整体总压比误差在 1.6% 内、绝热效率误差在 0.3 个百分点内；它还用于估计最低稳定修正转速和放气敏感性。这是特定模型/数据的结果，不应直接当作其他压气机精度承诺。</p>
+
+<h2 id="常见误区与失效边界"><a href="#常见误区与失效边界" class="headerlink" title="常见误区与失效边界"></a>常见误区与失效边界</h2>
+<ul>
+  <li><strong>把各级最高效率点相乘：</strong>界面流角、流量和总参数通常无法同时闭合。</li>
+  <li><strong>认为同轴等于同修正转速：</strong>后级入口总温不同，局部 <code>Nc</code>不同。</li>
+  <li><strong>全机只用一个修正流量：</strong>级间总压/总温和抽气改变每级 <code>Wc</code>。</li>
+  <li><strong>只看整体喘振裕度：</strong>限制级可随转速、静子角和退化切换，整体线会隐藏局部失速。</li>
+  <li><strong>把稳态失配当单值问题：</strong>旋转失速区数量和接近路径可能产生多条总体特性。</li>
+  <li><strong>认为放气必然提高性能：</strong>它扩大可运行域，却减少后续循环流量并增加损失。</li>
+  <li><strong>用平均半径模型判断局部稳定：</strong>端壁、泄漏、径向迁移和周向畸变需更高保真模型/试验。</li>
+  <li><strong>用设计点误差代表全包线：</strong>级堆叠在设计点准确，不保证低速、起动或退化状态准确。</li>
+</ul>
+
+<h2 id="与整机和其他部件的耦合"><a href="#与整机和其他部件的耦合" class="headerlink" title="与整机和其他部件的耦合"></a>与整机和其他部件的耦合</h2>
+<p><strong>进气道：</strong>总压畸变会让周向不同扇区处在不同入射和裕度，平均级堆叠无法捕捉失速胞。<strong>燃烧室与涡轮：</strong>燃烧室压损和涡轮流量能力规定压气机末端背压，双转子发动机还要同时闭合 LPC/HPC 与 HPT/LPT 的两套轴功。</p>
+<p><strong>机械与热状态：</strong>叶尖间隙、密封泄漏和机匣热变形会改变级特性。NASA 低速多级试验表明，密封齿间隙/叶高比每增加 1%，总体压升最多下降约 3%，效率下降 1–1.5 个百分点；这类退化会重新分配负荷，而非只让所有级等比例变差。</p>
+<p><strong>FADEC 与任务：</strong>VSV、放气和燃油共同调度，既要避免失速/堵塞，也要满足推力响应、温度、转速、油耗和执行器寿命。起动阶段尤其特殊：公开 DYNTECC 研究显示，轴-离心组合压气机前级在大部分起动过程中可能处于或接近旋转失速，说明“快速穿越风险区”本身就是控制目标。</p>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol>
+  <li>判断：同轴四级压气机的物理转速相同，所以四级修正转速必然相同。</li>
+  <li>判断：无放气时物理质量流量近似相同，因此各级修正流量也相同。</li>
+  <li>四级压比分别为 1.20、1.25、1.30、1.35，计算整体压比。</li>
+  <li>入口 80 kg/s，在二、三级之间放气 6%，忽略其他抽气时，第三级入口流量是多少？</li>
+  <li>低速时后级为什么更容易受到环道收缩带来的流量能力限制？</li>
+  <li>VSV 改变的是哪一类速度三角形变量？它为何可能把限制转移到别的级？</li>
+  <li>级堆叠与全压气机三维 CFD 各自适合解决什么问题？</li>
+  <li>至少列出四项必须逐级检查、不能只看整体图的量。</li>
+</ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<ol>
+  <li>错误。<code>N</code>相同，但各级入口 <code>Tt</code>不同，所以 <code>Nc,i</code>不同。</li>
+  <li>错误。<code>Wc</code>还依赖本级入口总温和总压。</li>
+  <li><code>Πc=1.20×1.25×1.30×1.35=2.6325</code>，约 2.63。</li>
+  <li><code>80×(1−0.06)=75.2 kg/s</code>。</li>
+  <li>部分转速密度升高不足，而固定后部环道按设计点已收缩，需要更高轴向速度并更早接近堵塞。</li>
+  <li>静子角改变绝对流角/旋流，从而改变下游转子相对入射与做功；一处改善会改变下游界面状态。</li>
+  <li>级堆叠适合快速扫包线、调度和敏感性；三维 CFD 适合径向/周向非均匀、端壁、泄漏和非定常相互作用，但成本更高。</li>
+  <li>入射、流量系数、载荷/扩散、效率、相对速度比、堵塞/失速裕度、间隙和出口旋流等任选四项。</li>
+</ol>
+<p><strong>下一期建议（经典型号）：</strong>GE90-115B——高涵道比、复合材料风扇与大推力取舍。把前五期的站位、修正图、工作线和多级匹配用于读懂一台公开资料充分的经典大涵道比涡扇。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ol>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19820017374">NASA-TP-2020：STGSTK—A Computer Code for Predicting Multistage Axial Flow Compressor Performance</a>，用于级堆叠方法、非设计修正与程序边界。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/20120011934">NASA/ASME GT2012-69115：Development and Applications of a Stage Stacking Procedure</a>，用于 13 级案例、1.6% 压比与 0.3 点效率误差、最低稳定转速和放气敏感性。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19930087307">NACA-RM-E52D07：Analysis of Stage Matching and Off-Design Performance of Multistage Axial-Flow Compressors</a>，用于经典级间匹配分析框架。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19930087454">NACA-RM-E52L03：Analysis of Off-design Performance of a 16-stage Axial-flow Compressor</a>，用于入口级失速及后续五六级联动。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19930088374">NACA-RM-E54C29：Multiple Overall Performance and Rotating-Stall Characteristics of a 15-stage Compressor</a>，用于 78.5% 转速、多值总体特性和失速区证据。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19970003321">NASA：Dynamic Modeling of Starting Aerodynamics and Stage Matching in an Axi-Centrifugal Compressor</a>，用于起动瞬态、放气调度和前级旋转失速。</li>
+  <li><a target="_blank" rel="noopener" href="https://ntrs.nasa.gov/citations/19970001608">NASA：Effects of Shrouded Stator Cavity Flows on Multistage Compressor Performance</a>，用于密封泄漏对压升和效率的量化影响。</li>
+</ol>
+<p><strong>图示许可：</strong>封面、图 1、图 2 为本站使用 Python/matplotlib 绘制的原创教学图，采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>；公开 CSV 为教学数据，不代表真实发动机级特性、控制律或认证边界。</p>

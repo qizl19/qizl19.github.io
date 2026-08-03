@@ -1,0 +1,16 @@
+{
+  "briefing": 5,
+  "backend": "Python/matplotlib",
+  "topic": "Multistage compressor matching and stage mismatch",
+  "example": {
+    "lowSpeedOverallPressureRatio": 2.248,
+    "controlledOverallPressureRatio": 2.509,
+    "bleedFraction": 0.08
+  },
+  "sources": [
+    "NASA-TP-2020",
+    "NASA NTRS 20120011934",
+    "NACA-RM-E52L03"
+  ],
+  "integrity": "原创工程示意；四级参数为公式驱动的教学数据，不代表真实型号或控制调度。"
+}

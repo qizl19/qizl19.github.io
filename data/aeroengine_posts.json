@@ -1,5 +1,81 @@
 [
   {
+    "issue": 5,
+    "slug": "aeroengine-05-multistage-compressor-matching",
+    "postId": "5fbab4c7",
+    "title": "航空发动机学习简报｜第05期｜压气机多级匹配与级间失配",
+    "subtitle": "同一根轴，并不意味着每一级都在同一个相似点",
+    "type": "设计与控制方法",
+    "date": "2026-08-03",
+    "updated": "2026-08-03",
+    "heroImage": "/p/5fbab4c7/multistage-compressor-matching-cover.png",
+    "summary": "从局部修正转速/流量、级堆叠与固定环道出发，解释低速时常见的前级失速—后级堵塞耦合，并用四级算例复算 VSV 与 8% 放气如何重匹配及其性能代价。",
+    "contentFile": "data/aeroengine/2026-08-03-multistage-compressor-matching.html",
+    "keyConcepts": [
+      "多级压气机匹配",
+      "级堆叠",
+      "局部修正参数",
+      "级间失配",
+      "前级失速",
+      "后级堵塞",
+      "可调静子",
+      "级间放气",
+      "起动瞬态"
+    ],
+    "headings": [
+      {"id": "本期问题与学习目标", "title": "本期问题与学习目标"},
+      {"id": "核心结论", "title": "核心结论"},
+      {"id": "同一根轴为何不是同一修正状态", "title": "同一根轴为何不是同一修正状态"},
+      {"id": "级堆叠如何闭合", "title": "级堆叠如何闭合"},
+      {"id": "低速时前级失速后级堵塞", "title": "低速时为何前级失速、后级堵塞"},
+      {"id": "vsv与放气如何重匹配", "title": "VSV 与放气如何重匹配"},
+      {"id": "可复算的简化算例", "title": "可复算的简化算例"},
+      {"id": "设计分析与控制步骤", "title": "设计、分析与控制步骤"},
+      {"id": "常见误区与失效边界", "title": "常见误区与失效边界"},
+      {"id": "与整机和其他部件的耦合", "title": "与整机和其他部件的耦合"},
+      {"id": "自测题", "title": "自测题"},
+      {"id": "答案与下一期衔接", "title": "答案与下一期衔接"},
+      {"id": "参考资料与图示许可", "title": "参考资料与图示许可"}
+    ],
+    "validationNeedles": [
+      "2.248",
+      "2.509",
+      "11.61%",
+      "92 kg/s",
+      "1.6%",
+      "0.3 个百分点"
+    ],
+    "figures": [
+      {
+        "src": "/p/5fbab4c7/multistage-compressor-matching.svg",
+        "fallback": "/p/5fbab4c7/multistage-compressor-matching.png",
+        "title": "四级压气机级堆叠耦合与低速失配",
+        "author": "Qzl's Blog",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceData": "/data/aeroengine/compressor-stage-matching-example.csv"
+      },
+      {
+        "src": "/p/5fbab4c7/multistage-matching-controls.svg",
+        "fallback": "/p/5fbab4c7/multistage-matching-controls.png",
+        "title": "低速失配因果链与 VSV/放气控制权衡",
+        "author": "Qzl's Blog",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "sources": [
+      {"title": "NASA-TP-2020：STGSTK", "url": "https://ntrs.nasa.gov/citations/19820017374"},
+      {"title": "NASA/ASME GT2012-69115：Stage Stacking Procedure", "url": "https://ntrs.nasa.gov/citations/20120011934"},
+      {"title": "NACA-RM-E52D07：Stage Matching", "url": "https://ntrs.nasa.gov/citations/19930087307"},
+      {"title": "NACA-RM-E52L03：16-stage Off-design", "url": "https://ntrs.nasa.gov/citations/19930087454"},
+      {"title": "NACA-RM-E54C29：Multiple Performance and Rotating Stall", "url": "https://ntrs.nasa.gov/citations/19930088374"},
+      {"title": "NASA：Starting Aerodynamics and Stage Matching", "url": "https://ntrs.nasa.gov/citations/19970003321"},
+      {"title": "NASA：Shrouded Stator Cavity Flows", "url": "https://ntrs.nasa.gov/citations/19970001608"}
+    ],
+    "nextTopic": "GE90-115B：高涵道比与复合材料风扇系统"
+  },
+  {
     "issue": 4,
     "slug": "aeroengine-04-compressor-operating-line-surge-margin",
     "postId": "358da19b",

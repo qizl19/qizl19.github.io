@@ -1077,6 +1077,186 @@ def generate_briefing_04(
     return notes
 
 
+def draw_multistage_matching(
+    output_dir: Path, source_dir: Path, qa_dir: Path
+) -> dict[str, object]:
+    """Draw a traceable four-stage matching example for briefing 05."""
+    stages = np.arange(1, 5)
+    design_phi = np.asarray([1.00, 1.00, 1.00, 1.00])
+    low_speed_phi = np.asarray([0.84, 0.90, 0.99, 1.08])
+    controlled_phi = np.asarray([0.93, 0.96, 1.00, 1.03])
+    off_pr = np.asarray([1.38, 1.30, 1.16, 1.08])
+    controlled_pr = np.asarray([1.33, 1.30, 1.23, 1.18])
+
+    fig = plt.figure(figsize=(7.20, 3.85), constrained_layout=True)
+    grid = fig.add_gridspec(1, 2, width_ratios=[1.12, 1.0])
+    ax = fig.add_subplot(grid[0, 0])
+    ax.set_xlim(0, 5.0)
+    ax.set_ylim(0, 2.2)
+    ax.axis("off")
+    widths = [0.78, 0.72, 0.66, 0.60]
+    xs = [0.35, 1.48, 2.55, 3.56]
+    for i, (x, width) in enumerate(zip(xs, widths), 1):
+        ax.add_patch(
+            FancyBboxPatch(
+                (x, 0.72), width, 0.78,
+                boxstyle="round,pad=0.025,rounding_size=0.05",
+                facecolor=COLORS["blue"] if i < 3 else COLORS["cyan"],
+                edgecolor="white", linewidth=1.1,
+            )
+        )
+        ax.text(x + width / 2, 1.18, f"第 {i} 级", ha="center", va="center",
+                color="white", weight="bold")
+        ax.text(x + width / 2, 0.92, f"π{i}={controlled_pr[i-1]:.2f}", ha="center",
+                va="center", color="white", fontsize=7.2)
+        if i < 4:
+            ax.add_patch(FancyArrowPatch((x + width, 1.1), (xs[i], 1.1),
+                                         arrowstyle="-|>", mutation_scale=12,
+                                         color=COLORS["navy"], linewidth=1.4))
+    ax.plot([0.2, 4.45], [0.48, 0.48], color=COLORS["red"], lw=2.1)
+    ax.text(2.32, 0.31, "同一轴：物理转速 N 相同；各级进口 Tt 不同 → 各级修正转速不同",
+            ha="center", color=COLORS["red"], fontsize=7.4)
+    ax.annotate("级间放气 8%", xy=(2.40, 1.52), xytext=(2.40, 2.00), ha="center",
+                arrowprops={"arrowstyle": "->", "color": COLORS["orange"]},
+                color="#8b5418", weight="bold")
+    ax.text(0.02, 0.03, "流量连续 + 级间总压/总温传递 + 轴功约束\n"
+            "决定整体工作点；不能把四张单级峰值图直接相乘。",
+            transform=ax.transAxes, color=COLORS["gray"], fontsize=7.5)
+    ax.set_title("a  级堆叠的耦合链", loc="left", weight="bold")
+
+    ax2 = fig.add_subplot(grid[0, 1])
+    ax2.axhspan(0.80, 0.88, color=COLORS["red"], alpha=0.10, label="前级失速风险区（教学）")
+    ax2.axhspan(1.05, 1.12, color=COLORS["orange"], alpha=0.10, label="后级堵塞风险区（教学）")
+    ax2.plot(stages, design_phi, color=COLORS["gray"], ls="--", lw=1.6, marker="o", label="设计点")
+    ax2.plot(stages, low_speed_phi, color=COLORS["red"], lw=2.2, marker="o", label="低速无调节")
+    ax2.plot(stages, controlled_phi, color=COLORS["green"], lw=2.2, marker="s", label="VSV + 8% 放气")
+    ax2.set_xticks(stages, ["1", "2", "3", "4"])
+    ax2.set_ylim(0.78, 1.13)
+    ax2.set_xlabel("级号（前 → 后）")
+    ax2.set_ylabel("局部流量系数 / 设计值")
+    ax2.set_title("b  低速级间失配与重匹配", loc="left", weight="bold")
+    ax2.grid(alpha=0.22)
+    ax2.legend(fontsize=6.8, loc="upper left")
+    save_web_figure(fig, output_dir / "multistage-compressor-matching", qa_dir)
+
+    rows = []
+    for i in range(4):
+        rows.append({
+            "stage": i + 1,
+            "design_phi_ratio": design_phi[i],
+            "low_speed_phi_ratio": low_speed_phi[i],
+            "controlled_phi_ratio": controlled_phi[i],
+            "low_speed_pressure_ratio": off_pr[i],
+            "controlled_pressure_ratio": controlled_pr[i],
+        })
+    csv_path = source_dir / "compressor-stage-matching-example.csv"
+    with csv_path.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
+    return {
+        "lowSpeedOverallPressureRatio": round(float(np.prod(off_pr)), 3),
+        "controlledOverallPressureRatio": round(float(np.prod(controlled_pr)), 3),
+        "bleedFraction": 0.08,
+    }
+
+
+def draw_multistage_control(output_dir: Path, qa_dir: Path) -> None:
+    fig = plt.figure(figsize=(7.20, 3.65), constrained_layout=True)
+    grid = fig.add_gridspec(1, 2, width_ratios=[1.05, 1.15])
+    ax = fig.add_subplot(grid[0, 0])
+    ax.set_axis_off()
+    boxes = [
+        (0.05, 0.72, "低转速\n密度升高不足", COLORS["gray"]),
+        (0.38, 0.72, "后级环道较小\n趋向堵塞", COLORS["orange"]),
+        (0.71, 0.72, "前级流量下降\n入射增大/失速", COLORS["red"]),
+        (0.15, 0.25, "关闭前部 VSV\n重排速度三角形", COLORS["blue"]),
+        (0.60, 0.25, "中间级放气\n前级增流、后级减流", COLORS["green"]),
+    ]
+    for x, y, label, color in boxes:
+        ax.add_patch(FancyBboxPatch((x, y), 0.25, 0.16,
+                                    boxstyle="round,pad=0.018,rounding_size=0.025",
+                                    facecolor=color, edgecolor="white", transform=ax.transAxes))
+        ax.text(x + 0.125, y + 0.08, label, ha="center", va="center",
+                color="white", fontsize=6.2, transform=ax.transAxes)
+    for start, end in [((0.30,0.80),(0.38,0.80)),((0.63,0.80),(0.71,0.80)),
+                       ((0.83,0.72),(0.72,0.41)),((0.50,0.72),(0.32,0.41)),
+                       ((0.40,0.33),(0.60,0.33))]:
+        ax.add_patch(FancyArrowPatch(start, end, transform=ax.transAxes,
+                                     arrowstyle="-|>", mutation_scale=10,
+                                     color=COLORS["navy"], lw=1.1))
+    ax.set_title("a  低速失配的因果链与控制动作", loc="left", weight="bold")
+
+    ax2 = fig.add_subplot(grid[0, 1])
+    categories = ["前级失速余量", "后级堵塞余量", "整体压比", "效率", "可用流量"]
+    baseline = np.asarray([0.35, 0.25, 0.70, 0.72, 0.82])
+    controlled = np.asarray([0.78, 0.76, 0.78, 0.68, 0.74])
+    y = np.arange(len(categories))
+    ax2.barh(y + 0.16, baseline, height=0.28, color=COLORS["red"], alpha=0.78, label="低速无调节")
+    ax2.barh(y - 0.16, controlled, height=0.28, color=COLORS["green"], alpha=0.88, label="VSV + 放气")
+    ax2.set_yticks(y, categories)
+    ax2.set_xlim(0, 1.0)
+    ax2.set_xlabel("归一化教学指标（仅表示方向）")
+    ax2.set_title("b  控制不是免费午餐", loc="left", weight="bold")
+    ax2.grid(axis="x", alpha=0.22)
+    ax2.legend(fontsize=7.0, loc="lower right")
+    ax2.text(0.02, -0.18, "VSV/放气扩大可运行域，但会改变流量、效率与推力；数值不是型号数据。",
+             transform=ax2.transAxes, color=COLORS["gray"], fontsize=7.4)
+    save_web_figure(fig, output_dir / "multistage-matching-controls", qa_dir)
+
+
+def draw_multistage_cover(output_dir: Path) -> None:
+    fig, ax = plt.subplots(figsize=(12.8, 7.2))
+    fig.patch.set_facecolor("#071521")
+    ax.set_facecolor("#071521")
+    ax.set_xlim(0, 12.8)
+    ax.set_ylim(0, 7.2)
+    ax.axis("off")
+    for y in np.linspace(0.7, 6.5, 9):
+        ax.plot([0.3, 12.5], [y, y], color="#14334a", lw=0.7, alpha=0.7)
+    centers = [2.0, 4.6, 7.2, 9.8]
+    radii = [1.32, 1.18, 1.04, 0.90]
+    theta = np.linspace(0, 2*np.pi, 180)
+    for idx, (cx, radius) in enumerate(zip(centers, radii), 1):
+        color = [COLORS["cyan"], COLORS["blue"], COLORS["orange"], COLORS["green"]][idx-1]
+        for blade in range(12):
+            angle = 2*np.pi*blade/12
+            x0, y0 = cx + 0.38*np.cos(angle), 3.6 + 0.38*np.sin(angle)
+            x1, y1 = cx + radius*np.cos(angle+0.18), 3.6 + radius*np.sin(angle+0.18)
+            ax.plot([x0,x1],[y0,y1],color=color,lw=2.2,alpha=0.9)
+        ax.plot(cx + radius*np.cos(theta), 3.6 + radius*np.sin(theta), color="#d7ebf6", lw=1.2)
+        ax.add_patch(plt.Circle((cx,3.6),0.35,color="#0d2638",ec="#d7ebf6",lw=1.0))
+    ax.add_patch(FancyArrowPatch((0.45,3.6),(11.55,3.6),arrowstyle="-|>",mutation_scale=20,
+                                 color="#d7ebf6",lw=2.2,alpha=0.85))
+    ax.add_patch(FancyArrowPatch((6.05,5.9),(6.05,4.75),arrowstyle="-|>",mutation_scale=18,
+                                 color=COLORS["orange"],lw=2.5))
+    ax.plot([1.0,3.4,5.9,8.5,11.2],[1.35,1.65,2.15,2.75,3.55],
+            color="#63c9ff",lw=2.8,marker="o")
+    ax.plot([1.0,3.4,5.9,8.5,11.2],[1.15,1.05,0.95,0.86,0.80],
+            color="#ff9d4a",lw=2.2,marker="s")
+    fig.savefig(output_dir / "multistage-compressor-matching-cover.png", dpi=220,
+                bbox_inches="tight", facecolor=fig.get_facecolor())
+    plt.close(fig)
+
+
+def generate_briefing_05(output_dir: Path, source_dir: Path, qa_dir: Path) -> dict[str, object]:
+    results = draw_multistage_matching(output_dir, source_dir, qa_dir)
+    draw_multistage_control(output_dir, qa_dir)
+    draw_multistage_cover(output_dir)
+    notes = {
+        "briefing": 5,
+        "backend": "Python/matplotlib",
+        "topic": "Multistage compressor matching and stage mismatch",
+        "example": results,
+        "sources": ["NASA-TP-2020", "NASA NTRS 20120011934", "NACA-RM-E52L03"],
+        "integrity": "原创工程示意；四级参数为公式驱动的教学数据，不代表真实型号或控制调度。",
+    }
+    (source_dir / "multistage-matching-briefing-05-figure-notes.json").write_text(
+        json.dumps(notes, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    return notes
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate aeroengine learning figures with Python/matplotlib.")
     parser.add_argument("--root", type=Path, default=Path.cwd())
@@ -1093,6 +1273,8 @@ def main() -> None:
     configure_matplotlib()
     if args.post_id == "358da19b":
         notes = generate_briefing_04(output_dir, source_dir, qa_dir)
+    elif args.post_id == "5fbab4c7":
+        notes = generate_briefing_05(output_dir, source_dir, qa_dir)
     elif args.post_id == "0843e1c1":
         notes = generate_briefing_03(output_dir, source_dir, qa_dir)
     elif args.post_id == "bdbfd129":
