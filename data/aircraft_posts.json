@@ -1,5 +1,276 @@
 [
   {
+    "slug": "xian-h-6k",
+    "nameZh": "轰-6K",
+    "nameEn": "Xi’an H-6K",
+    "eyebrow": "飞机资料整理 · 第 12 期",
+    "subtitle": "从图-16血统到远程训练平台：用公开证据区分总体改进、性能估算与任务声明",
+    "date": "2026-08-04",
+    "updated": "2026-08-04",
+    "nation": "中国",
+    "category": "双发亚音速远程轰炸机",
+    "era": "2000年代至今",
+    "tags": [
+      "航空",
+      "中国军机",
+      "轰炸机"
+    ],
+    "status": "现役 / 持续训练与体系化运用",
+    "metrics": {
+      "firstFlightYear": 2007,
+      "lengthM": 34.8,
+      "wingspanM": 33.0,
+      "maxTakeoffWeightT": 79.0,
+      "speedLabel": "日本《防卫白书》公开口径约 1,015 km/h",
+      "rangeLabel": "公开飞行经历超过 5,000 km / 7 h；并非最大航程试验"
+    },
+    "diagram": [
+      "图-16 / 早期轰-6总体：后掠翼、双发、常规尾翼",
+      "轰-6K平台改进：新动力、进气、航电与任务系统",
+      "长距离训练：机组、导航、通信、气象与保障共同约束",
+      "体系协同：与预警、战斗机及地面保障形成任务链"
+    ],
+    "firstFlight": "外部航空资料通常记为 2007 年首飞；中国空军和制造方公开页面未给出可独立核对的精确日期",
+    "accent": "#596b78",
+    "heroImage": "/p/857fe894/h6k-landing.webp",
+    "model": {
+      "kind": "unavailable",
+      "poster": "/p/857fe894/h6k-clean-side.webp",
+      "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "method": "VAST-AI 官方 TripoSG 三候选单图重建与八视角网格审计",
+      "inputCredit": "Andrei Shmatko、日本防卫省统合幕僚监部、Anna Zvereva",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:Chinese_Air_Force,_10294,_Xian_H-6K_(51525163014).jpg",
+      "license": "输入照片分别为 CC BY-SA 4.0、CC BY 4.0 与 CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "note": "已用三张许可明确的公开全机照片完成三次 VAST-AI 官方 TripoSG 本机离线单图重建。候选 A 为 80,000 面、20 个连通分量，背景飞机和地面物体被并入网格；候选 B 为 80,000 面、313 个连通分量，机翼形成多层碎片；候选 E 为 80,000 面、118 个连通分量，隐藏侧主翼缺失且机身中部出现异常块体。三者均未通过机身、双翼、双发动机、尾翼、起落架、左右对称性和游离部件审计，因此不上传 GLB。静态照片仅用于公开外形辨识；暂无可验证模型，遮挡区域不作事实补写，也不能用于制造、仿真、尺寸测量或任务规划。"
+    },
+    "statement": "理解轰-6K的关键，是把它看成在图-16 / 轰-6总体框架上围绕动力、航电、任务系统和远程运用持续改造的平台，而不是把不同来源的最大速度、航程、载荷和作战半径拼成一个同时成立的状态。本文不介绍武器操作或敏感任务细节。",
+    "summary": "轰-6K是中国轰-6家族的重要现代化型号。公开照片可以核实其后掠翼、翼根双发布局、常规垂尾、重新设计的实心机鼻、较大的发动机进气口和多轮起落架；美国空军大学公开研究将其描述为采用更高效涡扇发动机、现代传感器与航电的改进平台。中国军网公开报道显示，相关部队于2014年开始使用轰-6K，2015年完成首次飞越巴士海峡训练；一名飞行员公开回忆的最长训练飞行超过5,000公里、持续7小时。日本《防卫白书》给出的H-6公开最高速度为1,015公里/小时。34.8米机长、33米翼展、约79吨最大起飞重量是多种外部航空资料中的常见估算，制造方和中国空军未公开可独立核对的H-6K完整参数表，因此本文明确标注为估算，且不把最大航程、载荷和速度视作同一任务状态。",
+    "facts": [
+      {
+        "label": "定位",
+        "value": "双发亚音速远程轰炸机 / 远程任务平台",
+        "note": "仅按公开总体与训练证据描述，不展开武器使用"
+      },
+      {
+        "label": "制造与使用",
+        "value": "西安飞机工业相关体系制造；中国人民解放军空军使用",
+        "note": "美国空军大学与中国官方公开报道可交叉确认"
+      },
+      {
+        "label": "首飞",
+        "value": "外部资料通常记为 2007 年",
+        "note": "公开官方来源未给出精确日期"
+      },
+      {
+        "label": "机组",
+        "value": "外部公开资料通常记为 4 人",
+        "note": "不同轰-6改型不可混用"
+      },
+      {
+        "label": "总体尺寸",
+        "value": "长约 34.8 m；翼展约 33.0 m；高约 10.36 m",
+        "note": "跨来源常见估算，并非制造方H-6K数据表"
+      },
+      {
+        "label": "最大起飞重量",
+        "value": "约 79 t",
+        "note": "外部估算存在差异；不与最大载荷/航程同时套用"
+      },
+      {
+        "label": "动力",
+        "value": "2 台 D-30KP-2 系列涡扇发动机",
+        "note": "美国政府研究与公开航空资料一致"
+      },
+      {
+        "label": "最高速度",
+        "value": "约 1,015 km/h",
+        "note": "日本《防卫白书》H-6公开口径；其他外部资料常见约1,050 km/h"
+      },
+      {
+        "label": "公开飞行证据",
+        "value": "超过 5,000 km、持续 7 h",
+        "note": "飞行员公开回忆的一次训练经历，不等于最大航程试验"
+      },
+      {
+        "label": "三维模型状态",
+        "value": "暂无可验证模型",
+        "note": "三次TripoSG候选均因轮廓/组件/对称性失败而拒绝"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "1950年代末",
+        "event": "中国引进图-16相关技术并开始轰-6家族的国产化发展；后续型号长期沿用基本总体框架。"
+      },
+      {
+        "year": "约2007",
+        "event": "外部资料通常把轰-6K首飞放在这一时期；公开官方资料未给出可独立核对的精确日期。"
+      },
+      {
+        "year": "2009前后",
+        "event": "美国国会美中经济与安全审查委员会听证资料把轰-6K的大幅改进/引入放在这一阶段。"
+      },
+      {
+        "year": "2014",
+        "event": "中国军网公开报道的一支轰炸机部队开始使用轰-6K。"
+      },
+      {
+        "year": "2015",
+        "event": "相关部队首次驾驶轰-6K飞越巴士海峡，长距离海上训练成为公开可见的运用主线。"
+      },
+      {
+        "year": "2018",
+        "event": "公开报道记录多型机协同训练和岛礁机场起降演练，反映远程任务对多平台与保障链的依赖。"
+      },
+      {
+        "year": "2022",
+        "event": "轰-6K在第十四届中国航展等公开活动中展示；飞行员随后披露超过5,000公里、7小时的训练经历。"
+      },
+      {
+        "year": "2024",
+        "event": "NORAD确认两架中国H-6与两架俄罗斯Tu-95进入阿拉斯加防空识别区国际空域并被识别拦截，未进入美加主权空域。"
+      }
+    ],
+    "designPoints": [
+      "基本总体仍可追溯到图-16 / 早期轰-6：大后掠翼、翼根双发、常规垂尾和细长机身；这提供成熟平台基础，也限制隐身、气动和结构潜力。",
+      "轰-6K取消早期型号透明领航舱式机鼻，公开照片显示为实心雷达机鼻；机身表面传感器与天线布局也与早期型号不同。",
+      "更大的发动机进气口与双D-30KP-2系列涡扇是最醒目的外形和动力变化；公开美国政府研究将更高效率与航程提升直接联系。",
+      "美国空军大学公开资料提到重新设计的翼根、现代传感器和航电；具体雷达、电子战和软件能力未见完整官方参数，不作推断。",
+      "起落架仍采用多轮主起落架与前起落架，适合较大起飞重量；真实跑道需求、轮胎载荷和刹车性能未公开。",
+      "平台的有效运用不只取决于单机航程，还受机组耐久、气象、导航通信、机场保障、维修和协同平台可用性约束。",
+      "公开照片能证明外形和部分可见设备，不能据此确认内部结构、材料比例、油量、载荷状态或具体任务系统性能。"
+    ],
+    "power": "轰-6K通常被公开资料描述为使用两台D-30KP-2系列低涵道比涡扇发动机，单台公开推力常见约117-118 kN。与早期轰-6的WP-8涡喷相比，涡扇动力改善燃油经济性和可用航程，并伴随更大的进气口。真实任务油耗还取决于高度、速度、载荷、外形阻力、备份油量和航路；本文不把超过5,000公里的公开训练经历反推为无条件最大航程，也不把外部估算的3,500公里作战半径当成官方定值。",
+    "variants": [
+      {
+        "name": "早期轰-6 / H-6A/C等",
+        "description": "更接近图-16原始总体，采用早期动力和透明机鼻/防御炮塔等不同构型；参数不能直接套给轰-6K。"
+      },
+      {
+        "name": "轰-6K / H-6K",
+        "description": "空军现代化型号，采用涡扇动力、实心机鼻、现代航电与重新组织的远程任务能力，是本文主体。"
+      },
+      {
+        "name": "轰-6J / H-6J",
+        "description": "面向海上任务的衍生型；美国空军大学公开资料将其与海上远程打击任务联系，本文不展开武器配置。"
+      },
+      {
+        "name": "轰-6N / H-6N",
+        "description": "公开可见空中受油探管和机腹构型变化的衍生型；其任务与性能不能代表轰-6K。"
+      },
+      {
+        "name": "轰油-6 / H-6U家族",
+        "description": "以早期轰-6平台改装的加油机家族，与轰-6K并非简单的同一批次配置。"
+      }
+    ],
+    "strengths": [
+      "在成熟机体框架上换装更高效涡扇和现代航电，降低了从零研制大型远程平台的工程风险。",
+      "大机体和较长航时为远程训练、通信导航设备、机组协同及任务系统集成提供了平台空间。",
+      "中国官方公开报道显示其已持续参与海上远程、跨区和多型机协同训练，运用体系较单机参数更有意义。",
+      "公开照片和多国官方跟踪资料丰富，便于对外形、活动时间和部分飞行证据进行交叉核验。",
+      "H-6K、H-6J、H-6N等公开衍生型显示同一基础平台仍在围绕不同任务持续演化。"
+    ],
+    "limits": [
+      "基本气动与结构血统源自1950年代图-16，机体外形、雷达反射和亚音速性能存在代际约束。",
+      "中国空军和制造方未发布完整H-6K参数表；机组、重量、航程、作战半径和载荷常来自外部估算且互有差异。",
+      "超过5,000公里、7小时是一次公开训练经历，不说明载荷、余油、航线和最大性能，不能与最大载荷同时套用。",
+      "远程任务依赖机场、油料、维护、通信导航、预警与护航等体系条件，单机纸面航程不能替代任务可用性。",
+      "本文只处理公开总体与训练证据，不提供武器使用、航路规划、目标选择或其他可操作性军事细节。",
+      "三次TripoSG重建均未通过八视角与网格审计，因此本期不上传GLB；静态照片也不能替代工程模型。"
+    ],
+    "photos": [
+      {
+        "src": "/p/857fe894/h6k-landing.webp",
+        "alt": "轰-6K在航空活动中着陆的前三分之四视图",
+        "caption": "轰-6K着陆前三分之四视图，可辨实心机鼻、翼根进气口、后掠翼、垂尾与多轮起落架；网页图为缩放转换的WebP派生图。",
+        "credit": "Andrei Shmatko",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xian_H-6K.jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      {
+        "src": "/p/857fe894/h6k-side-japan.webp",
+        "alt": "日本防卫省拍摄的轰-6K空中侧视照片",
+        "caption": "日本防卫省统合幕僚监部拍摄的轰-6K空中侧视，可见机身比例、后掠翼和尾翼；网页图为缩放转换派生图。",
+        "credit": "日本防卫省·统合幕僚监部",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:H-6K_20211_20151127.jpg",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "src": "/p/857fe894/h6k-aviadarts.webp",
+        "alt": "轰-6K在Aviadarts活动中的地面近景",
+        "caption": "2018年Aviadarts活动中的轰-6K地面近景，可观察机鼻、进气口和起落架；网页图为缩放转换派生图。",
+        "credit": "Ministry of Defence of the Russian Federation / Mil.ru",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xian_H-6_-_Aviadarts2018_1.jpg",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "src": "/p/857fe894/h6k-alaska.webp",
+        "alt": "2024年阿拉斯加防空识别区附近的H-6与NORAD飞机",
+        "caption": "2024年7月24日NORAD识别拦截行动中的H-6与美加战机；官方声明确认各机保持在国际空域。网页图为缩放转换派生图。",
+        "credit": "U.S. Department of Defense Photo",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chinese_H-6K_is_intercepted_off_Alaska_(USA)_by_CF-18A,_F-16C_and_F-35A,_24_July_2024_(240724-F-D0430-1002).JPG",
+        "license": "美国联邦政府作品 / Public domain",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_rules_by_territory/United_States#Works_by_the_US_Federal_Government"
+      },
+      {
+        "src": "/p/857fe894/h6k-clean-side.webp",
+        "alt": "轰-6K无外载飞行侧视照片",
+        "caption": "编号10294的轰-6K无外载飞行侧视，背景简单、全机完整；作为被拒绝的TripoSG候选E输入和模型缺席时的静态后备。",
+        "credit": "Anna Zvereva",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chinese_Air_Force,_10294,_Xian_H-6K_(51525163014).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"
+      }
+    ],
+    "sources": [
+      {
+        "label": "中国军网：轰-6K飞行员公开回忆超过5,000公里、7小时训练飞行",
+        "url": "https://eng.chinamil.com.cn/CHINA_209163/Features_209191/16202689.html"
+      },
+      {
+        "label": "中国军网：相关部队2014年开始使用H-6K及2015年首次飞越巴士海峡",
+        "url": "https://eng.chinamil.com.cn/CHINA_209163/Features_209191/16233375.html"
+      },
+      {
+        "label": "中国军网：空军开放活动中的H-6K代际改进说明",
+        "url": "https://eng.chinamil.com.cn/CHINA_209163/Features_209191/16241500.html"
+      },
+      {
+        "label": "中国军网：2018年H-6K岛礁机场起降演练公开报道",
+        "url": "https://eng.chinamil.com.cn/CHINA_209163/TopStories_209189/8037485.html"
+      },
+      {
+        "label": "美国空军大学CASI：PLA Air Force Bomber Force Organization",
+        "url": "https://www.airuniversity.af.edu/CASI/Display/Article/3016239/pla-air-force-bomber-force-organization/"
+      },
+      {
+        "label": "美国政府出版物：PLA Aerospace，H-6K现代传感器/航电与翼根改进",
+        "url": "https://www.govinfo.gov/content/pkg/GOVPUB-D301-PURL-gpo195202/pdf/GOVPUB-D301-PURL-gpo195202.pdf"
+      },
+      {
+        "label": "NORAD：2024年7月24日阿拉斯加ADIZ识别拦截官方声明",
+        "url": "https://www.norad.mil/Newsroom/Article/3849184/norad-detects-tracks-and-intercepts-russian-and-prc-aircraft-operating-in-the-a/"
+      },
+      {
+        "label": "日本防卫省《防卫白书2020》：H-6公开最高速度口径",
+        "url": "https://www.mod.go.jp/en/publ/w_paper/wp2020/pdf/R02010202.pdf"
+      },
+      {
+        "label": "日本防卫研究所China Security Report 2016：D-30KP-2与航程估算边界",
+        "url": "https://www.nids.mod.go.jp/publication/chinareport/pdf/china_report_EN_web_2016_A01.pdf"
+      },
+      {
+        "label": "VAST-AI Research：TripoSG官方代码与MIT许可",
+        "url": "https://github.com/VAST-AI-Research/TripoSG"
+      }
+    ],
+    "postId": "857fe894"
+  },
+  {
     "slug": "shaanxi-y-9",
     "nameZh": "运-9",
     "nameEn": "Shaanxi Y-9",

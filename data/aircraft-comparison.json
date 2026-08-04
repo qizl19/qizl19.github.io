@@ -1,5 +1,16 @@
 [
   {
+    "slug": "xian-h-6k",
+    "name": "轰-6K",
+    "url": "/p/857fe894.html",
+    "firstFlightYear": 2007,
+    "lengthM": 34.8,
+    "wingspanM": 33.0,
+    "maxTakeoffWeightT": 79.0,
+    "speedLabel": "日本《防卫白书》公开口径约 1,015 km/h",
+    "rangeLabel": "公开飞行经历超过 5,000 km / 7 h；并非最大航程试验"
+  },
+  {
     "slug": "shaanxi-y-9",
     "name": "运-9",
     "url": "/p/86c84fa1.html",
