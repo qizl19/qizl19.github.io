@@ -1,5 +1,16 @@
 [
   {
+    "slug": "xian-jh-7a",
+    "name": "歼轰-7A“飞豹”",
+    "url": "/p/e5a3945d.html",
+    "firstFlightYear": 2002,
+    "lengthM": 22.32,
+    "wingspanM": 12.8,
+    "maxTakeoffWeightT": 28.5,
+    "speedLabel": "外部资料常见约 Mach 1.7；官方未公布完整包线",
+    "rangeLabel": "日本防卫研究所公开表列约 3,698 km；任务状态未说明"
+  },
+  {
     "slug": "xian-h-6k",
     "name": "轰-6K",
     "url": "/p/857fe894.html",

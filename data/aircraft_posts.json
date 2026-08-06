@@ -1,5 +1,120 @@
 [
   {
+    "slug": "xian-jh-7a",
+    "nameZh": "歼轰-7A“飞豹”",
+    "nameEn": "Xi’an JH-7A Flying Leopard",
+    "eyebrow": "飞机资料整理 · 第 13 期",
+    "subtitle": "从自主战斗轰炸机到体系化对地对海平台：把型号沿革、公开参数与训练证据分开",
+    "date": "2026-08-06",
+    "updated": "2026-08-06",
+    "nation": "中国",
+    "category": "双座双发超音速战斗轰炸机",
+    "era": "1980年代至今",
+    "tags": ["航空", "中国军机", "战斗轰炸机"],
+    "status": "现役 / 持续训练与任务转型",
+    "metrics": {
+      "firstFlightYear": 2002,
+      "lengthM": 22.32,
+      "wingspanM": 12.8,
+      "maxTakeoffWeightT": 28.5,
+      "speedLabel": "外部资料常见约 Mach 1.7；官方未公布完整包线",
+      "rangeLabel": "日本防卫研究所公开表列约 3,698 km；任务状态未说明"
+    },
+    "diagram": [
+      "JH-7原型：自主总体、双座串列、双发与高置后掠翼",
+      "JH-7A改进：减重结构、航电与外挂/任务系统更新",
+      "训练运用：低空、远程、复杂气象与多机协同",
+      "体系约束：侦察、指挥、保障和机场条件共同决定效能"
+    ],
+    "firstFlight": "JH-7于1988年12月14日首飞；NIDS资料把JH-7A首飞记为2002年、空军部署记为2004年",
+    "accent": "#485d6b",
+    "heroImage": "/p/e5a3945d/jh7a-chelyabinsk.webp",
+    "model": {
+      "kind": "unavailable",
+      "poster": "/p/e5a3945d/jh7a-vostok.webp",
+      "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "method": "VAST-AI官方TripoSG本机离线单图重建与八视角网格审计",
+      "inputCredit": "Vadim Savitsky / Russian Ministry of Defence",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:Vostok2018-14.jpg",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "note": "使用Vostok-2018公开照片中的单架飞机裁图，在RTX 3060上以TripoSG官方权重、seed 42、40步、guidance 7、dense depth 8、hierarchical depth 9重建80,000面候选。输出存在主翼边缘多层碎片、左右不对称和多处游离细件，未通过机身、双翼、双发动机、尾翼和整体辨识度审计，因此不上传GLB。暂无可验证模型；静态照片只用于外形辨识，不能用于制造、仿真、尺寸测量或任务规划。"
+    },
+    "statement": "歼轰-7A的工程价值在于：中国在没有现成基准机的条件下形成双座双发战斗轰炸机总体，并通过A型把减重、航电、任务系统与持续训练整合到成熟平台上。本文仅整理公开总体、历史和训练证据，不介绍武器操作或可执行任务细节。",
+    "summary": "歼轰-7A“飞豹”是中国自主研制的双座双发超音速战斗轰炸机。国防部公开资料确认JH-7于1988年12月14日首飞，并称其填补中国战斗轰炸机机型空白；NIDS报告将JH-7A首飞和空军部署分别记为2002年、2004年。公开照片可核实串列双座、高置后掠翼、机身两侧进气道、单垂尾、双发动机和前三点式起落架。国防部2018年资料把JH-7A描述为主要承担对地、对海突击的中型战斗轰炸机，并强调航程、载荷、低空机动和信息对抗。尺寸、重量和速度缺少制造方完整数据表，本文把22.32米机长、12.8米翼展、约28.5吨最大起飞重量和约Mach 1.7明确标为外部常见估算；日本防卫研究所表列3,698公里航程，但未说明载荷、余油和飞行剖面，不与最大速度或最大载荷同时套用。",
+    "facts": [
+      {"label": "定位", "value": "双座双发超音速战斗轰炸机", "note": "公开任务以对地、对海突击和训练为主"},
+      {"label": "制造", "value": "航空工业西安飞机工业相关体系", "note": "国防部与CASI资料可交叉确认"},
+      {"label": "JH-7首飞", "value": "1988-12-14", "note": "中国国防部公开口径"},
+      {"label": "JH-7A节点", "value": "约2002首飞 / 2004空军部署", "note": "日本防卫研究所引用Jane's的公开表"},
+      {"label": "机组", "value": "2人，串列座舱", "note": "公开照片可核实"},
+      {"label": "尺寸", "value": "长约22.32 m；翼展约12.8 m；高约6.22 m", "note": "外部常见估算，非制造方数据表"},
+      {"label": "最大起飞重量", "value": "约28.5 t", "note": "外部估算，不与最大载荷/航程同时套用"},
+      {"label": "动力", "value": "2台Spey Mk 202 / 国产许可生产系列涡扇", "note": "罗罗与CASI公开资料支持型号谱系"},
+      {"label": "航程", "value": "约3,698 km", "note": "NIDS表列，飞行剖面和载荷未说明"},
+      {"label": "三维模型", "value": "暂无可验证模型", "note": "TripoSG候选因翼面碎裂和不对称被拒绝"}
+    ],
+    "timeline": [
+      {"year": "1970年代", "event": "中国启动新一代战斗轰炸机需求论证；罗罗公开资料记录Spey Mk 202生产许可转让。"},
+      {"year": "1988-12-14", "event": "JH-7原型机首飞。国防部称其为中国第一款没有基准机、自主试飞研制的飞机。"},
+      {"year": "1988—1990年代", "event": "试飞中暴露振动、方向舵和燃油系统等问题，科研与试飞团队持续改进并积累大型复杂军机验证经验。"},
+      {"year": "约2002", "event": "NIDS公开表把JH-7A首飞放在2002年；A型围绕结构减重、航电和任务系统改进。"},
+      {"year": "2004", "event": "NIDS资料把JH-7A在中国空军部署记为2004年；早期JH-7曾先由海军航空兵使用。"},
+      {"year": "2017—2019", "event": "JH-7A多次参加国际军事比赛与中俄联合演习，公开训练显示远程跨区和复杂环境运用。"},
+      {"year": "2024", "event": "中国军网发布JH-7A昼夜连续飞行训练图片，表明平台仍在持续训练。"},
+      {"year": "2025", "event": "日本防卫省公开记录东海上空JH-7接近其YS-11EB事件，给出约30米水平和60米垂直最近距离。"}
+    ],
+    "designPoints": [
+      "串列双座把飞行与任务工作分配给两名机组成员，适合长航时和复杂航电管理，但增加机体长度与座舱系统复杂度。",
+      "高置后掠翼、机身两侧矩形进气道、单垂尾和双发动机构成鲜明总体；翼下与机身下可见多个挂点，但本文不展开武器使用。",
+      "JH-7A通常被描述为采用更轻结构和更新航电；公开资料不足以量化具体减重、雷达性能或软件能力。",
+      "双发动机和较大机体提供航程、载荷和任务系统空间，代价是体量、维护与保障需求高于轻型单发平台。",
+      "低空训练强调地形、气象、速度和机组协同；真实飞行包线、结构寿命和任务载荷组合未公开。",
+      "平台从专用战斗轰炸机向体系化打击节点演化，但现代多用途战斗机也在分担其任务，公开CASI资料称其为老化平台。"
+    ],
+    "power": "JH-7/JH-7A动力通常被公开资料描述为两台Spey Mk 202系列低涵道比加力涡扇及其国产许可生产型号。罗罗中国页面确认Spey Mk 202生产许可曾转让中国；CASI 2024报告也把JH-7/JH-7A描述为由许可生产Spey Mk 202驱动。外部资料常见单台加力推力约91 kN，但制造方未公开JH-7A不同批次的完整推力、油耗和寿命数据，因此本文不以该数字反推航程或任务能力。",
+    "variants": [
+      {"name": "JH-7", "description": "基础型“飞豹”，1988年首飞，早期由海军航空兵先行使用；总体和设备不能与A型完全混用。"},
+      {"name": "JH-7A", "description": "主要改进型，公开资料通常将结构减重、航电更新和任务系统扩展作为核心变化；空军和海军航空兵均曾装备。"},
+      {"name": "出口/后续方案", "description": "公开展览曾出现FBC-1等名称和若干后续方案，但实际批次、客户和配置需以正式合同/交付为准。"}
+    ],
+    "strengths": [
+      "在没有现成基准机条件下完成自主总体、首飞与持续改进，形成中国复杂军机试飞与工程经验。",
+      "双座双发和较大机体为长航时、任务系统与多用途训练提供空间。",
+      "公开训练显示其长期参与低空、远程、昼夜和跨区任务，平台运用成熟。",
+      "A型通过结构和航电改进延长基础总体的有效使用期。",
+      "官方和多国公开资料较丰富，可对历史、外形、活动和部分性能口径交叉核验。"
+    ],
+    "limits": [
+      "基本总体形成于1980年代，气动、隐身、航电开放架构和维护性受到代际约束。",
+      "制造方未发布JH-7A完整数据表；尺寸、重量、速度和推力多为外部估算。",
+      "3,698公里航程缺少载荷、余油和剖面说明，不能作为任意任务状态下的固定值。",
+      "低空高速飞行对机组、结构、导航、气象和保障提出高要求，公开资料无法量化事故率或寿命裕度。",
+      "现代多用途战斗机正在分担部分任务，JH-7A的未来规模与退役节奏公开资料未确认。",
+      "TripoSG候选未通过几何审计，本期不上传GLB。"
+    ],
+    "photos": [
+      {"src": "/p/e5a3945d/jh7a-chelyabinsk.webp", "alt": "歼轰-7A着陆后释放减速伞", "caption": "歼轰-7A在车里雅宾斯克基地着陆后释放减速伞，可辨串列座舱、侧进气、高置翼和单垂尾。", "credit": "Dmitriy Pichugin", "sourceUrl": "https://commons.wikimedia.org/wiki/File:PLAAF_Xian_JH-7A_at_Chelyabinsk_Shagol_Air_Base.jpg", "license": "GFDL 1.2", "licenseUrl": "https://www.gnu.org/licenses/old-licenses/fdl-1.2.html"},
+      {"src": "/p/e5a3945d/jh7a-shagol.webp", "alt": "两架歼轰-7A编队滑行", "caption": "两架歼轰-7A在Shagol基地滑行，展示正面、进气道、起落架和双机尺度关系。", "credit": "Dmitriy Pichugin", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xian_JH-7A_at_Shagol.jpg", "license": "GFDL 1.2", "licenseUrl": "https://www.gnu.org/licenses/old-licenses/fdl-1.2.html"},
+      {"src": "/p/e5a3945d/jh7a-vostok.webp", "alt": "Vostok-2018演习中的两架歼轰-7A", "caption": "Vostok-2018演习中的两架歼轰-7A，可观察飞行姿态和翼面平面形。", "credit": "Vadim Savitsky / Russian Ministry of Defence", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vostok2018-14.jpg", "license": "CC BY 4.0", "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"},
+      {"src": "/p/e5a3945d/jh7a-museum.webp", "alt": "军事博物馆陈列的歼轰-7A", "caption": "军事博物馆陈列的歼轰-7A，可近距离观察机鼻、座舱、进气道和高置翼。", "credit": "Max Smith", "sourceUrl": "https://commons.wikimedia.org/wiki/File:JH-7A_fighter_bomber_-_military_museum.jpg", "license": "Public domain", "licenseUrl": "https://commons.wikimedia.org/wiki/File:JH-7A_fighter_bomber_-_military_museum.jpg"},
+      {"src": "/p/e5a3945d/jh7a-rocmod.webp", "alt": "歼轰-7A着陆减速伞特写", "caption": "歼轰-7A着陆特写，展示前机身、座舱、进气道、起落架与减速伞。", "credit": "中华民国国防部", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Xian_JH-7A_fighter_bomber.jpg", "license": "Government Website Open Information Announcement / Attribution", "licenseUrl": "https://www.mnd.gov.tw/Publish.aspx?p=78160"}
+    ],
+    "sources": [
+      {"label": "中国国防部：西飞60周年与JH-7首飞、总体定位", "url": "https://www.mod.gov.cn/gfbw/qwfb/4812715_2.html"},
+      {"label": "中国国防部：国际军事比赛-2018中的JH-7A公开说明", "url": "https://www.mod.gov.cn/gfbw/sy/jt_214028/4819184.html"},
+      {"label": "中国国防部：试飞中心与飞豹试飞故障改进史", "url": "https://www.mod.gov.cn/gfbw/qwfb/yw_214049/4839456.html"},
+      {"label": "中国军网：JH-7A昼夜连续飞行训练", "url": "https://eng.chinamil.com.cn/HOME_209227/Focus_209228/16359864.html"},
+      {"label": "中国军网：Aviadarts-2018到达与公开照片", "url": "https://eng.chinamil.com.cn/view/2018-07/22/content_8096016_5.htm"},
+      {"label": "USAF CASI：PLA Aerospace Power Primer 4th edition", "url": "https://www.airuniversity.af.edu/Portals/10/CASI/documents/Research/Other-Topics/2024-07-16%20Primer%204th%20ed.pdf"},
+      {"label": "日本防卫研究所：中国安全报告2016参数与部署表", "url": "https://www.nids.mod.go.jp/publication/chinareport/pdf/china_report_EN_web_2016_A01.pdf"},
+      {"label": "Rolls-Royce：罗罗在中国与Spey Mk 202许可", "url": "https://www.rolls-royce.com/country-sites/china/rolls-royce-in-china.aspx"},
+      {"label": "日本防卫省：2025年7月9日JH-7接近事件", "url": "https://www.mod.go.jp/j/press/news/2025/07/10a.html"},
+      {"label": "VAST-AI Research：TripoSG官方代码与MIT许可", "url": "https://github.com/VAST-AI-Research/TripoSG"}
+    ],
+    "postId": "e5a3945d"
+  },
+  {
     "slug": "xian-h-6k",
     "nameZh": "轰-6K",
     "nameEn": "Xi’an H-6K",
