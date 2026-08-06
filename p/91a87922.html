@@ -1,0 +1,384 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>航空发动机学习简报｜第06期｜GE90-115B：高涵道比与复合材料风扇系统 | Qzl's Blog</title><meta name="keywords" content="航空"><meta name="author" content="Qzl"><meta name="copyright" content="Qzl"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="以EASA型号合格证数据、GE Aerospace制造商资料、Boeing整机资料和FAA适航指令为主线，拆解GE90-115B的双转子流路、128英寸风扇、22片复合材料叶片、认证推力、控制限制、制造学习曲线、服役改进与热端失效边界。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="航空发动机学习简报｜第06期｜GE90-115B：高涵道比与复合材料风扇系统">
+<meta property="og:url" content="https://qizl19.github.io/p/91a87922.html">
+<meta property="og:site_name" content="Qzl&#39;s Blog">
+<meta property="og:description" content="以EASA型号合格证数据、GE Aerospace制造商资料、Boeing整机资料和FAA适航指令为主线，拆解GE90-115B的双转子流路、128英寸风扇、22片复合材料叶片、认证推力、控制限制、制造学习曲线、服役改进与热端失效边界。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qizl19.github.io/p/91a87922/ge90-inflight.webp">
+<meta property="article:published_time" content="2026-08-06T01:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-06T01:00:00.000Z">
+<meta property="article:author" content="Qzl">
+<meta property="article:tag" content="航空发动机">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qizl19.github.io/p/91a87922/ge90-inflight.webp"><link rel="shortcut icon" href="/img/bitbug_favicon.ico"><link rel="canonical" href="https://qizl19.github.io/p/91a87922"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '航空发动机学习简报｜第06期｜GE90-115B：高涵道比与复合材料风扇系统',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-08-06 09:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/gundongtiao.css"><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><a href="javascript:void(0);" onclick="preloader.endLoading();" title="点击跳过动画"><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="iron-container iron-circle"><div class="iron-box1 iron-circle iron-center"></div><div class="iron-box2 iron-circle iron-center"></div><div class="iron-box3 iron-circle iron-center"></div><div class="iron-box4 iron-circle iron-center"></div><div class="iron-box5 iron-circle iron-center"></div><div class="iron-box6 iron-circle"><div class="iron-coil" style="--i: 0"></div><div class="iron-coil" style="--i: 1"></div><div class="iron-coil" style="--i: 2"></div><div class="iron-coil" style="--i: 3"></div><div class="iron-coil" style="--i: 4"></div><div class="iron-coil" style="--i: 5"></div><div class="iron-coil" style="--i: 6"></div><div class="iron-coil" style="--i: 7"></div></div></div></div></a><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://pic3.zhimg.com/80/v2-94d674932a8c0f4a6cccc1b7a158c21a_720w.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/p/91a87922/ge90-inflight.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Qzl's Blog</a></span><div id="he-plugin-simple"></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div></div></div><div id="navFn"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> search</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">航空发动机学习简报｜第06期｜GE90-115B：高涵道比与复合材料风扇系统</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-06T01:00:00.000Z" title="发表于 2026-08-06 09:00:00">2026-08-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-06T01:00:00.000Z" title="更新于 2026-08-06 09:00:00">2026-08-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%88%AA%E7%A9%BA%E5%8F%91%E5%8A%A8%E6%9C%BA/">航空发动机</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" data-flag-title="航空发动机学习简报｜第06期｜GE90-115B：高涵道比与复合材料风扇系统"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>航空发动机学习简报 · 第 06 期</strong></p>
+<p><strong>副题：</strong>大风扇不是单一部件升级，而是气动、材料、轴系、短舱与适航共同闭环</p>
+<p><strong>主题类型：</strong>经典发动机剖析　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-08-06</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote><p><strong>本期问题：</strong>GE90-115B 为什么能用 128 英寸风扇、22 片复合材料叶片和约 9:1 涵道比，把海平面静态起飞推力推到认证的 513.95 kN？这套“大风扇”方案又给轴系、短舱、制造、控制和适航带来了什么代价？</p></blockquote>
+<p>学完本期，你应当能够：按 N1/N2 两根转子复述公开流路与级数；区分风扇直径、涵道比、总压比和认证推力；用入口面积与理想推进效率公式解释“大流量、较小速度增量”的物理直觉；说明复合材料叶片为什么必须与钛合金前缘、碰撞试验、无损检测和制造良率一起讨论；并把制造商统计、认证限制与适航事件分开阅读。</p>
+<p><strong>前置知识：</strong>建议先掌握第01期轴功平衡、第02期修正参数、第04期喘振裕度和第05期多级匹配。本文只使用公开资料；未公开的涡前温度、叶片铺层、冷却孔型、完整 FADEC 调度和寿命模型均不作推断。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol>
+  <li><strong>GE90-115B 是为大流量而重构的增长型。</strong>GE 把风扇从 123 英寸增至 128 英寸，EASA 认证架构相应采用 1 级风扇、4 级 LPC、9 级 HPC、2 级 HPT 和 6 级 LPT；它不是早期 GE90 的简单“软件加推”。</li>
+  <li><strong>复合材料风扇叶片是系统使能技术。</strong>22 片宽弦后掠叶片以碳纤维/增韧环氧为主体并用钛合金前缘防护，降低大直径旋转部件重量；但冲击、层间损伤、制造离散与检验成为核心风险。</li>
+  <li><strong>认证推力必须带条件。</strong>EASA 给出的 GE90-115B 起飞静推力为 513.95 kN、30 ℃平额、5分钟；最大连续静推力为 489.30 kN、25 ℃平额。它们不是巡航净推力，也不包含任意安装和引气状态。</li>
+  <li><strong>高涵道比改善推进效率，但不免费。</strong>大风扇让更多空气获得较小速度增量，降低喷流动能损失；同时提高叶尖马赫数、风扇盘载荷、机匣与短舱尺度、低压轴扭矩和维护运输压力。</li>
+  <li><strong>成熟度来自持续改进与证据闭环。</strong>GE 当前页面声明 3.6% 燃油消耗改善、60% 在翼时间提升和 99.98% 可靠度，但这是制造商机队层统计；2019 年 HPT 非包容事件又说明低概率高后果失效不能被平均可靠度替代。</li>
+</ol>
+
+<h2 id="公开参数与认证口径"><a href="#公开参数与认证口径" class="headerlink" title="公开参数与认证口径"></a>公开参数与认证口径</h2>
+<p>EASA TCDS IM.E.002 Issue 05 是本期型号与限制的主要依据。GE90-115B 与 110B1、113B 共用增长型总体：双转子、轴流、高涵道比涡扇；发动机包括起动机和安装结构，但不含反推装置。TCDS 的外廓尺寸是发动机型号数据，不等于 Boeing 777 的完整短舱安装包络。</p>
+<table><thead><tr><th>项目</th><th>公开值</th><th>解释边界</th></tr></thead><tbody>
+  <tr><td>流路级数</td><td>1风扇 + 4 LPC + 9 HPC；2 HPT + 6 LPT</td><td>EASA 认证描述</td></tr>
+  <tr><td>起飞静推力</td><td>51395 daN = 513.95 kN</td><td>海平面静态、30 ℃平额、5分钟</td></tr>
+  <tr><td>最大连续静推力</td><td>48930 daN = 489.30 kN</td><td>海平面静态、25 ℃平额</td></tr>
+  <tr><td>干重</td><td>8761 kg</td><td>不含完整短舱/反推</td></tr>
+  <tr><td>外廓</td><td>长7281 mm、最大宽3769 mm、高3926 mm</td><td>风扇旋锥至喷口中心体</td></tr>
+  <tr><td>风扇</td><td>128 in，22片复合材料叶片</td><td>GE制造商资料</td></tr>
+  <tr><td>涵道比 / 总压比</td><td>约9:1 / 最大功率约42</td><td>GE产品页；非全包线常数</td></tr>
+  <tr><td>控制</td><td>FADEC</td><td>硬件/软件与额定插头属于批准构型</td></tr>
+  <tr><td>涡前温度</td><td>公开资料未确认</td><td>TCDS只给T49排气温度限制</td></tr>
+</tbody></table>
+<figure class="aeroengine-figure">
+  <img src="/p/91a87922/ge90-inflight.webp" alt="飞行中的Boeing 777机翼与GE90-115B发动机">
+  <figcaption>图1　飞行中的 GE90-115B 装机状态，可观察大直径短舱与机翼安装关系。摄影：Maxime C-M；来源：<a href="https://commons.wikimedia.org/wiki/File:GE90-115B_(27958314752).jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>；许可：<a href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0</a>，网页副本缩放并转为 WebP。</figcaption>
+</figure>
+
+<h2 id="双转子流路与轴系"><a href="#双转子流路与轴系" class="headerlink" title="双转子流路与轴系"></a>双转子流路与轴系</h2>
+<p>来流先进入单级风扇，大部分空气绕过核心机形成旁通流，核心流则经四级 LPC 和九级 HPC 压缩，进入双环形燃烧室；燃气依次通过两级 HPT 和六级 LPT。N2 高压转子由 HPT 驱动 HPC，N1 低压转子由 LPT 驱动风扇与 LPC。两根轴机械独立、气动强耦合：风扇流量、核心背压、可调静子、间隙、引气和喷口状态都能移动两套转子的工作点。</p>
+<p>增长型把早期 GE90 的三级 LPC 增至四级，同时把十级 HPC 减到九级。GE 解释，九级三维气动 HPC 在提高流量的同时管理循环温度；新增低压增压级和更强中轴则承担大风扇带来的流量与扭矩需求。这里只能确认公开架构和设计意图，不能从级数反推出逐级压比或完整特性图。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/91a87922/ge90-flowpath.svg" alt="GE90-115B双转子流路与公开级数示意">
+  <figcaption>图2　GE90-115B 双转子流路与公开级数，示意不按比例。依据 EASA TCDS IM.E.002 Issue 05 与 GE Aerospace；原创图，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption>
+</figure>
+
+<h2 id="大风扇与复合材料叶片"><a href="#大风扇与复合材料叶片" class="headerlink" title="大风扇与复合材料叶片"></a>大风扇与复合材料叶片</h2>
+<p>GE90 是首个以碳纤维复合材料前风扇叶片投入商业服务的发动机系列；115B 使用第二代三维后掠宽弦叶片。GE 资料给出单片长度超过4英尺、重量低于50磅，主体为碳纤维和增韧环氧，前缘用钛合金保护。复合材料降低离心载荷，使直径和弦长得以增加；后掠外形则服务于跨声速冲击波、噪声与效率控制。</p>
+<p>材料减重不等于“天然抗撞”。GE 在开发中安排2.5–8磅鸟撞、叶片应力、侧风和整机性能试验，并称早期叶片在两百万飞行小时、30多次报告鸟撞中保持可用。制造同样经历学习曲线：官方回顾称初期成品率不足30%，后来超过97%。这类数字说明工艺成熟度提升，不表示每一片叶片无缺陷；铺层、固化、前缘结合、无损检测和损伤容限仍须按获批数据管理。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/91a87922/ge90-farnborough.webp" alt="Farnborough航展展示的GE90-115B发动机与22片风扇叶片">
+  <figcaption>图3　Farnborough 2004 展示的 GE90-115B，可辨22片后掠宽弦风扇叶片、风扇机匣与核心附件区。摄影：Sovxx；裁切：Zeugma fr；来源：<a href="https://commons.wikimedia.org/wiki/File:GE90-115B_Farnborough_2004_cropped.JPG" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>；许可：<a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>，网页副本缩放并转为 WebP。</figcaption>
+</figure>
+
+<h2 id="压气机燃烧室与涡轮"><a href="#压气机燃烧室与涡轮" class="headerlink" title="压气机燃烧室与涡轮"></a>压气机、燃烧室与涡轮</h2>
+<p>GE90-115B 的九级 HPC 采用三维气动叶片/静子设计；GE 开发资料称试验达到目标效率和流量，可调静子调度得到优化并保有运行裕度。双环形燃烧室把低排放与宽工况稳定性纳入设计，GE历史资料称其碳氢化合物排放低于当时标准限值。该说法属于制造商按特定法规口径的声明，不能替代当前排放认证数据。</p>
+<p>两级 HPT 驱动 HPC，六级 LPT 则把大部分剩余焓降转成低压轴功。热端需要高温合金、涂层、内部冷却与间隙控制，但公开资料不足以确认115B各批次的冷却孔型和涡前温度。EASA给出的1090 ℃是T49——低压涡轮入口处的指示排气温度起飞限制，并非燃烧室出口或HPT入口温度；把它当作TIT会产生严重口径错误。</p>
+
+<h2 id="控制逻辑与运行限制"><a href="#控制逻辑与运行限制" class="headerlink" title="控制逻辑与运行限制"></a>控制逻辑与运行限制</h2>
+<p>FADEC 根据推力请求、环境和发动机状态协调燃油、可调静子、放气与限制保护。EASA列出增长型硬件/软件和额定插头，说明“115B”不仅是机械件，还包含批准的软件与配置识别。公开限制包括：T49起飞1090 ℃、30秒瞬态1095 ℃、最大连续1050 ℃；N1起飞/连续上限2602 rpm（110.5%），N2上限11292 rpm（121.0%）。百分比以100% N1=2355 rpm、100% N2=9332 rpm定义，不能把显示百分比误当真实转速比例。</p>
+<p>引气与取功会改变匹配。TCDS给出增长型总引气允许值随修正N1变化，约从低速12.7%到高功率9.1%；因此环控、防冰和附件负荷不是“发动机之外”的固定扣减。没有公开完整调度时，仿真应把FADEC做成有认证限制的代理模型，并对瞬态、退化和传感器故障保留不确定度。</p>
+
+<h2 id="型号谱系与应用平台"><a href="#型号谱系与应用平台" class="headerlink" title="型号谱系与应用平台"></a>型号谱系与应用平台</h2>
+<p>GE90基础系列覆盖76B至94B；增长型包括110B1、113B和115B。GE90-115B是 Boeing 777-300ER、777-200LR 与777 Freighter的独家动力，2004年随777-300ER投入客运服务。三种增长型共享总体，但认证推力、额定插头与批准构型不同，不能只凭外观或“GE90”铭牌互换。</p>
+<p>设计遗产延伸至GEnx、LEAP和GE9X：复合材料叶片、三维气动、低压系统匹配和数字控制持续演进。GE9X把风扇叶片进一步减到16片，并采用新的复合材料和更高压比核心；这说明GE90-115B既是成熟产品，也是后续架构的技术基线，而不是当前所有指标的终点。</p>
+
+<h2 id="可复算的简化算例"><a href="#可复算的简化算例" class="headerlink" title="可复算的简化算例"></a>可复算的简化算例</h2>
+<div class="aeroengine-formula"><strong>入口面积：</strong>A=πD²/4。123 in=3.1242 m，A₁=7.666 m²；128 in=3.2512 m，A₂=8.302 m²；面积增幅=(A₂/A₁−1)×100%=8.29%。</div>
+<p>在密度、平均轴向速度和堵塞系数相同的理想比较中，质量流量与面积成正比，所以5英寸直径增长可提供约8.3%的入口流通面积潜力。真实发动机还受唇口、风扇轮毂、叶片阻塞、边界层、飞行马赫数和转速限制，不能把8.29%直接当作推力或流量增幅。</p>
+<div class="aeroengine-formula"><strong>理想单流推进效率：</strong>ηp=2V₀/(Vj+V₀)=2V₀/(2V₀+ΔV)。若V₀=250 m/s，ΔV=80 m/s，则ηp≈86.2%；若ΔV=160 m/s，则ηp≈75.8%。</div>
+<p>变量中V₀为飞行速度、Vj为喷流速度、ΔV=Vj−V₀。这个算例只说明“更多空气、较小速度增量”的趋势；GE90有旁通流和核心流、压力推力、非均匀喷流与安装阻力，实际推进效率必须用双流控制体和经验证性能数据计算。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/91a87922/ge90-fan-area.svg" alt="GE90从123英寸到128英寸的风扇面积算例">
+  <figcaption>图4　风扇直径与入口面积算例。数据和公式可由 <a href="/data/aeroengine/ge90-fan-area-example.csv">CSV</a> 复算；原创图，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption>
+</figure>
+
+<h2 id="服役可靠性与适航事件"><a href="#服役可靠性与适航事件" class="headerlink" title="服役可靠性与适航事件"></a>服役可靠性与适航事件</h2>
+<p>GE当前产品页称已交付超过2800台GE90，并声明115B相对初始发布规格燃油消耗降低3.6%、在翼时间提高60%、可靠度99.98%。2024年投资者材料又把99.98%离场可靠度放在超过1.3亿飞行小时背景下。这些是制造商机队层统计，统计定义、时间窗口、航线与维修策略必须随来源保留，不能解释为单台发动机“99.98%不会故障”。</p>
+<p>2019年10月20日，一架777-300ER的GE90-115B发生非包容HPT失效并中断起飞。FAA紧急适航指令针对特定序列号和级间密封件，要求拆下受影响件；事件说明热端转子完整性、部件可追溯和服务通告执行仍是低概率高后果风险。不能从一份AD推断整个机队不安全，也不能用高平均可靠度跳过具体序列和构型审查。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/91a87922/ge90-installed.webp" alt="American Airlines Boeing 777-300ER上的GE90-115B正面风扇">
+  <figcaption>图5　Boeing 777-300ER上的 GE90-115B 正面，可见风扇直径、22片叶片与主起落架尺度关系。摄影：Olivier Cleynen；来源：<a href="https://commons.wikimedia.org/wiki/File:GE90_on_an_AA_B773_(1).jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>；许可：<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>，网页副本缩放并转为 WebP。</figcaption>
+</figure>
+
+<h2 id="优势代价与失效边界"><a href="#优势代价与失效边界" class="headerlink" title="优势代价与失效边界"></a>优势、代价与失效边界</h2>
+<ul>
+  <li><strong>优势：</strong>高涵道比、大流通面积和三维后掠叶片共同提高推进效率潜力并降低噪声；高压比核心和持续部件改进支撑远程双发平台。</li>
+  <li><strong>重量与尺度：</strong>复合叶片降低旋转重量，但整机干重仍达8761 kg，短舱、机匣、挂架、地面间隙和运输成为飞机级约束。</li>
+  <li><strong>气动边界：</strong>大直径提高叶尖速度和进气畸变敏感性；侧风、鸟撞、风扇失速线和短舱流场必须联合验证。</li>
+  <li><strong>材料边界：</strong>复合材料可能出现难以目视发现的层间损伤；钛前缘与复合主体的界面、修理许可和无损检测不可省略。</li>
+  <li><strong>热端边界：</strong>总压比和推力提高会放大温度、间隙、冷却和寿命权衡；公开T49不能替代未公开TIT。</li>
+  <li><strong>数字边界：</strong>FADEC改善控制一致性，但软件、额定插头、传感器和执行机构均属于构型管理，不能脱离认证基线修改。</li>
+</ul>
+
+<h2 id="工程分析步骤与整机耦合"><a href="#工程分析步骤与整机耦合" class="headerlink" title="工程分析步骤与整机耦合"></a>工程分析步骤与整机耦合</h2>
+<ol>
+  <li><strong>锁定型号与额定：</strong>记录115B完整后缀、序列、FADEC/额定插头和服务通告状态。</li>
+  <li><strong>统一状态口径：</strong>区分海平面静态、起飞5分钟、最大连续、巡航与安装净推力；所有温度注明测点。</li>
+  <li><strong>建立双流双转子模型：</strong>分别写旁通/核心流量连续和N1/N2轴功平衡，再耦合喷口压力推力。</li>
+  <li><strong>输入真实边界：</strong>加入进气恢复、短舱阻力、引气、附件取功、环境和退化，而不是直接套用513.95 kN。</li>
+  <li><strong>校核可运行性：</strong>在稳态与瞬态检查N1/N2、T49、压气机裕度、侧风/畸变和执行机构范围。</li>
+  <li><strong>连接材料与适航：</strong>把鸟撞、叶片损伤、机匣/短舱载荷、HPT转子完整性、NDT和部件追溯纳入失效链。</li>
+  <li><strong>保留证据等级：</strong>认证值、制造商声明、适航事实、教学算例和仿真结果分栏记录，禁止相互替代。</li>
+</ol>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol>
+  <li>GE90-115B 的 N1 与 N2 各连接哪些主要部件？</li>
+  <li>为什么把123英寸风扇增至128英寸，几何面积增幅不是4.1%而是约8.29%？</li>
+  <li>计算题：把EASA的51395 daN换算为kN。</li>
+  <li>计算题：起飞静推力513.95 kN比最大连续489.30 kN高多少百分比？</li>
+  <li>判断题：EASA的T49起飞限制1090 ℃就是HPT入口涡前温度。</li>
+  <li>判断题：复合材料叶片更轻，因此可以取消鸟撞和无损检测。</li>
+  <li>GE90-115B为何把LPC增至4级、HPC减至9级？公开资料能确认到什么程度？</li>
+  <li>为什么99.98%可靠度不能替代HPT转子完整性和部件序列追溯？</li>
+</ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<ol>
+  <li>N1由六级LPT驱动风扇和四级LPC；N2由两级HPT驱动九级HPC。</li>
+  <li>圆面积与直径平方成正比，<code>(128/123)²−1≈8.29%</code>。</li>
+  <li><code>51395 daN×0.01=513.95 kN</code>。</li>
+  <li><code>(513.95−489.30)/489.30≈5.04%</code>。</li>
+  <li>错误。T49位于低压涡轮入口，不能当作燃烧室出口/HPT入口TIT。</li>
+  <li>错误。复合材料仍需冲击验证、损伤容限、工艺控制和NDT。</li>
+  <li>公开资料称这是为提高流量、管理循环温度并匹配大风扇扭矩；逐级压比和地图未公开。</li>
+  <li>它是带定义和时间窗口的机队平均统计，不能覆盖特定序列、构型和低概率高后果失效。</li>
+</ol>
+<p><strong>下一期建议：</strong>回到基础/方法类，学习“涡轮冷却与温度口径”：区分T3、T4/TIT、EGT/T49，建立冷却气、热效率、寿命与控制限制的统一预算。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ul>
+  <li><a href="https://www.easa.europa.eu/en/document-library/type-certificates/engine-cs-e/easaime002-general-electric-ge90-series-engines" target="_blank" rel="noopener noreferrer">EASA TCDS IM.E.002 Issue 05：GE90 series engines</a>：架构、尺寸、干重、认证推力、FADEC、引气及温度/转速限制。</li>
+  <li><a href="https://www.geaerospace.com/zh-hans/node/5141" target="_blank" rel="noopener noreferrer">GE Aerospace：GE90 Engine</a>：级数、应用、总压比与当前机队/改进声明。</li>
+  <li><a href="https://www.geaerospace.com/company/about-us/history" target="_blank" rel="noopener noreferrer">GE Aerospace Aviation History</a>：128英寸风扇、9:1涵道比、115000磅额定与2004年投入服务。</li>
+  <li><a href="https://www.geaerospace.com/news/press-releases/commercial-engines/ge90-115b-fan-completing-blade-testing-schedule-first-engine-test" target="_blank" rel="noopener noreferrer">GE90-115B Fan Completing Blade Testing</a>：叶片材料、鸟撞范围、150小时整机试验与HPC/轴系开发。</li>
+  <li><a href="https://www.geaerospace.com/news/ko/press-releases/commercial-engines/ges-composite-fan-blade-revolution-turns-20-years-old" target="_blank" rel="noopener noreferrer">GE Composite Fan Blade Revolution</a>：认证学习、制造良率与第二代叶片。</li>
+  <li><a href="https://www.geaerospace.com/news/press-releases/commercial-engines/impressive-progress-ge90-115b-engine-continues" target="_blank" rel="noopener noreferrer">GE90-115B Development Progress</a>：123至128英寸、九级HPC与中轴设计意图。</li>
+  <li><a href="https://www.boeing.com/commercial/777/design-highlights" target="_blank" rel="noopener noreferrer">Boeing 777 Design Highlights</a>：115B应用平台与机翼/短舱联合设计。</li>
+  <li><a href="https://ad.easa.europa.eu/blob/2019-21-51_Emergency.pdf/EAD_US-2019-21-51_1" target="_blank" rel="noopener noreferrer">FAA Emergency AD 2019-21-51（EASA镜像）</a>：特定GE90-115B的HPT非包容事件与纠正措施。</li>
+  <li><a href="https://ntrs.nasa.gov/api/citations/20030032214/downloads/20030032214.pdf" target="_blank" rel="noopener noreferrer">NASA：Recent Progress in Engine Noise Reduction Technologies</a>：GE90高涵道比、低喷流速度与噪声技术背景。</li>
+</ul>
+<p><strong>原创图许可：</strong>图2、图4由Qzl's Blog依据所列官方资料绘制，CC BY 4.0；图4数据副本为 <a href="/data/aeroengine/ge90-fan-area-example.csv">ge90-fan-area-example.csv</a>。外部照片的作者、来源、修改状态和许可均在图注中列明。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Qzl</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://qizl19.github.io/p/91a87922.html">https://qizl19.github.io/p/91a87922.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://qizl19.github.io" target="_blank">Qzl's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%88%AA%E7%A9%BA%E5%8F%91%E5%8A%A8%E6%9C%BA/">航空发动机</a></div><div class="post_share"><div class="social-share" data-image="/p/91a87922/ge90-inflight.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/p/e5a3945d.html"><img class="prev-cover" src="/p/e5a3945d/jh7a-chelyabinsk.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">歼轰-7A“飞豹”</div></div></a></div><div class="next-post pull-right"><a href="/p/857fe894.html"><img class="next-cover" src="/p/857fe894/h6k-landing.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">轰-6K</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://pic3.zhimg.com/80/v2-94d674932a8c0f4a6cccc1b7a158c21a_720w.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Qzl</div><div class="author-info__description">行胜于言</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/qizl19"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/qizl19" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1073472023@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%9C%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">本期问题与学习目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%BB%93%E8%AE%BA"><span class="toc-number">2.</span> <span class="toc-text">核心结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%BC%80%E5%8F%82%E6%95%B0%E4%B8%8E%E8%AE%A4%E8%AF%81%E5%8F%A3%E5%BE%84"><span class="toc-number">3.</span> <span class="toc-text">公开参数与认证口径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E8%BD%AC%E5%AD%90%E6%B5%81%E8%B7%AF%E4%B8%8E%E8%BD%B4%E7%B3%BB"><span class="toc-number">4.</span> <span class="toc-text">双转子流路与轴系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E9%A3%8E%E6%89%87%E4%B8%8E%E5%A4%8D%E5%90%88%E6%9D%90%E6%96%99%E5%8F%B6%E7%89%87"><span class="toc-number">5.</span> <span class="toc-text">大风扇与复合材料叶片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E6%B0%94%E6%9C%BA%E7%87%83%E7%83%A7%E5%AE%A4%E4%B8%8E%E6%B6%A1%E8%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">压气机、燃烧室与涡轮</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E9%80%BB%E8%BE%91%E4%B8%8E%E8%BF%90%E8%A1%8C%E9%99%90%E5%88%B6"><span class="toc-number">7.</span> <span class="toc-text">控制逻辑与运行限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%8B%E5%8F%B7%E8%B0%B1%E7%B3%BB%E4%B8%8E%E5%BA%94%E7%94%A8%E5%B9%B3%E5%8F%B0"><span class="toc-number">8.</span> <span class="toc-text">型号谱系与应用平台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E5%A4%8D%E7%AE%97%E7%9A%84%E7%AE%80%E5%8C%96%E7%AE%97%E4%BE%8B"><span class="toc-number">9.</span> <span class="toc-text">可复算的简化算例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%BD%B9%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%B8%8E%E9%80%82%E8%88%AA%E4%BA%8B%E4%BB%B6"><span class="toc-number">10.</span> <span class="toc-text">服役可靠性与适航事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8A%BF%E4%BB%A3%E4%BB%B7%E4%B8%8E%E5%A4%B1%E6%95%88%E8%BE%B9%E7%95%8C"><span class="toc-number">11.</span> <span class="toc-text">优势、代价与失效边界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E5%88%86%E6%9E%90%E6%AD%A5%E9%AA%A4%E4%B8%8E%E6%95%B4%E6%9C%BA%E8%80%A6%E5%90%88"><span class="toc-number">12.</span> <span class="toc-text">工程分析步骤与整机耦合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E6%B5%8B%E9%A2%98"><span class="toc-number">13.</span> <span class="toc-text">自测题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%94%E6%A1%88%E4%B8%8E%E4%B8%8B%E4%B8%80%E6%9C%9F%E8%A1%94%E6%8E%A5"><span class="toc-number">14.</span> <span class="toc-text">答案与下一期衔接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%E4%B8%8E%E5%9B%BE%E7%A4%BA%E8%AE%B8%E5%8F%AF"><span class="toc-number">15.</span> <span class="toc-text">参考资料与图示许可</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/p/e5a3945d.html" title="歼轰-7A“飞豹”"><img src="/p/e5a3945d/jh7a-chelyabinsk.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="歼轰-7A“飞豹”"></a><div class="content"><a class="title" href="/p/e5a3945d.html" title="歼轰-7A“飞豹”">歼轰-7A“飞豹”</a><time datetime="2026-08-06T01:00:00.000Z" title="发表于 2026-08-06 09:00:00">2026-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/91a87922.html" title="航空发动机学习简报｜第06期｜GE90-115B：高涵道比与复合材料风扇系统"><img src="/p/91a87922/ge90-inflight.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="航空发动机学习简报｜第06期｜GE90-115B：高涵道比与复合材料风扇系统"></a><div class="content"><a class="title" href="/p/91a87922.html" title="航空发动机学习简报｜第06期｜GE90-115B：高涵道比与复合材料风扇系统">航空发动机学习简报｜第06期｜GE90-115B：高涵道比与复合材料风扇系统</a><time datetime="2026-08-06T01:00:00.000Z" title="发表于 2026-08-06 09:00:00">2026-08-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/857fe894.html" title="轰-6K"><img src="/p/857fe894/h6k-landing.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="轰-6K"></a><div class="content"><a class="title" href="/p/857fe894.html" title="轰-6K">轰-6K</a><time datetime="2026-08-04T01:00:00.000Z" title="发表于 2026-08-04 09:00:00">2026-08-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/43e4b1b1.html" title="CAD/CAE 生态周报｜2026-08-03"><img src="/p/43e4b1b1/cad-cae-weekly-cover-2026-08-03.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CAD/CAE 生态周报｜2026-08-03"></a><div class="content"><a class="title" href="/p/43e4b1b1.html" title="CAD/CAE 生态周报｜2026-08-03">CAD/CAE 生态周报｜2026-08-03</a><time datetime="2026-08-03T01:00:00.000Z" title="发表于 2026-08-03 09:00:00">2026-08-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/5fbab4c7.html" title="航空发动机学习简报｜第05期｜压气机多级匹配与级间失配"><img src="/p/5fbab4c7/multistage-compressor-matching-cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="航空发动机学习简报｜第05期｜压气机多级匹配与级间失配"></a><div class="content"><a class="title" href="/p/5fbab4c7.html" title="航空发动机学习简报｜第05期｜压气机多级匹配与级间失配">航空发动机学习简报｜第05期｜压气机多级匹配与级间失配</a><time datetime="2026-08-03T01:00:00.000Z" title="发表于 2026-08-03 09:00:00">2026-08-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Qzl</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script src="/js/timing.js"></script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script async src="/js/weather.js"></script><script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><script src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script src="/js/grayscale.js"></script><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><div id="ghbdages" style="overflow:hidden;max-height:90px;height:auto;text-align:center;margin-top:10px"><div class="swiper-wrapper"><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" title="博客框架为Hexo_v5.4.0"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" title="主题版本Butterfly_v3.8.2"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" title="本站使用JsDelivr为静态资源提供CDN加速"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，默认线路托管于Vercel"><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，联通线路托管于Coding"><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本站项目由Gtihub托管"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></div></div></div><style>a.github-badge:hover:before {display:none}</style>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify/lib/swiperbdage_init_js.min.js"></script><!-- hexo injector body_end end --><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body></html>

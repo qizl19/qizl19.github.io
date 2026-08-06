@@ -504,7 +504,148 @@
 </ul>
 
 <blockquote><p><strong>方法与边界：</strong>本报告只将检索窗口内、可由官方发布 / 仓库 / 论文原文或明确时间戳的社区帖子核验的信息列为“本周变化”。开发主干与 weekly / WIP / Beta 均不等同于正式发布；社区帖子仅作为问题信号。商业 CATIA 的授权门户内容可能不在公开检索范围内。</p></blockquote>
-]]></content><categories><category> CAD/CAE 生态周报 </category></categories><tags><tag> CAD/CAE </tag></tags></entry><entry><title>航空发动机学习简报｜第05期｜压气机多级匹配与级间失配</title><link href="/p/5fbab4c7.html"/><url>/p/5fbab4c7.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 05 期</strong></p>
+]]></content><categories><category> CAD/CAE 生态周报 </category></categories><tags><tag> CAD/CAE </tag></tags></entry><entry><title>航空发动机学习简报｜第06期｜GE90-115B：高涵道比与复合材料风扇系统</title><link href="/p/91a87922.html"/><url>/p/91a87922.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 06 期</strong></p>
+<p><strong>副题：</strong>大风扇不是单一部件升级，而是气动、材料、轴系、短舱与适航共同闭环</p>
+<p><strong>主题类型：</strong>经典发动机剖析　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-08-06</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote><p><strong>本期问题：</strong>GE90-115B 为什么能用 128 英寸风扇、22 片复合材料叶片和约 9:1 涵道比，把海平面静态起飞推力推到认证的 513.95 kN？这套“大风扇”方案又给轴系、短舱、制造、控制和适航带来了什么代价？</p></blockquote>
+<p>学完本期，你应当能够：按 N1/N2 两根转子复述公开流路与级数；区分风扇直径、涵道比、总压比和认证推力；用入口面积与理想推进效率公式解释“大流量、较小速度增量”的物理直觉；说明复合材料叶片为什么必须与钛合金前缘、碰撞试验、无损检测和制造良率一起讨论；并把制造商统计、认证限制与适航事件分开阅读。</p>
+<p><strong>前置知识：</strong>建议先掌握第01期轴功平衡、第02期修正参数、第04期喘振裕度和第05期多级匹配。本文只使用公开资料；未公开的涡前温度、叶片铺层、冷却孔型、完整 FADEC 调度和寿命模型均不作推断。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol>
+  <li><strong>GE90-115B 是为大流量而重构的增长型。</strong>GE 把风扇从 123 英寸增至 128 英寸，EASA 认证架构相应采用 1 级风扇、4 级 LPC、9 级 HPC、2 级 HPT 和 6 级 LPT；它不是早期 GE90 的简单“软件加推”。</li>
+  <li><strong>复合材料风扇叶片是系统使能技术。</strong>22 片宽弦后掠叶片以碳纤维/增韧环氧为主体并用钛合金前缘防护，降低大直径旋转部件重量；但冲击、层间损伤、制造离散与检验成为核心风险。</li>
+  <li><strong>认证推力必须带条件。</strong>EASA 给出的 GE90-115B 起飞静推力为 513.95 kN、30 ℃平额、5分钟；最大连续静推力为 489.30 kN、25 ℃平额。它们不是巡航净推力，也不包含任意安装和引气状态。</li>
+  <li><strong>高涵道比改善推进效率，但不免费。</strong>大风扇让更多空气获得较小速度增量，降低喷流动能损失；同时提高叶尖马赫数、风扇盘载荷、机匣与短舱尺度、低压轴扭矩和维护运输压力。</li>
+  <li><strong>成熟度来自持续改进与证据闭环。</strong>GE 当前页面声明 3.6% 燃油消耗改善、60% 在翼时间提升和 99.98% 可靠度，但这是制造商机队层统计；2019 年 HPT 非包容事件又说明低概率高后果失效不能被平均可靠度替代。</li>
+</ol>
+
+<h2 id="公开参数与认证口径"><a href="#公开参数与认证口径" class="headerlink" title="公开参数与认证口径"></a>公开参数与认证口径</h2>
+<p>EASA TCDS IM.E.002 Issue 05 是本期型号与限制的主要依据。GE90-115B 与 110B1、113B 共用增长型总体：双转子、轴流、高涵道比涡扇；发动机包括起动机和安装结构，但不含反推装置。TCDS 的外廓尺寸是发动机型号数据，不等于 Boeing 777 的完整短舱安装包络。</p>
+<table><thead><tr><th>项目</th><th>公开值</th><th>解释边界</th></tr></thead><tbody>
+  <tr><td>流路级数</td><td>1风扇 + 4 LPC + 9 HPC；2 HPT + 6 LPT</td><td>EASA 认证描述</td></tr>
+  <tr><td>起飞静推力</td><td>51395 daN = 513.95 kN</td><td>海平面静态、30 ℃平额、5分钟</td></tr>
+  <tr><td>最大连续静推力</td><td>48930 daN = 489.30 kN</td><td>海平面静态、25 ℃平额</td></tr>
+  <tr><td>干重</td><td>8761 kg</td><td>不含完整短舱/反推</td></tr>
+  <tr><td>外廓</td><td>长7281 mm、最大宽3769 mm、高3926 mm</td><td>风扇旋锥至喷口中心体</td></tr>
+  <tr><td>风扇</td><td>128 in，22片复合材料叶片</td><td>GE制造商资料</td></tr>
+  <tr><td>涵道比 / 总压比</td><td>约9:1 / 最大功率约42</td><td>GE产品页；非全包线常数</td></tr>
+  <tr><td>控制</td><td>FADEC</td><td>硬件/软件与额定插头属于批准构型</td></tr>
+  <tr><td>涡前温度</td><td>公开资料未确认</td><td>TCDS只给T49排气温度限制</td></tr>
+</tbody></table>
+<figure class="aeroengine-figure">
+  <img src="/p/91a87922/ge90-inflight.webp" alt="飞行中的Boeing 777机翼与GE90-115B发动机">
+  <figcaption>图1　飞行中的 GE90-115B 装机状态，可观察大直径短舱与机翼安装关系。摄影：Maxime C-M；来源：<a href="https://commons.wikimedia.org/wiki/File:GE90-115B_(27958314752).jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>；许可：<a href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0</a>，网页副本缩放并转为 WebP。</figcaption>
+</figure>
+
+<h2 id="双转子流路与轴系"><a href="#双转子流路与轴系" class="headerlink" title="双转子流路与轴系"></a>双转子流路与轴系</h2>
+<p>来流先进入单级风扇，大部分空气绕过核心机形成旁通流，核心流则经四级 LPC 和九级 HPC 压缩，进入双环形燃烧室；燃气依次通过两级 HPT 和六级 LPT。N2 高压转子由 HPT 驱动 HPC，N1 低压转子由 LPT 驱动风扇与 LPC。两根轴机械独立、气动强耦合：风扇流量、核心背压、可调静子、间隙、引气和喷口状态都能移动两套转子的工作点。</p>
+<p>增长型把早期 GE90 的三级 LPC 增至四级，同时把十级 HPC 减到九级。GE 解释，九级三维气动 HPC 在提高流量的同时管理循环温度；新增低压增压级和更强中轴则承担大风扇带来的流量与扭矩需求。这里只能确认公开架构和设计意图，不能从级数反推出逐级压比或完整特性图。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/91a87922/ge90-flowpath.svg" alt="GE90-115B双转子流路与公开级数示意">
+  <figcaption>图2　GE90-115B 双转子流路与公开级数，示意不按比例。依据 EASA TCDS IM.E.002 Issue 05 与 GE Aerospace；原创图，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption>
+</figure>
+
+<h2 id="大风扇与复合材料叶片"><a href="#大风扇与复合材料叶片" class="headerlink" title="大风扇与复合材料叶片"></a>大风扇与复合材料叶片</h2>
+<p>GE90 是首个以碳纤维复合材料前风扇叶片投入商业服务的发动机系列；115B 使用第二代三维后掠宽弦叶片。GE 资料给出单片长度超过4英尺、重量低于50磅，主体为碳纤维和增韧环氧，前缘用钛合金保护。复合材料降低离心载荷，使直径和弦长得以增加；后掠外形则服务于跨声速冲击波、噪声与效率控制。</p>
+<p>材料减重不等于“天然抗撞”。GE 在开发中安排2.5–8磅鸟撞、叶片应力、侧风和整机性能试验，并称早期叶片在两百万飞行小时、30多次报告鸟撞中保持可用。制造同样经历学习曲线：官方回顾称初期成品率不足30%，后来超过97%。这类数字说明工艺成熟度提升，不表示每一片叶片无缺陷；铺层、固化、前缘结合、无损检测和损伤容限仍须按获批数据管理。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/91a87922/ge90-farnborough.webp" alt="Farnborough航展展示的GE90-115B发动机与22片风扇叶片">
+  <figcaption>图3　Farnborough 2004 展示的 GE90-115B，可辨22片后掠宽弦风扇叶片、风扇机匣与核心附件区。摄影：Sovxx；裁切：Zeugma fr；来源：<a href="https://commons.wikimedia.org/wiki/File:GE90-115B_Farnborough_2004_cropped.JPG" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>；许可：<a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>，网页副本缩放并转为 WebP。</figcaption>
+</figure>
+
+<h2 id="压气机燃烧室与涡轮"><a href="#压气机燃烧室与涡轮" class="headerlink" title="压气机燃烧室与涡轮"></a>压气机、燃烧室与涡轮</h2>
+<p>GE90-115B 的九级 HPC 采用三维气动叶片/静子设计；GE 开发资料称试验达到目标效率和流量，可调静子调度得到优化并保有运行裕度。双环形燃烧室把低排放与宽工况稳定性纳入设计，GE历史资料称其碳氢化合物排放低于当时标准限值。该说法属于制造商按特定法规口径的声明，不能替代当前排放认证数据。</p>
+<p>两级 HPT 驱动 HPC，六级 LPT 则把大部分剩余焓降转成低压轴功。热端需要高温合金、涂层、内部冷却与间隙控制，但公开资料不足以确认115B各批次的冷却孔型和涡前温度。EASA给出的1090 ℃是T49——低压涡轮入口处的指示排气温度起飞限制，并非燃烧室出口或HPT入口温度；把它当作TIT会产生严重口径错误。</p>
+
+<h2 id="控制逻辑与运行限制"><a href="#控制逻辑与运行限制" class="headerlink" title="控制逻辑与运行限制"></a>控制逻辑与运行限制</h2>
+<p>FADEC 根据推力请求、环境和发动机状态协调燃油、可调静子、放气与限制保护。EASA列出增长型硬件/软件和额定插头，说明“115B”不仅是机械件，还包含批准的软件与配置识别。公开限制包括：T49起飞1090 ℃、30秒瞬态1095 ℃、最大连续1050 ℃；N1起飞/连续上限2602 rpm（110.5%），N2上限11292 rpm（121.0%）。百分比以100% N1=2355 rpm、100% N2=9332 rpm定义，不能把显示百分比误当真实转速比例。</p>
+<p>引气与取功会改变匹配。TCDS给出增长型总引气允许值随修正N1变化，约从低速12.7%到高功率9.1%；因此环控、防冰和附件负荷不是“发动机之外”的固定扣减。没有公开完整调度时，仿真应把FADEC做成有认证限制的代理模型，并对瞬态、退化和传感器故障保留不确定度。</p>
+
+<h2 id="型号谱系与应用平台"><a href="#型号谱系与应用平台" class="headerlink" title="型号谱系与应用平台"></a>型号谱系与应用平台</h2>
+<p>GE90基础系列覆盖76B至94B；增长型包括110B1、113B和115B。GE90-115B是 Boeing 777-300ER、777-200LR 与777 Freighter的独家动力，2004年随777-300ER投入客运服务。三种增长型共享总体，但认证推力、额定插头与批准构型不同，不能只凭外观或“GE90”铭牌互换。</p>
+<p>设计遗产延伸至GEnx、LEAP和GE9X：复合材料叶片、三维气动、低压系统匹配和数字控制持续演进。GE9X把风扇叶片进一步减到16片，并采用新的复合材料和更高压比核心；这说明GE90-115B既是成熟产品，也是后续架构的技术基线，而不是当前所有指标的终点。</p>
+
+<h2 id="可复算的简化算例"><a href="#可复算的简化算例" class="headerlink" title="可复算的简化算例"></a>可复算的简化算例</h2>
+<div class="aeroengine-formula"><strong>入口面积：</strong>A=πD²/4。123 in=3.1242 m，A₁=7.666 m²；128 in=3.2512 m，A₂=8.302 m²；面积增幅=(A₂/A₁−1)×100%=8.29%。</div>
+<p>在密度、平均轴向速度和堵塞系数相同的理想比较中，质量流量与面积成正比，所以5英寸直径增长可提供约8.3%的入口流通面积潜力。真实发动机还受唇口、风扇轮毂、叶片阻塞、边界层、飞行马赫数和转速限制，不能把8.29%直接当作推力或流量增幅。</p>
+<div class="aeroengine-formula"><strong>理想单流推进效率：</strong>ηp=2V₀/(Vj+V₀)=2V₀/(2V₀+ΔV)。若V₀=250 m/s，ΔV=80 m/s，则ηp≈86.2%；若ΔV=160 m/s，则ηp≈75.8%。</div>
+<p>变量中V₀为飞行速度、Vj为喷流速度、ΔV=Vj−V₀。这个算例只说明“更多空气、较小速度增量”的趋势；GE90有旁通流和核心流、压力推力、非均匀喷流与安装阻力，实际推进效率必须用双流控制体和经验证性能数据计算。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/91a87922/ge90-fan-area.svg" alt="GE90从123英寸到128英寸的风扇面积算例">
+  <figcaption>图4　风扇直径与入口面积算例。数据和公式可由 <a href="/data/aeroengine/ge90-fan-area-example.csv">CSV</a> 复算；原创图，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption>
+</figure>
+
+<h2 id="服役可靠性与适航事件"><a href="#服役可靠性与适航事件" class="headerlink" title="服役可靠性与适航事件"></a>服役可靠性与适航事件</h2>
+<p>GE当前产品页称已交付超过2800台GE90，并声明115B相对初始发布规格燃油消耗降低3.6%、在翼时间提高60%、可靠度99.98%。2024年投资者材料又把99.98%离场可靠度放在超过1.3亿飞行小时背景下。这些是制造商机队层统计，统计定义、时间窗口、航线与维修策略必须随来源保留，不能解释为单台发动机“99.98%不会故障”。</p>
+<p>2019年10月20日，一架777-300ER的GE90-115B发生非包容HPT失效并中断起飞。FAA紧急适航指令针对特定序列号和级间密封件，要求拆下受影响件；事件说明热端转子完整性、部件可追溯和服务通告执行仍是低概率高后果风险。不能从一份AD推断整个机队不安全，也不能用高平均可靠度跳过具体序列和构型审查。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/91a87922/ge90-installed.webp" alt="American Airlines Boeing 777-300ER上的GE90-115B正面风扇">
+  <figcaption>图5　Boeing 777-300ER上的 GE90-115B 正面，可见风扇直径、22片叶片与主起落架尺度关系。摄影：Olivier Cleynen；来源：<a href="https://commons.wikimedia.org/wiki/File:GE90_on_an_AA_B773_(1).jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>；许可：<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>，网页副本缩放并转为 WebP。</figcaption>
+</figure>
+
+<h2 id="优势代价与失效边界"><a href="#优势代价与失效边界" class="headerlink" title="优势代价与失效边界"></a>优势、代价与失效边界</h2>
+<ul>
+  <li><strong>优势：</strong>高涵道比、大流通面积和三维后掠叶片共同提高推进效率潜力并降低噪声；高压比核心和持续部件改进支撑远程双发平台。</li>
+  <li><strong>重量与尺度：</strong>复合叶片降低旋转重量，但整机干重仍达8761 kg，短舱、机匣、挂架、地面间隙和运输成为飞机级约束。</li>
+  <li><strong>气动边界：</strong>大直径提高叶尖速度和进气畸变敏感性；侧风、鸟撞、风扇失速线和短舱流场必须联合验证。</li>
+  <li><strong>材料边界：</strong>复合材料可能出现难以目视发现的层间损伤；钛前缘与复合主体的界面、修理许可和无损检测不可省略。</li>
+  <li><strong>热端边界：</strong>总压比和推力提高会放大温度、间隙、冷却和寿命权衡；公开T49不能替代未公开TIT。</li>
+  <li><strong>数字边界：</strong>FADEC改善控制一致性，但软件、额定插头、传感器和执行机构均属于构型管理，不能脱离认证基线修改。</li>
+</ul>
+
+<h2 id="工程分析步骤与整机耦合"><a href="#工程分析步骤与整机耦合" class="headerlink" title="工程分析步骤与整机耦合"></a>工程分析步骤与整机耦合</h2>
+<ol>
+  <li><strong>锁定型号与额定：</strong>记录115B完整后缀、序列、FADEC/额定插头和服务通告状态。</li>
+  <li><strong>统一状态口径：</strong>区分海平面静态、起飞5分钟、最大连续、巡航与安装净推力；所有温度注明测点。</li>
+  <li><strong>建立双流双转子模型：</strong>分别写旁通/核心流量连续和N1/N2轴功平衡，再耦合喷口压力推力。</li>
+  <li><strong>输入真实边界：</strong>加入进气恢复、短舱阻力、引气、附件取功、环境和退化，而不是直接套用513.95 kN。</li>
+  <li><strong>校核可运行性：</strong>在稳态与瞬态检查N1/N2、T49、压气机裕度、侧风/畸变和执行机构范围。</li>
+  <li><strong>连接材料与适航：</strong>把鸟撞、叶片损伤、机匣/短舱载荷、HPT转子完整性、NDT和部件追溯纳入失效链。</li>
+  <li><strong>保留证据等级：</strong>认证值、制造商声明、适航事实、教学算例和仿真结果分栏记录，禁止相互替代。</li>
+</ol>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol>
+  <li>GE90-115B 的 N1 与 N2 各连接哪些主要部件？</li>
+  <li>为什么把123英寸风扇增至128英寸，几何面积增幅不是4.1%而是约8.29%？</li>
+  <li>计算题：把EASA的51395 daN换算为kN。</li>
+  <li>计算题：起飞静推力513.95 kN比最大连续489.30 kN高多少百分比？</li>
+  <li>判断题：EASA的T49起飞限制1090 ℃就是HPT入口涡前温度。</li>
+  <li>判断题：复合材料叶片更轻，因此可以取消鸟撞和无损检测。</li>
+  <li>GE90-115B为何把LPC增至4级、HPC减至9级？公开资料能确认到什么程度？</li>
+  <li>为什么99.98%可靠度不能替代HPT转子完整性和部件序列追溯？</li>
+</ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<ol>
+  <li>N1由六级LPT驱动风扇和四级LPC；N2由两级HPT驱动九级HPC。</li>
+  <li>圆面积与直径平方成正比，<code>(128/123)²−1≈8.29%</code>。</li>
+  <li><code>51395 daN×0.01=513.95 kN</code>。</li>
+  <li><code>(513.95−489.30)/489.30≈5.04%</code>。</li>
+  <li>错误。T49位于低压涡轮入口，不能当作燃烧室出口/HPT入口TIT。</li>
+  <li>错误。复合材料仍需冲击验证、损伤容限、工艺控制和NDT。</li>
+  <li>公开资料称这是为提高流量、管理循环温度并匹配大风扇扭矩；逐级压比和地图未公开。</li>
+  <li>它是带定义和时间窗口的机队平均统计，不能覆盖特定序列、构型和低概率高后果失效。</li>
+</ol>
+<p><strong>下一期建议：</strong>回到基础/方法类，学习“涡轮冷却与温度口径”：区分T3、T4/TIT、EGT/T49，建立冷却气、热效率、寿命与控制限制的统一预算。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ul>
+  <li><a href="https://www.easa.europa.eu/en/document-library/type-certificates/engine-cs-e/easaime002-general-electric-ge90-series-engines" target="_blank" rel="noopener noreferrer">EASA TCDS IM.E.002 Issue 05：GE90 series engines</a>：架构、尺寸、干重、认证推力、FADEC、引气及温度/转速限制。</li>
+  <li><a href="https://www.geaerospace.com/zh-hans/node/5141" target="_blank" rel="noopener noreferrer">GE Aerospace：GE90 Engine</a>：级数、应用、总压比与当前机队/改进声明。</li>
+  <li><a href="https://www.geaerospace.com/company/about-us/history" target="_blank" rel="noopener noreferrer">GE Aerospace Aviation History</a>：128英寸风扇、9:1涵道比、115000磅额定与2004年投入服务。</li>
+  <li><a href="https://www.geaerospace.com/news/press-releases/commercial-engines/ge90-115b-fan-completing-blade-testing-schedule-first-engine-test" target="_blank" rel="noopener noreferrer">GE90-115B Fan Completing Blade Testing</a>：叶片材料、鸟撞范围、150小时整机试验与HPC/轴系开发。</li>
+  <li><a href="https://www.geaerospace.com/news/ko/press-releases/commercial-engines/ges-composite-fan-blade-revolution-turns-20-years-old" target="_blank" rel="noopener noreferrer">GE Composite Fan Blade Revolution</a>：认证学习、制造良率与第二代叶片。</li>
+  <li><a href="https://www.geaerospace.com/news/press-releases/commercial-engines/impressive-progress-ge90-115b-engine-continues" target="_blank" rel="noopener noreferrer">GE90-115B Development Progress</a>：123至128英寸、九级HPC与中轴设计意图。</li>
+  <li><a href="https://www.boeing.com/commercial/777/design-highlights" target="_blank" rel="noopener noreferrer">Boeing 777 Design Highlights</a>：115B应用平台与机翼/短舱联合设计。</li>
+  <li><a href="https://ad.easa.europa.eu/blob/2019-21-51_Emergency.pdf/EAD_US-2019-21-51_1" target="_blank" rel="noopener noreferrer">FAA Emergency AD 2019-21-51（EASA镜像）</a>：特定GE90-115B的HPT非包容事件与纠正措施。</li>
+  <li><a href="https://ntrs.nasa.gov/api/citations/20030032214/downloads/20030032214.pdf" target="_blank" rel="noopener noreferrer">NASA：Recent Progress in Engine Noise Reduction Technologies</a>：GE90高涵道比、低喷流速度与噪声技术背景。</li>
+</ul>
+<p><strong>原创图许可：</strong>图2、图4由Qzl's Blog依据所列官方资料绘制，CC BY 4.0；图4数据副本为 <a href="/data/aeroengine/ge90-fan-area-example.csv">ge90-fan-area-example.csv</a>。外部照片的作者、来源、修改状态和许可均在图注中列明。</p>
+]]></content><categories><category> 航空发动机 </category></categories><tags><tag> 航空发动机 </tag></tags></entry><entry><title>航空发动机学习简报｜第05期｜压气机多级匹配与级间失配</title><link href="/p/5fbab4c7.html"/><url>/p/5fbab4c7.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 05 期</strong></p>
 <p><strong>副题：</strong>同一根轴，并不意味着每一级都在同一个相似点</p>
 <p><strong>主题类型：</strong>设计与控制方法　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-08-03</p>
 

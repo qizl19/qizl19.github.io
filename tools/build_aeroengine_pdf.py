@@ -21,6 +21,8 @@ from reportlab.platypus import (
     Paragraph,
     SimpleDocTemplate,
     Spacer,
+    Table,
+    TableStyle,
 )
 
 
@@ -29,7 +31,8 @@ SECTION_RE = re.compile(
 )
 BLOCK_RE = re.compile(
     r'(<p>.*?</p>|<blockquote>.*?</blockquote>|<ol>.*?</ol>|<ul>.*?</ul>|'
-    r'<div class="aeroengine-formula">.*?</div>|<figure class="aeroengine-figure">.*?</figure>)',
+    r'<div class="aeroengine-formula">.*?</div>|<figure class="aeroengine-figure">.*?</figure>|'
+    r'<table>.*?</table>)',
     re.S,
 )
 
@@ -89,6 +92,31 @@ def render_section(root: Path, body: str, styles: dict[str, ParagraphStyle]):
     for block in BLOCK_RE.findall(body):
         if block.startswith("<figure"):
             flows.extend(image_flowable(root, block, styles["caption"]))
+        elif block.startswith("<table"):
+            rows = []
+            for row_html in re.findall(r"<tr>(.*?)</tr>", block, flags=re.S):
+                cells = re.findall(r"<(th|td)>(.*?)</\1>", row_html, flags=re.S)
+                if not cells:
+                    continue
+                rows.append([
+                    Paragraph(clean_inline(value), styles["table_header" if tag == "th" else "table"])
+                    for tag, value in cells
+                ])
+            if rows:
+                columns = max(len(row) for row in rows)
+                table = Table(rows, colWidths=[170 * mm / columns] * columns, repeatRows=1, hAlign="LEFT")
+                table.setStyle(TableStyle([
+                    ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#dcecf4")),
+                    ("TEXTCOLOR", (0, 0), (-1, 0), colors.HexColor("#173b57")),
+                    ("GRID", (0, 0), (-1, -1), 0.45, colors.HexColor("#afc4d0")),
+                    ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 5),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 5),
+                    ("TOPPADDING", (0, 0), (-1, -1), 4),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+                    ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f6f9fb")]),
+                ]))
+                flows.extend([table, Spacer(1, 2.5 * mm)])
         elif block.startswith("<blockquote"):
             inner = re.sub(r"^<blockquote>|</blockquote>$", "", block, flags=re.S)
             inner = re.sub(r"^\s*<p>|</p>\s*$", "", inner, flags=re.S)
@@ -170,6 +198,14 @@ def build(root: Path, post: dict, output: Path) -> None:
             "CaptionZh", parent=sample["BodyText"], fontName="MicrosoftYaHei",
             fontSize=7.8, leading=12, textColor=colors.HexColor("#63798b"),
             alignment=TA_CENTER, spaceAfter=2 * mm, wordWrap="CJK",
+        ),
+        "table": ParagraphStyle(
+            "TableZh", parent=sample["BodyText"], fontName="MicrosoftYaHei",
+            fontSize=7.7, leading=11.5, textColor=colors.HexColor("#263746"), wordWrap="CJK",
+        ),
+        "table_header": ParagraphStyle(
+            "TableHeaderZh", parent=sample["BodyText"], fontName="MicrosoftYaHei-Bold",
+            fontSize=7.8, leading=11.5, textColor=colors.HexColor("#173b57"), wordWrap="CJK",
         ),
     }
 

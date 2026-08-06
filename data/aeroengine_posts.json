@@ -1,5 +1,115 @@
 [
   {
+    "issue": 6,
+    "slug": "aeroengine-06-ge90-115b-fan-system",
+    "postId": "91a87922",
+    "title": "航空发动机学习简报｜第06期｜GE90-115B：高涵道比与复合材料风扇系统",
+    "subtitle": "大风扇不是单一部件升级，而是气动、材料、轴系、短舱与适航共同闭环",
+    "type": "经典发动机剖析",
+    "date": "2026-08-06",
+    "updated": "2026-08-06",
+    "heroImage": "/p/91a87922/ge90-inflight.webp",
+    "summary": "以EASA型号合格证数据、GE Aerospace制造商资料、Boeing整机资料和FAA适航指令为主线，拆解GE90-115B的双转子流路、128英寸风扇、22片复合材料叶片、认证推力、控制限制、制造学习曲线、服役改进与热端失效边界。",
+    "contentFile": "data/aeroengine/2026-08-06-ge90-115b-fan-system.html",
+    "keyConcepts": [
+      "GE90-115B",
+      "高涵道比",
+      "复合材料风扇叶片",
+      "双转子流路",
+      "推进效率",
+      "三维气动压气机",
+      "FADEC",
+      "T49与TIT口径",
+      "适航与转子完整性"
+    ],
+    "headings": [
+      {"id": "本期问题与学习目标", "title": "本期问题与学习目标"},
+      {"id": "核心结论", "title": "核心结论"},
+      {"id": "公开参数与认证口径", "title": "公开参数与认证口径"},
+      {"id": "双转子流路与轴系", "title": "双转子流路与轴系"},
+      {"id": "大风扇与复合材料叶片", "title": "大风扇与复合材料叶片"},
+      {"id": "压气机燃烧室与涡轮", "title": "压气机、燃烧室与涡轮"},
+      {"id": "控制逻辑与运行限制", "title": "控制逻辑与运行限制"},
+      {"id": "型号谱系与应用平台", "title": "型号谱系与应用平台"},
+      {"id": "可复算的简化算例", "title": "可复算的简化算例"},
+      {"id": "服役可靠性与适航事件", "title": "服役可靠性与适航事件"},
+      {"id": "优势代价与失效边界", "title": "优势、代价与失效边界"},
+      {"id": "工程分析步骤与整机耦合", "title": "工程分析步骤与整机耦合"},
+      {"id": "自测题", "title": "自测题"},
+      {"id": "答案与下一期衔接", "title": "答案与下一期衔接"},
+      {"id": "参考资料与图示许可", "title": "参考资料与图示许可"}
+    ],
+    "validationNeedles": [
+      "513.95 kN",
+      "489.30 kN",
+      "8761 kg",
+      "128 in",
+      "22片复合材料叶片",
+      "8.29%",
+      "99.98%",
+      "T49",
+      "公开资料未确认"
+    ],
+    "figures": [
+      {
+        "src": "/p/91a87922/ge90-inflight.webp",
+        "title": "飞行中的GE90-115B装机状态",
+        "author": "Maxime C-M",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:GE90-115B_(27958314752).jpg",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "modification": "缩放并转换为WebP"
+      },
+      {
+        "src": "/p/91a87922/ge90-flowpath.svg",
+        "fallback": "/p/91a87922/ge90-flowpath.png",
+        "title": "GE90-115B双转子流路与公开级数",
+        "author": "Qzl's Blog",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "src": "/p/91a87922/ge90-farnborough.webp",
+        "title": "Farnborough 2004展示的GE90-115B",
+        "author": "Sovxx / crop by Zeugma fr",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:GE90-115B_Farnborough_2004_cropped.JPG",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "modification": "既有裁切；网页副本缩放并转换为WebP"
+      },
+      {
+        "src": "/p/91a87922/ge90-fan-area.svg",
+        "fallback": "/p/91a87922/ge90-fan-area.png",
+        "title": "GE90从123英寸到128英寸的风扇面积算例",
+        "author": "Qzl's Blog",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceData": "/data/aeroengine/ge90-fan-area-example.csv"
+      },
+      {
+        "src": "/p/91a87922/ge90-installed.webp",
+        "title": "Boeing 777-300ER上的GE90-115B正面",
+        "author": "Olivier Cleynen",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:GE90_on_an_AA_B773_(1).jpg",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "modification": "缩放并转换为WebP"
+      }
+    ],
+    "sources": [
+      {"title": "EASA TCDS IM.E.002 Issue 05：GE90 series engines", "url": "https://www.easa.europa.eu/en/document-library/type-certificates/engine-cs-e/easaime002-general-electric-ge90-series-engines"},
+      {"title": "GE Aerospace：GE90 Engine", "url": "https://www.geaerospace.com/zh-hans/node/5141"},
+      {"title": "GE Aerospace Aviation History：GE90-115B", "url": "https://www.geaerospace.com/company/about-us/history"},
+      {"title": "GE90-115B Fan Completing Blade Testing", "url": "https://www.geaerospace.com/news/press-releases/commercial-engines/ge90-115b-fan-completing-blade-testing-schedule-first-engine-test"},
+      {"title": "GE Composite Fan Blade Revolution", "url": "https://www.geaerospace.com/news/ko/press-releases/commercial-engines/ges-composite-fan-blade-revolution-turns-20-years-old"},
+      {"title": "GE90-115B Development Progress", "url": "https://www.geaerospace.com/news/press-releases/commercial-engines/impressive-progress-ge90-115b-engine-continues"},
+      {"title": "Boeing 777 Design Highlights", "url": "https://www.boeing.com/commercial/777/design-highlights"},
+      {"title": "FAA Emergency AD 2019-21-51", "url": "https://ad.easa.europa.eu/blob/2019-21-51_Emergency.pdf/EAD_US-2019-21-51_1"},
+      {"title": "NASA：Recent Progress in Engine Noise Reduction Technologies", "url": "https://ntrs.nasa.gov/api/citations/20030032214/downloads/20030032214.pdf"}
+    ],
+    "nextTopic": "涡轮冷却与温度口径：T3、T4/TIT、EGT/T49与寿命预算"
+  },
+  {
     "issue": 5,
     "slug": "aeroengine-05-multistage-compressor-matching",
     "postId": "5fbab4c7",
