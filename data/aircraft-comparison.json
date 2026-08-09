@@ -1,5 +1,16 @@
 [
   {
+    "slug": "shaanxi-kj-500",
+    "name": "空警-500",
+    "url": "/p/803f215c.html",
+    "firstFlightYear": 2013,
+    "lengthM": 36.65,
+    "wingspanM": 38.0,
+    "maxTakeoffWeightT": 77.0,
+    "speedLabel": "外部资料常见约550 km/h巡航；官方未公布完整飞行包线",
+    "rangeLabel": "USAF CASI公开报告列约5,700 km；任务载荷、余油与剖面未说明"
+  },
+  {
     "slug": "xian-jh-7a",
     "name": "歼轰-7A“飞豹”",
     "url": "/p/e5a3945d.html",

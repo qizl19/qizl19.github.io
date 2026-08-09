@@ -1,5 +1,144 @@
 [
   {
+    "slug": "shaanxi-kj-500",
+    "nameZh": "空警-500",
+    "nameEn": "Shaanxi KJ-500",
+    "eyebrow": "飞机资料整理 · 第 14 期",
+    "subtitle": "把运输机平台、固定雷达罩、任务系统和空中指挥理解为一个完整工程系统",
+    "date": "2026-08-08",
+    "updated": "2026-08-08",
+    "nation": "中国",
+    "category": "中型空中预警与指挥控制飞机",
+    "era": "2010年代至今",
+    "tags": ["航空", "中国军机", "预警机"],
+    "status": "现役 / 空军与海军航空兵持续运用",
+    "metrics": {
+      "firstFlightYear": 2013,
+      "lengthM": 36.65,
+      "wingspanM": 38.0,
+      "maxTakeoffWeightT": 77.0,
+      "speedLabel": "外部资料常见约550 km/h巡航；官方未公布完整飞行包线",
+      "rangeLabel": "USAF CASI公开报告列约5,700 km；任务载荷、余油与剖面未说明"
+    },
+    "diagram": [
+      "运-9平台：高置翼、四发涡桨、货运机体与较大内部任务空间",
+      "固定雷达罩：三面阵列覆盖不同方位，避免机械旋转罩的传动需求",
+      "任务系统：雷达、通信、数据链、操作席位和电源/冷却共同构成载荷",
+      "体系运用：预警、识别、信息融合与指挥控制依赖空地海网络协同"
+    ],
+    "firstFlight": "公开权威资料未确认精确首飞日期；外部资料通常放在2013年前后，2015年阅兵正式公开",
+    "accent": "#55747d",
+    "heroImage": "/p/803f215c/kj500-flight.webp",
+    "model": {
+      "kind": "triposg-image-reconstruction",
+      "src": "/p/803f215c/models/shaanxi-kj-500.glb",
+      "poster": "/p/803f215c/kj500-flight.webp",
+      "author": "VAST-AI TripoSG / 本期自动化生成",
+      "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "license": "CC BY-SA 4.0（输入照片许可；TripoSG代码MIT）",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "inputImage": "/p/803f215c/kj500-flight.webp",
+      "inputCredit": "Alert5",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:KJ-500.jpg",
+      "inputLicense": "CC BY-SA 4.0",
+      "engine": "TripoSG",
+      "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "engineLicense": "MIT",
+      "channel": "local-offline-rtx3060",
+      "inputSha256": "6b48c1aad0f88d573e8ea96a0afdb106849f5e04a8d885cffa512073e17a1ba2",
+      "outputSha256": "bf16c3872f6f8b0d7949a7ccb693ac8e2e6a1738d961a24c4e30fea097b2e4b0",
+      "bytes": 1440728,
+      "faces": 80000,
+      "vertices": 39995,
+      "components": 15,
+      "generation": {
+        "steps": 40,
+        "seed": 42,
+        "guidanceScale": 7.0,
+        "denseDepth": 8,
+        "hierarchicalDepth": 9,
+        "targetFaces": 80000,
+        "flashDecoder": false,
+        "elapsedSeconds": 201.33,
+        "gpu": "NVIDIA GeForce RTX 3060",
+        "peakVramMiB": 5483.1
+      },
+      "note": "本模型由VAST-AI官方TripoSG在本机RTX 3060上，对一张许可明确的公开照片进行AI单图重建。已检查输入抠图、八个正交/斜视质检图、GLB文件头、尺度、面数、组件、绕序与SHA-256；机身、高置翼、四台发动机、尾翼和背部固定雷达罩总体可辨。遮挡侧、螺旋桨叶片、细小天线、起落架与内部结构由模型推断或简化。这只是外形可视化示意、非工程CAD，不可用于制造、仿真、尺寸测量、探测性能分析或任务规划。"
+    },
+    "statement": "空警-500的工程价值不在某一个公开数字，而在于把运-9载机、固定三面阵雷达罩、任务电子设备、通信数据链、电源冷却、操作员环境和长航时飞行整合成稳定的空中信息节点。本文只讨论公开外形、平台和系统工程关系，不推断敏感雷达参数、软件能力或作战方法。",
+    "summary": "空警-500是中国自主研制的中型空中预警与指挥控制飞机，以运-9系列平台为基础。中国国防部把空警-500描述为全天候、多传感器空中预警与指挥控制飞机；2025年官方报道进一步把空警-500A定位为承担空中巡逻警戒和指挥控制任务的中型预警机。公开照片可核实高置翼、四台涡桨发动机、前三点式起落架、背部固定圆盘雷达罩、机身多处天线与后部货运机体特征。USAF CASI公开报告称固定雷达罩内使用三面阵列以形成360度覆盖，并列出约5,700公里航程；这些属于外部研究口径，探测距离、任务载荷、余油和飞行剖面并未由制造方完整公开。空警-500A增加空中受油探管，KJ-500H用于海军航空兵。真正的工程难点是重量与重心、气动阻力、结构载荷、电磁兼容、电源、冷却、振动、操作员环境和任务可靠性的联合闭环。",
+    "facts": [
+      {"label": "定位", "value": "中型空中预警与指挥控制飞机", "note": "中国国防部公开口径"},
+      {"label": "平台", "value": "运-9系列高置翼四发涡桨平台", "note": "CASI与公开外形可交叉确认"},
+      {"label": "公开亮相", "value": "2015年阅兵", "note": "CASI记录为正式公开节点"},
+      {"label": "雷达罩", "value": "固定圆盘罩 / 三面阵列", "note": "三面阵和360度覆盖来自外部公开研究"},
+      {"label": "使用方", "value": "中国空军与海军航空兵", "note": "官方展览与训练报道可确认"},
+      {"label": "尺寸", "value": "长约36.65 m；翼展约38.0 m", "note": "沿用运-9平台的外部常见估算，非制造方数据表"},
+      {"label": "最大起飞重量", "value": "外部常见约77 t", "note": "不同任务设备、燃油和改型不可混用"},
+      {"label": "航程", "value": "外部报告约5,700 km", "note": "载荷、余油与剖面未说明"},
+      {"label": "改型", "value": "空警-500 / 空警-500A / KJ-500H", "note": "A型可见受油探管；H型用于海军航空兵"},
+      {"label": "三维模型", "value": "TripoSG单图重建示意", "note": "非工程CAD，遮挡区域由模型推断"}
+    ],
+    "timeline": [
+      {"year": "2010年代初", "event": "空警-500在运-9系列平台基础上进入公开研发/试验阶段；精确首飞日期公开权威资料未确认。"},
+      {"year": "2015", "event": "在纪念抗战胜利70周年阅兵中正式公开；CASI资料把2015年列为进入空军服役节点。"},
+      {"year": "2016", "event": "空警-500参加珠海航展，固定雷达罩、四发涡桨平台和机身天线布局获得清晰公开影像。"},
+      {"year": "2018", "event": "国防部将空警-500称为自主研制的全天候、多传感器预警与指挥控制飞机；外部资料记录受油型样机出现。"},
+      {"year": "2019", "event": "参加国庆70周年阅兵；公开编队影像显示其与战斗机协同展示。"},
+      {"year": "2021—2022", "event": "参加联演和珠海航展；中国军网报道海军展出KJ-500H侦察预警机。"},
+      {"year": "2025", "event": "官方公开空警-500A并确认其主要承担空中巡逻警戒和指挥控制任务；与歼-20编队通场。"},
+      {"year": "2026", "event": "中国国防部发布海军空警-500昼夜预警侦察训练图片，表明该系列持续运用。"}
+    ],
+    "designPoints": [
+      "固定圆盘雷达罩不依赖整罩机械旋转，但支撑结构必须承受气动载荷、振动与雷达罩重量，并控制对尾翼来流的影响。",
+      "三面阵列分别覆盖不同方位，系统级性能取决于阵面交接、标定、波束调度、信息融合与任务软件；公开资料不足以量化这些指标。",
+      "运-9平台提供较大机内容积、长航时基础和成熟保障体系，但背部雷达罩、电子设备与操作席位会改变重量、重心和阻力。",
+      "高功率雷达与任务计算设备带来电源和热管理需求；发电、配电、冷却、EMI/EMC和故障隔离必须与载机共同验证。",
+      "机身多处天线、整流罩和舱外设备说明预警机并非只增加一个雷达盘，而是多传感器、多通信链路的系统集成。",
+      "空中受油探管提高潜在留空能力，同时引入受油气动、结构、燃油系统、训练与安全边界，不能等同于无限续航。"
+    ],
+    "power": "空警-500沿用运-9系列四发涡桨总体，公开照片显示四台发动机和六叶螺旋桨。外部资料常把动力与WJ-6C系列联系起来，但制造方未发布空警-500各批次完整的发动机额定、耗油、发电功率和任务设备取功数据。对预警机而言，动力系统不仅提供推力，还必须支撑长航时、发电、冷却和增压需求；因此不能只用运输型的最大航程或载荷数字推导任务续航。",
+    "variants": [
+      {"name": "空警-500", "description": "基础公开型号，固定雷达罩、运-9系列载机和多处任务天线构成主要外形特征；空军与海军航空兵均有公开使用证据。"},
+      {"name": "空警-500A", "description": "公开照片可见机首上方空中受油探管。2025年国防部把它称为中型预警机，承担巡逻警戒和指挥控制任务。"},
+      {"name": "KJ-500H", "description": "海军航空兵公开型号。2022年中国军网报道其在珠海航展展示，2026年又发布海军单位训练影像。"}
+    ],
+    "strengths": [
+      "以较成熟的运-9平台承载大体积任务系统，降低完全新研载机的总体风险。",
+      "固定三面阵雷达罩提供持续方位覆盖的公开设计思路，省去整罩旋转机构。",
+      "四发涡桨平台适合中低速长航时巡逻，并保留较大的机内任务空间。",
+      "空军、海军航空兵和受油型公开证据表明系列化发展与保障体系较成熟。",
+      "官方报道显示其作为信息节点参与多机协同，体现系统工程而非单机传感器价值。"
+    ],
+    "limits": [
+      "制造方未公开完整性能数据表；首飞、重量、尺寸、巡航速度和航程多来自外部研究或平台估算。",
+      "公开探测距离差异很大，受目标RCS、高度、波形、干扰和判据影响，本文不采用单一数字作为真实性能。",
+      "大型背部雷达罩增加阻力、结构载荷与尾部来流干扰，真实油耗和操稳代价未公开。",
+      "任务设备的电源、冷却、电磁兼容、软件可靠性和操作员负荷无法从外观判断。",
+      "空中受油提高潜在留空时间，但机组疲劳、维护、燃油与任务可靠性仍构成边界。",
+      "TripoSG模型只复现公开可见外形；螺旋桨、天线、遮挡侧和内部结构不可靠。"
+    ],
+    "photos": [
+      {"src": "/p/803f215c/kj500-flight.webp", "alt": "空警-500侧前方飞行照片", "caption": "空警-500飞行侧前视图，可辨固定雷达罩、高置翼、四发涡桨、双腹鳍与前三点式起落架。", "credit": "Alert5", "sourceUrl": "https://commons.wikimedia.org/wiki/File:KJ-500.jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src": "/p/803f215c/kj500-j11b-formation.webp", "alt": "空警-500与歼-11B编队", "caption": "2019年阅兵中的空警-500与歼-11B编队，展示预警平台与战斗机体系协同的公开场景。", "credit": "N509FZ", "sourceUrl": "https://commons.wikimedia.org/wiki/File:KJ-500_and_J-11B_at_PRC70_Parade_(20191001112437).jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src": "/p/803f215c/kj500a-front.webp", "alt": "空警-500A正面与受油探管", "caption": "空警-500A正面公开展示，可见四副六叶螺旋桨、固定雷达罩与机首上方受油探管。", "credit": "颐园居", "sourceUrl": "https://commons.wikimedia.org/wiki/File:KJ-500A_at_China%27s_Air_Force_Aviation_Open_Day_20250921%E2%80%8C.jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src": "/p/803f215c/kj500h-formation.webp", "alt": "KJ-500H海军航空兵编队", "caption": "2019年阅兵中的KJ-500H与反潜型Y-8编队，体现同一运输机平台向多种特种任务衍生。", "credit": "N509FZ", "sourceUrl": "https://commons.wikimedia.org/wiki/File:KJ-500H_and_anti-submarine_Y-8_at_PRC70_Parade_(20191001112537).jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"}
+    ],
+    "sources": [
+      {"label": "中国国防部：空警-500为自主研制全天候、多传感器预警指挥飞机", "url": "https://www.mod.gov.cn/gfbw/tp_214132/15991969_15.html"},
+      {"label": "中国国防部：空军体系能力与空警-500列装", "url": "https://eng.mod.gov.cn/xb/News_213114/TopStories/4854435.html"},
+      {"label": "中国国防部：2021联演中的空警-500与网络信息系统", "url": "https://eng.mod.gov.cn/xb/News_213114/Features/4891553.html"},
+      {"label": "中国国防部/新华社：2022珠海航展KJ-500H", "url": "https://eng.mod.gov.cn/xb/News_213114/TopStories/4925699.html"},
+      {"label": "中国国防部：2025空警-500A定位与受阅", "url": "https://www.mod.gov.cn/gfbw/wzll/yw_214068/16407660.html"},
+      {"label": "中国国防部/新华社：2025空警-500与歼-20协同公开采访", "url": "https://www.mod.gov.cn/gfbw/qwfb/yw_214049/16411283.html"},
+      {"label": "中国国防部：中国海军空警-500昼夜训练", "url": "https://eng.mod.gov.cn/2025xb/D/P_251753/16454973.html"},
+      {"label": "USAF CASI：Chinese Airborne C4ISR", "url": "https://www.airuniversity.af.edu/Portals/10/CASI/documents/Research/Infrastructure/2020-12-17%20PRC%20Airborne%20C4ISR_eBook.pdf"},
+      {"label": "USAF CASI：China's Air Defense Radar Industrial Base", "url": "https://www.airuniversity.af.edu/Portals/10/CASI/documents/Research/Infrastructure/2025-03-10%20Air%20Defense%20Radars.pdf"},
+      {"label": "VAST-AI Research：TripoSG官方代码与MIT许可", "url": "https://github.com/VAST-AI-Research/TripoSG"}
+    ],
+    "postId": "803f215c"
+  },
+  {
     "slug": "xian-jh-7a",
     "nameZh": "歼轰-7A“飞豹”",
     "nameEn": "Xi’an JH-7A Flying Leopard",
