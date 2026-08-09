@@ -1,5 +1,92 @@
 [
   {
+    "issue": 7,
+    "slug": "aeroengine-07-turbine-cooling-temperature-stations",
+    "postId": "ce999041",
+    "title": "航空发动机学习简报｜第07期｜涡轮冷却与温度口径：T3、T4/TIT、EGT/T49与寿命预算",
+    "subtitle": "先把测点、总温/静温与指示温度说清，再讨论冷却和寿命",
+    "type": "基础与前置知识",
+    "date": "2026-08-09",
+    "updated": "2026-08-09",
+    "heroImage": "/p/ce999041/temperature-stations.png",
+    "summary": "以NASA站位、FAA测温说明和EASA GE90 T49认证限制为主线，区分T3、T4/TIT、ITT、T49和EGT，建立总温/静温、传感器链路、内部冷却、气膜、TBC、局部金属温度、热应力与任务谱寿命之间的可复算闭环。",
+    "contentFile": "data/aeroengine/2026-08-09-turbine-cooling-temperature-stations.html",
+    "keyConcepts": [
+      "T3与T4/TIT",
+      "EGT与T49",
+      "总温与静温",
+      "冷却有效度",
+      "内部对流与冲击冷却",
+      "气膜冷却",
+      "热障涂层TBC",
+      "金属温度",
+      "蠕变与低周疲劳",
+      "任务谱寿命"
+    ],
+    "headings": [
+      {"id": "本期问题与学习目标", "title": "本期问题与学习目标"},
+      {"id": "核心结论", "title": "核心结论"},
+      {"id": "站位与温度词典", "title": "站位与温度词典"},
+      {"id": "总温静温与测量链", "title": "总温、静温与测量链"},
+      {"id": "为什么EGT不等于T4", "title": "为什么 EGT 不等于 T4"},
+      {"id": "冷却的物理直觉", "title": "冷却的物理直觉"},
+      {"id": "冷却有效度与简化算例", "title": "冷却有效度与简化算例"},
+      {"id": "设计与分析步骤", "title": "设计与分析步骤"},
+      {"id": "寿命预算与温度裕度", "title": "寿命预算与温度裕度"},
+      {"id": "控制监测与失效模式", "title": "控制、监测与失效模式"},
+      {"id": "整机耦合与工程取舍", "title": "整机耦合与工程取舍"},
+      {"id": "常见误区", "title": "常见误区"},
+      {"id": "自测题", "title": "自测题"},
+      {"id": "答案与下一期衔接", "title": "答案与下一期衔接"},
+      {"id": "参考资料与图示许可", "title": "参考资料与图示许可"}
+    ],
+    "validationNeedles": [
+      "Tt3 / T3",
+      "Tt4 / T4 / TIT",
+      "T49",
+      "Tt = T + V²/(2cp)",
+      "0.667",
+      "39.1 K",
+      "1090 ℃",
+      "30秒瞬态1095 ℃",
+      "射流抬升",
+      "NASALIFE"
+    ],
+    "figures": [
+      {
+        "src": "/p/ce999041/temperature-stations.svg",
+        "fallback": "/p/ce999041/temperature-stations.png",
+        "title": "T3、T4、T49与EGT测点和读数链路",
+        "author": "Qzl's Blog",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "basis": "NASA Glenn station numbers, FAA temperature indication, EASA GE90 T49"
+      },
+      {
+        "src": "/p/ce999041/cooling-life-budget.svg",
+        "fallback": "/p/ce999041/cooling-life-budget.png",
+        "title": "冷却有效度示教算例与寿命预算流程",
+        "author": "Qzl's Blog",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "sourceData": "/data/aeroengine/turbine-cooling-effectiveness-example.csv"
+      }
+    ],
+    "sources": [
+      {"title": "NASA Glenn: Gas Turbine Schematic and Station Numbers", "url": "https://www.grc.nasa.gov/www/k-12/airplane/turbdraw.html"},
+      {"title": "NASA Glenn: Engine Temperature Variation", "url": "https://www.grc.nasa.gov/www/k-12/airplane/etr.html"},
+      {"title": "FAA-H-8083-32A Powerplant Handbook", "url": "https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/FAA-H-8083-32-AMT-Powerplant-Vol-2.pdf"},
+      {"title": "FAA 14 CFR 33 / CS-E Turbine Engine Validation Guidance", "url": "https://www.faa.gov/sites/faa.gov/files/aircraft/air_cert/design_approvals/engine_prop/SSD_Turbine_Engines_List_14_CFR_33_Amdt_34_and_CS-E_Amdt_5.pdf"},
+      {"title": "EASA TCDS IM.E.002 Issue 05: GE90 Series Engines", "url": "https://www.easa.europa.eu/en/downloads/7799/en"},
+      {"title": "NASA TM-112760: Coolant Temperature and Mass Flow on Film Cooling", "url": "https://ntrs.nasa.gov/citations/19970026860"},
+      {"title": "NASA/TM-2007-214933: Thermal Barrier Coatings and Turbine Cooling", "url": "https://ntrs.nasa.gov/citations/20080002104"},
+      {"title": "NASA-TM-81453: Cooling Flow and Turbine Efficiency Decrease", "url": "https://ntrs.nasa.gov/citations/19800011581"},
+      {"title": "NASA NASALIFE: Predicting Lifetime of a Thermomechanically Loaded Component", "url": "https://ntrs.nasa.gov/citations/20110013627"},
+      {"title": "NASA-TP-1310: Film Cooling with Thermal-Barrier Coating", "url": "https://ntrs.nasa.gov/citations/19780023166"}
+    ],
+    "nextTopic": "涡轮冷却流量如何进入部件匹配：从压气机引气、孔口压比到主流掺混和效率修正"
+  },
+  {
     "issue": 6,
     "slug": "aeroengine-06-ge90-115b-fan-system",
     "postId": "91a87922",

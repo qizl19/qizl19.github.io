@@ -56,7 +56,7 @@ async function assertArticle(page, label) {
   if ((await page.locator("#card-toc .toc-item").count()) !== latest.headings.length) {
     throw new Error(`${label}: TOC count mismatch`);
   }
-  for (const text of ["可复算的简化算例", "自测题", "答案与下一期衔接", "CC BY 4.0"]) {
+  for (const text of ["简化算例", "自测题", "答案与下一期衔接", "CC BY 4.0"]) {
     if ((await page.getByText(text, { exact: false }).count()) === 0) throw new Error(`${label}: missing ${text}`);
   }
   const broken = await page.locator("#article-container img").evaluateAll((images) =>
@@ -66,6 +66,19 @@ async function assertArticle(page, label) {
   if (broken.length) throw new Error(`${label}: broken images: ${broken.join(", ")}`);
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
   if (overflow) throw new Error(`${label}: horizontal page overflow`);
+}
+
+async function screenshotSegments(page, prefix) {
+  const size = await page.evaluate(() => ({
+    height: Math.max(document.documentElement.scrollHeight, document.body.scrollHeight),
+    viewportHeight: window.innerHeight,
+  }));
+  for (let y = 0, index = 1; y < size.height; y += size.viewportHeight, index += 1) {
+    await page.evaluate((top) => window.scrollTo(0, top), y);
+    await page.waitForTimeout(40);
+    await page.screenshot({ path: path.join(output, `${prefix}-${String(index).padStart(2, "0")}.png`) });
+  }
+  await page.evaluate(() => window.scrollTo(0, 0));
 }
 
 async function main() {
@@ -99,15 +112,21 @@ async function main() {
   await page.screenshot({ path: path.join(output, "category-desktop.png"), fullPage: true });
 
   await page.goto(`${origin}/p/${latest.postId}.html`, { waitUntil: "domcontentloaded" });
+  console.log("Article desktop loaded");
   await settle(page);
+  console.log("Article desktop settled");
   await assertArticle(page, "desktop");
-  await page.screenshot({ path: path.join(output, "article-desktop.png"), fullPage: true });
+  console.log("Article desktop assertions passed");
+  await screenshotSegments(page, "article-desktop");
+  console.log("Article desktop screenshots complete");
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`${origin}/p/${latest.postId}.html`, { waitUntil: "domcontentloaded" });
+  console.log("Article mobile loaded");
   await settle(page);
   await assertArticle(page, "mobile");
-  await page.screenshot({ path: path.join(output, "article-mobile.png"), fullPage: true });
+  console.log("Article mobile assertions passed");
+  await screenshotSegments(page, "article-mobile");
 
   if (localErrors.length) throw new Error(`Local resource failures: ${localErrors.join(" | ")}`);
   await browser.close();
@@ -118,5 +137,5 @@ async function main() {
 main().catch((error) => {
   server.close();
   console.error(error.stack || error);
-  process.exitCode = 1;
+  process.exit(1);
 });

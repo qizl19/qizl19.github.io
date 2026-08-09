@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="806.11671pt" height="450.799375pt" viewBox="0 0 806.11671 450.799375" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-08-09T09:25:52.773291</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.8.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 450.799375
+L 806.11671 450.799375
+L 806.11671 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 68.471875 411.64
+L 434.282926 411.64
+L 434.282926 85.2
+L 68.471875 85.2
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M -168.62788 396.801818
+L 407.185811 396.801818
+L 407.185811 347.341212
+L -168.62788 347.341212
+z
+" clip-path="url(#pa5778f0481)" style="fill: #61727d"/>
+   </g>
+   <g id="patch_4">
+    <path d="M -168.62788 314.367475
+L 278.474515 314.367475
+L 278.474515 264.906869
+L -168.62788 264.906869
+z
+" clip-path="url(#pa5778f0481)" style="fill: #2878b5"/>
+   </g>
+   <g id="patch_5">
+    <path d="M -168.62788 231.933131
+L 224.280286 231.933131
+L 224.280286 182.472525
+L -168.62788 182.472525
+z
+" clip-path="url(#pa5778f0481)" style="fill: #4ca6c7"/>
+   </g>
+   <g id="patch_6">
+    <path d="M -168.62788 149.498788
+L 203.957449 149.498788
+L 203.957449 100.038182
+L -168.62788 100.038182
+z
+" clip-path="url(#pa5778f0481)" style="fill: #3c8c78"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 102.343269 411.64
+L 102.343269 85.2
+" clip-path="url(#pa5778f0481)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.22; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="m4702975f1a" d="M 0 0
+L 0 3.5
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m4702975f1a" x="102.343269" y="411.64" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font: 10px 'Microsoft YaHei'; text-anchor: middle" x="102.343269" y="426.63375" transform="rotate(-0 102.343269 426.63375)">800</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 170.086056 411.64
+L 170.086056 85.2
+" clip-path="url(#pa5778f0481)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.22; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m4702975f1a" x="170.086056" y="411.64" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font: 10px 'Microsoft YaHei'; text-anchor: middle" x="170.086056" y="426.63375" transform="rotate(-0 170.086056 426.63375)">1000</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 237.828843 411.64
+L 237.828843 85.2
+" clip-path="url(#pa5778f0481)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.22; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m4702975f1a" x="237.828843" y="411.64" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font: 10px 'Microsoft YaHei'; text-anchor: middle" x="237.828843" y="426.63375" transform="rotate(-0 237.828843 426.63375)">1200</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 305.57163 411.64
+L 305.57163 85.2
+" clip-path="url(#pa5778f0481)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.22; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m4702975f1a" x="305.57163" y="411.64" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font: 10px 'Microsoft YaHei'; text-anchor: middle" x="305.57163" y="426.63375" transform="rotate(-0 305.57163 426.63375)">1400</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 373.314417 411.64
+L 373.314417 85.2
+" clip-path="url(#pa5778f0481)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.22; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m4702975f1a" x="373.314417" y="411.64" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font: 10px 'Microsoft YaHei'; text-anchor: middle" x="373.314417" y="426.63375" transform="rotate(-0 373.314417 426.63375)">1600</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font: 10px 'Microsoft YaHei'; text-anchor: middle" x="251.3774" y="441.113437" transform="rotate(-0 251.3774 441.113437)">示教金属温度 / K</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_11">
+      <defs>
+       <path id="mbba95e043f" d="M 0 0
+L -3.5 0
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mbba95e043f" x="68.471875" y="372.071515" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font: 10px 'Microsoft YaHei'; text-anchor: end" x="61.471875" y="376.06839" transform="rotate(-0 61.471875 376.06839)">无冷却/涂层</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#mbba95e043f" x="68.471875" y="289.637172" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font: 10px 'Microsoft YaHei'; text-anchor: end" x="61.471875" y="293.634047" transform="rotate(-0 61.471875 293.634047)">仅内部对流</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_13">
+      <g>
+       <use xlink:href="#mbba95e043f" x="68.471875" y="207.202828" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font: 10px 'Microsoft YaHei'; text-anchor: end" x="61.471875" y="211.199703" transform="rotate(-0 61.471875 211.199703)">对流 + 气膜</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#mbba95e043f" x="68.471875" y="124.768485" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font: 10px 'Microsoft YaHei'; text-anchor: end" x="61.471875" y="128.76536" transform="rotate(-0 61.471875 128.76536)">气膜 + TBC</text>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_15">
+    <path d="M 102.343269 411.64
+L 102.343269 85.2
+" clip-path="url(#pa5778f0481)" style="fill: none; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #2878b5; stroke-width: 1.2"/>
+   </g>
+   <g id="line2d_16">
+    <path d="M 407.185811 411.64
+L 407.185811 85.2
+" clip-path="url(#pa5778f0481)" style="fill: none; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #c8574d; stroke-width: 1.2"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 68.471875 411.64
+L 68.471875 85.2
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 434.282926 411.64
+L 434.282926 85.2
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 68.471875 411.64
+L 434.282926 411.64
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 68.471875 85.2
+L 434.282926 85.2
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_11">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei'" transform="translate(369.97146 369.106296)">1700 K</text>
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei'" transform="translate(363.563179 379.97689)">η=0.000</text>
+   </g>
+   <g id="text_12">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei'" transform="translate(241.260164 286.671953)">1320 K</text>
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei'" transform="translate(234.851883 297.542547)">η=0.422</text>
+   </g>
+   <g id="text_13">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei'" transform="translate(187.065935 204.23761)">1160 K</text>
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei'" transform="translate(180.657653 215.108203)">η=0.600</text>
+   </g>
+   <g id="text_14">
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei'" transform="translate(166.743099 121.803266)">1100 K</text>
+    <text style="fill: #ffffff; font: 700 9px 'Microsoft YaHei'" transform="translate(160.334817 132.67386)">η=0.667</text>
+   </g>
+   <g id="text_15">
+    <text style="fill: #15344a; font: 700 12px 'Microsoft YaHei'; text-anchor: start" x="68.471875" y="79.2" transform="rotate(-0 68.471875 79.2)">A  温度预算（示教数据）</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_11">
+     <path d="M 327.756676 407.64
+L 428.682926 407.64
+Q 430.282926 407.64 430.282926 406.04
+L 430.282926 381.64375
+Q 430.282926 380.04375 428.682926 380.04375
+L 327.756676 380.04375
+Q 326.156676 380.04375 326.156676 381.64375
+L 326.156676 406.04
+Q 326.156676 407.64 327.756676 407.64
+z
+" style="fill: #ffffff; opacity: 0.8; stroke: #cccccc; stroke-linejoin: miter"/>
+    </g>
+    <g id="line2d_17">
+     <path d="M 329.356676 386.83875
+L 337.356676 386.83875
+L 345.356676 386.83875
+" style="fill: none; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #2878b5; stroke-width: 1.2"/>
+    </g>
+    <g id="text_16">
+     <text style="font: 8px 'Microsoft YaHei'; text-anchor: start" x="351.756676" y="389.63875" transform="rotate(-0 351.756676 389.63875)">冷气入口 Tc=800 K</text>
+    </g>
+    <g id="line2d_18">
+     <path d="M 329.356676 399.605
+L 337.356676 399.605
+L 345.356676 399.605
+" style="fill: none; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #c8574d; stroke-width: 1.2"/>
+    </g>
+    <g id="text_17">
+     <text style="font: 8px 'Microsoft YaHei'; text-anchor: start" x="351.756676" y="402.405" transform="rotate(-0 351.756676 402.405)">主流总温 Tg=1700 K</text>
+    </g>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_12">
+    <path d="M 459.018585 172.68592
+L 779.538744 172.68592
+Q 785.80979 172.68592 785.80979 166.81
+L 785.80979 126.005
+Q 785.80979 120.12908 779.538744 120.12908
+L 459.018585 120.12908
+Q 452.747538 120.12908 452.747538 126.005
+L 452.747538 166.81
+Q 452.747538 172.68592 459.018585 172.68592
+z
+" clip-path="url(#pa0357b83d3)" style="fill: #eef4f6; stroke: #2878b5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 619.278664 170.441007
+Q 619.278664 174.970091 619.278664 178.157533
+" clip-path="url(#pa0357b83d3)" style="fill: none; stroke: #df8a32; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 621.678664 173.357533
+L 619.278664 178.157533
+L 616.878664 173.357533
+z
+" clip-path="url(#pa0357b83d3)" style="fill: #df8a32; stroke: #df8a32; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 459.018585 220.01972
+L 779.538744 220.01972
+Q 785.80979 220.01972 785.80979 214.1438
+L 785.80979 173.3388
+Q 785.80979 167.46288 779.538744 167.46288
+L 459.018585 167.46288
+Q 452.747538 167.46288 452.747538 173.3388
+L 452.747538 214.1438
+Q 452.747538 220.01972 459.018585 220.01972
+z
+" clip-path="url(#pa0357b83d3)" style="fill: #ffffff; stroke: #2878b5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 619.278664 217.774807
+Q 619.278664 222.303891 619.278664 225.491333
+" clip-path="url(#pa0357b83d3)" style="fill: none; stroke: #df8a32; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 621.678664 220.691333
+L 619.278664 225.491333
+L 616.878664 220.691333
+z
+" clip-path="url(#pa0357b83d3)" style="fill: #df8a32; stroke: #df8a32; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 459.018585 267.35352
+L 779.538744 267.35352
+Q 785.80979 267.35352 785.80979 261.4776
+L 785.80979 220.6726
+Q 785.80979 214.79668 779.538744 214.79668
+L 459.018585 214.79668
+Q 452.747538 214.79668 452.747538 220.6726
+L 452.747538 261.4776
+Q 452.747538 267.35352 459.018585 267.35352
+z
+" clip-path="url(#pa0357b83d3)" style="fill: #eef4f6; stroke: #2878b5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 619.278664 265.108607
+Q 619.278664 269.637691 619.278664 272.825133
+" clip-path="url(#pa0357b83d3)" style="fill: none; stroke: #df8a32; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 621.678664 268.025133
+L 619.278664 272.825133
+L 616.878664 268.025133
+z
+" clip-path="url(#pa0357b83d3)" style="fill: #df8a32; stroke: #df8a32; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 459.018585 314.68732
+L 779.538744 314.68732
+Q 785.80979 314.68732 785.80979 308.8114
+L 785.80979 268.0064
+Q 785.80979 262.13048 779.538744 262.13048
+L 459.018585 262.13048
+Q 452.747538 262.13048 452.747538 268.0064
+L 452.747538 308.8114
+Q 452.747538 314.68732 459.018585 314.68732
+z
+" clip-path="url(#pa0357b83d3)" style="fill: #ffffff; stroke: #2878b5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 619.278664 312.442407
+Q 619.278664 316.971491 619.278664 320.158933
+" clip-path="url(#pa0357b83d3)" style="fill: none; stroke: #df8a32; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 621.678664 315.358933
+L 619.278664 320.158933
+L 616.878664 315.358933
+z
+" clip-path="url(#pa0357b83d3)" style="fill: #df8a32; stroke: #df8a32; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_20">
+    <path d="M 459.018585 362.02112
+L 779.538744 362.02112
+Q 785.80979 362.02112 785.80979 356.1452
+L 785.80979 315.3402
+Q 785.80979 309.46428 779.538744 309.46428
+L 459.018585 309.46428
+Q 452.747538 309.46428 452.747538 315.3402
+L 452.747538 356.1452
+Q 452.747538 362.02112 459.018585 362.02112
+z
+" clip-path="url(#pa0357b83d3)" style="fill: #eef4f6; stroke: #2878b5; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_18">
+    <text style="fill: #2878b5; font: 700 11px 'Microsoft YaHei'; text-anchor: start" x="472.954244" y="146.335617" transform="rotate(-0 472.954244 146.335617)">1  热边界</text>
+   </g>
+   <g id="text_19">
+    <text style="fill: #61727d; font: 9.2px 'Microsoft YaHei'; text-anchor: start" x="580.955602" y="146.033257" transform="rotate(-0 580.955602 146.033257)">Tg、h、压力、紊流、非均匀度</text>
+   </g>
+   <g id="text_20">
+    <text style="fill: #2878b5; font: 700 11px 'Microsoft YaHei'; text-anchor: start" x="472.954244" y="193.669417" transform="rotate(-0 472.954244 193.669417)">2  冷却网络</text>
+   </g>
+   <g id="text_21">
+    <text style="fill: #61727d; font: 9.2px 'Microsoft YaHei'; text-anchor: start" x="580.955602" y="193.173714" transform="rotate(-0 580.955602 193.173714)">压气机引气、孔/通道压损、吹风比</text>
+   </g>
+   <g id="text_22">
+    <text style="fill: #2878b5; font: 700 11px 'Microsoft YaHei'; text-anchor: start" x="472.954244" y="241.003217" transform="rotate(-0 472.954244 241.003217)">3  固体温度</text>
+   </g>
+   <g id="text_23">
+    <text style="fill: #61727d; font: 9.2px 'Microsoft YaHei'; text-anchor: start" x="580.955602" y="240.507514" transform="rotate(-0 580.955602 240.507514)">TBC + 合金导热 + 局部热点</text>
+   </g>
+   <g id="text_24">
+    <text style="fill: #2878b5; font: 700 11px 'Microsoft YaHei'; text-anchor: start" x="472.954244" y="288.337017" transform="rotate(-0 472.954244 288.337017)">4  热应力</text>
+   </g>
+   <g id="text_25">
+    <text style="fill: #61727d; font: 9.2px 'Microsoft YaHei'; text-anchor: start" x="580.955602" y="287.841314" transform="rotate(-0 580.955602 287.841314)">离心载荷、温度梯度、启停循环</text>
+   </g>
+   <g id="text_26">
+    <text style="fill: #2878b5; font: 700 11px 'Microsoft YaHei'; text-anchor: start" x="472.954244" y="335.670817" transform="rotate(-0 472.954244 335.670817)">5  损伤累计</text>
+   </g>
+   <g id="text_27">
+    <text style="fill: #61727d; font: 9.2px 'Microsoft YaHei'; text-anchor: start" x="580.955602" y="335.175114" transform="rotate(-0 580.955602 335.175114)">蠕变 + LCF + 氧化/涂层退化</text>
+   </g>
+   <g id="text_28">
+    <text style="fill: #15344a; font: 9.5px 'Microsoft YaHei'" transform="translate(459.018585 392.990666)">NASA NASALIFE：寿命预测需要温度相关材料性能、蠕变断裂和循环疲劳数据；</text>
+    <text style="fill: #15344a; font: 9.5px 'Microsoft YaHei'" transform="translate(459.018585 406.7434)">单一 EGT 裕度不能替代叶片局部金属温度与任务谱。</text>
+   </g>
+   <g id="text_29">
+    <text style="fill: #15344a; font: 700 12px 'Microsoft YaHei'; text-anchor: start" x="445.082926" y="79.2" transform="rotate(-0 445.082926 79.2)">B  从温度到寿命预算</text>
+   </g>
+  </g>
+  <g id="text_30">
+   <text style="fill: #15344a; font: 700 20px 'Microsoft YaHei'; text-anchor: middle" x="428.491875" y="23.1875" transform="rotate(-0 428.491875 23.1875)">冷却不是免费温降：金属温度、冷气代价与寿命输入</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pa5778f0481">
+   <rect x="68.471875" y="85.2" width="365.811051" height="326.44"/>
+  </clipPath>
+  <clipPath id="pa0357b83d3">
+   <rect x="445.082926" y="85.2" width="348.391477" height="326.44"/>
+  </clipPath>
+ </defs>
+</svg>

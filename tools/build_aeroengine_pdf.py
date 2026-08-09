@@ -234,7 +234,10 @@ def build(root: Path, post: dict, output: Path) -> None:
         ),
         PageBreak(),
     ]
-    page_break_after = {2, 4, 5, 7}
+    # Issue 07 has a deliberately short section 05 followed by the cooling
+    # explanation in section 06; keeping them together avoids a mostly blank
+    # page while preserving the established pagination for prior issues.
+    page_break_after = {2, 4, 7} if issue == 7 else {2, 4, 5, 7}
     for index, ((_, body), heading) in enumerate(zip(sections, post["headings"]), 1):
         story.append(Paragraph(f"{index:02d}　{html.escape(heading['title'])}", styles["h2"]))
         story.append(HRFlowable(width="100%", thickness=0.5, color=colors.HexColor("#b8cbd8")))

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="684pt" height="374.76pt" viewBox="0 0 684 374.76" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-08-09T09:25:52.335446</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.8.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 374.76
+L 684 374.76
+L 684 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 40.122 184.0536
+L 147.258 184.0536
+Q 151.722 184.0536 151.722 179.6184
+L 151.722 103.6656
+Q 151.722 99.2304 147.258 99.2304
+L 40.122 99.2304
+Q 35.658 99.2304 35.658 103.6656
+L 35.658 179.6184
+Q 35.658 184.0536 40.122 184.0536
+z
+" clip-path="url(#p6f0d9a5740)" style="fill: #ffffff; stroke: #2878b5; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 176.832 184.0536
+L 283.968 184.0536
+Q 288.432 184.0536 288.432 179.6184
+L 288.432 103.6656
+Q 288.432 99.2304 283.968 99.2304
+L 176.832 99.2304
+Q 172.368 99.2304 172.368 103.6656
+L 172.368 179.6184
+Q 172.368 184.0536 176.832 184.0536
+z
+" clip-path="url(#p6f0d9a5740)" style="fill: #ffffff; stroke: #c8574d; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 313.542 184.0536
+L 420.678 184.0536
+Q 425.142 184.0536 425.142 179.6184
+L 425.142 103.6656
+Q 425.142 99.2304 420.678 99.2304
+L 313.542 99.2304
+Q 309.078 99.2304 309.078 103.6656
+L 309.078 179.6184
+Q 309.078 184.0536 313.542 184.0536
+z
+" clip-path="url(#p6f0d9a5740)" style="fill: #ffffff; stroke: #df8a32; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 450.252 184.0536
+L 557.388 184.0536
+Q 561.852 184.0536 561.852 179.6184
+L 561.852 103.6656
+Q 561.852 99.2304 557.388 99.2304
+L 450.252 99.2304
+Q 445.788 99.2304 445.788 103.6656
+L 445.788 179.6184
+Q 445.788 184.0536 450.252 184.0536
+z
+" clip-path="url(#p6f0d9a5740)" style="fill: #ffffff; stroke: #3c8c78; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 586.962 184.0536
+L 657.828 184.0536
+Q 662.292 184.0536 662.292 179.6184
+L 662.292 103.6656
+Q 662.292 99.2304 657.828 99.2304
+L 586.962 99.2304
+Q 582.498 99.2304 582.498 103.6656
+L 582.498 179.6184
+Q 582.498 184.0536 586.962 184.0536
+z
+" clip-path="url(#p6f0d9a5740)" style="fill: #ffffff; stroke: #4ca6c7; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 154.27782 141.9192
+Q 162.044456 141.9192 168.134041 141.9192
+" clip-path="url(#p6f0d9a5740)" style="fill: none; stroke: #61727d; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 162.534041 139.1192
+L 168.134041 141.9192
+L 162.534041 144.7192
+z
+" clip-path="url(#p6f0d9a5740)" style="fill: #61727d; stroke: #61727d; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 290.98782 141.9192
+Q 298.754456 141.9192 304.844041 141.9192
+" clip-path="url(#p6f0d9a5740)" style="fill: none; stroke: #61727d; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 299.244041 139.1192
+L 304.844041 141.9192
+L 299.244041 144.7192
+z
+" clip-path="url(#p6f0d9a5740)" style="fill: #61727d; stroke: #61727d; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 427.69782 141.9192
+Q 435.464456 141.9192 441.554041 141.9192
+" clip-path="url(#p6f0d9a5740)" style="fill: none; stroke: #61727d; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 435.954041 139.1192
+L 441.554041 141.9192
+L 435.954041 144.7192
+z
+" clip-path="url(#p6f0d9a5740)" style="fill: #61727d; stroke: #61727d; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 564.40782 141.9192
+Q 572.174456 141.9192 578.264041 141.9192
+" clip-path="url(#p6f0d9a5740)" style="fill: none; stroke: #61727d; stroke-width: 1.5; stroke-linecap: round"/>
+    <path d="M 572.664041 139.1192
+L 578.264041 141.9192
+L 572.664041 144.7192
+z
+" clip-path="url(#p6f0d9a5740)" style="fill: #61727d; stroke: #61727d; stroke-width: 1.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 40.68 341.5032
+L 328.05 341.5032
+Q 332.514 341.5032 332.514 337.068
+L 332.514 240.048
+Q 332.514 235.6128 328.05 235.6128
+L 40.68 235.6128
+Q 36.216 235.6128 36.216 240.048
+L 36.216 337.068
+Q 36.216 341.5032 40.68 341.5032
+z
+" clip-path="url(#p6f0d9a5740)" style="fill: #eef4f6; stroke: #2878b5; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 344.79 341.5032
+L 660.06 341.5032
+Q 664.524 341.5032 664.524 337.068
+L 664.524 240.048
+Q 664.524 235.6128 660.06 235.6128
+L 344.79 235.6128
+Q 340.326 235.6128 340.326 240.048
+L 340.326 337.068
+Q 340.326 341.5032 344.79 341.5032
+z
+" clip-path="url(#p6f0d9a5740)" style="fill: #fff6eb; stroke: #df8a32; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #15344a; font: 700 21px 'Microsoft YaHei'; text-anchor: start" x="32.31" y="32.148" transform="rotate(-0 32.31 32.148)">从 T3 到 EGT：温度名称必须绑定测点</text>
+   </g>
+   <g id="text_2">
+    <text style="fill: #61727d; font: 10.5px 'Microsoft YaHei'; text-anchor: start" x="32.31" y="52.6608" transform="rotate(-0 32.31 52.6608)">NASA 站位定义 + 认证/驾驶舱测量口径；箭头只表示主流方向，非几何比例</text>
+   </g>
+   <g id="text_3">
+    <text style="fill: #2878b5; font: 700 11px 'Microsoft YaHei'; text-anchor: middle" x="93.69" y="124.101125" transform="rotate(-0 93.69 124.101125)">压气机出口</text>
+   </g>
+   <g id="text_4">
+    <text style="fill: #15344a; font: 700 14px 'Microsoft YaHei'; text-anchor: middle" x="93.69" y="143.002669" transform="rotate(-0 93.69 143.002669)">Tt3 / T3</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #61727d; font: 8.6px 'Microsoft YaHei'" transform="translate(72.19 158.300244)">燃烧室入口</text>
+    <text style="fill: #61727d; font: 8.6px 'Microsoft YaHei'" transform="translate(54.99 169.718894)">压比和效率决定温升</text>
+   </g>
+   <g id="text_6">
+    <text style="fill: #c8574d; font: 700 11px 'Microsoft YaHei'; text-anchor: middle" x="230.4" y="124.101125" transform="rotate(-0 230.4 124.101125)">燃烧室出口</text>
+   </g>
+   <g id="text_7">
+    <text style="fill: #15344a; font: 700 14px 'Microsoft YaHei'; text-anchor: middle" x="230.4" y="143.002669" transform="rotate(-0 230.4 143.002669)">Tt4 / T4 / TIT</text>
+   </g>
+   <g id="text_8">
+    <text style="fill: #61727d; font: 8.6px 'Microsoft YaHei'" transform="translate(204.6 158.300244)">涡轮入口总温</text>
+    <text style="fill: #61727d; font: 8.6px 'Microsoft YaHei'" transform="translate(176.963094 169.718894)">常为模型/推算而非直接测量</text>
+   </g>
+   <g id="text_9">
+    <text style="fill: #df8a32; font: 700 11px 'Microsoft YaHei'; text-anchor: middle" x="367.11" y="124.101125" transform="rotate(-0 367.11 124.101125)">高压涡轮后</text>
+   </g>
+   <g id="text_10">
+    <text style="fill: #15344a; font: 700 14px 'Microsoft YaHei'; text-anchor: middle" x="367.11" y="143.002669" transform="rotate(-0 367.11 143.002669)">T4.5（示例）</text>
+   </g>
+   <g id="text_11">
+    <text style="fill: #61727d; font: 8.6px 'Microsoft YaHei'" transform="translate(324.11 158.300244)">温度已因轴功提取下降</text>
+    <text style="fill: #61727d; font: 8.6px 'Microsoft YaHei'" transform="translate(324.11 169.718894)">编号随制造商定义变化</text>
+   </g>
+   <g id="text_12">
+    <text style="fill: #3c8c78; font: 700 11px 'Microsoft YaHei'; text-anchor: middle" x="503.82" y="124.101125" transform="rotate(-0 503.82 124.101125)">低压涡轮入口/后部</text>
+   </g>
+   <g id="text_13">
+    <text style="fill: #15344a; font: 700 14px 'Microsoft YaHei'; text-anchor: middle" x="503.82" y="143.002669" transform="rotate(-0 503.82 143.002669)">T49 / ITT（实例）</text>
+   </g>
+   <g id="text_14">
+    <text style="fill: #61727d; font: 8.6px 'Microsoft YaHei'" transform="translate(453.061859 158.300244)">GE90 T49 是认证指示温度</text>
+    <text style="fill: #61727d; font: 8.6px 'Microsoft YaHei'" transform="translate(480.360813 169.718894)">并不等于 T4</text>
+   </g>
+   <g id="text_15">
+    <text style="fill: #4ca6c7; font: 700 11px 'Microsoft YaHei'; text-anchor: middle" x="622.395" y="124.101125" transform="rotate(-0 622.395 124.101125)">排气段</text>
+   </g>
+   <g id="text_16">
+    <text style="fill: #15344a; font: 700 14px 'Microsoft YaHei'; text-anchor: middle" x="622.395" y="143.002669" transform="rotate(-0 622.395 143.002669)">EGT / T5</text>
+   </g>
+   <g id="text_17">
+    <text style="fill: #61727d; font: 8.6px 'Microsoft YaHei'" transform="translate(600.895 158.300244)">多支热电偶</text>
+    <text style="fill: #61727d; font: 8.6px 'Microsoft YaHei'" transform="translate(605.195 169.718894)">环向平均</text>
+   </g>
+   <g id="text_18">
+    <text style="fill: #2878b5; font: 700 12px 'Microsoft YaHei'; text-anchor: start" x="54.63" y="257.7888" transform="rotate(-0 54.63 257.7888)">总温 vs. 静温</text>
+   </g>
+   <g id="text_19">
+    <text style="fill: #15344a; font: 700 16px 'Microsoft YaHei'; text-anchor: start" x="54.63" y="279.9648" transform="rotate(-0 54.63 279.9648)">Tt = T + V²/(2cp)</text>
+   </g>
+   <g id="text_20">
+    <text style="fill: #61727d; font: 10px 'Microsoft YaHei'; text-anchor: start" x="54.63" y="303.2496" transform="rotate(-0 54.63 303.2496)">必须写清 total/static；高速流中两者不可互换。</text>
+   </g>
+   <g id="text_21">
+    <text style="fill: #61727d; font: 10px 'Microsoft YaHei'; text-anchor: start" x="54.63" y="321.5448" transform="rotate(-0 54.63 321.5448)">同一个“EGT”也必须带具体发动机、测点、平均方式与限制时间。</text>
+   </g>
+   <g id="text_22">
+    <text style="fill: #df8a32; font: 700 12px 'Microsoft YaHei'; text-anchor: start" x="358.74" y="257.7888" transform="rotate(-0 358.74 257.7888)">读数链路</text>
+   </g>
+   <g id="text_23">
+    <text style="fill: #15344a; font: 10.5px 'Microsoft YaHei'; text-anchor: start" x="358.74" y="281.0736" transform="rotate(-0 358.74 281.0736)">燃气真实场 → 探针/热电偶 → 环向平均 → 校正/FADEC → 驾驶舱</text>
+   </g>
+   <g id="text_24">
+    <text style="fill: #61727d; font: 10px 'Microsoft YaHei'; text-anchor: start" x="358.74" y="305.4672" transform="rotate(-0 358.74 305.4672)">测得较低位置温度不代表能直接倒推出 T4；需经型号批准的相关关系。</text>
+   </g>
+   <g id="text_25">
+    <text style="fill: #61727d; font: 10px 'Microsoft YaHei'; text-anchor: start" x="358.74" y="323.7624" transform="rotate(-0 358.74 323.7624)">FAA：大型发动机常在涡轮排气处测温，以相对监视热端状态。</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p6f0d9a5740">
+   <rect x="7.2" y="7.2" width="669.6" height="360.36"/>
+  </clipPath>
+ </defs>
+</svg>

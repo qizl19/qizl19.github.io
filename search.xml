@@ -507,7 +507,146 @@
 </ul>
 
 <blockquote><p><strong>方法与边界：</strong>本报告只将检索窗口内、可由官方发布 / 仓库 / 论文原文或明确时间戳的社区帖子核验的信息列为“本周变化”。开发主干与 weekly / WIP / Beta 均不等同于正式发布；社区帖子仅作为问题信号。商业 CATIA 的授权门户内容可能不在公开检索范围内。</p></blockquote>
-]]></content><categories><category> CAD/CAE 生态周报 </category></categories><tags><tag> CAD/CAE </tag></tags></entry><entry><title>航空发动机学习简报｜第06期｜GE90-115B：高涵道比与复合材料风扇系统</title><link href="/p/91a87922.html"/><url>/p/91a87922.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 06 期</strong></p>
+]]></content><categories><category> CAD/CAE 生态周报 </category></categories><tags><tag> CAD/CAE </tag></tags></entry><entry><title>航空发动机学习简报｜第07期｜涡轮冷却与温度口径：T3、T4/TIT、EGT/T49与寿命预算</title><link href="/p/ce999041.html"/><url>/p/ce999041.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 07 期</strong></p>
+<p><strong>副题：</strong>先把测点、总温/静温与指示温度说清，再讨论冷却和寿命</p>
+<p><strong>主题类型：</strong>基础与前置知识　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-08-09</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote><p><strong>本期问题：</strong>为什么 T3、T4/TIT、ITT、T49 与 EGT 都是“温度”，却不能直接比较？涡轮冷却究竟降低了什么温度，又怎样进入寿命预算？</p></blockquote>
+<p>学完本期，你应能：把温度名称绑定到具体站位和传感器；区分总温与静温；解释为什么大型发动机常在涡轮后测 EGT 而不是直接测 T4；用冷却有效度公式复算示教金属温度；说明内部对流、冲击、气膜和热障涂层的分工；最后把气体温度、局部金属温度、热应力、蠕变与低周疲劳连接成一条可审计的寿命链。</p>
+<p><strong>前置知识：</strong>建议先掌握第01期轴功平衡、第02期总参数/修正参数和第06期 GE90-115B 的 T49 认证限制。本文不公开或推断具体发动机的冷却孔型、材料配方、寿命数据和 FADEC 保护律。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol>
+  <li><strong>先问“在哪里测”。</strong>NASA基础站位把压气机出口/燃烧室入口定义为3站，把燃烧室出口/涡轮入口定义为4站；但4.5、4.9、ITT、TOT和EGT的精确位置随型号定义，不能只按名字猜。</li>
+  <li><strong>T4/TIT通常不是驾驶舱直接测量值。</strong>FAA指出，大型发动机在涡轮入口直接测温往往不现实，常在涡轮排气处布置多支热电偶，以较低温度相对监视热端状态；从EGT倒推T4必须使用该型号批准的相关关系。</li>
+  <li><strong>气体总温不等于叶片金属温度。</strong>叶片看到的是随时间和空间变化的热边界；内部冷却、气膜与TBC把主流总温和局部金属温度隔开。寿命使用的是局部温度/应力历程，不是单一驾驶舱EGT。</li>
+  <li><strong>更多冷气未必更好。</strong>冷气来自压气机，会减少核心做功能力并扰动涡轮气动；NASA研究还显示吹风比过大可能引起冷气射流抬升，使局部气膜有效度下降。</li>
+  <li><strong>温度裕度是“型号、测点、时间”三元组。</strong>例如GE90-115B的EASA限制是指示T49：起飞1090 ℃、30秒瞬态1095 ℃、最大连续1050 ℃。这些数字不是T4，也不是叶片金属允许温度。</li>
+</ol>
+
+<h2 id="站位与温度词典"><a href="#站位与温度词典" class="headerlink" title="站位与温度词典"></a>站位与温度词典</h2>
+<p>NASA Glenn的基础编号从0站自由流开始：2站为压气机入口，3站为压气机出口/燃烧室入口，4站为燃烧室出口/涡轮入口，5站为涡轮出口。这个约定适合讲Brayton循环；真实多转子发动机还会插入小数站位。小数的含义必须查该型号数据文件，而不是跨制造商强行统一。</p>
+<table><thead><tr><th>常见名称</th><th>通常指向</th><th>阅读时必须补充</th></tr></thead><tbody>
+  <tr><td>Tt3 / T3</td><td>压气机出口总温</td><td>total还是static；主流还是探针校正值</td></tr>
+  <tr><td>Tt4 / T4 / TIT</td><td>燃烧室出口、第一排涡轮入口总温</td><td>平均方式；是否模型估算；是否含冷却气掺混</td></tr>
+  <tr><td>ITT / TGT / TOT</td><td>级间、涡轮气体或涡轮出口指示温度</td><td>具体发动机测点；传感器数量和平均方式</td></tr>
+  <tr><td>T49</td><td>型号定义的4.9站指示温度</td><td>GE90 TCDS称其为Maximum Indicated Exhaust Gas Temperature</td></tr>
+  <tr><td>EGT</td><td>排气段多支热电偶的平均/校正读数</td><td>测点、限制时间、红线与瞬态容许值</td></tr>
+</tbody></table>
+<figure class="aeroengine-figure">
+  <img src="/p/ce999041/temperature-stations.svg" alt="T3、T4、T49和EGT测点与读数链路示意">
+  <figcaption>图1　温度名称必须绑定测点。站位依据NASA Glenn基础编号；FAA大型发动机测温说明与EASA GE90 T49实例用于说明“指示温度”口径。原创图，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption>
+</figure>
+
+<h2 id="总温静温与测量链"><a href="#总温静温与测量链" class="headerlink" title="总温静温与测量链"></a>总温、静温与测量链</h2>
+<div class="aeroengine-formula"><strong>低速、定比热近似：</strong>Tt = T + V²/(2cp)。Tt为总温/K，T为静温/K，V为流速/(m·s⁻¹)，cp为定压比热/(J·kg⁻¹·K⁻¹)。</div>
+<p>静温描述随流体运动的局部热力状态；总温是把该流体等熵减速到零速度后对应的温度。若V=300 m/s、cp=1150 J/(kg·K)，动能项约39.1 K，所以高速涡轮流中省略“总/静”会带来实质误差。高温燃气的cp随温度和组分变化，精细计算应使用变比热和真实气体/燃烧产物性质。</p>
+<p>真实读数还要经过探针恢复系数、辐射、导热、动态响应、环向平均、冷接点补偿、FADEC校正和显示逻辑。多支热电偶的平均值可以监视总体趋势，却可能掩盖局部热点；因此检修诊断会同时看分布、偏差和历史，而不是只看一个平均数。</p>
+
+<h2 id="为什么EGT不等于T4"><a href="#为什么EGT不等于T4" class="headerlink" title="为什么EGT不等于T4"></a>为什么 EGT 不等于 T4</h2>
+<p>从4站到后部测点，燃气经过高压和低压涡轮做功，总焓和总温下降；同时压气机冷却气在不同位置掺入，改变局部温度与质量流量。于是同一推力下，T4、各级金属温度和EGT之间存在相关性，却不是固定差值。</p>
+<p>FAA动力装置教材明确说明：第一排导向叶片入口气温最关键，但大型发动机难以直接测量，所以常把热电偶放在涡轮排气处，用较低的温度相对监视内部状态。FAA适航符合性资料进一步指出，若TIT未直接测量，可通过分析从可测温度外推，但这需要型号验证；通用经验公式不能替代。</p>
+<p>以第06期为例，EASA TCDS对GE90-110B1/113B/115B给出的1090 ℃起飞限制属于<strong>指示T49</strong>，不是TIT。正确说法是“该发动机在规定时间和构型下的T49红线”，而不是“GE90涡前温度1090 ℃”。</p>
+
+<h2 id="冷却的物理直觉"><a href="#冷却的物理直觉" class="headerlink" title="冷却的物理直觉"></a>冷却的物理直觉</h2>
+<p>涡轮叶片的热设计可以看成热阻网络：主流燃气通过对流与辐射向表面输入热流，TBC和金属导热把热量传向内部，冷却通道再用对流带走；气膜则把较冷气体铺在表面附近，降低有效热边界。真实叶片还叠加前缘高热流、尾缘薄壁、孔边应力集中、旋转科里奥利效应与非均匀燃烧温度场。</p>
+<ul>
+  <li><strong>内部对流/肋片/针肋：</strong>增加冷气与内壁换热，适合中弦和尾缘等通道。</li>
+  <li><strong>冲击冷却：</strong>喷流正对内壁形成高局部换热，常服务于前缘等高热流区域。</li>
+  <li><strong>气膜冷却：</strong>冷气经孔排出，隔离热主流；效果受密度比、吹风比、孔型、曲率、压力梯度和尾迹影响。</li>
+  <li><strong>热障涂层TBC：</strong>提高表面热阻并降低基体金属温度，但存在氧化、烧结、热生长氧化层和剥落风险。</li>
+</ul>
+<p>NASA对1900 K、3 MPa主流的VKI叶片计算表明，气膜有效度随冷气温度和质量流比呈强三维、非单调变化；压力面还可能因射流抬升而在流量增加时有效度下降。NASA实验也显示非定常尾迹会降低气膜有效度。这些结果提醒我们：冷气质量流不是单向“越大越安全”的旋钮。</p>
+
+<h2 id="冷却有效度与简化算例"><a href="#冷却有效度与简化算例" class="headerlink" title="冷却有效度与简化算例"></a>冷却有效度与简化算例</h2>
+<div class="aeroengine-formula"><strong>整体冷却有效度：</strong>η = (Tg − Tm)/(Tg − Tc)。Tg为主流代表温度，Tm为金属温度，Tc为冷气入口温度；三者须使用一致的绝对温标。0表示金属等于主流，1表示金属降到冷气温度。</div>
+<p>示教条件取Tg=1700 K、Tc=800 K、目标Tm=1100 K，则η=(1700−1100)/(1700−800)=600/900=0.667。若只有内部对流使Tm=1320 K，则η=0.422；增加气膜后Tm=1160 K，η=0.600。这里的温度是人为设定的可复算例，不对应任何在役发动机。</p>
+<p>有效度不能单独给出冷气流量。还必须求解热边界、通道压损、冷气温升、孔口流量与主流掺混。用于气膜的常见无量纲量是吹风比M=(ρcVc)/(ρgVg)；ρ与V分别是冷气/主流密度和速度。它描述局部动量/质量通量关系，但不能替代三维换热验证。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/ce999041/cooling-life-budget.svg" alt="冷却有效度示教算例和寿命预算流程">
+  <figcaption>图2　冷却有效度与寿命输入。左侧数据可由<a href="/data/aeroengine/turbine-cooling-effectiveness-example.csv">CSV</a>复算；右侧依据NASA NASALIFE的输入逻辑整理。原创图，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption>
+</figure>
+
+<h2 id="设计与分析步骤"><a href="#设计与分析步骤" class="headerlink" title="设计与分析步骤"></a>设计与分析步骤</h2>
+<ol>
+  <li><strong>冻结口径：</strong>列出每个T、P、转速的站位、总/静、平均方式、稳态/瞬态和传感器定义。</li>
+  <li><strong>求热边界：</strong>由循环与燃烧室出口温度场获得Tg、压力、热流系数、湍流和径向/周向非均匀度。</li>
+  <li><strong>分配冷气：</strong>从合适压气机级引气，核算取功代价、供气压力裕度、通道压损、孔流与封严。</li>
+  <li><strong>共轭换热：</strong>联合求解主流、气膜、内部流、TBC与金属导热，输出局部而非仅平均金属温度。</li>
+  <li><strong>热-结构映射：</strong>叠加离心载荷、气动力、温度梯度、孔边应力集中和间隙变化。</li>
+  <li><strong>任务谱寿命：</strong>把起动、加速、起飞、爬升、巡航、反推与关车映射到蠕变、LCF、氧化和涂层损伤。</li>
+  <li><strong>试验闭环：</strong>用热电偶、热漆/红外、叶片测温、冷流/热流叶栅和整机试验校准，保留不确定度与安全裕度。</li>
+</ol>
+
+<h2 id="寿命预算与温度裕度"><a href="#寿命预算与温度裕度" class="headerlink" title="寿命预算与温度裕度"></a>寿命预算与温度裕度</h2>
+<p>高温叶片常同时受蠕变断裂、低周疲劳、热机械疲劳、氧化/热腐蚀与TBC退化。NASA NASALIFE使用温度相关材料性质、蠕变断裂数据、循环疲劳数据和任务载荷预测寿命；蠕变输入可用应力-寿命表或Larson-Miller参数。其含义不是提供一个通用寿命公式，而是强调材料批次、温度、应力与任务谱缺一不可。</p>
+<div class="aeroengine-formula"><strong>指示温度裕度：</strong>MEGT = Tlimit − Tindicated。单位可用K或℃差值，但Tlimit必须对应同一发动机、同一额定、同一测点和允许时间。</div>
+<p>例如GE90-115B起飞T49若为1060 ℃，相对1090 ℃五分钟红线的指示裕度是30 ℃。它只能回答“当前T49离该限制还有多少”，不能说明叶片局部金属温度比材料极限低30 ℃，也不能直接换算剩余寿命。传感器偏差、环境、发动机退化、冷却堵塞与燃烧温度分布都会改变二者关系。</p>
+
+<h2 id="控制监测与失效模式"><a href="#控制监测与失效模式" class="headerlink" title="控制监测与失效模式"></a>控制、监测与失效模式</h2>
+<p>FADEC通常以可测温度、转速、压力和模型状态约束燃油与可调机构；起动时特别关注热点火、点火延迟后燃油积聚和hung start，高功率瞬态则关注超温、超速和喘振裕度。公开认证文件给的是边界，不等于完整控制律。</p>
+<ul>
+  <li>热电偶开路、漂移或环向平均掩盖热点，可能造成虚假裕度。</li>
+  <li>冷却孔堵塞、TBC剥落、内通道沉积或封严泄漏会提高局部金属温度，而平均EGT未必同步大幅上升。</li>
+  <li>过量冷气会损失循环效率、减少主流做功流量并改变叶栅气动；射流抬升还可能破坏局部气膜。</li>
+  <li>快速启停和推力循环造成温度梯度与低周疲劳；长时间高温更偏向蠕变/氧化损伤。</li>
+  <li>把TIT、ITT、TOT、T49和EGT写成同义词，会让试验、仿真和维护数据错位。</li>
+</ul>
+
+<h2 id="整机耦合与工程取舍"><a href="#整机耦合与工程取舍" class="headerlink" title="整机耦合与工程取舍"></a>整机耦合与工程取舍</h2>
+<p>提高T4通常提升循环比功并可能改善热效率，但会同时增加冷却需求、材料/涂层负担、NOx控制难度和寿命成本。冷气从压气机抽取后没有完整参与燃烧与膨胀，还会在涡轮内混合并造成损失。NASA的循环算法正是同时计算所需冷气和冷气注入导致的涡轮效率下降。</p>
+<p>NASA 2007年TBC研究给出一个有条件的分析结果：在保持转子入口温度时，把导向叶片冷气从主流的10%减到5%，NOx可降低近25%，并改善部件效率；这不是任意发动机的通用收益。NASA早期全覆盖气膜/TBC分析也曾在指定截面得到冷气流量减半、外表金属温度降低超过111 K。数值必须随模型、尺寸、边界和假设一起引用。</p>
+
+<h2 id="常见误区"><a href="#常见误区" class="headerlink" title="常见误区"></a>常见误区</h2>
+<ol>
+  <li><strong>“EGT就是涡前温度。”</strong>错。EGT通常位于涡轮后，T4/TIT位于第一排涡轮前；二者只能通过型号相关关系联系。</li>
+  <li><strong>“气体1700 K，叶片也就是1700 K。”</strong>错。金属温度由气膜、内部冷却、TBC、导热和局部热流共同决定。</li>
+  <li><strong>“加冷气总会提高可靠性。”</strong>错。流量、压力比和孔口动量不合适会带来气动损失、射流抬升或供气不足。</li>
+  <li><strong>“离红线还有30 ℃，寿命就很充足。”</strong>错。那只是指示温度裕度；寿命还依赖局部金属温度、应力、时间和循环次数。</li>
+  <li><strong>“不同发动机的EGT红线可横向排名热端水平。”</strong>错。测点、校正、额定、传感器和允许时间不同。</li>
+</ol>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol>
+  <li>NASA基础站位中的3站和4站分别位于哪里？</li>
+  <li>为什么大型发动机常测EGT而不是直接测T4？</li>
+  <li>判断：GE90-115B的1090 ℃ T49起飞限制就是其公开TIT。</li>
+  <li>计算：V=300 m/s、cp=1150 J/(kg·K)时，总温比静温高多少？</li>
+  <li>计算：Tg=1700 K、Tc=800 K、Tm=1160 K时，整体冷却有效度是多少？</li>
+  <li>写出三种会让局部金属温度升高、但平均EGT变化可能有限的失效。</li>
+  <li>判断：气膜吹风比越大，所有位置的冷却有效度一定越高。</li>
+  <li>为什么指示EGT裕度不能直接换算成剩余寿命？</li>
+</ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<ol>
+  <li>3站为压气机出口/燃烧室入口；4站为燃烧室出口/涡轮入口。</li>
+  <li>入口环境温度高、流场非均匀且直接测量困难；涡轮后多点热电偶更适合持续监视，但必须用型号相关关系解释。</li>
+  <li>错。EASA明确称其为指示T49，不是T4/TIT。</li>
+  <li>ΔT=V²/(2cp)=300²/(2×1150)=39.1 K。</li>
+  <li>η=(1700−1160)/(1700−800)=540/900=0.600。</li>
+  <li>例如冷却孔局部堵塞、TBC局部剥落、内通道沉积或局部燃烧热点。</li>
+  <li>错。NASA研究显示射流抬升、非定常尾迹和三维流动可使局部有效度下降。</li>
+  <li>EGT是特定测点的平均/校正读数；寿命需要局部金属温度、应力、材料数据、持续时间和循环谱。</li>
+</ol>
+<p><strong>下一期建议：</strong>进入设计与控制方法，学习“涡轮冷却流量如何进入部件匹配：从压气机引气、孔口压比到主流掺混和效率修正”，把本期温度口径接到可执行的循环/部件模型。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ol>
+  <li><a href="https://www.grc.nasa.gov/www/k-12/airplane/turbdraw.html" target="_blank" rel="noopener noreferrer">NASA Glenn：Gas Turbine Schematic and Station Numbers</a></li>
+  <li><a href="https://www.grc.nasa.gov/www/k-12/airplane/etr.html" target="_blank" rel="noopener noreferrer">NASA Glenn：Engine Temperature Variation</a></li>
+  <li><a href="https://www.faa.gov/sites/faa.gov/files/regulations_policies/handbooks_manuals/aviation/FAA-H-8083-32-AMT-Powerplant-Vol-2.pdf" target="_blank" rel="noopener noreferrer">FAA-H-8083-32A：Powerplant Handbook, Turbine Engine Temperature Indication</a></li>
+  <li><a href="https://www.faa.gov/sites/faa.gov/files/aircraft/air_cert/design_approvals/engine_prop/SSD_Turbine_Engines_List_14_CFR_33_Amdt_34_and_CS-E_Amdt_5.pdf" target="_blank" rel="noopener noreferrer">FAA：14 CFR 33 / CS-E Turbine Engine Validation Guidance</a></li>
+  <li><a href="https://www.easa.europa.eu/en/downloads/7799/en" target="_blank" rel="noopener noreferrer">EASA TCDS IM.E.002 Issue 05：GE90 Series Engines</a></li>
+  <li><a href="https://ntrs.nasa.gov/citations/19970026860" target="_blank" rel="noopener noreferrer">NASA TM-112760：Effect of Coolant Temperature and Mass Flow on Film Cooling</a></li>
+  <li><a href="https://ntrs.nasa.gov/citations/20080002104" target="_blank" rel="noopener noreferrer">NASA/TM-2007-214933：Effects of Thermal Barrier Coatings on Turbine Blade Cooling</a></li>
+  <li><a href="https://ntrs.nasa.gov/citations/19800011581" target="_blank" rel="noopener noreferrer">NASA-TM-81453：Turbine Cooling Flow and Efficiency Decrease Algorithm</a></li>
+  <li><a href="https://ntrs.nasa.gov/citations/20110013627" target="_blank" rel="noopener noreferrer">NASA NASALIFE：Predicting Lifetime of a Thermomechanically Loaded Component</a></li>
+  <li><a href="https://ntrs.nasa.gov/citations/19780023166" target="_blank" rel="noopener noreferrer">NASA-TP-1310：Film Cooling with Thermal-Barrier Coating</a></li>
+</ol>
+<p>图1、图2及CSV为本期原创可复算教学材料，许可为<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。图中冷却温度与有效度是示教数据，不对应任何实际发动机；站位、认证限制与研究结论均保留原始来源和适用边界。</p>
+]]></content><categories><category> 航空发动机 </category></categories><tags><tag> 航空发动机 </tag></tags></entry><entry><title>航空发动机学习简报｜第06期｜GE90-115B：高涵道比与复合材料风扇系统</title><link href="/p/91a87922.html"/><url>/p/91a87922.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 06 期</strong></p>
 <p><strong>副题：</strong>大风扇不是单一部件升级，而是气动、材料、轴系、短舱与适航共同闭环</p>
 <p><strong>主题类型：</strong>经典发动机剖析　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-08-06</p>
 

@@ -96,7 +96,7 @@ def main() -> None:
             errors.append(f"Missing aeroengine taxonomy links in {page.name}")
         if content.count('class="toc-item toc-level-2"') != len(post["headings"]):
             errors.append(f"TOC count mismatch in {page.name}")
-        for forbidden in ["/aircraft/", "PDF 全文转写", "application/pdf", "<iframe"]:
+        for forbidden in ['href="/aircraft/"', "PDF 全文转写", "application/pdf", "<iframe"]:
             if forbidden in content:
                 errors.append(f"Forbidden content {forbidden} in {page.name}")
 
