@@ -1,5 +1,16 @@
 [
   {
+    "slug": "shenyang-j-15",
+    "name": "歼-15“飞鲨”",
+    "url": "/p/f31f4c9e.html",
+    "firstFlightYear": 2009,
+    "lengthM": 22.28,
+    "wingspanM": 15.0,
+    "maxTakeoffWeightT": 33.0,
+    "speedLabel": "制造方未公布完整性能表；外部常见估算约Mach 2级",
+    "rangeLabel": "公开资料未确认统一任务口径；不得把转场、作战半径与不同载荷状态混用"
+  },
+  {
     "slug": "shaanxi-kj-500",
     "name": "空警-500",
     "url": "/p/803f215c.html",
