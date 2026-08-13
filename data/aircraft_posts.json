@@ -1,5 +1,122 @@
 [
 {
+    "slug": "changhe-z-10",
+    "nameZh": "直-10武装直升机",
+    "nameEn": "Changhe Z-10",
+    "eyebrow": "飞机资料整理 · 第 16 期",
+    "subtitle": "从专用平台到体系化运用：读懂中国首型国产武装直升机的公开工程脉络",
+    "date": "2026-08-12",
+    "updated": "2026-08-12",
+    "nation": "中国",
+    "category": "双发中型专用武装直升机",
+    "era": "1990年代末至今",
+    "tags": ["航空", "中国军机", "直升机"],
+    "status": "现役 / 持续改进",
+    "metrics": {
+      "firstFlightYear": 2003,
+      "lengthM": 14.15,
+      "wingspanM": 13.0,
+      "maxTakeoffWeightT": 7.0,
+      "speedLabel": "制造方未公布完整性能表；外部常见估算约270—300 km/h级",
+      "rangeLabel": "公开资料未确认统一任务口径；不得混用转场航程、作战半径与不同载荷状态"
+    },
+    "diagram": [
+      "飞行平台：五叶主旋翼、尾桨、双发与窄机身共同形成悬停和低空机动基础",
+      "机组与感知：前后串列座舱、公开可见光电设备与显示控制界面支持双人分工",
+      "结构与生存性：短翼、分置发动机、前三点起落架及公开可见防护设计需要重量折衷",
+      "体系运用：训练、保障、通信和其他航空兵平台共同决定可持续任务能力"
+    ],
+    "firstFlight": "2003年4月首架原型机首飞；2012年11月在珠海航展首次公开亮相",
+    "accent": "#5f6f59",
+    "heroImage": "/p/031c48d8/z10-airshow.webp",
+    "model": {
+      "kind": "unavailable",
+      "poster": "/p/031c48d8/z10-airshow.webp",
+      "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "method": "VAST-AI官方TripoSG本机离线双候选单图重建与八视角网格审计",
+      "inputCredit": "Tyg728；Peng Chen",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:WZ-10_at_Military_Museum_of_the_Chinese_People%27s_Revolution.jpg",
+      "license": "候选输入分别为CC BY-SA 4.0与CC BY-SA 2.0；TripoSG代码MIT",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "engine": "TripoSG",
+      "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "engineLicense": "MIT",
+      "channel": "local-offline-rtx3060",
+      "note": "已用两张许可明确的公开照片完成两次VAST-AI官方TripoSG本机离线单图重建。候选一使用博物馆完整侧面照片，seed 42、40步、guidance 7、dense depth 8、hierarchical depth 9、80,000面，输出39,934顶点、60个连通分量、1,439,988字节；机身可辨，但护栏和背景车辆被重建为大量游离结构。候选二使用空中三分之四照片，seed 84、其余参数相同，输出40,120顶点、595个连通分量、1,442,224字节；机体厚度、旋翼轴向、短翼和左右对称性严重失真。两者均未通过机身、五叶主旋翼、尾桨、双发、短翼、起落架和游离部件审计，因此不上传GLB。暂无可验证模型；静态照片只用于公开外形辨识，不能用于制造、仿真、尺寸测量或任务规划。"
+    },
+    "statement": "直-10的工程意义在于中国首次把专用武装直升机的气动布局、串列座舱、动力传动、任务设备、生存性与保障训练整合为国产平台。本文仅整理官方公开历史、可见外形和通用航空工程关系，不讨论武器操作、敏感任务系统或可执行战术。",
+    "summary": "直-10是中国自主研制的首型专用武装直升机。国家国防科技工业局公开回顾显示，项目于1998年立项，2003年4月首架原型机首飞，先后完成8架原型机和预生产机，并在2012年11月珠海航展公开亮相。公开照片可以核实串列双座、窄机身、五叶主旋翼、四叶X形尾桨、双发布置、短翼和前三点起落架。官方将Z-10ME称为国产全天候多用途中型武装直升机，是直-10的改进型；其公开改进强调飞行性能、低空机动、生存性、人机工程、可靠性与维护性。机长约14.15米、旋翼直径约13米、最大起飞重量约6—7吨等为外部常见估算，并非制造方完整数据表；不同批次与Z-10ME展示口径不能混用。",
+    "facts": [
+      {"label": "定位", "value": "双发中型专用武装直升机", "note": "中国首型自主研制专用武装直升机"},
+      {"label": "立项", "value": "1998年", "note": "国家国防科技工业局公开回顾"},
+      {"label": "首飞", "value": "2003年4月", "note": "首架原型机"},
+      {"label": "公开亮相", "value": "2012年11月", "note": "第九届中国航展"},
+      {"label": "机组", "value": "2人 / 前后串列", "note": "公开外形可核实"},
+      {"label": "旋翼", "value": "五叶主旋翼；四叶X形尾桨", "note": "公开照片可核实"},
+      {"label": "尺寸", "value": "机长约14.15 m；主旋翼直径约13.0 m；高约3.85 m", "note": "外部常见估算，非制造方数据表"},
+      {"label": "最大起飞重量", "value": "外部常见约6—7 t", "note": "不同批次、燃油与展示口径不宜混用"},
+      {"label": "动力", "value": "双台涡轴发动机", "note": "具体型号与额定随公开口径和批次存在差异"},
+      {"label": "三维模型", "value": "暂无可验证模型", "note": "两次TripoSG候选均未通过几何审计"}
+    ],
+    "timeline": [
+      {"year": "1998", "event": "专用武装直升机项目立项，进入总体方案与工程研制阶段。"},
+      {"year": "2003-04", "event": "首架原型机首飞；项目随后以多架原型机和预生产机推进试验。"},
+      {"year": "2003—2010", "event": "完成公开资料所述数百项试验、材料与部件验证，逐步形成定型与批产基础。"},
+      {"year": "2012-11", "event": "直-10在珠海航展首次公开亮相，国产专用武装直升机进入公众视野。"},
+      {"year": "2015", "event": "直-10参加纪念抗战胜利70周年阅兵，公开展示陆军航空兵装备建设。"},
+      {"year": "2018", "event": "直-10参加“和平使命-2018”等公开演训，显示平台已进入体系化训练。"},
+      {"year": "2020", "event": "Z-10ME在新加坡航展公开展示，官方将其称为直-10的改进型。"},
+      {"year": "2024", "event": "Z-10ME再次在新加坡航展海外展示，制造方公开强调综合性能、可靠性和维护性改进。"},
+      {"year": "2025", "event": "中国国防部继续发布直-10跨昼夜、复杂环境飞行训练影像。"}
+    ],
+    "designPoints": [
+      "前后串列座舱缩小机身正面投影并便于机组分工，但会带来视界、逃生、显示控制和重心布置的系统权衡。",
+      "五叶主旋翼在旋翼直径、桨盘载荷、振动、噪声和操纵响应之间折衷；薄而高速旋转的桨叶也是单图重建最容易失败的结构。",
+      "两台涡轴发动机分置于机身上部两侧，有利于动力冗余与维护布置，但传动、进排气、热管理和防护共同增加设计复杂度。",
+      "短翼可分担高速前飞升力并提供外部挂载界面，同时增加阻力、结构重量和气动干扰；本文不讨论武器接口或使用方法。",
+      "固定前三点起落架结构直接、维护方便，需在野外起降、着陆冲击、阻力和生存性之间权衡。",
+      "直升机任务能力取决于飞行平台、传感器、通信、机组训练、地面保障和联合指挥，而不是某一个速度或载荷数字。"
+    ],
+    "power": "直-10采用双台涡轴发动机，通过主减速器驱动五叶主旋翼，并通过传动轴驱动尾桨。制造方和军方未公开覆盖全部批次的发动机型号、额定功率、耗油率和高温高原功率曲线；公开资料中的型号与功率数字存在批次和来源差异，本文不把它们写成统一定值。工程上更关键的是单发安全、主减速器可靠性、进气防护、热环境、振动、维护可达性，以及高温、高原、悬停和载荷条件下的功率余度。",
+    "variants": [
+      {"name": "Z-10 / 直-10", "description": "基础现役系列；公开照片显示不同批次在天线、排气与局部设备上存在演进。"},
+      {"name": "Z-10K", "description": "中国空军公开参加“航空飞镖”等活动的改型称谓；不据有限照片推断任务系统差异。"},
+      {"name": "Z-10ME", "description": "面向海外展示的改进型。官方称其为国产全天候多用途中型武装直升机，并强调飞行性能、生存性、可靠性与维护性改进。"}
+    ],
+    "strengths": [
+      "专用窄机身与串列座舱使平台围绕低空任务进行整体优化。",
+      "双发、五叶主旋翼和分置动力为可靠性、操纵与持续改进提供工程基础。",
+      "国产研制把平台、任务设备、试验、批产和保障能力纳入同一工业体系。",
+      "持续公开训练与Z-10ME改进表明平台具有渐进升级空间。",
+      "多架原型机和大规模试验反映出从首飞到批产的系统验证路径。"
+    ],
+    "limits": [
+      "旋翼机在高温高原、悬停和重载条件下对功率余度高度敏感。",
+      "短翼、外部设备和防护会增加重量与阻力，必须与航程、升限和机动性折衷。",
+      "复杂传动、旋翼和任务设备提高维护、振动控制与保障要求。",
+      "制造方未公开完整参数表；网络常见速度、航程、载荷和功率数字口径不一。",
+      "不同批次和Z-10ME展示机的设备不能由单张照片简单外推。",
+      "两次TripoSG候选均未通过几何审计，本期不上传GLB。"
+    ],
+    "photos": [
+      {"src": "/p/031c48d8/z10-airshow.webp", "alt": "飞行中的直-10", "caption": "飞行中的直-10三分之四视图，可辨串列座舱、双发舱、短翼、起落架与尾部布局。", "credit": "Peng Chen", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Changhe_WZ-10.jpg", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"},
+      {"src": "/p/031c48d8/z10-exercise.webp", "alt": "和平使命2018演习中的直-10正面", "caption": "“和平使命-2018”期间的正面视图，可辨五叶主旋翼、串列座舱和分置发动机进气区域。", "credit": "Yevgeny Kel", "sourceUrl": "https://commons.wikimedia.org/wiki/File:PeacefulMission2018-07.jpg", "license": "CC BY 4.0", "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"},
+      {"src": "/p/031c48d8/z10-museum.webp", "alt": "中国人民革命军事博物馆展出的直-10", "caption": "博物馆展机完整侧面，可清楚辨识五叶主旋翼、X形尾桨、短翼和前三点起落架。", "credit": "Tyg728", "sourceUrl": "https://commons.wikimedia.org/wiki/File:WZ-10_at_Military_Museum_of_the_Chinese_People%27s_Revolution.jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src": "/p/031c48d8/z10me-singapore.webp", "alt": "2024新加坡航展上的Z-10ME", "caption": "2024新加坡航展静态展示的Z-10ME，用于说明公开改进型外形；前景展品不作为本文技术分析对象。", "credit": "S5A-0043", "sourceUrl": "https://commons.wikimedia.org/wiki/File:(SGP-Singapore)_Aviation_Industry_Corporation_of_China_Changhe_Z10-ME_Z10ME-02_@_Singapore_Airshow_2024-02-25.jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"}
+    ],
+    "sources": [
+      {"label": "国家国防科技工业局/新华社：第一种国产武装直升机——陆军之鹰", "url": "https://www.sastind.gov.cn/history/n152/n6760142/n6760146/c6807568/content.html"},
+      {"label": "国家国防科技工业局：中国直升机工业发展与直-10研制节点", "url": "https://www.sastind.gov.cn/n10086200/n10086344/c10174269/content.html"},
+      {"label": "中国国防部：Z-10ME亮相新加坡航展", "url": "https://www.mod.gov.cn/gfbw/wzll/kj/4829051.html"},
+      {"label": "中国国防部：陆军航空兵学院直-10训练", "url": "https://www.mod.gov.cn/gfbw/qwfb/4858710.html"},
+      {"label": "中国国防部英文网：2025年直-10跨昼夜飞行训练", "url": "https://eng.mod.gov.cn/xb/Home/Focus/16415541.html"},
+      {"label": "中国财政部/全国政协委员徐朝梁访谈：直-10研制与2012航展公开", "url": "https://bgt.mof.gov.cn/zhuantilanmu/rdwyh/dbwyfc/wyfc/201903/t20190312_3187827.htm"},
+      {"label": "Wikimedia Commons：直-10许可明确照片分类", "url": "https://commons.wikimedia.org/wiki/Category:Changhe_Z-10"},
+      {"label": "VAST-AI Research：TripoSG官方代码与MIT许可", "url": "https://github.com/VAST-AI-Research/TripoSG"}
+    ],
+    "postId": "031c48d8"
+  },
+{
     "slug": "shenyang-j-15",
     "nameZh": "歼-15“飞鲨”",
     "nameEn": "Shenyang J-15",
