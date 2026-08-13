@@ -1,5 +1,35 @@
 [
   {
+    "issue": 8,
+    "slug": "aeroengine-08-turbine-cooling-flow-component-matching",
+    "postId": "5791113c",
+    "title": "航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配",
+    "subtitle": "把一股“冷气”放回质量、压力、功率与效率守恒",
+    "type": "设计与控制方法",
+    "date": "2026-08-12",
+    "updated": "2026-08-12",
+    "heroImage": "/p/5791113c/cooling-flow-match.png",
+    "summary": "从压气机抽气站位出发，用孔口临界压比和堵塞流量算例，把冷却气的质量流、供压、燃烧旁路、逐排掺混、涡轮效率修正与轴功闭合纳入同一个可复算的部件匹配流程。",
+    "contentFile": "data/aeroengine/2026-08-12-turbine-cooling-flow-component-matching.html",
+    "keyConcepts": ["涡轮冷却流量", "压气机引气", "孔口堵塞", "临界压比", "掺混总温", "逐叶排加气", "涡轮效率修正", "轴功闭合", "喘振裕度"],
+    "headings": [
+      {"id":"本期问题与学习目标","title":"本期问题与学习目标"},{"id":"核心结论","title":"核心结论"},{"id":"从压气机到涡轮的守恒链","title":"从压气机到涡轮的守恒链"},{"id":"孔口流量与压比","title":"孔口流量与压比"},{"id":"可复算简化算例","title":"可复算简化算例"},{"id":"冷气如何改变部件匹配","title":"冷气如何改变部件匹配"},{"id":"设计分析与控制步骤","title":"设计、分析与控制步骤"},{"id":"常见误区与失效模式","title":"常见误区与失效模式"},{"id":"整机耦合与工程取舍","title":"整机耦合与工程取舍"},{"id":"自测题","title":"自测题"},{"id":"答案与下一期衔接","title":"答案与下一期衔接"},{"id":"参考资料与图示许可","title":"参考资料与图示许可"}
+    ],
+    "validationNeedles": ["0.528", "0.4375", "0.93 kg/s", "1.86%", "1683.4 K", "16.6 K", "m_dot∝Pt/√Tt", "逐排"],
+    "figures": [
+      {"src":"/p/5791113c/cooling-flow-match.svg","fallback":"/p/5791113c/cooling-flow-match.png","title":"涡轮冷却流量进入部件匹配的质量与功率链","author":"Qzl's Blog","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","basis":"NASA-TM-81453 and NASA/CR-2010-216794"},
+      {"src":"/p/5791113c/cooling-flow-example.svg","fallback":"/p/5791113c/cooling-flow-example.png","title":"冷却孔口堵塞判定和混合温度算例","author":"Qzl's Blog","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","sourceData":"/data/aeroengine/turbine-cooling-flow-example.csv"}
+    ],
+    "sources": [
+      {"title":"NASA-TM-81453: Algorithm for Calculating Turbine Cooling Flow and Efficiency Decrease","url":"https://ntrs.nasa.gov/citations/19800011581"},
+      {"title":"NASA TM X-1572: Analytical Methods for Cooled Turbine Performance","url":"https://ntrs.nasa.gov/api/citations/19680012223/downloads/19680012223.pdf"},
+      {"title":"NACA RM E51E24: Cooling Flow, Altitude and Compressor Bleed Point Effects","url":"https://ntrs.nasa.gov/citations/19930086721"},
+      {"title":"NASA/CR-2010-216794 Vol.2: Cooling-flow and Mixed-out Loss Calculation","url":"https://ntrs.nasa.gov/api/citations/20100042398/downloads/20100042398.pdf"},
+      {"title":"NASA NTRS: Effects of Film Injection on Performance of a Cooled Turbine","url":"https://ntrs.nasa.gov/citations/19780040993"}
+    ],
+    "nextTopic": "燃烧室稀熄与稳定边界：把燃油雾化、回流区、点火、压力与加减速控制连成同一张图"
+  },
+  {
     "issue": 7,
     "slug": "aeroengine-07-turbine-cooling-temperature-stations",
     "postId": "ce999041",

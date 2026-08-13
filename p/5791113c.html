@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配 | Qzl's Blog</title><meta name="keywords" content="航空"><meta name="author" content="Qzl"><meta name="copyright" content="Qzl"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从压气机抽气站位出发，用孔口临界压比和堵塞流量算例，把冷却气的质量流、供压、燃烧旁路、逐排掺混、涡轮效率修正与轴功闭合纳入同一个可复算的部件匹配流程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配">
+<meta property="og:url" content="https://qizl19.github.io/p/5791113c.html">
+<meta property="og:site_name" content="Qzl&#39;s Blog">
+<meta property="og:description" content="从压气机抽气站位出发，用孔口临界压比和堵塞流量算例，把冷却气的质量流、供压、燃烧旁路、逐排掺混、涡轮效率修正与轴功闭合纳入同一个可复算的部件匹配流程。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qizl19.github.io/p/5791113c/cooling-flow-match.png">
+<meta property="article:published_time" content="2026-08-12T01:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-12T01:00:00.000Z">
+<meta property="article:author" content="Qzl">
+<meta property="article:tag" content="航空发动机">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qizl19.github.io/p/5791113c/cooling-flow-match.png"><link rel="shortcut icon" href="/img/bitbug_favicon.ico"><link rel="canonical" href="https://qizl19.github.io/p/5791113c"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-08-12 09:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/gundongtiao.css"><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><a href="javascript:void(0);" onclick="preloader.endLoading();" title="点击跳过动画"><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="iron-container iron-circle"><div class="iron-box1 iron-circle iron-center"></div><div class="iron-box2 iron-circle iron-center"></div><div class="iron-box3 iron-circle iron-center"></div><div class="iron-box4 iron-circle iron-center"></div><div class="iron-box5 iron-circle iron-center"></div><div class="iron-box6 iron-circle"><div class="iron-coil" style="--i: 0"></div><div class="iron-coil" style="--i: 1"></div><div class="iron-coil" style="--i: 2"></div><div class="iron-coil" style="--i: 3"></div><div class="iron-coil" style="--i: 4"></div><div class="iron-coil" style="--i: 5"></div><div class="iron-coil" style="--i: 6"></div><div class="iron-coil" style="--i: 7"></div></div></div></div></a><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://pic3.zhimg.com/80/v2-94d674932a8c0f4a6cccc1b7a158c21a_720w.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/p/5791113c/cooling-flow-match.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Qzl's Blog</a></span><div id="he-plugin-simple"></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div></div></div><div id="navFn"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> search</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-12T01:00:00.000Z" title="发表于 2026-08-12 09:00:00">2026-08-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-12T01:00:00.000Z" title="更新于 2026-08-12 09:00:00">2026-08-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%88%AA%E7%A9%BA%E5%8F%91%E5%8A%A8%E6%9C%BA/">航空发动机</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" data-flag-title="航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>航空发动机学习简报 · 第 08 期</strong></p>
+<p><strong>副题：</strong>把一股“冷气”放回质量、压力、功率与效率守恒</p>
+<p><strong>主题类型：</strong>设计与控制方法　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-08-12</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote><p><strong>本期问题：</strong>压气机引出的涡轮冷却气为何不能只在热分析里给一个百分比？怎样把引气位置、孔口压比、流量、主流掺混和效率修正放回整机部件匹配？</p></blockquote>
+<p>学完本期，你应能画出冷气从压气机级间到涡轮叶排的守恒链；判断孔口是否堵塞；用简化公式复算冷气流量、燃烧室主流与涡轮入口混合温度；并说明为什么冷气同时改变压气机工作点、燃烧室空燃比、涡轮流量与功率、喷管推力和耗油率。前置知识是第01期轴功平衡、第05期压气机多级匹配和第07期温度/冷却有效度。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol><li><strong>先守质量流。</strong>压气机出口流量不是全部进入燃烧室；冷却、封严和附件引气必须从各自抽取站位扣除，并在对应涡轮叶排重新加入。</li><li><strong>冷气能否流动由总压裕度决定。</strong>供气总压须克服管路、旋转腔、叶片通道和孔口损失，并高于排出处局部静压；达到临界压比后，孔口质量流对下游压力不再一阶敏感。</li><li><strong>掺混不是“免费降温”。</strong>低焓冷气绕过燃烧室后加入主流，降低混合总温，并通过动量不匹配、尾迹和二次流造成总压/效率损失。</li><li><strong>匹配要逐排处理。</strong>冷气在静叶、动叶不同位置加入时，对下游质量流、转子功和效率的影响不同；概念设计可集总，详细设计不能把全部冷气一次加入。</li><li><strong>控制量也会被牵动。</strong>引气阀、冷却供压、转速、燃油流量、T4/EGT限制与喘振裕度形成耦合，不能只靠“增加冷气”保证热端安全。</li></ol>
+
+<h2 id="从压气机到涡轮的守恒链"><a href="#从压气机到涡轮的守恒链" class="headerlink" title="从压气机到涡轮的守恒链"></a>从压气机到涡轮的守恒链</h2>
+<p>设压气机入口空气流量为m_dot,2，压气机某级抽取冷气m_dot,c，燃烧室入口空气为m_dot,3=m_dot,2−m_dot,c−m_dot,service；加入燃油m_dot,f后，燃烧室出口热主流为m_dot,g=m_dot,3+m_dot,f。冷气在第i排前后重新加入，则下游流量变为m_dot,i+=m_dot,i−+m_dot,c,i。每一次“减去”和“加回”都必须有明确站位、总温、总压和组分。</p>
+<figure class="aeroengine-figure"><img src="/p/5791113c/cooling-flow-match.svg" alt="涡轮冷却流量进入部件匹配的质量与功率链"><figcaption>图1　冷气从压气机抽取、经供气网络到涡轮逐排加入的匹配链。原创工程示意，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption></figure>
+
+<h2 id="孔口流量与压比"><a href="#孔口流量与压比" class="headerlink" title="孔口流量与压比"></a>孔口流量与压比</h2>
+<p>把冷却孔简化为等熵喷嘴并用流量系数Cd吸收收缩和损失。当下游静压pb与上游总压Pt之比高于临界值时为亚临界流；低于临界值时喉部马赫数达到1，质量流堵塞。</p>
+<div class="aeroengine-formula"><strong>临界压比：</strong>(pb/Pt)*=[2/(γ+1)]<sup>γ/(γ−1)</sup>。对γ=1.4，临界值约0.528。</div>
+<div class="aeroengine-formula"><strong>堵塞孔口流量：</strong>m_dot=Cd A Pt/√Tt · √(γ/R) · [2/(γ+1)]<sup>(γ+1)/[2(γ−1)]</sup>。</div>
+<p>m_dot单位kg/s；Cd无量纲；A为有效面积/m²；Pt为Pa；Tt为K；γ为比热比；R为空气气体常数J/(kg·K)。公式假设稳态、准一维、理想气体、绝热、单一孔口；真实系统还需管路压损、旋转增压/降压、热浸、制造公差、孔堵塞和多孔分配。</p>
+
+<h2 id="可复算简化算例"><a href="#可复算简化算例" class="headerlink" title="可复算简化算例"></a>可复算简化算例</h2>
+<p>示教条件：Cd=0.72，A=400 mm²=4.0×10⁻⁴ m²，Pt=1.60 MPa，Tt=800 K，γ=1.4，R=287 J/(kg·K)，下游pb=0.70 MPa。pb/Pt=0.4375&lt;0.528，因此按堵塞式计算，m_dot,c≈0.93 kg/s。若压气机流量为50 kg/s，这股冷气约占1.86%。</p>
+<p>再取燃烧室热主流m_dot,g=49.5 kg/s、Ttg=1700 K，冷气m_dot,c=0.93 kg/s、Ttc=800 K，暂用相同cp并忽略掺混总压损，则质量加权混合温度Ttmix=(m_dot,g Ttg+m_dot,c Ttc)/(m_dot,g+m_dot,c)≈1683.4 K，下降约16.6 K。这个温降不是“额外效率”：冷气在压气机已消耗压缩功、绕过燃烧并在涡轮内造成掺混损失。</p>
+<figure class="aeroengine-figure"><img src="/p/5791113c/cooling-flow-example.svg" alt="冷却孔口堵塞判定和混合温度算例"><figcaption>图2　孔口压比判定、冷气流量与混合温度示教算例。数据见<a href="/data/aeroengine/turbine-cooling-flow-example.csv">CSV</a>；原创图，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption></figure>
+
+<h2 id="冷气如何改变部件匹配"><a href="#冷气如何改变部件匹配" class="headerlink" title="冷气如何改变部件匹配"></a>冷气如何改变部件匹配</h2>
+<table><thead><tr><th>部件</th><th>一阶影响</th><th>容易漏掉的二阶影响</th></tr></thead><tbody><tr><td>压气机</td><td>抽气改变下游贯流与出口流量</td><td>抽气站位、VSV/放气调度与喘振裕度改变</td></tr><tr><td>燃烧室</td><td>参与燃烧空气减少</td><td>空燃比、压降、出口温度分布和排放改变</td></tr><tr><td>涡轮</td><td>逐排质量流增加、混合温度降低</td><td>速度三角形、叶排负荷、二次流、效率和间隙变化</td></tr><tr><td>轴系</td><td>涡轮可用比功与流量改变</td><td>为满足压气机功需求，T4、压比或转速必须重新闭合</td></tr><tr><td>喷管/风扇</td><td>核心出口焓与流量改变</td><td>推力分配、涵道匹配与耗油率改变</td></tr></tbody></table>
+<p>NASA TM-81453专门把冷却流量计算和冷气注入导致的涡轮效率下降放入循环代码；NASA CR-2010-216794则指出，严格做法应逐个冷却静叶/动叶分别求冷气流、掺混损失与转子功。把全部冷气在第一级导向器前一次混合，只是概念阶段的简化。</p>
+
+<h2 id="设计分析与控制步骤"><a href="#设计分析与控制步骤" class="headerlink" title="设计分析与控制步骤"></a>设计、分析与控制步骤</h2>
+<ol><li>建立站位表：每股冷气的抽取级、供气总温/总压、管路、排出叶排和用途。</li><li>由热设计给出各叶排所需冷却有效度与初始流量，不先强行固定总百分比。</li><li>沿供气网络计算压损和热浸，用局部主流静压检查所有孔口的压比裕度与堵塞状态。</li><li>从压气机主流逐站扣除冷气，在燃烧室重新求空燃比、出口温度和压降。</li><li>在涡轮逐排加入冷气，更新质量流、总焓、总压、速度三角形和效率修正。</li><li>闭合高/低压轴功、流量连续和喷管条件，迭代到残差满足要求。</li><li>把稳态图谱扩展到起动、加速、减速、关车与热重起动，加入阀门迟滞和传感器误差。</li><li>用冷流孔流试验、热流叶栅、旋转试验与整机数据校准Cd、压损、掺混损失和安全裕度。</li></ol>
+
+<h2 id="常见误区与失效模式"><a href="#常见误区与失效模式" class="headerlink" title="常见误区与失效模式"></a>常见误区与失效模式</h2>
+<ul><li><strong>误区：冷气率是常数。</strong>实际随转速、环境、主流背压、间隙和阀位变化。</li><li><strong>误区：堵塞后流量不变。</strong>它只是不再一阶依赖下游压力，仍随上游Pt、Tt、面积与Cd变化。</li><li><strong>误区：混合温度下降就是收益。</strong>必须同时计入压缩功、燃烧旁路、总压损失和效率下降。</li><li><strong>失效：供压不足。</strong>主流压力反灌或冷却流量不足，局部金属温度迅速升高。</li><li><strong>失效：孔堵塞/侵蚀。</strong>有效面积改变，造成局部热点或过量冷气与性能损失。</li><li><strong>失效：模型一次混合。</strong>掩盖转子前后不同加气位置对功、流量与叶排负荷的差异。</li></ul>
+
+<h2 id="整机耦合与工程取舍"><a href="#整机耦合与工程取舍" class="headerlink" title="整机耦合与工程取舍"></a>整机耦合与工程取舍</h2>
+<p>较高T4可能提高循环比功，却需要更多冷却；更多引气又削弱燃烧主流和涡轮效率。材料、TBC与更高效内部冷却可减少流量，但可能增加制造成本、孔堵塞敏感性和寿命验证负担。1951年NACA计算在特定涡喷假设下发现：按所需压力级抽取最多3%冷气时，海平面推力降幅约为冷气百分比的两倍、耗油率增幅约等于冷气百分比；从压气机出口取气还有额外损失。该结果只说明趋势和抽气站位代价，不可直接套用现代高涵道比发动机。</p>
+<p>做方案比较时，建议至少保留三套账：第一套是<strong>热账</strong>，跟踪气体、壁面、TBC与冷气温度；第二套是<strong>气动账</strong>，跟踪各站总压、静压、速度三角形和掺混损失；第三套是<strong>循环账</strong>，跟踪压气机取功、燃烧加热、各轴涡轮功、喷管剩余焓和燃油流量。三套账必须以相同质量流站位连接。若只在热模型里调冷气率，而循环模型仍假设全部压气机空气进入燃烧室，就会同时高估燃烧主流、涡轮入口流量与可用功，得到内部不守恒的“好结果”。</p>
+<p>不确定度也应显式传播。孔口直径公差会以面积形式进入流量；Cd受雷诺数、孔长径比、入口圆角与倾角影响；主流静压又随叶排负荷和瞬态变化。工程模型不应只报一个冷气百分比，而应给出名义值、上下界、最不利供压裕度，以及这些偏差对金属温度、轴功残差、喘振裕度和EGT限制的灵敏度。</p>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol><li>为什么冷气需要在压气机流量中扣除、又在涡轮逐排加入？</li><li>γ=1.4时临界压比约多少？pb/Pt=0.60是否堵塞？</li><li>若堵塞孔口上游总压提高5%、其余不变，质量流一阶变化约多少？</li><li>算例中0.93 kg/s占50 kg/s的百分比是多少？</li><li>为什么混合温度降低16.6 K不能直接称为效率提高？</li><li>列出冷气对压气机匹配的两个影响。</li><li>判断：孔口堵塞后，流量与上游温度无关。</li><li>详细涡轮匹配为何不能把全部冷气在入口一次加入？</li></ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<p>1. 为保持各站质量、组分和功率守恒。2. 约0.528；0.60为亚临界。3. 约增5%。4. 1.86%。5. 还存在压缩功、旁路燃烧、总压和掺混损失。6. 下游贯流改变；工作线/喘振裕度和VSV/放气调度改变。7. 错，m_dot∝Pt/√Tt。8. 加气位置决定哪一排看见新增质量流、焓与动量，进而改变转子功和效率。</p>
+<p><strong>下一期建议：</strong>燃烧室稀熄与稳定边界——把燃油雾化、回流区、点火、压力与加减速控制连成同一张图。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ol><li><a href="https://ntrs.nasa.gov/citations/19800011581" target="_blank" rel="noopener noreferrer">NASA-TM-81453：冷却流量及其导致的涡轮效率下降算法</a></li><li><a href="https://ntrs.nasa.gov/api/citations/19680012223/downloads/19680012223.pdf" target="_blank" rel="noopener noreferrer">NASA TM X-1572：冷气流量、注入位置、温度与总压恢复对冷却涡轮性能的影响</a></li><li><a href="https://ntrs.nasa.gov/citations/19930086721" target="_blank" rel="noopener noreferrer">NACA RM E51E24：冷气流量、飞行高度和压气机抽气点对涡喷性能的计算影响</a></li><li><a href="https://ntrs.nasa.gov/api/citations/20100042398/downloads/20100042398.pdf" target="_blank" rel="noopener noreferrer">NASA/CR-2010-216794 Vol.2：逐叶排冷却流、掺混损失与转子功建模</a></li><li><a href="https://ntrs.nasa.gov/citations/19780040993" target="_blank" rel="noopener noreferrer">NASA NTRS：气膜注入对冷却涡轮性能的影响</a></li></ol><p>两幅图均为Qzl's Blog原创工程示意，采用CC BY 4.0；数字为透明示教算例，不对应任何在役型号或认证数据。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Qzl</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://qizl19.github.io/p/5791113c.html">https://qizl19.github.io/p/5791113c.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://qizl19.github.io" target="_blank">Qzl's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%88%AA%E7%A9%BA%E5%8F%91%E5%8A%A8%E6%9C%BA/">航空发动机</a></div><div class="post_share"><div class="social-share" data-image="/p/5791113c/cooling-flow-match.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/p/031c48d8.html"><img class="prev-cover" src="/p/031c48d8/z10-airshow.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">直-10武装直升机</div></div></a></div><div class="next-post pull-right"><a href="/p/f31f4c9e.html"><img class="next-cover" src="/p/f31f4c9e/j15-deck.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">歼-15“飞鲨”</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://pic3.zhimg.com/80/v2-94d674932a8c0f4a6cccc1b7a158c21a_720w.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Qzl</div><div class="author-info__description">行胜于言</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/qizl19"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/qizl19" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1073472023@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%9C%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">本期问题与学习目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%BB%93%E8%AE%BA"><span class="toc-number">2.</span> <span class="toc-text">核心结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E5%8E%8B%E6%B0%94%E6%9C%BA%E5%88%B0%E6%B6%A1%E8%BD%AE%E7%9A%84%E5%AE%88%E6%81%92%E9%93%BE"><span class="toc-number">3.</span> <span class="toc-text">从压气机到涡轮的守恒链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%94%E5%8F%A3%E6%B5%81%E9%87%8F%E4%B8%8E%E5%8E%8B%E6%AF%94"><span class="toc-number">4.</span> <span class="toc-text">孔口流量与压比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E5%A4%8D%E7%AE%97%E7%AE%80%E5%8C%96%E7%AE%97%E4%BE%8B"><span class="toc-number">5.</span> <span class="toc-text">可复算简化算例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B7%E6%B0%94%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E9%83%A8%E4%BB%B6%E5%8C%B9%E9%85%8D"><span class="toc-number">6.</span> <span class="toc-text">冷气如何改变部件匹配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E5%88%86%E6%9E%90%E4%B8%8E%E6%8E%A7%E5%88%B6%E6%AD%A5%E9%AA%A4"><span class="toc-number">7.</span> <span class="toc-text">设计、分析与控制步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E8%AF%AF%E5%8C%BA%E4%B8%8E%E5%A4%B1%E6%95%88%E6%A8%A1%E5%BC%8F"><span class="toc-number">8.</span> <span class="toc-text">常见误区与失效模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E6%9C%BA%E8%80%A6%E5%90%88%E4%B8%8E%E5%B7%A5%E7%A8%8B%E5%8F%96%E8%88%8D"><span class="toc-number">9.</span> <span class="toc-text">整机耦合与工程取舍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E6%B5%8B%E9%A2%98"><span class="toc-number">10.</span> <span class="toc-text">自测题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%94%E6%A1%88%E4%B8%8E%E4%B8%8B%E4%B8%80%E6%9C%9F%E8%A1%94%E6%8E%A5"><span class="toc-number">11.</span> <span class="toc-text">答案与下一期衔接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%E4%B8%8E%E5%9B%BE%E7%A4%BA%E8%AE%B8%E5%8F%AF"><span class="toc-number">12.</span> <span class="toc-text">参考资料与图示许可</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/p/031c48d8.html" title="直-10武装直升机"><img src="/p/031c48d8/z10-airshow.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="直-10武装直升机"></a><div class="content"><a class="title" href="/p/031c48d8.html" title="直-10武装直升机">直-10武装直升机</a><time datetime="2026-08-12T01:00:00.000Z" title="发表于 2026-08-12 09:00:00">2026-08-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/5791113c.html" title="航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配"><img src="/p/5791113c/cooling-flow-match.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配"></a><div class="content"><a class="title" href="/p/5791113c.html" title="航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配">航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配</a><time datetime="2026-08-12T01:00:00.000Z" title="发表于 2026-08-12 09:00:00">2026-08-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/f31f4c9e.html" title="歼-15“飞鲨”"><img src="/p/f31f4c9e/j15-deck.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="歼-15“飞鲨”"></a><div class="content"><a class="title" href="/p/f31f4c9e.html" title="歼-15“飞鲨”">歼-15“飞鲨”</a><time datetime="2026-08-10T01:00:00.000Z" title="发表于 2026-08-10 09:00:00">2026-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/afd87ee0.html" title="CAD/CAE 生态周报｜2026-08-10"><img src="/p/afd87ee0/cad-cae-weekly-cover-2026-08-10.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CAD/CAE 生态周报｜2026-08-10"></a><div class="content"><a class="title" href="/p/afd87ee0.html" title="CAD/CAE 生态周报｜2026-08-10">CAD/CAE 生态周报｜2026-08-10</a><time datetime="2026-08-10T01:00:00.000Z" title="发表于 2026-08-10 09:00:00">2026-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/ce999041.html" title="航空发动机学习简报｜第07期｜涡轮冷却与温度口径：T3、T4/TIT、EGT/T49与寿命预算"><img src="/p/ce999041/temperature-stations.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="航空发动机学习简报｜第07期｜涡轮冷却与温度口径：T3、T4/TIT、EGT/T49与寿命预算"></a><div class="content"><a class="title" href="/p/ce999041.html" title="航空发动机学习简报｜第07期｜涡轮冷却与温度口径：T3、T4/TIT、EGT/T49与寿命预算">航空发动机学习简报｜第07期｜涡轮冷却与温度口径：T3、T4/TIT、EGT/T49与寿命预算</a><time datetime="2026-08-09T01:00:00.000Z" title="发表于 2026-08-09 09:00:00">2026-08-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Qzl</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script src="/js/timing.js"></script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script async src="/js/weather.js"></script><script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><script src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script src="/js/grayscale.js"></script><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><div id="ghbdages" style="overflow:hidden;max-height:90px;height:auto;text-align:center;margin-top:10px"><div class="swiper-wrapper"><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" title="博客框架为Hexo_v5.4.0"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" title="主题版本Butterfly_v3.8.2"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" title="本站使用JsDelivr为静态资源提供CDN加速"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，默认线路托管于Vercel"><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，联通线路托管于Coding"><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本站项目由Gtihub托管"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></div></div></div><style>a.github-badge:hover:before {display:none}</style>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify/lib/swiperbdage_init_js.min.js"></script><!-- hexo injector body_end end --><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body></html>

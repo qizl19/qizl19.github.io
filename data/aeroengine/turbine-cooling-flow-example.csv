@@ -1,0 +1,13 @@
+quantity,value,unit,note
+Cd,0.72,1,discharge coefficient teaching assumption
+area,0.0004,m2,400 mm2
+Pt,1600000,Pa,coolant upstream total pressure
+Tt,800,K,coolant upstream total temperature
+pb,700000,Pa,local mainstream static pressure
+critical_ratio,0.528,1,gamma 1.4
+coolant_flow,0.93,kg/s,rounded choked-flow result
+compressor_flow,50,kg/s,teaching assumption
+coolant_fraction,1.86,percent,coolant_flow/compressor_flow
+hot_flow,49.5,kg/s,teaching assumption
+hot_temperature,1700,K,teaching assumption
+mixed_temperature,1683.4,K,equal-cp ideal mixing

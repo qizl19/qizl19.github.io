@@ -632,7 +632,57 @@
 </ul>
 
 <blockquote><p><strong>方法与边界：</strong>本报告只将检索窗口内、可由官方发布 / 仓库 / 论文原文或明确时间戳的社区帖子核验的信息列为“本周变化”。开发主干与 weekly / WIP / Beta 均不等同于正式发布；社区帖子仅作为问题信号。商业 CATIA 的授权门户内容可能不在公开检索范围内。</p></blockquote>
-]]></content><categories><category> CAD/CAE 生态周报 </category></categories><tags><tag> CAD/CAE </tag></tags></entry><entry><title>航空发动机学习简报｜第07期｜涡轮冷却与温度口径：T3、T4/TIT、EGT/T49与寿命预算</title><link href="/p/ce999041.html"/><url>/p/ce999041.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 07 期</strong></p>
+]]></content><categories><category> CAD/CAE 生态周报 </category></categories><tags><tag> CAD/CAE </tag></tags></entry><entry><title>航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配</title><link href="/p/5791113c.html"/><url>/p/5791113c.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 08 期</strong></p>
+<p><strong>副题：</strong>把一股“冷气”放回质量、压力、功率与效率守恒</p>
+<p><strong>主题类型：</strong>设计与控制方法　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-08-12</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote><p><strong>本期问题：</strong>压气机引出的涡轮冷却气为何不能只在热分析里给一个百分比？怎样把引气位置、孔口压比、流量、主流掺混和效率修正放回整机部件匹配？</p></blockquote>
+<p>学完本期，你应能画出冷气从压气机级间到涡轮叶排的守恒链；判断孔口是否堵塞；用简化公式复算冷气流量、燃烧室主流与涡轮入口混合温度；并说明为什么冷气同时改变压气机工作点、燃烧室空燃比、涡轮流量与功率、喷管推力和耗油率。前置知识是第01期轴功平衡、第05期压气机多级匹配和第07期温度/冷却有效度。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol><li><strong>先守质量流。</strong>压气机出口流量不是全部进入燃烧室；冷却、封严和附件引气必须从各自抽取站位扣除，并在对应涡轮叶排重新加入。</li><li><strong>冷气能否流动由总压裕度决定。</strong>供气总压须克服管路、旋转腔、叶片通道和孔口损失，并高于排出处局部静压；达到临界压比后，孔口质量流对下游压力不再一阶敏感。</li><li><strong>掺混不是“免费降温”。</strong>低焓冷气绕过燃烧室后加入主流，降低混合总温，并通过动量不匹配、尾迹和二次流造成总压/效率损失。</li><li><strong>匹配要逐排处理。</strong>冷气在静叶、动叶不同位置加入时，对下游质量流、转子功和效率的影响不同；概念设计可集总，详细设计不能把全部冷气一次加入。</li><li><strong>控制量也会被牵动。</strong>引气阀、冷却供压、转速、燃油流量、T4/EGT限制与喘振裕度形成耦合，不能只靠“增加冷气”保证热端安全。</li></ol>
+
+<h2 id="从压气机到涡轮的守恒链"><a href="#从压气机到涡轮的守恒链" class="headerlink" title="从压气机到涡轮的守恒链"></a>从压气机到涡轮的守恒链</h2>
+<p>设压气机入口空气流量为m_dot,2，压气机某级抽取冷气m_dot,c，燃烧室入口空气为m_dot,3=m_dot,2−m_dot,c−m_dot,service；加入燃油m_dot,f后，燃烧室出口热主流为m_dot,g=m_dot,3+m_dot,f。冷气在第i排前后重新加入，则下游流量变为m_dot,i+=m_dot,i−+m_dot,c,i。每一次“减去”和“加回”都必须有明确站位、总温、总压和组分。</p>
+<figure class="aeroengine-figure"><img src="/p/5791113c/cooling-flow-match.svg" alt="涡轮冷却流量进入部件匹配的质量与功率链"><figcaption>图1　冷气从压气机抽取、经供气网络到涡轮逐排加入的匹配链。原创工程示意，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption></figure>
+
+<h2 id="孔口流量与压比"><a href="#孔口流量与压比" class="headerlink" title="孔口流量与压比"></a>孔口流量与压比</h2>
+<p>把冷却孔简化为等熵喷嘴并用流量系数Cd吸收收缩和损失。当下游静压pb与上游总压Pt之比高于临界值时为亚临界流；低于临界值时喉部马赫数达到1，质量流堵塞。</p>
+<div class="aeroengine-formula"><strong>临界压比：</strong>(pb/Pt)*=[2/(γ+1)]<sup>γ/(γ−1)</sup>。对γ=1.4，临界值约0.528。</div>
+<div class="aeroengine-formula"><strong>堵塞孔口流量：</strong>m_dot=Cd A Pt/√Tt · √(γ/R) · [2/(γ+1)]<sup>(γ+1)/[2(γ−1)]</sup>。</div>
+<p>m_dot单位kg/s；Cd无量纲；A为有效面积/m²；Pt为Pa；Tt为K；γ为比热比；R为空气气体常数J/(kg·K)。公式假设稳态、准一维、理想气体、绝热、单一孔口；真实系统还需管路压损、旋转增压/降压、热浸、制造公差、孔堵塞和多孔分配。</p>
+
+<h2 id="可复算简化算例"><a href="#可复算简化算例" class="headerlink" title="可复算简化算例"></a>可复算简化算例</h2>
+<p>示教条件：Cd=0.72，A=400 mm²=4.0×10⁻⁴ m²，Pt=1.60 MPa，Tt=800 K，γ=1.4，R=287 J/(kg·K)，下游pb=0.70 MPa。pb/Pt=0.4375&lt;0.528，因此按堵塞式计算，m_dot,c≈0.93 kg/s。若压气机流量为50 kg/s，这股冷气约占1.86%。</p>
+<p>再取燃烧室热主流m_dot,g=49.5 kg/s、Ttg=1700 K，冷气m_dot,c=0.93 kg/s、Ttc=800 K，暂用相同cp并忽略掺混总压损，则质量加权混合温度Ttmix=(m_dot,g Ttg+m_dot,c Ttc)/(m_dot,g+m_dot,c)≈1683.4 K，下降约16.6 K。这个温降不是“额外效率”：冷气在压气机已消耗压缩功、绕过燃烧并在涡轮内造成掺混损失。</p>
+<figure class="aeroengine-figure"><img src="/p/5791113c/cooling-flow-example.svg" alt="冷却孔口堵塞判定和混合温度算例"><figcaption>图2　孔口压比判定、冷气流量与混合温度示教算例。数据见<a href="/data/aeroengine/turbine-cooling-flow-example.csv">CSV</a>；原创图，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption></figure>
+
+<h2 id="冷气如何改变部件匹配"><a href="#冷气如何改变部件匹配" class="headerlink" title="冷气如何改变部件匹配"></a>冷气如何改变部件匹配</h2>
+<table><thead><tr><th>部件</th><th>一阶影响</th><th>容易漏掉的二阶影响</th></tr></thead><tbody><tr><td>压气机</td><td>抽气改变下游贯流与出口流量</td><td>抽气站位、VSV/放气调度与喘振裕度改变</td></tr><tr><td>燃烧室</td><td>参与燃烧空气减少</td><td>空燃比、压降、出口温度分布和排放改变</td></tr><tr><td>涡轮</td><td>逐排质量流增加、混合温度降低</td><td>速度三角形、叶排负荷、二次流、效率和间隙变化</td></tr><tr><td>轴系</td><td>涡轮可用比功与流量改变</td><td>为满足压气机功需求，T4、压比或转速必须重新闭合</td></tr><tr><td>喷管/风扇</td><td>核心出口焓与流量改变</td><td>推力分配、涵道匹配与耗油率改变</td></tr></tbody></table>
+<p>NASA TM-81453专门把冷却流量计算和冷气注入导致的涡轮效率下降放入循环代码；NASA CR-2010-216794则指出，严格做法应逐个冷却静叶/动叶分别求冷气流、掺混损失与转子功。把全部冷气在第一级导向器前一次混合，只是概念阶段的简化。</p>
+
+<h2 id="设计分析与控制步骤"><a href="#设计分析与控制步骤" class="headerlink" title="设计分析与控制步骤"></a>设计、分析与控制步骤</h2>
+<ol><li>建立站位表：每股冷气的抽取级、供气总温/总压、管路、排出叶排和用途。</li><li>由热设计给出各叶排所需冷却有效度与初始流量，不先强行固定总百分比。</li><li>沿供气网络计算压损和热浸，用局部主流静压检查所有孔口的压比裕度与堵塞状态。</li><li>从压气机主流逐站扣除冷气，在燃烧室重新求空燃比、出口温度和压降。</li><li>在涡轮逐排加入冷气，更新质量流、总焓、总压、速度三角形和效率修正。</li><li>闭合高/低压轴功、流量连续和喷管条件，迭代到残差满足要求。</li><li>把稳态图谱扩展到起动、加速、减速、关车与热重起动，加入阀门迟滞和传感器误差。</li><li>用冷流孔流试验、热流叶栅、旋转试验与整机数据校准Cd、压损、掺混损失和安全裕度。</li></ol>
+
+<h2 id="常见误区与失效模式"><a href="#常见误区与失效模式" class="headerlink" title="常见误区与失效模式"></a>常见误区与失效模式</h2>
+<ul><li><strong>误区：冷气率是常数。</strong>实际随转速、环境、主流背压、间隙和阀位变化。</li><li><strong>误区：堵塞后流量不变。</strong>它只是不再一阶依赖下游压力，仍随上游Pt、Tt、面积与Cd变化。</li><li><strong>误区：混合温度下降就是收益。</strong>必须同时计入压缩功、燃烧旁路、总压损失和效率下降。</li><li><strong>失效：供压不足。</strong>主流压力反灌或冷却流量不足，局部金属温度迅速升高。</li><li><strong>失效：孔堵塞/侵蚀。</strong>有效面积改变，造成局部热点或过量冷气与性能损失。</li><li><strong>失效：模型一次混合。</strong>掩盖转子前后不同加气位置对功、流量与叶排负荷的差异。</li></ul>
+
+<h2 id="整机耦合与工程取舍"><a href="#整机耦合与工程取舍" class="headerlink" title="整机耦合与工程取舍"></a>整机耦合与工程取舍</h2>
+<p>较高T4可能提高循环比功，却需要更多冷却；更多引气又削弱燃烧主流和涡轮效率。材料、TBC与更高效内部冷却可减少流量，但可能增加制造成本、孔堵塞敏感性和寿命验证负担。1951年NACA计算在特定涡喷假设下发现：按所需压力级抽取最多3%冷气时，海平面推力降幅约为冷气百分比的两倍、耗油率增幅约等于冷气百分比；从压气机出口取气还有额外损失。该结果只说明趋势和抽气站位代价，不可直接套用现代高涵道比发动机。</p>
+<p>做方案比较时，建议至少保留三套账：第一套是<strong>热账</strong>，跟踪气体、壁面、TBC与冷气温度；第二套是<strong>气动账</strong>，跟踪各站总压、静压、速度三角形和掺混损失；第三套是<strong>循环账</strong>，跟踪压气机取功、燃烧加热、各轴涡轮功、喷管剩余焓和燃油流量。三套账必须以相同质量流站位连接。若只在热模型里调冷气率，而循环模型仍假设全部压气机空气进入燃烧室，就会同时高估燃烧主流、涡轮入口流量与可用功，得到内部不守恒的“好结果”。</p>
+<p>不确定度也应显式传播。孔口直径公差会以面积形式进入流量；Cd受雷诺数、孔长径比、入口圆角与倾角影响；主流静压又随叶排负荷和瞬态变化。工程模型不应只报一个冷气百分比，而应给出名义值、上下界、最不利供压裕度，以及这些偏差对金属温度、轴功残差、喘振裕度和EGT限制的灵敏度。</p>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol><li>为什么冷气需要在压气机流量中扣除、又在涡轮逐排加入？</li><li>γ=1.4时临界压比约多少？pb/Pt=0.60是否堵塞？</li><li>若堵塞孔口上游总压提高5%、其余不变，质量流一阶变化约多少？</li><li>算例中0.93 kg/s占50 kg/s的百分比是多少？</li><li>为什么混合温度降低16.6 K不能直接称为效率提高？</li><li>列出冷气对压气机匹配的两个影响。</li><li>判断：孔口堵塞后，流量与上游温度无关。</li><li>详细涡轮匹配为何不能把全部冷气在入口一次加入？</li></ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<p>1. 为保持各站质量、组分和功率守恒。2. 约0.528；0.60为亚临界。3. 约增5%。4. 1.86%。5. 还存在压缩功、旁路燃烧、总压和掺混损失。6. 下游贯流改变；工作线/喘振裕度和VSV/放气调度改变。7. 错，m_dot∝Pt/√Tt。8. 加气位置决定哪一排看见新增质量流、焓与动量，进而改变转子功和效率。</p>
+<p><strong>下一期建议：</strong>燃烧室稀熄与稳定边界——把燃油雾化、回流区、点火、压力与加减速控制连成同一张图。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ol><li><a href="https://ntrs.nasa.gov/citations/19800011581" target="_blank" rel="noopener noreferrer">NASA-TM-81453：冷却流量及其导致的涡轮效率下降算法</a></li><li><a href="https://ntrs.nasa.gov/api/citations/19680012223/downloads/19680012223.pdf" target="_blank" rel="noopener noreferrer">NASA TM X-1572：冷气流量、注入位置、温度与总压恢复对冷却涡轮性能的影响</a></li><li><a href="https://ntrs.nasa.gov/citations/19930086721" target="_blank" rel="noopener noreferrer">NACA RM E51E24：冷气流量、飞行高度和压气机抽气点对涡喷性能的计算影响</a></li><li><a href="https://ntrs.nasa.gov/api/citations/20100042398/downloads/20100042398.pdf" target="_blank" rel="noopener noreferrer">NASA/CR-2010-216794 Vol.2：逐叶排冷却流、掺混损失与转子功建模</a></li><li><a href="https://ntrs.nasa.gov/citations/19780040993" target="_blank" rel="noopener noreferrer">NASA NTRS：气膜注入对冷却涡轮性能的影响</a></li></ol><p>两幅图均为Qzl's Blog原创工程示意，采用CC BY 4.0；数字为透明示教算例，不对应任何在役型号或认证数据。</p>
+]]></content><categories><category> 航空发动机 </category></categories><tags><tag> 航空发动机 </tag></tags></entry><entry><title>航空发动机学习简报｜第07期｜涡轮冷却与温度口径：T3、T4/TIT、EGT/T49与寿命预算</title><link href="/p/ce999041.html"/><url>/p/ce999041.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 07 期</strong></p>
 <p><strong>副题：</strong>先把测点、总温/静温与指示温度说清，再讨论冷却和寿命</p>
 <p><strong>主题类型：</strong>基础与前置知识　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-08-09</p>
 
