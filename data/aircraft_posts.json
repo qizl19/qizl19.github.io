@@ -1,5 +1,258 @@
 [
 {
+  "slug": "shenyang-j-11b",
+  "nameZh": "歼-11B",
+  "nameEn": "Shenyang J-11B",
+  "eyebrow": "飞机资料整理 · 第 17 期",
+  "subtitle": "从许可生产到国产化改进：读懂一型重型战斗机的工程传承与体系运用",
+  "date": "2026-08-14",
+  "updated": "2026-08-14",
+  "nation": "中国",
+  "category": "双发重型多用途战斗机",
+  "era": "1990年代至今",
+  "tags": [
+    "航空",
+    "中国军机",
+    "战斗机"
+  ],
+  "status": "现役 / 持续升级",
+  "metrics": {
+    "firstFlightYear": 2002,
+    "lengthM": 21.9,
+    "wingspanM": 14.7,
+    "maxTakeoffWeightT": 33.0,
+    "speedLabel": "制造方未公布完整性能表；外部常见估算约Mach 2级",
+    "rangeLabel": "公开资料未确认统一任务口径；不得混用转场航程、作战半径和不同载荷状态"
+  },
+  "diagram": [
+    "气动平台：大后掠翼、翼身融合、双垂尾和全动平尾共同支持重型战斗机包线",
+    "推进与供能：双发、进气道、燃油和附件功率共同决定可用推力与任务持续性",
+    "航电与人机：雷达、显示控制、通信和飞控把平台能力转化为可管理的信息与动作",
+    "体系运用：预警、指挥、训练、机务与机场保障决定持续出动和协同能力"
+  ],
+  "firstFlight": "J-11系列源自1990年代苏-27SK许可生产；J-11B通常被公开资料置于2000年代初首飞、随后列装的国产化改进阶段",
+  "accent": "#516879",
+  "heroImage": "/p/2911a587/j11b-open-day.webp",
+  "model": {
+    "kind": "unavailable",
+    "poster": "/p/2911a587/j11b-open-day.webp",
+    "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+    "method": "VAST-AI官方TripoSG本机离线双候选单图重建与八视角网格审计",
+    "inputCredit": "U.S. Navy；颐园居",
+    "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:Chinese-j-11.jpg",
+    "license": "候选输入分别为美国政府公有领域与CC BY-SA 4.0；TripoSG代码MIT",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "engine": "TripoSG",
+    "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+    "engineLicense": "MIT",
+    "channel": "local-offline-rtx3060",
+    "note": "已检索公开模型来源，但未找到可同时确认机型、作者、再分发许可和原始下载包的合格现成模型。随后以两张许可明确照片运行VAST-AI官方TripoSG本机离线重建。候选一为美国海军空中三分之四照片，seed 42、40步、guidance 7、dense depth 8、hierarchical depth 9、80,000面，输出39,919顶点、129个连通分量、1,439,812字节、SHA256 b0f8cbdf57db2f0a578554a584f689f41fb1d519d258728a50ed33e9f0e402cf；双发双垂尾可辨，但外挂与翼面碎片化、左右不一致。候选二为2025空军航空开放活动地面照片，seed 84、其余参数相同，输出40,010顶点、11个连通分量、1,440,908字节、SHA256 c77936c61b024c5fe9f71d782c1b69fd30b5306bc4ac334afcc31e7039695af0；地面展牌被误重建，单侧翼面塌缩且存在游离部件。两者均未通过总体轮廓、双发、双垂尾、左右对称性和游离部件审计，不上传GLB。暂无可验证模型；静态照片仅用于公开外形辨识，不可用于制造、仿真、尺寸测量或任务规划。"
+  },
+  "statement": "歼-11B的公开工程价值在于：它连接了苏-27体系许可生产、国内制造能力积累、机体和航电国产化改进，以及重型战斗机的训练与保障体系。本文仅整理公开历史、可见外形与通用工程关系，不讨论敏感任务系统、武器操作或可执行战术。",
+  "summary": "歼-11B是沈阳飞机工业体系在歼-11许可生产基础上推进国产化改进形成的双发重型战斗机。公开照片可以核实单座座舱、大后掠翼、翼身融合、双垂尾、双发、机腹进气道和前三点起落架等特征。中国国防部资料明确称其为重型战斗机，并记录了制空对抗、远程机动、体系训练、昼夜训练及女飞行学员首次单飞等公开运用。制造方没有发布覆盖全部批次的完整参数表；约21.9米机长、14.7米翼展、约33吨最大起飞重量和Mach 2级速度属于基于Su-27家族的外部常见估算，不应与任意批次、燃油或任务构型强行绑定。",
+  "facts": [
+    {
+      "label": "定位",
+      "value": "双发重型多用途战斗机",
+      "note": "官方公开称重型战斗机"
+    },
+    {
+      "label": "谱系",
+      "value": "J-11许可生产基础上的国产化改进",
+      "note": "与Su-27家族具有清晰技术传承"
+    },
+    {
+      "label": "形成阶段",
+      "value": "2000年代初至中期",
+      "note": "具体首飞/定型日期公开口径不统一"
+    },
+    {
+      "label": "机组",
+      "value": "1人；J-11BS为双座",
+      "note": "不同改型不可混用"
+    },
+    {
+      "label": "总体",
+      "value": "双发、双垂尾、大后掠翼、翼身融合",
+      "note": "公开照片可核实"
+    },
+    {
+      "label": "尺寸",
+      "value": "长约21.9 m；翼展约14.7 m；高约5.9 m",
+      "note": "外部常见估算，非制造方数据表"
+    },
+    {
+      "label": "最大起飞重量",
+      "value": "外部常见约33 t",
+      "note": "受批次、燃油和构型影响"
+    },
+    {
+      "label": "动力",
+      "value": "双台加力涡扇",
+      "note": "具体型号和额定需绑定批次"
+    },
+    {
+      "label": "公开训练",
+      "value": "制空对抗、拦截、编队、昼夜与远程机动",
+      "note": "中国国防部/中国军网公开报道"
+    },
+    {
+      "label": "三维模型",
+      "value": "暂无可验证模型",
+      "note": "两次TripoSG候选均未通过审计"
+    }
+  ],
+  "timeline": [
+    {
+      "year": "1990年代",
+      "event": "中国引进苏-27SK，并以许可生产方式推进歼-11系列制造能力建设。"
+    },
+    {
+      "year": "1998",
+      "event": "早期歼-11许可生产型进入公开所述服役阶段，为后续国产化改进积累制造、试飞和保障经验。"
+    },
+    {
+      "year": "2000年代初",
+      "event": "J-11B进入公开资料通常所述的原型试飞与国产化改进阶段；精确节点存在不同外部口径。"
+    },
+    {
+      "year": "2000年代中后期",
+      "event": "J-11B逐步进入部队使用，机体、航电和动力的国产化程度持续提高。"
+    },
+    {
+      "year": "2010年代",
+      "event": "J-11B频繁出现在实战化对抗、远程机动、昼夜飞行和联合训练公开报道中。"
+    },
+    {
+      "year": "2018",
+      "event": "中国空军公开将J-11B列入多型‘国字号’战鹰，并报道大机群远程机动和体系对抗。"
+    },
+    {
+      "year": "2023",
+      "event": "首批直接培养的女飞行学员完成J-11B首次单飞，体现重型战斗机人才训练链扩展。"
+    },
+    {
+      "year": "2026",
+      "event": "中国国防部继续公开J-11B引导截击、编队协同和空战训练，说明其仍承担一线训练任务。"
+    }
+  ],
+  "designPoints": [
+    "大后掠翼与翼身融合提供较大升力面积和内部容积，但跨声速阻力、结构重量和大迎角流动相互制约。",
+    "双垂尾有利于在大迎角与双发布局下保持航向控制，同时增加重量、阻力和维护表面积。",
+    "双发布局提供推力和冗余基础，却要求处理进气畸变、推力差、尾部热环境、附件和燃油系统耦合。",
+    "前三点起落架、机体承力结构和机务通道必须适配重型飞机的起降载荷、周转和维护节奏。",
+    "国产化不是简单替换单一部件，而是材料、制造、航电、软件、试飞、适航性与供应链的系统再验证。",
+    "重型战斗机效能依赖预警、指挥、通信、训练、机务和机场保障，不能由单一速度或动作概括。"
+  ],
+  "power": "J-11B采用双台加力涡扇发动机。公开资料普遍将其动力国产化与歼-11B改进联系起来，但制造方没有发布覆盖全部批次的完整发动机型号、额定推力、耗油率与高空包线。工程分析更应关注进气总压恢复和畸变容限、双发推力一致性、加速响应、附件功率、热管理、单发处置和维护可达性。网络资料中对不同批次发动机的归属并不完全一致，本文不把某一型号写成全部飞机的统一结论。",
+  "variants": [
+    {
+      "name": "J-11 / 歼-11",
+      "description": "苏-27SK许可生产基础系列，是国内制造、试飞与保障能力积累的重要阶段。"
+    },
+    {
+      "name": "J-11B / 歼-11B",
+      "description": "单座国产化改进主型；公开资料强调机体、航电和动力系统的持续改进。"
+    },
+    {
+      "name": "J-11BS / 歼-11BS",
+      "description": "双座改型，用于训练并保留作战能力；不能与单座型参数简单混用。"
+    },
+    {
+      "name": "J-11BG / 歼-11BG",
+      "description": "外界对后续升级机的常用称呼；雷达和航电细节多来自观察与二手报道，本文不作定论。"
+    }
+  ],
+  "strengths": [
+    "大机体与双发为燃油、系统容积、推力和持续升级提供工程空间。",
+    "成熟气动谱系降低总体探索风险，使资源可转向国产化与系统集成。",
+    "长期部队使用形成训练、机务、备件和改进反馈闭环。",
+    "公开训练显示平台能够参与远程机动、体系对抗和多课目运用。",
+    "J-11BS等改型扩展了训练与任务转换链。"
+  ],
+  "limits": [
+    "较大的机体、雷达反射特征、重量和双发油耗会带来任务与保障代价。",
+    "成熟谱系也意味着气动外形受既有平台约束，升级更多依赖航电、软件和动力。",
+    "国产化部件需要重新验证接口、寿命、可靠性和供应链一致性。",
+    "制造方未公开覆盖全部批次的完整参数表，外部数字口径差异显著。",
+    "不同批次和后续升级不能由雷达罩颜色或单张照片简单判定。",
+    "两次TripoSG候选均未通过几何审计，本期不上传GLB。"
+  ],
+  "photos": [
+    {
+      "src": "/p/2911a587/j11b-open-day.webp",
+      "alt": "航空开放活动中的歼-11B",
+      "caption": "2025空军航空开放活动中的歼-11B完整地面三分之四视图，可辨双发、双垂尾、大后掠翼和起落架。",
+      "credit": "颐园居",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:J-11B_at_China%27s_Air_Force_Aviation_Open_Day_20250921.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "src": "/p/2911a587/j11b-intercept.webp",
+      "alt": "空中飞行的歼-11",
+      "caption": "美国海军拍摄的空中三分之四视图，Commons将文件归入J-11B类别；用于辨识翼身、双垂尾和外挂外形。",
+      "credit": "U.S. Navy",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chinese-j-11.jpg",
+      "license": "美国政府作品/公有领域",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Chinese-j-11.jpg"
+    },
+    {
+      "src": "/p/2911a587/j11b-static.webp",
+      "alt": "低空飞行的歼-11B机腹",
+      "caption": "低空飞行机腹视角，可辨双发尾喷口、双垂尾、主翼和放下的起落架。",
+      "credit": "Gary Todd",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shenyang_J-11_Fighter_(14152071251).jpg",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    {
+      "src": "/p/2911a587/j11b-parade.webp",
+      "alt": "阅兵编队中的歼-11B",
+      "caption": "2019国庆70周年阅兵中的歼-11B编队与运-8指挥机，用于说明体系编队场景。",
+      "credit": "N509FZ",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Y-8_command_aircraft_and_J-11B_at_PRC70_Parade_(20191001112506).jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ],
+  "sources": [
+    {
+      "label": "中国国防部：空军多型战机实战实训与J-11B大机群远程机动",
+      "url": "https://www.mod.gov.cn/gfbw/sy/rt/4802172.html"
+    },
+    {
+      "label": "中国国防部：J-11B公开列入‘国字号’新型战鹰",
+      "url": "https://www.mod.gov.cn/gfbw/spbb_214126/4826013.html"
+    },
+    {
+      "label": "中国国防部：J-11B首训空战对抗",
+      "url": "https://www.mod.gov.cn/gfbw/wzll/kj/4801413.html"
+    },
+    {
+      "label": "中国国防部英文网：J-11B引导截击、编队协同与空战训练",
+      "url": "https://eng.mod.gov.cn/2025xb/D/S/16445558.html"
+    },
+    {
+      "label": "中国国防部：首批J-11B女飞行学员首次单飞",
+      "url": "https://www.mod.gov.cn/gfbw/wzll/16211688.html"
+    },
+    {
+      "label": "美国国防部2024中国军力报告：J-11公开运用背景",
+      "url": "https://media.defense.gov/2024/Dec/18/2003615520/-1/-1/0/MILITARY-AND-SECURITYDEVELOPMENTS-INVOLVING-THE-PEOPLES-REPUBLICOF-CHINA-2024.PDF"
+    },
+    {
+      "label": "Wikimedia Commons：Shenyang J-11B许可明确照片分类",
+      "url": "https://commons.wikimedia.org/wiki/Category:Shenyang_J-11B"
+    },
+    {
+      "label": "VAST-AI Research：TripoSG官方代码与MIT许可",
+      "url": "https://github.com/VAST-AI-Research/TripoSG"
+    }
+  ],
+  "postId": "2911a587"
+},
+{
     "slug": "changhe-z-10",
     "nameZh": "直-10武装直升机",
     "nameEn": "Changhe Z-10",

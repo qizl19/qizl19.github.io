@@ -1,5 +1,16 @@
 [
   {
+    "slug": "shenyang-j-11b",
+    "name": "歼-11B",
+    "url": "/p/2911a587.html",
+    "firstFlightYear": 2002,
+    "lengthM": 21.9,
+    "wingspanM": 14.7,
+    "maxTakeoffWeightT": 33.0,
+    "speedLabel": "制造方未公布完整性能表；外部常见估算约Mach 2级",
+    "rangeLabel": "公开资料未确认统一任务口径；不得混用转场航程、作战半径和不同载荷状态"
+  },
+  {
     "slug": "changhe-z-10",
     "name": "直-10武装直升机",
     "url": "/p/031c48d8.html",
