@@ -1,0 +1,384 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>航空发动机学习简报｜第09期｜Trent XWB-97：三转子匹配、97,000 lbf 推力与热端耐久性 | Qzl's Blog</title><meta name="keywords" content="航空"><meta name="author" content="Qzl"><meta name="copyright" content="Qzl"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="以EASA型号合格证为认证基线，拆解Trent XWB-97的三转子流路、431.5 kN起飞额定、TGT与TIT口径、N1禁止稳定区、引气源切换及热端耐久性，并用XWB-84对照复算推力、干重和导出推重比变化。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="航空发动机学习简报｜第09期｜Trent XWB-97：三转子匹配、97,000 lbf 推力与热端耐久性">
+<meta property="og:url" content="https://qizl19.github.io/p/c4863d43.html">
+<meta property="og:site_name" content="Qzl&#39;s Blog">
+<meta property="og:description" content="以EASA型号合格证为认证基线，拆解Trent XWB-97的三转子流路、431.5 kN起飞额定、TGT与TIT口径、N1禁止稳定区、引气源切换及热端耐久性，并用XWB-84对照复算推力、干重和导出推重比变化。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qizl19.github.io/p/c4863d43/trent-xwb-97-hero.webp">
+<meta property="article:published_time" content="2026-08-15T01:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-15T01:00:00.000Z">
+<meta property="article:author" content="Qzl">
+<meta property="article:tag" content="航空发动机">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qizl19.github.io/p/c4863d43/trent-xwb-97-hero.webp"><link rel="shortcut icon" href="/img/bitbug_favicon.ico"><link rel="canonical" href="https://qizl19.github.io/p/c4863d43"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '航空发动机学习简报｜第09期｜Trent XWB-97：三转子匹配、97,000 lbf 推力与热端耐久性',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-08-15 09:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/gundongtiao.css"><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><a href="javascript:void(0);" onclick="preloader.endLoading();" title="点击跳过动画"><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="iron-container iron-circle"><div class="iron-box1 iron-circle iron-center"></div><div class="iron-box2 iron-circle iron-center"></div><div class="iron-box3 iron-circle iron-center"></div><div class="iron-box4 iron-circle iron-center"></div><div class="iron-box5 iron-circle iron-center"></div><div class="iron-box6 iron-circle"><div class="iron-coil" style="--i: 0"></div><div class="iron-coil" style="--i: 1"></div><div class="iron-coil" style="--i: 2"></div><div class="iron-coil" style="--i: 3"></div><div class="iron-coil" style="--i: 4"></div><div class="iron-coil" style="--i: 5"></div><div class="iron-coil" style="--i: 6"></div><div class="iron-coil" style="--i: 7"></div></div></div></div></a><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://pic3.zhimg.com/80/v2-94d674932a8c0f4a6cccc1b7a158c21a_720w.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/p/c4863d43/trent-xwb-97-hero.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Qzl's Blog</a></span><div id="he-plugin-simple"></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div></div></div><div id="navFn"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> search</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">航空发动机学习简报｜第09期｜Trent XWB-97：三转子匹配、97,000 lbf 推力与热端耐久性</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-15T01:00:00.000Z" title="发表于 2026-08-15 09:00:00">2026-08-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-15T01:00:00.000Z" title="更新于 2026-08-15 09:00:00">2026-08-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%88%AA%E7%A9%BA%E5%8F%91%E5%8A%A8%E6%9C%BA/">航空发动机</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" data-flag-title="航空发动机学习简报｜第09期｜Trent XWB-97：三转子匹配、97,000 lbf 推力与热端耐久性"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>航空发动机学习简报 · 第 09 期</strong></p>
+<p><strong>副题：</strong>从三根同轴转子到 97,000 lbf 额定，读懂推力增长、控制边界与热端耐久性的耦合</p>
+<p><strong>主题类型：</strong>经典发动机剖析　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-08-15</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote><p><strong>本期问题：</strong>Trent XWB-97 如何在三转子总体、118 英寸风扇和公开的 50:1 总压比框架下，把 A350-1000 的认证起飞推力做到 431.5 kN（97,000 lbf）？推力增长为什么不能只理解为“多喷油”，又为什么最终会落到匹配、温度、控制与耐久性上？</p></blockquote>
+<p>学完本期，你应能按 LP/IP/HP 三根轴复述公开流路与级数；区分起飞净推力、最大连续推力、TGT 与 TIT；用认证数据复算 XWB-97 相对 XWB-84 的推力、干重和裸机静态推重比变化；解释 N1 禁止稳定区、引气源切换和双通道 FADEC 为什么属于总体匹配问题；并能把制造商可靠性声明与监管机构的具体适航措施分开阅读。</p>
+<p><strong>前置知识：</strong>建议回顾第01期轴功平衡、第02期修正参数、第05期多级匹配、第07期温度口径和第08期冷却流量匹配。本文只整理公开资料；逐级特性图、真实涡前温度、冷却孔型、材料配方、寿命模型和完整控制律均属“公开资料未确认”。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol>
+  <li><strong>三转子首先解决转速自由度，不会消除气动耦合。</strong>LP、IP、HP 转子可在更合适的转速工作，但三者仍通过流量、压比、温度、喷口背压、引气与功率守恒闭合。</li>
+  <li><strong>XWB-97 的 97,000 lbf 是带条件的认证额定。</strong>EASA 给出海平面静态、标准大气条件下 5 分钟起飞净推力 431.5 kN；最大连续净推力为 369.6 kN。它们不是巡航推力，也不是任意安装状态的值。</li>
+  <li><strong>推力增长不是等比例增重。</strong>同一 TCDS 中，XWB-97 相对 XWB-84 的起飞推力增加 15.22%，最大干重增加 3.74%；仅按这两项导出的裸机静态推重比由 5.248 增至 5.829，提高 11.07%。</li>
+  <li><strong>温度限制必须认准测点。</strong>TCDS 的 TGT 测于低压涡轮第一级导向器位置；XWB-97 起飞限制 900 ℃、最大连续 850 ℃。它不是燃烧室出口或高压涡轮入口 TIT。</li>
+  <li><strong>耐久性与高推力是同一设计问题。</strong>冷却抽气减少核心有效流量并改变功率平衡，热端涂层和部件升级又受环境沉积物、循环任务和维修工艺影响；制造商宣称的在翼时间改善仍需与具体适航事件共同审查。</li>
+</ol>
+
+<h2 id="公开参数与认证口径"><a href="#公开参数与认证口径" class="headerlink" title="公开参数与认证口径"></a>公开参数与认证口径</h2>
+<p>本期认证基线为 EASA TCDS EASA.E.111 Issue 20（2026-03-30）。XWB-97 于 2017-08-31 获批；EASA 将其描述为三轴、高涵道比、轴流式涡扇，采用双通道 FADEC。Rolls-Royce 海报补充了 9.6:1 涵道比和 50:1 总压比，但这些产品级数值应理解为代表性设计点，而非全包线常数。</p>
+<table><thead><tr><th>项目</th><th>公开值</th><th>口径与边界</th></tr></thead><tbody>
+  <tr><td>流路级数</td><td>1 风扇 + 8 IPC + 6 HPC；1 HPT + 2 IPT + 6 LPT</td><td>EASA 认证描述</td></tr>
+  <tr><td>燃烧室</td><td>环形，20 个燃油喷嘴</td><td>EASA 认证描述</td></tr>
+  <tr><td>起飞净推力</td><td>431.5 kN = 97,000 lbf</td><td>海平面静态、5 分钟额定</td></tr>
+  <tr><td>最大连续净推力</td><td>369.6 kN = 83,100 lbf</td><td>海平面静态认证值</td></tr>
+  <tr><td>最大干重</td><td>7549 kg</td><td>不等于完整短舱安装重量</td></tr>
+  <tr><td>风扇直径 / 叶片数</td><td>3.00 m（118 in）/ 22 片</td><td>EASA / Rolls-Royce</td></tr>
+  <tr><td>外廓</td><td>长 4483 mm，最大半径 2001 mm</td><td>TCDS 基本发动机包络</td></tr>
+  <tr><td>100%参考转速</td><td>N1 2700、N2 8200、N3 12600 rpm</td><td>显示百分比的参考，不是各额定上限</td></tr>
+  <tr><td>涵道比 / 总压比</td><td>9.6:1 / 50:1</td><td>制造商海报代表性值</td></tr>
+  <tr><td>控制</td><td>双通道 FADEC</td><td>软件与额定构型受批准数据约束</td></tr>
+</tbody></table>
+<figure class="aeroengine-figure">
+  <img src="/p/c4863d43/trent-xwb-display.webp" alt="航展中展示的Rolls-Royce Trent XWB发动机">
+  <figcaption>图1　航展展示的 Trent XWB 系列发动机，可观察风扇、核心机匣与外部管路；该照片用于系列总体辨识，不据此判定具体 -97 构型。摄影：Matti Blume；来源：<a href="https://commons.wikimedia.org/wiki/File:Rolls-Royce_Trent_XWB,_ILA_2018.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>；许可：<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>，网页副本仅缩放并转为 WebP。</figcaption>
+</figure>
+
+<h2 id="三转子流路与轴系"><a href="#三转子流路与轴系" class="headerlink" title="三转子流路与轴系"></a>三转子流路与轴系</h2>
+<p>来流先通过单级风扇，大部分进入旁通道，核心流依次通过 8 级 IP 压气机和 6 级 HP 压气机，再进入带 20 个喷嘴的环形燃烧室。高温燃气依次通过 1 级 HPT、2 级 IPT 和 6 级 LPT：HPT 驱动 HP 压气机，IPT 驱动 IP 压气机，LPT 驱动风扇。三根同轴转子机械独立，允许风扇、IP 与 HP 系统分别接近更合适的转速范围。</p>
+<div class="aeroengine-formula"><strong>三轴功率闭合：</strong>P<sub>HPT</sub>η<sub>m,H</sub>≈P<sub>HPC</sub>；P<sub>IPT</sub>η<sub>m,I</sub>≈P<sub>IPC</sub>；P<sub>LPT</sub>η<sub>m,L</sub>≈P<sub>fan</sub>。实际模型还需加入附件取功、轴承与密封损失。</div>
+<p>式中 P 为轴功率，η<sub>m</sub> 为对应机械传递效率。三转子增加了匹配自由度，也增加了状态维度：任何一根轴的转速变化都会通过压气机出口状态、涡轮膨胀分配和喷口背压影响另外两根轴。因此“转速分开”不等于“系统解耦”。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/c4863d43/trent-xwb-97-flowpath.svg" alt="Trent XWB-97公开流路与三根同轴转子示意">
+  <figcaption>图2　Trent XWB-97 公开流路、级数与三轴功率路径，示意不按比例；冷却调度和内部几何未作猜测。依据 EASA.E.111 Issue 20 与 Rolls-Royce 高分辨率海报绘制；原创图，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption>
+</figure>
+
+<h2 id="风扇压气机与燃烧室"><a href="#风扇压气机与燃烧室" class="headerlink" title="风扇压气机与燃烧室"></a>风扇、压气机与燃烧室</h2>
+<p>118 英寸、22 片叶片的风扇负责吞入大流量空气；9.6:1 涵道比意味着旁通流是主要推进流，但核心机仍需提供驱动风扇的轴功。8 级 IPC 与 6 级 HPC 分在两根轴上，使中压和高压系统可以分别调节修正转速与工作线；代价是更多轴承、密封、转子动力学和控制状态需要协调。</p>
+<p>制造商给出的 50:1 总压比有利于提高理想循环热效率，却会提高压气机出口温度、缩小部分工况的可运行裕度，并加重燃烧、冷却和排放约束。环形燃烧室的 20 个喷嘴说明周向燃油分配必须受控，但公开资料不足以确认各批次喷嘴内部几何、分级策略或完整稀熄边界。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/c4863d43/trent-xwb-fan.webp" alt="Rolls-Royce Trent XWB风扇正面">
+  <figcaption>图3　Trent XWB 系列风扇正面，可辨 22 片大弦长风扇叶片；照片用于系列构型说明，不从外观推断未公开 -97 内部差异。摄影：Matti Blume；来源：<a href="https://commons.wikimedia.org/wiki/File:Rolls-Royce_Trent_XWB_Fan,_ILA_2018.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>；许可：<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>，网页副本仅缩放并转为 WebP。</figcaption>
+</figure>
+
+<h2 id="涡轮冷却与温度口径"><a href="#涡轮冷却与温度口径" class="headerlink" title="涡轮冷却与温度口径"></a>涡轮、冷却与温度口径</h2>
+<p>1 级 HPT 必须先提取足以驱动 6 级 HPC 的功，随后 2 级 IPT 驱动 IPC，6 级 LPT 再承担风扇功率。冷却气通常从压气机抽取，在热端逐排回注；它降低参与燃烧的有效核心流量、改变局部比热与总温并产生掺混损失，因此必须同时进入质量守恒、涡轮功率与效率修正。</p>
+<p>EASA 对 XWB-97 给出的 TGT 起飞限制为 900 ℃、最大连续 850 ℃，短时过温上限 920 ℃（最长 20 秒）。TCDS 明确 TGT 测于低压涡轮第一级导向器处，所以这组数字不能当作燃烧室出口 T4/TIT，也不能用于反推叶片金属温度。公开资料未确认真实 TIT、逐排冷却流量和局部金属温度。</p>
+
+<h2 id="控制逻辑与运行限制"><a href="#控制逻辑与运行限制" class="headerlink" title="控制逻辑与运行限制"></a>控制逻辑与运行限制</h2>
+<p>双通道 FADEC 根据推力请求、环境、三轴转速、温度和压力信号协调燃油与可调部件，并执行超温、超转和加减速限制。TCDS 还记录一个很有教学价值的边界：XWB-97 在地面稳定运行时存在 N1 64%–84% 的禁止区，EEC 逻辑阻止发动机稳定停留，但允许在加减速中穿越。禁止区并不等于该转速范围“永远不能经过”，而是说明稳态机械/气动响应需要主动规避。</p>
+<p>引气同样进入控制闭环。EASA 的引气调度表显示供气可在 HP6 与 IP8 源之间切换；取气位置改变可用压力，也改变压气机流量、燃烧室入口状态和各轴功率平衡。没有批准的完整软件与部件地图时，教学仿真应把调度写成带来源的代理规则，并通过稳态残差、喘振裕度、温度和转速限制交叉检查。</p>
+
+<h2 id="型号谱系与应用平台"><a href="#型号谱系与应用平台" class="headerlink" title="型号谱系与应用平台"></a>型号谱系与应用平台</h2>
+<p>Trent XWB 家族的主要民用型号包括面向 A350-900 的 XWB-75/79/79B/84，以及面向 A350-1000 的 XWB-97。-84 与 -97 共享三转子设计语言，但额定、干重、批准软件、部件构型和运行限制不同，不能仅凭“Trent XWB”名称互换参数。</p>
+<p>Airbus 于 2018 年 2 月向 Qatar Airways 交付首架 A350-1000，随后投入商业服务；该机型采用 XWB-97。装机后的性能还取决于进气恢复、短舱阻力、反推装置、挂架、飞机引气/取功与飞行状态，发动机台架认证静推力不能直接代替整机任务性能。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/c4863d43/a350-1000-installation.webp" alt="Qatar Airways Airbus A350-1000与两台Trent XWB-97">
+  <figcaption>图4　Qatar Airways Airbus A350-1000（A7-ANF），可辨两台 Trent XWB-97 的装机尺度。摄影：Md Shaifuzzaman Ayon；来源：<a href="https://commons.wikimedia.org/wiki/File:Qatar_Airways_A7-ANF_Airbus_A350-1041_MSN-161.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>；许可：<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>，网页副本仅缩放并转为 WebP。</figcaption>
+</figure>
+
+<h2 id="可复算的简化算例"><a href="#可复算的简化算例" class="headerlink" title="可复算的简化算例"></a>可复算的简化算例</h2>
+<p>只取同一份 EASA TCDS 的 5 分钟起飞净推力与最大干重：XWB-84 为 374.5 kN、7277 kg；XWB-97 为 431.5 kN、7549 kg。</p>
+<div class="aeroengine-formula"><strong>推力增幅：</strong>(431.5/374.5−1)×100%=15.22%；<strong>干重增幅：</strong>(7549/7277−1)×100%=3.74%。</div>
+<div class="aeroengine-formula"><strong>导出裸机静态推重比：</strong>T/(mg)。XWB-84=374500/(7277×9.80665)=5.248；XWB-97=431500/(7549×9.80665)=5.829，增幅 11.07%。</div>
+<p>这个推导只回答“认证静推力相对裸机最大干重的变化”，不代表装机推重比、巡航效率、短舱阻力或飞机推重比。最大干重也不是某一具体交付件在某一维护状态下的称重值。</p>
+<figure class="aeroengine-figure">
+  <img src="/p/c4863d43/trent-xwb-97-rating-comparison.svg" alt="XWB-84与XWB-97认证推力干重和导出推重比比较">
+  <figcaption>图5　XWB-84 与 XWB-97 的认证输入及教学推导。数据可由 <a href="/data/aeroengine/trent-xwb-97-rating-comparison.csv">CSV</a> 复算；依据 EASA.E.111 Issue 20，原创图，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption>
+</figure>
+
+<h2 id="服役可靠性与适航事件"><a href="#服役可靠性与适航事件" class="headerlink" title="服役可靠性与适航事件"></a>服役可靠性与适航事件</h2>
+<p>Rolls-Royce 在 2024 年声明 Trent XWB 家族累计超过 2000 万飞行小时、离场可靠度高于 99.9%，并称相对上一代 Trent 降低约 15% 燃油消耗。这些属于制造商按其机队与统计定义发布的声明，应保留时间窗口和口径，不能解释为每台发动机“99.9%不会故障”。</p>
+<p>面向高温、多尘环境，Rolls-Royce 另称改进型 XWB-97 可把严苛环境在翼时间提高约一倍、温和环境提高约 50%，并采用抗 CMAS 涂层；该公司说明涂层试验温度最高约 1400 ℃。这是产品改进与试验声明，不是 TGT 限值，更不等于公开了叶片金属温度或寿命模型。</p>
+<p>监管侧必须独立阅读。EASA 在国泰 CX383 事件后发布 AD 2024-0182，指出特定维修清洗工艺可能使主燃油软管退化，并要求检查与纠正措施。该事件强调维护工艺、部件构型和可追溯性；它不能被制造商的机队平均可靠度抵消，也不能据此泛化为全部 XWB-97 均处于同一风险状态。</p>
+
+<h2 id="优势代价与失效边界"><a href="#优势代价与失效边界" class="headerlink" title="优势代价与失效边界"></a>优势、代价与失效边界</h2>
+<ul>
+  <li><strong>匹配优势：</strong>三根轴把风扇、IP 与 HP 系统的最佳转速分开，提升跨工况匹配自由度。</li>
+  <li><strong>结构代价：</strong>更多同轴转子、轴承与密封增加机械复杂度、转子动力学状态和维护要求。</li>
+  <li><strong>循环优势：</strong>大涵道比服务推进效率，高总压比服务热效率；两者共同依赖热端可用功。</li>
+  <li><strong>热端边界：</strong>推力、冷却、TGT裕度、涂层、沉积物和任务循环相互耦合，不能只靠提高燃油流量。</li>
+  <li><strong>控制边界：</strong>N1禁止稳定区、三轴超转限制、引气切换和加减速调度说明稳态与瞬态必须分别验证。</li>
+  <li><strong>证据边界：</strong>认证值、制造商声明、适航指令与教学推导各自回答不同问题，不能相互替代。</li>
+</ul>
+
+<h2 id="工程分析步骤与整机耦合"><a href="#工程分析步骤与整机耦合" class="headerlink" title="工程分析步骤与整机耦合"></a>工程分析步骤与整机耦合</h2>
+<ol>
+  <li><strong>锁定构型：</strong>记录完整型号、软件/额定构型、服务通告和发动机序列范围。</li>
+  <li><strong>统一口径：</strong>给每个推力、温度、转速和重量注明测点、环境、额定持续时间与安装边界。</li>
+  <li><strong>建立三轴模型：</strong>分别闭合 HP、IP、LP 功率，并用核心流量、旁通流量和喷口条件耦合。</li>
+  <li><strong>加入二次流：</strong>把冷却、封严、环控引气和附件取功同时放入质量与功率平衡。</li>
+  <li><strong>检查可运行性：</strong>用修正转速/流量映射压气机与涡轮工作点，检查喘振裕度、超转、TGT和执行机构范围。</li>
+  <li><strong>验证瞬态：</strong>单独测试起动、加速、减速、引气切换和 N1 64%–84% 区间穿越，禁止用稳态收敛替代瞬态证据。</li>
+  <li><strong>回到整机：</strong>加入 A350-1000 进气、短舱、挂架、引气/取功、飞行包线和任务循环，再评价油耗与寿命。</li>
+</ol>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol>
+  <li>Trent XWB-97 的 LP、IP、HP 三根轴各连接哪些主要部件？</li>
+  <li>计算题：431.5 kN 比 374.5 kN 增加多少百分比？</li>
+  <li>计算题：用 431.5 kN、7549 kg 和 g=9.80665 m/s² 计算导出裸机静态推重比。</li>
+  <li>判断题：TCDS 给出的 900 ℃ TGT 就是燃烧室出口 TIT。</li>
+  <li>判断题：N1 64%–84% 禁止稳定区意味着加减速过程中也绝不能穿越。</li>
+  <li>为什么三转子增加匹配自由度，却没有消除三轴之间的耦合？</li>
+  <li>为什么 99.9% 以上离场可靠度不能替代对 AD 2024-0182 适用性的检查？</li>
+  <li>把认证静推力直接放进巡航性能模型，会遗漏哪些至少三类边界？</li>
+</ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<ol>
+  <li>LPT驱动风扇，IPT驱动8级IPC，HPT驱动6级HPC。</li>
+  <li><code>(431.5/374.5−1)×100%=15.22%</code>。</li>
+  <li><code>431500/(7549×9.80665)=5.829</code>，约5.83。</li>
+  <li>错误。TGT测于低压涡轮第一级导向器位置，不能当作TIT。</li>
+  <li>错误。EEC阻止稳定停留，但允许在加减速中穿越。</li>
+  <li>三轴机械独立，但共享流量、压比、温度、喷口背压、引气和涡轮可用功。</li>
+  <li>机队平均统计不能判断特定序列、维修工艺、部件构型与强制措施是否适用。</li>
+  <li>至少遗漏飞行马赫数/高度、进气恢复与短舱阻力、飞机引气/取功；还包括喷口、安装和退化状态。</li>
+</ol>
+<p><strong>下一期建议：</strong>转入基础/方法类，学习“燃烧室稀熄与稳定边界”：把燃油雾化、回流区、点火、压力与加减速控制连成同一张图。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ul>
+  <li><a href="https://www.easa.europa.eu/en/downloads/7635/en" target="_blank" rel="noopener noreferrer">EASA TCDS EASA.E.111 Issue 20（2026-03-30）</a>：型号、流路级数、尺寸、重量、推力、转速、TGT、引气和运行限制。</li>
+  <li><a href="https://www.rolls-royce.com/~/media/Files/R/Rolls-Royce/documents/civil-aerospace-downloads/High-Res-posters/High-Res-poster_Trent-XWB.pdf" target="_blank" rel="noopener noreferrer">Rolls-Royce Trent XWB high-resolution poster</a>：三转子总体、118英寸风扇、涵道比、总压比与公开级数。</li>
+  <li><a href="https://www.rolls-royce.com/media/our-stories/discover/2024/trent-xwb-family-surpasses-20-million-flying-hours-and-its-just-the-beginning.aspx" target="_blank" rel="noopener noreferrer">Rolls-Royce：Trent XWB family surpasses 20 million flying hours</a>：机队规模、可靠度与油耗改善的制造商声明。</li>
+  <li><a href="https://www.rolls-royce.com/media/our-stories/discover/2024/a-more-robust-trent-xwb-97-in-the-middle-east.aspx" target="_blank" rel="noopener noreferrer">Rolls-Royce：A more robust Trent XWB-97 in the Middle East</a>：耐久性升级、CMAS涂层和试验的制造商声明。</li>
+  <li><a href="https://www.easa.europa.eu/en/newsroom-and-events/news/easa-issues-follow-airworthiness-directive-trent-xwb-engines" target="_blank" rel="noopener noreferrer">EASA：Follow-up airworthiness directive for Trent XWB engines</a>：CX383事件与主燃油软管维修工艺风险。</li>
+  <li><a href="https://www.airbus.com/en/newsroom/news/2018-02-ready-for-service-qatar-airways-is-the-first-airline-to-receive-airbus-a350" target="_blank" rel="noopener noreferrer">Airbus：Qatar Airways receives first A350-1000</a>：首架交付与XWB-97应用平台。</li>
+</ul>
+<p><strong>图示与数据：</strong>图2、图5由 Qzl's Blog 依据上述官方资料绘制，CC BY 4.0；图5数据副本为 <a href="/data/aeroengine/trent-xwb-97-rating-comparison.csv">trent-xwb-97-rating-comparison.csv</a>。外部照片均来自 Wikimedia Commons，作者、来源、修改状态和许可已在图注列明；未经图注证据，不从照片推断具体内部构型。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Qzl</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://qizl19.github.io/p/c4863d43.html">https://qizl19.github.io/p/c4863d43.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://qizl19.github.io" target="_blank">Qzl's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%88%AA%E7%A9%BA%E5%8F%91%E5%8A%A8%E6%9C%BA/">航空发动机</a></div><div class="post_share"><div class="social-share" data-image="/p/c4863d43/trent-xwb-97-hero.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-right"><a href="/p/2911a587.html"><img class="next-cover" src="/p/2911a587/j11b-open-day.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">歼-11B</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://pic3.zhimg.com/80/v2-94d674932a8c0f4a6cccc1b7a158c21a_720w.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Qzl</div><div class="author-info__description">行胜于言</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/qizl19"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/qizl19" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1073472023@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%9C%9F%E9%97%AE%E9%A2%98%E4%B8%8E%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">本期问题与学习目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%BB%93%E8%AE%BA"><span class="toc-number">2.</span> <span class="toc-text">核心结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%BC%80%E5%8F%82%E6%95%B0%E4%B8%8E%E8%AE%A4%E8%AF%81%E5%8F%A3%E5%BE%84"><span class="toc-number">3.</span> <span class="toc-text">公开参数与认证口径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%BD%AC%E5%AD%90%E6%B5%81%E8%B7%AF%E4%B8%8E%E8%BD%B4%E7%B3%BB"><span class="toc-number">4.</span> <span class="toc-text">三转子流路与轴系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A3%8E%E6%89%87%E5%8E%8B%E6%B0%94%E6%9C%BA%E4%B8%8E%E7%87%83%E7%83%A7%E5%AE%A4"><span class="toc-number">5.</span> <span class="toc-text">风扇、压气机与燃烧室</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%A1%E8%BD%AE%E5%86%B7%E5%8D%B4%E4%B8%8E%E6%B8%A9%E5%BA%A6%E5%8F%A3%E5%BE%84"><span class="toc-number">6.</span> <span class="toc-text">涡轮、冷却与温度口径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E9%80%BB%E8%BE%91%E4%B8%8E%E8%BF%90%E8%A1%8C%E9%99%90%E5%88%B6"><span class="toc-number">7.</span> <span class="toc-text">控制逻辑与运行限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%8B%E5%8F%B7%E8%B0%B1%E7%B3%BB%E4%B8%8E%E5%BA%94%E7%94%A8%E5%B9%B3%E5%8F%B0"><span class="toc-number">8.</span> <span class="toc-text">型号谱系与应用平台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E5%A4%8D%E7%AE%97%E7%9A%84%E7%AE%80%E5%8C%96%E7%AE%97%E4%BE%8B"><span class="toc-number">9.</span> <span class="toc-text">可复算的简化算例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%BD%B9%E5%8F%AF%E9%9D%A0%E6%80%A7%E4%B8%8E%E9%80%82%E8%88%AA%E4%BA%8B%E4%BB%B6"><span class="toc-number">10.</span> <span class="toc-text">服役可靠性与适航事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8A%BF%E4%BB%A3%E4%BB%B7%E4%B8%8E%E5%A4%B1%E6%95%88%E8%BE%B9%E7%95%8C"><span class="toc-number">11.</span> <span class="toc-text">优势、代价与失效边界</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E5%88%86%E6%9E%90%E6%AD%A5%E9%AA%A4%E4%B8%8E%E6%95%B4%E6%9C%BA%E8%80%A6%E5%90%88"><span class="toc-number">12.</span> <span class="toc-text">工程分析步骤与整机耦合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E6%B5%8B%E9%A2%98"><span class="toc-number">13.</span> <span class="toc-text">自测题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%94%E6%A1%88%E4%B8%8E%E4%B8%8B%E4%B8%80%E6%9C%9F%E8%A1%94%E6%8E%A5"><span class="toc-number">14.</span> <span class="toc-text">答案与下一期衔接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%E4%B8%8E%E5%9B%BE%E7%A4%BA%E8%AE%B8%E5%8F%AF"><span class="toc-number">15.</span> <span class="toc-text">参考资料与图示许可</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/p/c4863d43.html" title="航空发动机学习简报｜第09期｜Trent XWB-97：三转子匹配、97,000 lbf 推力与热端耐久性"><img src="/p/c4863d43/trent-xwb-97-hero.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="航空发动机学习简报｜第09期｜Trent XWB-97：三转子匹配、97,000 lbf 推力与热端耐久性"></a><div class="content"><a class="title" href="/p/c4863d43.html" title="航空发动机学习简报｜第09期｜Trent XWB-97：三转子匹配、97,000 lbf 推力与热端耐久性">航空发动机学习简报｜第09期｜Trent XWB-97：三转子匹配、97,000 lbf 推力与热端耐久性</a><time datetime="2026-08-15T01:00:00.000Z" title="发表于 2026-08-15 09:00:00">2026-08-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/2911a587.html" title="歼-11B"><img src="/p/2911a587/j11b-open-day.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="歼-11B"></a><div class="content"><a class="title" href="/p/2911a587.html" title="歼-11B">歼-11B</a><time datetime="2026-08-14T01:00:00.000Z" title="发表于 2026-08-14 09:00:00">2026-08-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/031c48d8.html" title="直-10武装直升机"><img src="/p/031c48d8/z10-airshow.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="直-10武装直升机"></a><div class="content"><a class="title" href="/p/031c48d8.html" title="直-10武装直升机">直-10武装直升机</a><time datetime="2026-08-12T01:00:00.000Z" title="发表于 2026-08-12 09:00:00">2026-08-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/5791113c.html" title="航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配"><img src="/p/5791113c/cooling-flow-match.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配"></a><div class="content"><a class="title" href="/p/5791113c.html" title="航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配">航空发动机学习简报｜第08期｜涡轮冷却流量如何进入部件匹配</a><time datetime="2026-08-12T01:00:00.000Z" title="发表于 2026-08-12 09:00:00">2026-08-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/f31f4c9e.html" title="歼-15“飞鲨”"><img src="/p/f31f4c9e/j15-deck.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="歼-15“飞鲨”"></a><div class="content"><a class="title" href="/p/f31f4c9e.html" title="歼-15“飞鲨”">歼-15“飞鲨”</a><time datetime="2026-08-10T01:00:00.000Z" title="发表于 2026-08-10 09:00:00">2026-08-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Qzl</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script src="/js/timing.js"></script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script async src="/js/weather.js"></script><script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><script src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script src="/js/grayscale.js"></script><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><div id="ghbdages" style="overflow:hidden;max-height:90px;height:auto;text-align:center;margin-top:10px"><div class="swiper-wrapper"><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" title="博客框架为Hexo_v5.4.0"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" title="主题版本Butterfly_v3.8.2"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" title="本站使用JsDelivr为静态资源提供CDN加速"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，默认线路托管于Vercel"><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，联通线路托管于Coding"><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本站项目由Gtihub托管"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></div></div></div><style>a.github-badge:hover:before {display:none}</style>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify/lib/swiperbdage_init_js.min.js"></script><!-- hexo injector body_end end --><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body></html>

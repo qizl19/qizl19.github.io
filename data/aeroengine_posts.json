@@ -1,5 +1,39 @@
 [
   {
+    "issue": 9,
+    "slug": "aeroengine-09-trent-xwb-97-three-spool-durability",
+    "postId": "c4863d43",
+    "title": "航空发动机学习简报｜第09期｜Trent XWB-97：三转子匹配、97,000 lbf 推力与热端耐久性",
+    "subtitle": "从三根同轴转子到 97,000 lbf 额定，读懂推力增长、控制边界与热端耐久性的耦合",
+    "type": "经典发动机剖析",
+    "date": "2026-08-15",
+    "updated": "2026-08-15",
+    "heroImage": "/p/c4863d43/trent-xwb-97-hero.webp",
+    "summary": "以EASA型号合格证为认证基线，拆解Trent XWB-97的三转子流路、431.5 kN起飞额定、TGT与TIT口径、N1禁止稳定区、引气源切换及热端耐久性，并用XWB-84对照复算推力、干重和导出推重比变化。",
+    "contentFile": "data/aeroengine/2026-08-15-trent-xwb-97-three-spool-durability.html",
+    "keyConcepts": ["Trent XWB-97", "三转子匹配", "97,000 lbf", "总压比", "TGT与TIT", "FADEC", "N1禁止稳定区", "涡轮冷却", "热端耐久性", "适航指令"],
+    "headings": [
+      {"id":"本期问题与学习目标","title":"本期问题与学习目标"},{"id":"核心结论","title":"核心结论"},{"id":"公开参数与认证口径","title":"公开参数与认证口径"},{"id":"三转子流路与轴系","title":"三转子流路与轴系"},{"id":"风扇压气机与燃烧室","title":"风扇、压气机与燃烧室"},{"id":"涡轮冷却与温度口径","title":"涡轮、冷却与温度口径"},{"id":"控制逻辑与运行限制","title":"控制逻辑与运行限制"},{"id":"型号谱系与应用平台","title":"型号谱系与应用平台"},{"id":"可复算的简化算例","title":"可复算的简化算例"},{"id":"服役可靠性与适航事件","title":"服役可靠性与适航事件"},{"id":"优势代价与失效边界","title":"优势、代价与失效边界"},{"id":"工程分析步骤与整机耦合","title":"工程分析步骤与整机耦合"},{"id":"自测题","title":"自测题"},{"id":"答案与下一期衔接","title":"答案与下一期衔接"},{"id":"参考资料与图示许可","title":"参考资料与图示许可"}
+    ],
+    "validationNeedles": ["431.5 kN", "7549 kg", "15.22%", "3.74%", "5.829", "64%–84%", "900 ℃", "AD 2024-0182"],
+    "figures": [
+      {"src":"/p/c4863d43/trent-xwb-display.webp","title":"航展展示的Trent XWB系列发动机","author":"Matti Blume","sourceUrl":"https://commons.wikimedia.org/wiki/File:Rolls-Royce_Trent_XWB,_ILA_2018.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","modification":"缩放并转换为WebP"},
+      {"src":"/p/c4863d43/trent-xwb-97-flowpath.svg","fallback":"/p/c4863d43/trent-xwb-97-flowpath.png","title":"Trent XWB-97公开流路与三根同轴转子","author":"Qzl's Blog","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","basis":"EASA.E.111 Issue 20 and Rolls-Royce Trent XWB high-resolution poster"},
+      {"src":"/p/c4863d43/trent-xwb-fan.webp","title":"Trent XWB系列风扇正面","author":"Matti Blume","sourceUrl":"https://commons.wikimedia.org/wiki/File:Rolls-Royce_Trent_XWB_Fan,_ILA_2018.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","modification":"缩放并转换为WebP"},
+      {"src":"/p/c4863d43/a350-1000-installation.webp","title":"Qatar Airways Airbus A350-1000与Trent XWB-97装机状态","author":"Md Shaifuzzaman Ayon","sourceUrl":"https://commons.wikimedia.org/wiki/File:Qatar_Airways_A7-ANF_Airbus_A350-1041_MSN-161.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","modification":"缩放并转换为WebP"},
+      {"src":"/p/c4863d43/trent-xwb-97-rating-comparison.svg","fallback":"/p/c4863d43/trent-xwb-97-rating-comparison.png","title":"XWB-84与XWB-97认证推力干重和导出推重比比较","author":"Qzl's Blog","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","sourceData":"/data/aeroengine/trent-xwb-97-rating-comparison.csv"}
+    ],
+    "sources": [
+      {"title":"EASA TCDS EASA.E.111 Issue 20","url":"https://www.easa.europa.eu/en/downloads/7635/en"},
+      {"title":"Rolls-Royce Trent XWB high-resolution poster","url":"https://www.rolls-royce.com/~/media/Files/R/Rolls-Royce/documents/civil-aerospace-downloads/High-Res-posters/High-Res-poster_Trent-XWB.pdf"},
+      {"title":"Rolls-Royce: Trent XWB family surpasses 20 million flying hours","url":"https://www.rolls-royce.com/media/our-stories/discover/2024/trent-xwb-family-surpasses-20-million-flying-hours-and-its-just-the-beginning.aspx"},
+      {"title":"Rolls-Royce: A more robust Trent XWB-97 in the Middle East","url":"https://www.rolls-royce.com/media/our-stories/discover/2024/a-more-robust-trent-xwb-97-in-the-middle-east.aspx"},
+      {"title":"EASA follow-up airworthiness directive for Trent XWB engines","url":"https://www.easa.europa.eu/en/newsroom-and-events/news/easa-issues-follow-airworthiness-directive-trent-xwb-engines"},
+      {"title":"Airbus: Qatar Airways receives first A350-1000","url":"https://www.airbus.com/en/newsroom/news/2018-02-ready-for-service-qatar-airways-is-the-first-airline-to-receive-airbus-a350"}
+    ],
+    "nextTopic": "燃烧室稀熄与稳定边界：把燃油雾化、回流区、点火、压力与加减速控制连成同一张图"
+  },
+  {
     "issue": 8,
     "slug": "aeroengine-08-turbine-cooling-flow-component-matching",
     "postId": "5791113c",

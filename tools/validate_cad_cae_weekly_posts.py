@@ -89,7 +89,6 @@ def main() -> None:
         and "tmp" not in path.parts
         and not (
             "reports" in path.parts
-            and "weekly" in path.parts
             and any(part.startswith("run-") for part in path.parts)
         )
     ]

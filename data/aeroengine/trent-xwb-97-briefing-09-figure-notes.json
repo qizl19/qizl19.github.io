@@ -1,0 +1,16 @@
+{
+  "briefing": 9,
+  "backend": "Python/matplotlib",
+  "topic": "Trent XWB-97 three-spool matching, certified thrust and hot-section durability",
+  "coreConclusion": "Three-spool matching enables the certified thrust architecture, while cooling, control and durability remain coupled constraints.",
+  "source": "EASA.E.111 Issue 20, 30 March 2026",
+  "derived": {
+    "thrustIncreasePercent": 15.22,
+    "dryMassIncreasePercent": 3.74,
+    "derivedThrustWeightIncreasePercent": 11.07,
+    "xwb84ThrustWeight": 5.248,
+    "xwb97ThrustWeight": 5.829
+  },
+  "integrity": "原创工程示意；比较只使用列明的认证静推力和最大干重，未使用或伪造未公开部件图谱。",
+  "photoProcessing": "Global resize and 16:9 hero crop only; no local content edits."
+}

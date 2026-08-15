@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="526.79952pt" height="278.39952pt" viewBox="0 0 526.79952 278.39952" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-08-15T09:22:36.356706</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.8.4, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 278.39952
+L 526.79952 278.39952
+L 526.79952 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 22.966139 176.115358
+L 64.352254 176.115358
+Q 67.505482 176.115358 67.505482 172.836594
+L 67.505482 76.522896
+Q 67.505482 73.244132 64.352254 73.244132
+L 22.966139 73.244132
+Q 19.812911 73.244132 19.812911 76.522896
+L 19.812911 172.836594
+Q 19.812911 176.115358 22.966139 176.115358
+z
+" clip-path="url(#p8533d94191)" style="fill: #4ca6c7; stroke: #ffffff; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 93.913765 165.86922
+L 162.890623 165.86922
+Q 166.043851 165.86922 166.043851 162.590456
+L 166.043851 86.769034
+Q 166.043851 83.49027 162.890623 83.49027
+L 93.913765 83.49027
+Q 90.760537 83.49027 90.760537 86.769034
+L 90.760537 162.590456
+Q 90.760537 165.86922 93.913765 165.86922
+z
+" clip-path="url(#p8533d94191)" style="fill: #2878b5; stroke: #ffffff; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 184.569065 155.623082
+L 243.692086 155.623082
+Q 246.845314 155.623082 246.845314 152.344318
+L 246.845314 97.015172
+Q 246.845314 93.736408 243.692086 93.736408
+L 184.569065 93.736408
+Q 181.415837 93.736408 181.415837 97.015172
+L 181.415837 152.344318
+Q 181.415837 155.623082 184.569065 155.623082
+z
+" clip-path="url(#p8533d94191)" style="fill: #17324d; stroke: #ffffff; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 263.39976 157.67231
+L 312.668945 157.67231
+Q 315.822172 157.67231 315.822172 154.393545
+L 315.822172 94.965944
+Q 315.822172 91.68718 312.668945 91.68718
+L 263.39976 91.68718
+Q 260.246532 91.68718 260.246532 94.965944
+L 260.246532 154.393545
+Q 260.246532 157.67231 263.39976 157.67231
+z
+" clip-path="url(#p8533d94191)" style="fill: #e38b2c; stroke: #ffffff; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 328.435084 155.623082
+L 361.938129 155.623082
+Q 365.091357 155.623082 365.091357 152.344318
+L 365.091357 97.015172
+Q 365.091357 93.736408 361.938129 93.736408
+L 328.435084 93.736408
+Q 325.281856 93.736408 325.281856 97.015172
+L 325.281856 152.344318
+Q 325.281856 155.623082 328.435084 155.623082
+z
+" clip-path="url(#p8533d94191)" style="fill: #c9574d; stroke: #ffffff; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 377.704268 161.770765
+L 415.148849 161.770765
+Q 418.302076 161.770765 418.302076 158.492001
+L 418.302076 90.867489
+Q 418.302076 87.588725 415.148849 87.588725
+L 377.704268 87.588725
+Q 374.55104 87.588725 374.55104 90.867489
+L 374.55104 158.492001
+Q 374.55104 161.770765 377.704268 161.770765
+z
+" clip-path="url(#p8533d94191)" style="fill: #a86862; stroke: #ffffff; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 432.885755 172.016903
+L 488.067242 172.016903
+Q 491.22047 172.016903 491.22047 168.738139
+L 491.22047 80.621351
+Q 491.22047 77.342587 488.067242 77.342587
+L 432.885755 77.342587
+Q 429.732527 77.342587 429.732527 80.621351
+L 429.732527 168.738139
+Q 429.732527 172.016903 432.885755 172.016903
+z
+" clip-path="url(#p8533d94191)" style="fill: #3b8d78; stroke: #ffffff; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 9.197576 124.474822
+Q 258.472993 124.474822 505.735948 124.474822
+" clip-path="url(#p8533d94191)" style="fill: none; opacity: 0.75; stroke: #667784; stroke-width: 1.8; stroke-linecap: round"/>
+    <path d="M 499.335948 121.274822
+L 505.735948 124.474822
+L 499.335948 127.674822
+z
+" clip-path="url(#p8533d94191)" style="fill: #667784; opacity: 0.75; stroke: #667784; stroke-width: 1.8; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 68.322447 70.375213
+Q 285.079447 70.375213 499.600379 70.375213
+" clip-path="url(#p8533d94191)" style="fill: none; stroke: #4ca6c7; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 494.000379 67.575213
+L 499.600379 70.375213
+L 494.000379 73.175213
+z
+" clip-path="url(#p8533d94191)" style="fill: #4ca6c7; stroke: #4ca6c7; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 458.474601 215.870374
+Q 249.208701 215.870374 42.402475 215.870374
+" clip-path="url(#p8533d94191)" style="fill: none; stroke: #3b8d78; stroke-width: 2.2; stroke-linecap: round"/>
+    <path d="M 47.602475 218.470374
+L 42.402475 215.870374
+L 47.602475 213.270374
+z
+" clip-path="url(#p8533d94191)" style="fill: #3b8d78; stroke: #3b8d78; stroke-width: 2.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 391.470801 236.36265
+Q 252.561985 236.36265 116.112843 236.36265
+" clip-path="url(#p8533d94191)" style="fill: none; stroke: #2878b5; stroke-width: 2.2; stroke-linecap: round"/>
+    <path d="M 121.312843 238.96265
+L 116.112843 236.36265
+L 121.312843 233.76265
+z
+" clip-path="url(#p8533d94191)" style="fill: #2878b5; stroke: #2878b5; stroke-width: 2.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 342.203571 256.854927
+Q 272.267332 256.854927 204.790768 256.854927
+" clip-path="url(#p8533d94191)" style="fill: none; stroke: #c9574d; stroke-width: 2.2; stroke-linecap: round"/>
+    <path d="M 209.990768 259.454927
+L 204.790768 256.854927
+L 209.990768 254.254927
+z
+" clip-path="url(#p8533d94191)" style="fill: #c9574d; stroke: #c9574d; stroke-width: 2.2; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="fill: #ffffff; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif" transform="translate(35.659197 122.051495)">风扇</text>
+    <text style="fill: #ffffff; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif" transform="translate(37.192322 131.714245)">1级</text>
+   </g>
+   <g id="text_2">
+    <text style="fill: #ffffff; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif" transform="translate(112.431569 122.051495)">IP压气机</text>
+    <text style="fill: #ffffff; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif" transform="translate(121.935319 131.714245)">8级</text>
+   </g>
+   <g id="text_3">
+    <text style="fill: #ffffff; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif" transform="translate(196.216825 122.051495)">HP压气机</text>
+    <text style="fill: #ffffff; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif" transform="translate(207.6637 131.714245)">6级</text>
+   </g>
+   <g id="text_4">
+    <text style="fill: #ffffff; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif" transform="translate(268.034352 122.051495)">环形燃烧室</text>
+    <text style="fill: #ffffff; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif" transform="translate(271.100602 131.714245)">20个喷嘴</text>
+   </g>
+   <g id="text_5">
+    <text style="fill: #ffffff; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif" transform="translate(336.770981 122.051495)">HPT</text>
+    <text style="fill: #ffffff; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif" transform="translate(338.719731 131.714245)">1级</text>
+   </g>
+   <g id="text_6">
+    <text style="fill: #ffffff; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif" transform="translate(389.954058 122.051495)">IPT</text>
+    <text style="fill: #ffffff; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif" transform="translate(389.959683 131.714245)">2级</text>
+   </g>
+   <g id="text_7">
+    <text style="fill: #ffffff; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif" transform="translate(453.158373 122.051495)">LPT</text>
+    <text style="fill: #ffffff; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif" transform="translate(454.009623 131.714245)">6级</text>
+   </g>
+   <g id="text_8">
+    <text style="fill: #4ca6c7; font: 700 8px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="11.141535" y="56.03062" transform="rotate(-0 11.141535 56.03062)">旁通流</text>
+   </g>
+   <g id="text_9">
+    <text style="fill: #3b8d78; font: 700 7.2px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle" x="249.210235" y="208.903" transform="rotate(-0 249.210235 208.903)">LP轴：LPT → 风扇</text>
+   </g>
+   <g id="text_10">
+    <text style="fill: #2878b5; font: 700 7.2px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle" x="252.560539" y="229.395276" transform="rotate(-0 252.560539 229.395276)">IP轴：IPT → IP压气机</text>
+   </g>
+   <g id="text_11">
+    <text style="fill: #c9574d; font: 700 7.2px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle" x="272.268213" y="249.887553" transform="rotate(-0 272.268213 249.887553)">HP轴：HPT → HP压气机</text>
+   </g>
+   <g id="text_12">
+    <text style="fill: #17324d; font: 700 9.2px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="20.995372" y="36.76788" transform="rotate(-0 20.995372 36.76788)">三转子把风扇、IP压气机和HP压气机的最佳转速分开，再由气动与功率守恒重新耦合</text>
+   </g>
+   <g id="text_13">
+    <text style="fill: #667784; font: 7.2px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle" x="261.428993" y="176.935049" transform="rotate(-0 261.428993 176.935049)">冷却气从压气机抽取并在涡轮逐排回注；公开资料不足以还原完整冷却调度</text>
+   </g>
+   <g id="text_14">
+    <text style="font: 700 10px 'Microsoft YaHei', 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="7.2" y="15.19375" transform="rotate(-0 7.2 15.19375)">Trent XWB-97 公开流路与三根同轴转子</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p8533d94191">
+   <rect x="7.2" y="21.19375" width="512.39952" height="250.00577"/>
+  </clipPath>
+ </defs>
+</svg>

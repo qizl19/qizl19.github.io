@@ -1,0 +1,3 @@
+variant,takeoff_net_thrust_kN_5min,maximum_dry_mass_kg,derived_static_thrust_to_weight,source
+XWB-84,374.5,7277,5.247818,EASA.E.111 Issue 20
+XWB-97,431.5,7549,5.828687,EASA.E.111 Issue 20
