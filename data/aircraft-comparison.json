@@ -1,5 +1,16 @@
 [
   {
+    "slug": "shaanxi-kj-200",
+    "name": "空警-200",
+    "url": "/p/00fbfdb1.html",
+    "firstFlightYear": 2005,
+    "lengthM": 34.02,
+    "wingspanM": 38.0,
+    "maxTakeoffWeightT": 61.0,
+    "speedLabel": "外部公开资料常见约550—620 km/h；官方未公布完整飞行包线",
+    "rangeLabel": "外部公开资料常见约5,600 km；任务载荷、余油和飞行剖面未说明"
+  },
+  {
     "slug": "shenyang-j-11b",
     "name": "歼-11B",
     "url": "/p/2911a587.html",

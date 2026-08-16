@@ -1,5 +1,122 @@
 [
 {
+  "slug": "shaanxi-kj-200",
+  "nameZh": "空警-200",
+  "nameEn": "Shaanxi KJ-200",
+  "eyebrow": "飞机资料整理 · 第 18 期",
+  "subtitle": "从运-8平台到“平衡木”预警系统：理解空中预警指挥机的系统集成取舍",
+  "date": "2026-08-16",
+  "updated": "2026-08-16",
+  "nation": "中国",
+  "category": "中型空中预警与指挥飞机",
+  "era": "2000年代至今",
+  "tags": ["航空", "中国军机", "预警机"],
+  "status": "现役 / 由更新平台逐步补充",
+  "metrics": {
+    "firstFlightYear": 2005,
+    "lengthM": 34.02,
+    "wingspanM": 38.0,
+    "maxTakeoffWeightT": 61.0,
+    "speedLabel": "外部公开资料常见约550—620 km/h；官方未公布完整飞行包线",
+    "rangeLabel": "外部公开资料常见约5,600 km；任务载荷、余油和飞行剖面未说明"
+  },
+  "diagram": [
+    "载机平台：运-8系列高翼四发涡桨机体提供航程、舱容、电源和低速滞空基础",
+    "传感器集成：机背长条形雷达罩、支撑结构与机体载荷共同决定覆盖和气动代价",
+    "任务系统：雷达、识别、通信、数据处理与操作席位把回波转化为可用态势",
+    "体系运用：预警机必须与战斗机、地面站、海上力量和指挥链形成可靠信息闭环"
+  ],
+  "firstFlight": "公开研究资料通常将空警-200的首次飞行置于2005年1月；中国官方公开材料确认其在2009年国庆60周年阅兵中首次公开亮相",
+  "accent": "#527582",
+  "heroImage": "/p/00fbfdb1/kj200-zhuhai.webp",
+  "model": {
+    "kind": "unavailable",
+    "poster": "/p/00fbfdb1/kj200-zhuhai.webp",
+    "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+    "method": "VAST-AI官方TripoSG本机离线双候选单图重建与八视角网格审计",
+    "inputCredit": "日本防卫省・统合幕僚监部；Alert5",
+    "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:KJ-200_30173_20151127_(modified).jpg",
+    "license": "候选输入分别为CC BY 4.0与CC BY-SA 4.0；TripoSG代码MIT",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "engine": "TripoSG",
+    "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+    "engineLicense": "MIT",
+    "channel": "local-offline-rtx3060",
+    "note": "已检索制造商、政府、Wikimedia与公开模型来源，但未找到可同时确认机型、作者、再分发许可和原始下载包的合格现成模型。随后以两张许可明确照片运行VAST-AI官方TripoSG本机离线重建。候选一为日本防卫省空中侧视图，输入SHA256 af1c2e8949eafaea0c1f49f9bc8bc88f41aa8d65cdbaea880b7291aadc8db3c6，seed 42、40步、guidance 7、dense depth 8、hierarchical depth 9、80,000面，输出39,982顶点、343个连通分量、1,440,572字节、SHA256 31b7253b6c8a040b5788afdc9a204876429a491cfe0d17f8ce445431d834ce1a；模型近似被压成平面，机翼、四发螺旋桨和雷达罩空间关系错误。候选二为珠海航展地面三分之四视图，输入SHA256 fc264dab27cf11d428e6cacc707053798835d69a0905bd318a5fbba982b9c7b6，seed 84、其余参数相同，输出39,889顶点、724个连通分量、1,439,452字节、SHA256 9460fc613ac01e97be8b520c3061f3bbf54969614872f9a4873a29a47147961f；四发、雷达罩支撑和翼面仍明显失真。两者均未通过总体轮廓、部件数量、左右对称性和游离部件审计，不上传GLB。暂无可验证模型；静态照片仅用于公开外形辨识，不可用于制造、仿真、尺寸测量或任务规划。"
+  },
+  "statement": "空警-200的工程意义不在某个脱离条件的探测距离数字，而在把成熟运输机平台、相控阵雷达、通信数据链、任务处理、电源冷却和机组协同集成为可持续出动的空中信息节点。本文仅整理公开外形、历史与通用工程关系，不讨论敏感雷达参数、电子对抗细节或可执行作战流程。",
+  "summary": "空警-200是在运-8系列四发涡桨平台上发展形成的中型空中预警与指挥飞机，最醒目的特征是机背长条形“平衡木”雷达罩。公开资料通常把项目启动置于2002年前后、首次飞行置于2005年，并确认其在2009年国庆60周年阅兵中公开亮相；海军型空警-200H也在2019年国庆70周年阅兵中出现。公开照片可核实高置翼、四台涡桨发动机、单垂尾、前三点起落架和机背阵列罩。34.02米机长、38米翼展、约61吨最大起飞重量及约5,600千米航程均为外部公开口径，不是制造方覆盖全部批次的统一性能表。",
+  "facts": [
+    {"label": "定位", "value": "中型空中预警与指挥飞机", "note": "基于运-8系列平台"},
+    {"label": "公开首飞", "value": "通常记为2005年1月", "note": "公开研究口径；官方未发布完整试飞表"},
+    {"label": "首次公开亮相", "value": "2009年国庆60周年阅兵", "note": "中国国防部公开资料确认"},
+    {"label": "总体", "value": "高翼、四发涡桨、单垂尾、机背长条雷达罩", "note": "公开照片可核实"},
+    {"label": "尺寸", "value": "长约34.02 m；翼展约38 m；高约11.16 m", "note": "外部公开资料，非制造方数据表"},
+    {"label": "最大起飞重量", "value": "外部常见约61 t", "note": "不同平台批次和任务构型可能不同"},
+    {"label": "速度", "value": "外部常见约550—620 km/h级", "note": "额定状态与高度口径不统一"},
+    {"label": "航程", "value": "外部常见约5,600 km", "note": "不能等同任务滞空半径"},
+    {"label": "公开改型", "value": "KJ-200、KJ-200H及后续观察到的改进型", "note": "具体系统差异公开资料有限"},
+    {"label": "三维模型", "value": "暂无可验证模型", "note": "两次TripoSG候选均未通过审计"}
+  ],
+  "timeline": [
+    {"year": "2002前后", "event": "公开研究通常把空警-200项目启动置于这一时期，目标是在国产运输机平台上形成中型预警指挥能力。"},
+    {"year": "2005", "event": "公开研究通常记载原型机于1月首次飞行；具体试飞节点未见制造方完整公开。"},
+    {"year": "2006", "event": "一架试验/任务飞机在安徽坠毁，造成重大人员伤亡；公开事故讨论强调结冰、试飞安全与系统工程边界。"},
+    {"year": "2009", "event": "空警-200与空警-2000在国庆60周年阅兵中公开亮相，标志国产预警机体系从无到有。"},
+    {"year": "2012", "event": "空警-200在中国航展公开展示，机背长条形阵列罩成为其最易辨识的外形特征。"},
+    {"year": "2015", "event": "公开研究记录空警-200参与远海方向长距离编队活动，体现空中指挥与协同平台价值。"},
+    {"year": "2019", "event": "空警-200H与空警-500H等海上巡逻机梯队参加国庆70周年阅兵，海军型公开亮相。"},
+    {"year": "2025", "event": "中国国防部回顾国产预警机谱系时仍把空警-200列为从零起步的重要节点；更新平台正在补充体系能力。"}
+  ],
+  "designPoints": [
+    "运-8系列平台提供较大的任务舱、较长滞空潜力和成熟保障基础，但速度、振动、噪声与高空性能受涡桨平台约束。",
+    "长条形雷达罩沿机身纵向布置，需要同时处理阵列视场、支撑刚度、气动阻力、尾翼遮挡和雷击防护。",
+    "机背支撑把额外载荷传入机体，局部结构、疲劳、颤振与重心变化必须联合验证，不能只看外形。",
+    "预警任务对发电、冷却和电磁兼容需求很高；任务系统功耗会反向影响发动机附件、燃油和舱内环境。",
+    "侧视阵列的方位覆盖、机体遮挡和转弯姿态互相耦合，平台航线与传感器几何必须共同设计。",
+    "操作员、飞行机组、通信链和地面指挥系统共同决定信息闭环；单一雷达最大距离不能代表体系效能。"
+  ],
+  "power": "空警-200采用运-8系列常见的四台涡桨动力与多叶螺旋桨布局。公开资料对具体发动机、螺旋桨和改进批次并不完全一致，制造方也未发布覆盖全部飞机的额定功率、耗油率和高空包线。对预警机而言，动力系统不仅产生推力，还要为雷达、计算、通信、冷却与任务舱供电；因此附件功率、发电冗余、热管理、振动隔离、螺旋桨滑流和单发失效处置均是关键工程约束。",
+  "variants": [
+    {"name": "KJ-200 / 空警-200", "description": "空军使用的基本系列，采用机背长条形阵列罩，是国产中型预警机的重要早期节点。"},
+    {"name": "KJ-200H / 空警-200H", "description": "海军航空兵使用的公开改型；2019年阅兵资料称其可承担海上警戒巡逻、组网预警和指挥引导。"},
+    {"name": "KJ-200B（外部称呼）", "description": "近年照片中出现的改进外形称呼；具体雷达、通信与平台改动未获权威完整公开，本文不作性能推断。"},
+    {"name": "KJ-500后续体系", "description": "不是空警-200改型，但代表从长条形侧视阵列向固定圆盘三面阵列和更新运-9平台演进的公开路线。"}
+  ],
+  "strengths": [
+    "依托成熟运输机平台，降低从零研制专用载机的总体风险。",
+    "机背长条形阵列罩提供清晰的任务定位和较大的天线孔径布置空间。",
+    "四发涡桨适合较长时间巡航与低速值守，并具备一定动力冗余。",
+    "空军与海军型公开出现，体现平台对不同任务体系的适配价值。",
+    "为空警-500等后续国产预警机积累载机改装、任务系统与部队运用经验。"
+  ],
+  "limits": [
+    "长条形侧视阵列的几何覆盖与机体遮挡需要通过航线和系统设计补偿。",
+    "雷达罩与支撑结构增加阻力、重量、颤振和机体疲劳验证负担。",
+    "老一代运-8平台在舱内环境、高空性能、功率与可靠性方面受既有设计约束。",
+    "公开数据多为外部估算，探测距离、航程和数量常缺少工况与批次说明。",
+    "新一代空警-500等平台正在承担更多公开可见任务，空警-200的具体现役规模未获官方确认。",
+    "两次TripoSG候选均未通过几何审计，本期不上传GLB。"
+  ],
+  "photos": [
+    {"src": "/p/00fbfdb1/kj200-zhuhai.webp", "alt": "珠海航展地面滑行的空警-200", "caption": "2012年珠海航展上的空警-200完整地面三分之四视图，可辨高翼、四发、起落架与机背长条形雷达罩。", "credit": "Alert5", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shaanxi_KJ-200.jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"},
+    {"src": "/p/00fbfdb1/kj200-mod-aerial.webp", "alt": "日本防卫省拍摄的空警-200空中侧视图", "caption": "日本防卫省统合幕僚监部公开的空中侧视图，清楚展示机身、单垂尾、四发与“平衡木”雷达罩。", "credit": "日本防卫省・统合幕僚监部", "sourceUrl": "https://commons.wikimedia.org/wiki/File:KJ-200_30173_20151127_(modified).jpg", "license": "CC BY 4.0", "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"},
+    {"src": "/p/00fbfdb1/kj200h-mod-aerial.webp", "alt": "空中的海军型空警-200H", "caption": "日本防卫省统合幕僚监部公开的空警-200H空中照片，用于辨识海军型涂装、阵列罩与机体布局。", "credit": "日本防卫省・统合幕僚监部", "sourceUrl": "https://commons.wikimedia.org/wiki/File:KJ-200H_9371_20160131.jpg", "license": "CC BY 4.0", "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"},
+    {"src": "/p/00fbfdb1/kj200-parade.webp", "alt": "国庆70周年阅兵中的空警-200与歼-11B编队", "caption": "2019年国庆70周年阅兵中的空警-200与歼-11B编队，体现预警指挥机与战斗机协同的公开展示场景。", "credit": "N509FZ", "sourceUrl": "https://commons.wikimedia.org/wiki/File:KJ-200_and_J-11B_at_PRC70_Parade_(20191001112454).jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"}
+  ],
+  "sources": [
+    {"label": "中国国防部：2025阅兵专号回顾空警-200、空警-2000与空警-500谱系", "url": "https://www.mod.gov.cn/gfbw/wzll/yw_214068/16407660.html"},
+    {"label": "国家国防科技工业局：浅谈研制预警机的难点", "url": "https://www.sastind.gov.cn/n10086200/n10086331/c10335366/content.html"},
+    {"label": "新华网转载：2019海上巡逻机梯队与空警-200H公开任务定位", "url": "https://www.scspc.gov.cn/rdzt/gq70/hh70n/201910/t20191008_36751.html"},
+    {"label": "美国空军大学CASI：PRC Airborne C4ISR", "url": "https://www.airuniversity.af.edu/Portals/10/CASI/documents/Research/Infrastructure/2020-12-17%20PRC%20Airborne%20C4ISR_eBook.pdf"},
+    {"label": "美国国防部2021中国军力报告：KJ-200与后续预警机体系", "url": "https://media.defense.gov/2021/nov/03/2002885874/-1/-1/0/2021-cmpr-final.pdf"},
+    {"label": "日本防卫省统合幕僚监部：KJ-200公开识别照片来源", "url": "https://www.mod.go.jp/js/Press/press2015/press_pdf/p20151127_02.pdf"},
+    {"label": "Wikimedia Commons：KJ-200许可明确照片分类", "url": "https://commons.wikimedia.org/wiki/Category:KJ-200"},
+    {"label": "VAST-AI Research：TripoSG官方代码与MIT许可", "url": "https://github.com/VAST-AI-Research/TripoSG"}
+  ],
+  "postId": "00fbfdb1"
+},
+{
   "slug": "shenyang-j-11b",
   "nameZh": "歼-11B",
   "nameEn": "Shenyang J-11B",
