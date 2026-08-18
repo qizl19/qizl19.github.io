@@ -1,0 +1,8 @@
+quantity,symbol,value,unit,note
+effective_recirculation_volume,Veff,0.006,m3,teaching assumption
+effective_volumetric_flow,Qeff,0.8,m3/s,teaching assumption
+flow_residence_time,tau_flow,0.0075,s,Veff/Qeff
+effective_chemical_time_case_A,tau_chem_A,0.0030,s,warm well-atomized teaching case
+Damkohler_case_A,Da_A,2.50,dimensionless,tau_flow/tau_chem_A
+effective_chemical_time_case_B,tau_chem_B,0.0050,s,colder poorer-evaporation teaching case
+Damkohler_case_B,Da_B,1.50,dimensionless,tau_flow/tau_chem_B

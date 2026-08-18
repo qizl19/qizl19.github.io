@@ -1,5 +1,37 @@
 [
   {
+    "issue": 10,
+    "slug": "combustor-lean-blowout-stability-boundary",
+    "postId": "0ef0310c",
+    "title": "航空发动机学习简报｜第10期｜燃烧室稀熄与稳定边界",
+    "subtitle": "把燃油雾化、回流区、点火、压力与加减速控制连成同一张图",
+    "type": "基础与前置知识",
+    "date": "2026-08-18",
+    "updated": "2026-08-18",
+    "heroImage": "/p/0ef0310c/combustor-stability-map.png",
+    "summary": "用雾化、蒸发、回流输运与时间尺度解释稀熄和高空再点火，借教学算例复算Damköhler数，并把燃烧稳定下限放入FADEC加减速、温度、超转与喘振限制的共同约束中。",
+    "contentFile": "data/aeroengine/2026-08-18-combustor-lean-blowout-stability.html",
+    "keyConcepts": ["稀熄LBO", "火焰稳定", "回流区", "燃油雾化", "高空再点火", "Damköhler数", "停留时间", "FADEC", "加减速调度", "燃烧稳定边界"],
+    "headings": [
+      {"id":"本期问题与学习目标","title":"本期问题与学习目标"},{"id":"核心结论","title":"核心结论"},{"id":"从雾化到火焰锚定","title":"从雾化到火焰锚定"},{"id":"时间尺度与Damkohler数","title":"时间尺度与 Damköhler 数"},{"id":"压力温度与高空再点火","title":"压力、温度与高空再点火"},{"id":"可复算简化算例","title":"可复算的简化算例"},{"id":"加减速中的燃油调度","title":"加减速中的燃油调度"},{"id":"点火与再点火","title":"点火与再点火"},{"id":"设计分析执行步骤","title":"设计、分析与控制的执行步骤"},{"id":"常见误区与失效边界","title":"常见误区与失效边界"},{"id":"与整机部件耦合","title":"与整机、部件和排放的耦合"},{"id":"自测题","title":"自测题"},{"id":"答案与下一期衔接","title":"答案与下一期衔接"},{"id":"参考资料与图示许可","title":"参考资料与图示许可"}
+    ],
+    "validationNeedles": ["Da<sub>eff</sub>", "7.5 ms", "2.50", "1.50", "下降 40%", "φ=0.096", "φ=0.087", "600-1000 K", "5-30 atm"],
+    "figures": [
+      {"src":"/p/0ef0310c/combustor-stability-map.svg","fallback":"/p/0ef0310c/combustor-stability-map.png","title":"燃烧室回流稳焰、定性稀熄边界与FADEC多重约束","author":"Qzl's Blog","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","basis":"NASA NTRS 20205004395, 20190032081, 19940024763, 19870015145 and FAA AC 33.28-3"}
+    ],
+    "sources": [
+      {"title":"NASA: LBO Simulations in an RQL Gas Turbine Combustor","url":"https://ntrs.nasa.gov/citations/20205004395"},
+      {"title":"NASA: Fuel Sensitivity of Lean Blowout in an RQL Combustor","url":"https://ntrs.nasa.gov/citations/20190032081"},
+      {"title":"NASA: Studies of Lean Blowout in a Research Combustor","url":"https://ntrs.nasa.gov/citations/19940024763"},
+      {"title":"NASA CR-179582: Altitude Relight Rig","url":"https://ntrs.nasa.gov/api/citations/19870015145/downloads/19870015145.pdf"},
+      {"title":"NASA: Cycle Variables in a Lean Premixed Primary Zone","url":"https://ntrs.nasa.gov/citations/19780059658"},
+      {"title":"FAA AC 33.28-3: Engine Control Systems","url":"https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_33_28-3.pdf"},
+      {"title":"14 CFR 33.73: Power or Thrust Response","url":"https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-33/subpart-E/section-33.73"},
+      {"title":"EASA CS-E Engines","url":"https://www.easa.europa.eu/en/document-library/certification-specifications/group/cs-e-engines"}
+    ],
+    "nextTopic": "FADEC起动、加速与减速控制：把燃油比调度、转子加速度、喘振裕度、温度限制和自动再点火写成可执行状态机"
+  },
+  {
     "issue": 9,
     "slug": "aeroengine-09-trent-xwb-97-three-spool-durability",
     "postId": "c4863d43",

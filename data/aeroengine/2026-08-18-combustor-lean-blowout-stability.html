@@ -1,0 +1,114 @@
+<p><strong>航空发动机学习简报 · 第 10 期</strong></p>
+<p><strong>副题：</strong>把燃油雾化、回流区、点火、压力与加减速控制连成同一张图</p>
+<p><strong>主题类型：</strong>基础与前置知识　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-08-18</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote><p><strong>本期问题：</strong>燃烧室明明持续喷油、也有点火器，为什么在减油、高空、快速减速或雾化恶化时仍会稀熄？发动机控制又怎样把加速需求限制在“能点着、能稳住、不过温、不喘振”的共同边界内？</p></blockquote>
+<p>学完本期，你应能用雾化—蒸发—混合—化学反应—回流输运这条链解释稳焰；用流动停留时间与有效化学时间构造 Damköhler 数；区分点火、再点火和持续燃烧三种边界；复算一个简化时间尺度算例；并把稀熄限制放进 FADEC 的加减速燃油调度中。本文不提供任何具体型号的完整燃烧稳定包线或控制律，图中曲线均为教学定性示意。</p>
+<p><strong>前置知识：</strong>建议回顾第02期修正参数、第05期部件匹配和第07期温度口径。需要知道当量比 φ 是实际燃油空气比与化学计量燃油空气比之比；φ&lt;1 为总体偏稀，但局部回流区可以与总体平均值不同。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol>
+  <li><strong>稳焰不是“点火器一直点着”。</strong>点火器只负责建立初始火核或辅助再点火，持续燃烧依靠回流区不断把高温产物和活性基带回新鲜混合物。</li>
+  <li><strong>稀熄本质是时间尺度竞争。</strong>当流体离开反应区比蒸发、混合和化学放热更快时，有效 Damköhler 数下降，火焰会经历抬升、间歇放热，最终熄灭。</li>
+  <li><strong>当量比不是唯一坐标。</strong>入口总压、总温、来流速度、燃料挥发性、雾滴粒径、局部掺混和壁面热损失都会移动稀熄与再点火边界。</li>
+  <li><strong>点火边界通常比维持边界更苛刻。</strong>一团已经存在的高温回流火焰能持续，并不等于相同压力、温度和油气比下一定能从冷态重新点着。</li>
+  <li><strong>FADEC管理的是约束交集。</strong>加速需要增油，减速又不能把燃烧室推到稀熄区；同时还要满足压气机喘振裕度、涡轮温度、转子超速和执行机构有效性。</li>
+</ol>
+
+<h2 id="从雾化到火焰锚定"><a href="#从雾化到火焰锚定" class="headerlink" title="从雾化到火焰锚定"></a>从雾化到火焰锚定</h2>
+<p>液体燃油先经喷嘴破碎成液滴，随后升温、蒸发并与空气混合。液滴越大、燃油越冷或压差越低，完全蒸发通常越慢；如果可燃蒸气在点火器附近太少，即使电火花存在也可能没有可传播火核。另一方面，过强的主流会把火核吹离合适区域，局部过稀、过富或壁面冷却气过多也会削弱反应。</p>
+<p>旋流器和火焰筒头部几何制造低速回流区。高温产物逆流而上，向新鲜混合物提供热量与活性基；剪切层则不断卷吸燃油蒸气和空气。火焰通常锚定在“回流输运足够、局部混合可燃、应变率尚未超过熄火能力”的区域，而不是固定在一个几何点。NASA 的研究燃烧室试验观察到从附着火焰、抬升剪切层火焰、间歇剪切层火焰到大尺度不稳定和最终 LBO 的连续过程，这说明稀熄常有动态前兆，而非瞬间开关。</p>
+
+<h2 id="时间尺度与Damkohler数"><a href="#时间尺度与Damkohler数" class="headerlink" title="时间尺度与Damkohler数"></a>时间尺度与 Damköhler 数</h2>
+<div class="aeroengine-formula"><strong>流动停留时间：</strong>τ<sub>flow</sub>≈V<sub>eff</sub>/Q<sub>eff</sub>；<strong>有效 Damköhler 数：</strong>Da<sub>eff</sub>=τ<sub>flow</sub>/τ<sub>chem,eff</sub>。</div>
+<p>V<sub>eff</sub> 是参与稳焰的有效回流体积，单位 m³；Q<sub>eff</sub> 是穿过该区域的有效体积流量，单位 m³/s；τ<sub>chem,eff</sub> 不是单一步基元反应时间，而是把雾化、蒸发、局部混合、点火延迟和主要放热合并后的教学尺度。Da 较大表示混合物在离开前有较充分时间反应，Da 接近或低于临界区时则更易稀熄。</p>
+<p>这个公式只建立物理直觉，不能替代真实燃烧室的三维非定常计算和试验。临界 Da 不是跨构型通用常数：喷嘴、旋流数、燃料、压力、壁面热损失和声学耦合都会改变它。NASA 关于非预混湍流火焰的研究也把 Damköhler 数定义为机械时间尺度与化学时间尺度之比，用来区分快化学和慢化学主导的区域。</p>
+
+<figure class="aeroengine-figure">
+  <img src="/p/0ef0310c/combustor-stability-map.svg" alt="燃烧室回流稳焰、定性稀熄边界和FADEC多重约束示意">
+  <figcaption>图1　回流稳焰、定性稳定边界与 FADEC 多重限制。曲线为教学示意，不代表任何型号的认证包线；依据 NASA 稀熄/再点火研究与 FAA/EASA 控制要求绘制。作者：Qzl's Blog；许可：<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>；可编辑 SVG，<a href="/p/0ef0310c/combustor-stability-map.png">PNG 后备</a>。</figcaption>
+</figure>
+
+<h2 id="压力温度与高空再点火"><a href="#压力温度与高空再点火" class="headerlink" title="压力温度与高空再点火"></a>压力、温度与高空再点火</h2>
+<p>压力降低会降低单位体积内的反应物分子数，并改变雾化、蒸发、火焰速度和反应速率；入口温度降低会增加燃油升温与蒸发负担，并显著拉长点火延迟。因此高空风车再点火不能由海平面怠速稳定性外推。NASA 的高空再点火试验把空气干燥并经液氮换热器降温，再控制入口压力、温度、流量、燃油和点火，以重现低温低压条件；这类设施正是为了隔离“能否重新建立火焰”的边界。</p>
+<p>公开试验还说明燃料性质会移动边界。NASA 在 NJFCP 单杯 RQL 基准燃烧室中先于 φ=0.096 建立近稀熄稳定状态，再逐步减油；仿真给出的 Cat-C1 稀熄约 φ=0.087，而 Cat-A2 约 φ=0.082 或 0.078，且报告了与试验相近的燃料相对差异。它证明燃料差异可测，却绝不能把这些台架数字直接当成某台发动机的运行限制。</p>
+<p>另一组 NASA 试验覆盖入口温度 600-1000 K、压力 5-30 atm、停留时间 1-3 ms，并一直降到稀稳定极限附近。它提醒我们：压力、温度、时间和排放同时变化，单独拿“总体油气比”预测燃烧效率或 LBO 会丢失关键状态。</p>
+
+<h2 id="可复算简化算例"><a href="#可复算简化算例" class="headerlink" title="可复算简化算例"></a>可复算的简化算例</h2>
+<p>设一个不对应具体发动机的教学回流区：有效体积 V<sub>eff</sub>=0.006 m³，有效体积流量 Q<sub>eff</sub>=0.8 m³/s，则 τ<sub>flow</sub>=0.006/0.8=0.0075 s=7.5 ms。</p>
+<div class="aeroengine-formula"><strong>工况 A：</strong>τ<sub>chem,eff</sub>=3.0 ms，Da<sub>eff</sub>=7.5/3.0=2.50。</div>
+<div class="aeroengine-formula"><strong>工况 B：</strong>低温或蒸发恶化使 τ<sub>chem,eff</sub>=5.0 ms，Da<sub>eff</sub>=7.5/5.0=1.50，较工况 A 下降 40%。</div>
+<p>算例并未宣称 Da=1.50 就会熄火；它只显示在几何与流量不变时，化学/蒸发时间从 3 ms 增至 5 ms 会显著削弱稳定裕度。真实评估必须用试验或经验证模型给出构型专属临界值，并检查局部而非体积平均时间尺度。输入与结果可由 <a href="/data/aeroengine/combustor-stability-example.csv">CSV</a> 复算。</p>
+
+<h2 id="加减速中的燃油调度"><a href="#加减速中的燃油调度" class="headerlink" title="加减速中的燃油调度"></a>加减速中的燃油调度</h2>
+<p>加速时，更多燃油提高涡轮入口温度与涡轮功，使转子加速；但燃油增量过快会造成热端超温、局部富油、烟粒增加，还可能使压气机工作线逼近喘振线。减速时，燃油减得太慢可能超转或响应迟滞，减得太快则可能让主燃烧区穿过稀熄边界。控制器因此不会简单执行油门与燃油流量的一一线性关系。</p>
+<p>一个教学用的限制器可以写成：先由推力请求生成候选燃油流量，再分别计算加速/喘振上限、温度上限、转速上限和减速稀熄下限，最后由最严格约束裁剪，并监测火焰、压力和转速响应。FAA AC 33.28-3 将发动机控制、保护、限制和监控功能及其飞机接口纳入系统性验证；14 CFR 33.73 又要求从最低慢车到额定状态的功率或推力响应不出现有害特性。公开规则给出目标，不公开某型号完整调度表。</p>
+
+<h2 id="点火与再点火"><a href="#点火与再点火" class="headerlink" title="点火与再点火"></a>点火与再点火</h2>
+<p>地面起动、高空再点火和自动再点火的初始条件不同。地面起动可用起动机建立规定转速和气流；风车再点火依赖飞行速度与转子风转；自动再点火则可能在火焰刚滚降时迅速恢复点火并重排燃油。点火器位置、火花能量、喷雾锥、局部油气比与流速必须共同形成能增长的火核。</p>
+<p>再点火控制通常要避免“有火花但无可燃混合物”和“先大量积油后突然热起动”两种失效。可执行逻辑应包括：确认转速/压力在允许范围、选择点火通道、按边界加入燃油、判断 light-off、监测异常温升与加速、失败时安全切断或按批准策略重试。EASA CS-E 的发动机加速与再点火要求强调的是可验证的包线与安全结果，而不是一个万能时间表。</p>
+
+<h2 id="设计分析执行步骤"><a href="#设计分析执行步骤" class="headerlink" title="设计分析执行步骤"></a>设计、分析与控制的执行步骤</h2>
+<ol>
+  <li><strong>锁定工况：</strong>记录 P<sub>t3</sub>、T<sub>t3</sub>、空气流量、压力降、燃料温度/性质、点火状态和转子转速。</li>
+  <li><strong>分解过程：</strong>分别估计雾化、蒸发、混合、点火延迟、化学放热和流动停留时间，不用一个“燃烧效率”遮蔽全部机制。</li>
+  <li><strong>识别回流：</strong>用冷态 PIV/CFD 检查回流区位置、体积、速度和剪切层，再用高温试验确认火焰真正锚定位置。</li>
+  <li><strong>绘制边界：</strong>按压力、温度、流量和燃料分别测得点火、持续燃烧、稀熄和富油边界，并记录滞回。</li>
+  <li><strong>加入瞬态：</strong>用规定斜率做增油、减油、引气切换和可调静子动作，捕捉平均量看不到的间歇放热。</li>
+  <li><strong>建立检测量：</strong>组合燃烧室压力振荡、排气温度、转子加速度与火焰传感，不依赖单一阈值。</li>
+  <li><strong>集成控制：</strong>把稀熄/再点火下限与喘振、温度、超速和执行机构限制并列，在最坏公差下验证。</li>
+  <li><strong>回到整机：</strong>覆盖高空、低温、进气畸变、引气/取功、降雨冰雹和不同燃料批次，不以地面稳态替代飞行包线。</li>
+</ol>
+
+<h2 id="常见误区与失效边界"><a href="#常见误区与失效边界" class="headerlink" title="常见误区与失效边界"></a>常见误区与失效边界</h2>
+<ul>
+  <li><strong>误区一：</strong>总体 φ 高于某个教科书数值就一定稳定。局部非均匀、压力、温度、速度和热损失同样决定边界。</li>
+  <li><strong>误区二：</strong>提高旋流总会改善稳焰。旋流过强可能增加压降、壁面热负荷、非定常结构与热点。</li>
+  <li><strong>误区三：</strong>更小液滴只带来好处。雾化改善有利蒸发，但喷嘴压差、结焦、分布和局部过浓仍需同时检查。</li>
+  <li><strong>误区四：</strong>稳态 LBO 等于快速减油边界。瞬态存在输运延迟、传感器延迟、热惯性和滞回，必须单独试验。</li>
+  <li><strong>失效模式：</strong>喷嘴堵塞或积碳、点火器退化、燃油温度/黏度变化、旋流器损伤、火焰筒裂纹、传感器漂移和控制通道故障都可能减少裕度。</li>
+  <li><strong>证据边界：</strong>本期 2.50、1.50 和 40% 是示教算例；NASA RQL 台架的 0.096、0.087、0.082/0.078 仅适用于其公开试验与仿真条件。</li>
+</ul>
+
+<h2 id="与整机部件耦合"><a href="#与整机部件耦合" class="headerlink" title="与整机部件耦合"></a>与整机、部件和排放的耦合</h2>
+<p>压气机决定燃烧室入口压力、温度和流量；引气与可调静子动作会立刻改变这些量。燃烧室压力损失和温度分布又影响涡轮可用功、叶片热负荷与各轴加速度。喷口面积和飞行马赫数通过背压影响全机匹配，因此稀熄不是孤立的燃烧专业边界。</p>
+<p>更稀的燃烧通常有利于降低局部峰值温度和 NOx，却可能增加 CO、未燃烃、燃烧不稳定和熄火风险；更富的主区可增强稳定性，却带来烟粒、温度分布和冷却负担。低排放设计的真正问题不是“越稀越好”，而是在任务包线内同时满足排放、效率、稳定、温度与寿命。</p>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol>
+  <li>为什么点火器持续放电仍不能保证火焰持续？</li>
+  <li>计算题：V<sub>eff</sub>=4.5 L、Q<sub>eff</sub>=0.75 m³/s，τ<sub>flow</sub>是多少毫秒？</li>
+  <li>计算题：若上题 τ<sub>chem,eff</sub>=4 ms，Da<sub>eff</sub>是多少？</li>
+  <li>判断题：相同总体当量比下，入口压力降低不会改变稀熄边界。</li>
+  <li>判断题：某工况已经能持续燃烧，就必然能在同一工况冷态点火。</li>
+  <li>快速减油为什么要同时检查稀熄与转子响应？</li>
+  <li>为什么不能把 NASA 单杯 RQL 台架的 φ=0.087 当作某型发动机限制？</li>
+  <li>列出至少四项会移动稀熄或再点火边界的状态量。</li>
+</ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<ol>
+  <li>持续燃烧还需要可燃局部混合物、足够停留时间以及回流热量/活性基；火花只提供初始能量。</li>
+  <li>4.5 L=0.0045 m³，τ=0.0045/0.75=0.006 s=6 ms。</li>
+  <li>Da=6/4=1.5；是否稳定仍需构型专属临界证据。</li>
+  <li>错误。低压会改变反应、雾化/蒸发和火焰传播，通常削弱裕度。</li>
+  <li>错误。点火需先建立火核，边界通常比维持已有火焰更苛刻。</li>
+  <li>减油过快会稀熄，过慢又可能造成减速迟滞或不满足转速/温度限制。</li>
+  <li>其几何、燃料、压力温度、流量和数值模型均不等于目标发动机。</li>
+  <li>例如 P<sub>t3</sub>、T<sub>t3</sub>、流量/速度、当量比、燃料性质、雾滴粒径、壁面温度和旋流结构。</li>
+</ol>
+<p><strong>下一期建议：</strong>进入设计与控制方法，学习“FADEC 起动、加速与减速控制”：把燃油比调度、转子加速度、喘振裕度、温度限制和自动再点火写成可执行状态机。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ul>
+  <li><a href="https://ntrs.nasa.gov/citations/20205004395" target="_blank" rel="noopener noreferrer">NASA NTRS：Lean Blowout Simulations in an RQL Gas Turbine Combustor</a>：NJFCP 单杯台架、逐步减油方法与燃料差异。</li>
+  <li><a href="https://ntrs.nasa.gov/citations/20190032081" target="_blank" rel="noopener noreferrer">NASA NTRS：Fuel Sensitivity of Lean Blowout in an RQL Gas Turbine Combustor</a>：燃料、冷起动、LBO 与高空再点火问题。</li>
+  <li><a href="https://ntrs.nasa.gov/citations/19940024763" target="_blank" rel="noopener noreferrer">NASA NTRS：Studies of Lean Blowout in a Research Combustor</a>：从附着、抬升、间歇不稳定到熄火的观测序列。</li>
+  <li><a href="https://ntrs.nasa.gov/api/citations/19870015145/downloads/19870015145.pdf" target="_blank" rel="noopener noreferrer">NASA CR-179582：Altitude Relight Rig</a>：低温低压空气调节、燃烧室与再点火试验设施。</li>
+  <li><a href="https://ntrs.nasa.gov/citations/19780059658" target="_blank" rel="noopener noreferrer">NASA NTRS：Cycle Variables in a Lean Premixed Primary Zone</a>：600-1000 K、5-30 atm、1-3 ms 条件下的稳定与排放试验。</li>
+  <li><a href="https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_33_28-3.pdf" target="_blank" rel="noopener noreferrer">FAA AC 33.28-3：Engine Control Systems</a>：发动机控制、保护、限制、监控和飞机接口的合规指导。</li>
+  <li><a href="https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-33/subpart-E/section-33.73" target="_blank" rel="noopener noreferrer">14 CFR §33.73：Power or Thrust Response</a>：功率/推力响应与有害运行特性要求。</li>
+  <li><a href="https://www.easa.europa.eu/en/document-library/certification-specifications/group/cs-e-engines" target="_blank" rel="noopener noreferrer">EASA CS-E Engines</a>：当前发动机认证规范及修订入口。</li>
+</ul>
+<p><strong>图示与数据：</strong>图1由 Qzl's Blog 使用 Python/Matplotlib 绘制，CC BY 4.0；SVG 文本可编辑，PNG 为网页后备。定性边界只表达趋势，不对应型号或认证包线。算例原始输入和派生结果保存于 <a href="/data/aeroengine/combustor-stability-example.csv">combustor-stability-example.csv</a>。</p>
