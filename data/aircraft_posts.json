@@ -1,5 +1,119 @@
 [
 {
+  "slug": "hongdu-k-8",
+  "nameZh": "K-8“喀喇昆仑”",
+  "nameEn": "Hongdu K-8 Karakorum",
+  "eyebrow": "飞机资料整理 · 第 19 期",
+  "subtitle": "从初教机到高级教练机之间：理解一型中巴联合喷气教练机的训练链定位",
+  "date": "2026-08-18",
+  "updated": "2026-08-18",
+  "nation": "中国 / 巴基斯坦",
+  "category": "双座中级喷气教练机",
+  "era": "1990年代至今",
+  "tags": ["航空", "中国军机", "教练机"],
+  "status": "多国现役 / 中国部分院校训练链调整",
+  "metrics": {
+    "firstFlightYear": 1990,
+    "lengthM": 11.6,
+    "wingspanM": 9.63,
+    "maxTakeoffWeightT": 4.33,
+    "speedLabel": "公开常见约800 km/h级；高度、发动机和构型口径常未说明",
+    "rangeLabel": "公开常见约2,000—2,250 km转场航程；不能等同训练半径"
+  },
+  "diagram": [
+    "训练需求：在初教机之后建立喷气速度、仪表、编队和基础机动能力",
+    "总体平台：串列双座、低置翼、单发、侧进气和前三点起落架平衡成本与课目覆盖",
+    "安全闭环：教员视野、双重操纵、失速告警、发动机响应与弹射协同共同决定可训练性",
+    "保障体系：可靠性、周转、备件、航电升级和飞行大纲决定年出动与学员通过率"
+  ],
+  "firstFlight": "专业航空年鉴记录首架飞行原型机于1990年11月21日首飞；第二架原型机于1991年跟进",
+  "accent": "#4f7b88",
+  "heroImage": "/p/aed07522/k8-pakistan.webp",
+  "model": {
+    "kind": "unavailable",
+    "poster": "/p/aed07522/k8-zimbabwe.webp",
+    "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+    "method": "VAST-AI官方TripoSG本机离线双候选单图重建与八视角网格审计",
+    "inputCredit": "Danie van der Merwe；Kurush Pawar",
+    "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:Air_Force_of_Zimbabwe_K-8_Karakorum.jpg",
+    "license": "候选输入分别为CC BY 2.0与CC BY-SA 2.0；TripoSG代码MIT",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "engine": "TripoSG",
+    "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+    "engineLicense": "MIT",
+    "channel": "local-offline-rtx3060",
+    "note": "已检索制造商、政府、Wikimedia与公开模型来源，未找到可同时确认机型、作者、再分发许可和原始下载包的合格现成模型。随后使用VAST-AI官方TripoSG在RTX 3060上本机离线重建两个单图候选，均为40步、guidance 7、dense depth 8、hierarchical depth 9、目标80,000面。候选一输入为Danie van der Merwe的津巴布韦K-8侧视图，输入SHA256 a19390a2d6c55b5410424a08f188ba98a5e382f6c3dd47146337a58ee55c36c8，seed 42，耗时233.37秒；输出39,954顶点、80,000面、44个连通分量、1,440,228字节、SHA256 73494f092a77f2675f908cdb948a00cea97a6baf107f4531943deb8110644626，八视角显示机体被压成薄片，翼面和起落架出现悬浮复制。候选二输入为Kurush Pawar的巴基斯坦K-8P侧视图，输入SHA256 7f28e3f82b8b15d81cda6fe353062dfd48dd25150863f244fdfb87fd98acf65b，seed 84，耗时304.36秒；输出40,003顶点、80,000面、10个连通分量、1,440,820字节、SHA256 ee59da412bf97c08b0416154359c36edcec2b6c49fe861176bafec031a9c6684，前后视仍近二维，左右翼与起落架空间关系缺失。两者均未通过总体轮廓、单发、翼面、尾翼、起落架、左右对称性和游离部件审计，不上传GLB。暂无可验证模型；网页静态照片仅用于公开外形辨识，不可用于制造、仿真或尺寸测量。"
+  },
+  "statement": "K-8的工程意义在于以相对可控的采购与保障成本，把学员从初级螺旋桨训练带入喷气速度、仪表、编队、特技和基础战术课目。本文仅整理公开历史、外形和训练工程关系，不提供武器使用细节；各出口型的发动机、航电和重量数据必须分别核对。",
+  "summary": "K-8是中国南昌飞机制造体系与巴基斯坦航空综合体合作发展的双座中级喷气教练机。公开年鉴记录其于1990年11月21日首飞，随后形成K-8、K-8P、中国教-8以及面向不同国家的多个出口改型。中国国防部资料仍可确认教-8用于飞行学员训练和“红鹰”飞行表演队。公开常见的约11.6米机长、9.63米翼展、4.3吨级最大起飞重量和约800千米/小时速度用于建立尺度感，但制造方没有发布覆盖全部发动机与批次的统一性能表。",
+  "facts": [
+    {"label": "定位", "value": "双座中级喷气教练机", "note": "部分出口型兼顾有限轻型任务"},
+    {"label": "合作方", "value": "中国南昌飞机制造体系 / 巴基斯坦航空综合体", "note": "项目名称来自喀喇昆仑山脉"},
+    {"label": "首飞", "value": "1990年11月21日", "note": "1990年代专业航空年鉴记录"},
+    {"label": "机组", "value": "2人，前后串列", "note": "后座抬高以改善教员视野"},
+    {"label": "总体", "value": "低置翼、单垂尾、单发、侧进气", "note": "公开照片可核实"},
+    {"label": "尺寸", "value": "长约11.6 m；翼展约9.63 m；高约4.21 m", "note": "外部常见口径"},
+    {"label": "最大起飞重量", "value": "约4.3 t级", "note": "受批次、燃油和构型影响"},
+    {"label": "最大速度", "value": "约800 km/h级", "note": "高度和构型常未说明"},
+    {"label": "动力", "value": "单台涡扇", "note": "TFE731、AI-25TLK/WS-11等口径必须绑定批次"},
+    {"label": "三维模型", "value": "暂无可验证模型", "note": "两个TripoSG候选均未通过审计"}
+  ],
+  "timeline": [
+    {"year": "1986—1987", "event": "中方启动设计，巴基斯坦加入合作；项目由L-8转为K-8，名称取自中巴之间的喀喇昆仑山脉。"},
+    {"year": "1990", "event": "首架飞行原型机于11月21日首飞。"},
+    {"year": "1991", "event": "第二架飞行原型机继续试飞，为初始生产与用户评估积累数据。"},
+    {"year": "1992", "event": "K-8在新加坡亚洲航展公开亮相，并进入初始生产阶段。"},
+    {"year": "1994—1995", "event": "巴基斯坦首批飞机交付并进入里萨尔布尔飞行学院评估与使用。"},
+    {"year": "2000年代", "event": "中国教-8与多国出口型扩展训练使用，形成亚洲、非洲和拉美用户群。"},
+    {"year": "2018—2025", "event": "中国国防部和中国军网持续报道教-8飞行学员训练与“红鹰”表演队活动。"},
+    {"year": "2024", "event": "石家庄飞行学院最后一批教-8学员结业，代表该学院训练链调整，而非全系列统一退役。"}
+  ],
+  "designPoints": [
+    "前后串列双座、后座抬高有利于教员观察，同时增加座舱盖、结构和弹射协同约束。",
+    "低置翼、常规尾翼和相对温和的亚音速布局适合起降、编队、仪表与基础机动训练。",
+    "机身两侧进气为单台涡扇供气，需处理低空鸟撞、进气畸变、附件布置和复飞响应。",
+    "单发降低采购与维护复杂度，却使发动机可靠性、停车处置和训练安全边界更关键。",
+    "前三点起落架、刹车和轮胎必须承受高频训练周转，耐久性直接影响年出动架次。",
+    "航电升级会增加发电、冷却与电磁兼容负荷，老机体升级不能只理解为更换显示器。"
+  ],
+  "power": "K-8系列采用单台涡扇。早期/部分出口型与Honeywell（原Garrett）TFE731-2A系列相关；中国教-8公开资料常与AI-25TLK或国产WS-11谱系相联系。不同发动机的推力、油耗、控制与高温高原性能不能混用。对训练机而言，油门响应、低空鸟撞风险、复飞余度、发动机监控和维护周转往往比脱离工况的最大推力数字更重要。",
+  "variants": [
+    {"name": "K-8", "description": "项目基础和出口系列总称；具体发动机、航电与重量需绑定生产批次。"},
+    {"name": "JL-8 / 教-8", "description": "中国使用系列；官方公开资料确认其长期承担中级喷气训练并装备“红鹰”飞行表演队。"},
+    {"name": "K-8P", "description": "巴基斯坦改进和合作生产系列；巴基斯坦“雄狮”表演队公开使用。"},
+    {"name": "K-8E / K-8W / K-8VV", "description": "面向不同用户的出口改型，座舱、航电和任务配置按合同变化。"}
+  ],
+  "strengths": [
+    "结构与系统复杂度相对可控，适合高频训练和多国保障条件。",
+    "串列双座、喷气动力与基础机动特性能够承接初教机后的速度、编队和仪表训练。",
+    "多国改型与长期使用形成较大的训练经验、备件和升级用户基础。",
+    "公开表演队使用说明其编队与特技训练特性具有持续展示价值。"
+  ],
+  "limits": [
+    "单发平台对发动机可靠性、鸟撞防护与复飞/停车处置要求高。",
+    "亚音速中级训练定位无法完全复现现代高性能战斗机的推重比、航电与高迎角特性。",
+    "多种发动机和出口构型使公开性能数据容易错配。",
+    "装备数量、可用率和升级状态常缺少权威、及时的统一披露。",
+    "训练效率还受教员、课程、维修和备件体系影响，不能由平台参数单独决定。",
+    "两个TripoSG候选均未通过几何审计，本期不上传GLB，网页保留静态照片和文字后备。"
+  ],
+  "photos": [
+    {"src": "/p/aed07522/k8-pakistan.webp", "alt": "巴基斯坦空军雄狮表演队K-8P侧视", "caption": "2011年迪拜航展滑行中的巴基斯坦K-8P完整侧视图，可辨串列座舱、侧进气、翼面和起落架。", "credit": "Kurush Pawar", "sourceUrl": "https://commons.wikimedia.org/wiki/File:06-09-819_Pakistan_Air_Force_Hongdu_K-8_Karakorum_(7955999172)_(2).jpg", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"},
+    {"src": "/p/aed07522/k8vv-formation.webp", "alt": "三架委内瑞拉K-8VV编队飞行", "caption": "三架委内瑞拉K-8VV编队，可从下方辨识机翼、平尾、单垂尾与单发机身布局。", "credit": "Carlos E. Perez S.L", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hongdu_K-8VV_Karakorum.jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"},
+    {"src": "/p/aed07522/k8-bolivia-front.webp", "alt": "玻利维亚K-8正面地面视图", "caption": "玻利维亚K-8正面地面视图，可辨双侧进气口、低翼、前三点起落架和串列座舱。", "credit": "Mateo33", "sourceUrl": "https://commons.wikimedia.org/wiki/File:K-8_Karakorum_boliviano.JPG", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"},
+    {"src": "/p/aed07522/k8-zimbabwe.webp", "alt": "津巴布韦空军K-8完整侧视", "caption": "津巴布韦空军K-8完整侧视，适合辨识机身比例、座舱、进气口、翼面与起落架。", "credit": "Danie van der Merwe", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Air_Force_of_Zimbabwe_K-8_Karakorum.jpg", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"}
+  ],
+  "sources": [
+    {"label": "中国国防部：空军石家庄飞行学院最后一批教-8飞行学员结业", "url": "https://www.mod.gov.cn/gfbw/gfjy_index/16314081.html"},
+    {"label": "中国国防部：红鹰表演队装备教-8亚音速喷气教练机", "url": "https://www.mod.gov.cn/gfbw/qwfb/yw_214049/4828703_5.html"},
+    {"label": "China Military：K-8与CJ-6、L-15公开组成训练机体系展示", "url": "https://eng.chinamil.com.cn/CHINA_209163/TopStories_209189/9667949.html"},
+    {"label": "Air & Space Forces Magazine 1995世界军机年鉴：K-8项目时间线与早期数据", "url": "https://www.airandspaceforces.com/app/uploads/1995/12/1295_Dec1995.pdf"},
+    {"label": "Wikimedia Commons：K-8 Karakorum许可明确照片分类", "url": "https://commons.wikimedia.org/wiki/Category:K-8_Karakorum"},
+    {"label": "VAST-AI Research：TripoSG官方代码与MIT许可", "url": "https://github.com/VAST-AI-Research/TripoSG"}
+  ],
+  "postId": "aed07522"
+},
+{
   "slug": "shaanxi-kj-200",
   "nameZh": "空警-200",
   "nameEn": "Shaanxi KJ-200",

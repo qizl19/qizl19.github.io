@@ -1,5 +1,16 @@
 [
   {
+    "slug": "hongdu-k-8",
+    "name": "K-8“喀喇昆仑”",
+    "url": "/p/aed07522.html",
+    "firstFlightYear": 1990,
+    "lengthM": 11.6,
+    "wingspanM": 9.63,
+    "maxTakeoffWeightT": 4.33,
+    "speedLabel": "公开常见约800 km/h级；高度、发动机和构型口径常未说明",
+    "rangeLabel": "公开常见约2,000—2,250 km转场航程；不能等同训练半径"
+  },
+  {
     "slug": "shaanxi-kj-200",
     "name": "空警-200",
     "url": "/p/00fbfdb1.html",

@@ -69,7 +69,13 @@ async function main() {
     else await route.abort();
   });
   page.on("requestfailed", (request) => {
-    if (request.url().startsWith(origin)) localErrors.push(`request: ${request.url()} ${request.failure()?.errorText}`);
+    const errorText = request.failure()?.errorText || "";
+    // Navigating between QA pages can cancel an in-flight lazy image request.
+    // A browser-initiated abort is not a missing local resource; retain every
+    // other failure and the explicit naturalWidth/HTTP checks below.
+    if (request.url().startsWith(origin) && !errorText.includes("ERR_ABORTED")) {
+      localErrors.push(`request: ${request.url()} ${errorText}`);
+    }
   });
 
   const postIds = aircraftPosts.map((post) => post.postId);
