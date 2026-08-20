@@ -159,7 +159,6 @@ def main() -> None:
                 generation = model.get("generation", {})
                 required_settings = {
                     "steps": 40,
-                    "seed": 42,
                     "guidanceScale": 7.0,
                     "denseDepth": 8,
                     "hierarchicalDepth": 9,
@@ -171,6 +170,9 @@ def main() -> None:
                         errors.append(
                             f"Unexpected TripoSG setting {key}: {profile['nameZh']}"
                         )
+                seed = generation.get("seed")
+                if not isinstance(seed, int) or seed < 0:
+                    errors.append(f"Invalid TripoSG seed: {profile['nameZh']}")
             else:
                 errors.append(f"Aircraft model has not migrated to TripoSG: {profile['nameZh']}")
 

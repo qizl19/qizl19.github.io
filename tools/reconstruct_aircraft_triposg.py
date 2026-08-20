@@ -180,6 +180,11 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--dense-depth", type=int, default=8)
     parser.add_argument("--hierarchical-depth", type=int, default=9)
+    parser.add_argument(
+        "--skip-download",
+        action="store_true",
+        help="Require the already-installed local official weights; this wrapper never downloads weights.",
+    )
     parser.add_argument("--smoke-only", action="store_true")
     parser.add_argument("--audit-existing", action="store_true")
     args = parser.parse_args()

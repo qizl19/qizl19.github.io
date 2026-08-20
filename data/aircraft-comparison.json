@@ -1,5 +1,16 @@
 [
   {
+    "slug": "guizhou-jl-9",
+    "name": "歼教-9“山鹰”",
+    "url": "/p/f0e224e8.html",
+    "firstFlightYear": 2003,
+    "lengthM": 14.55,
+    "wingspanM": 8.32,
+    "maxTakeoffWeightT": 9.8,
+    "speedLabel": "公开行业资料常见约Mach 1.5级；制造方未公布覆盖全批次的统一性能表",
+    "rangeLabel": "公开行业资料常见约2,500—2,600 km转场航程；不能等同训练或任务半径"
+  },
+  {
     "slug": "hongdu-k-8",
     "name": "K-8“喀喇昆仑”",
     "url": "/p/aed07522.html",

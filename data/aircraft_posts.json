@@ -1,5 +1,133 @@
 [
 {
+  "slug": "guizhou-jl-9",
+  "nameZh": "歼教-9“山鹰”",
+  "nameEn": "Guizhou JL-9 / FTC-2000 Mountain Eagle",
+  "eyebrow": "飞机资料整理 · 第 20 期",
+  "subtitle": "从歼教-7技术基础到侧进气、双三角翼与现代训练座舱",
+  "date": "2026-08-20",
+  "updated": "2026-08-20",
+  "nation": "中国",
+  "category": "单发双座超声速高级教练机",
+  "era": "2000年代至今",
+  "tags": ["航空", "中国军机", "教练机"],
+  "status": "现役训练 / 系列化发展",
+  "metrics": {
+    "firstFlightYear": 2003,
+    "lengthM": 14.55,
+    "wingspanM": 8.32,
+    "maxTakeoffWeightT": 9.8,
+    "speedLabel": "公开行业资料常见约Mach 1.5级；制造方未公布覆盖全批次的统一性能表",
+    "rangeLabel": "公开行业资料常见约2,500—2,600 km转场航程；不能等同训练或任务半径"
+  },
+  "diagram": [
+    "训练需求：在基础喷气训练之后建立超声速、战斗入门、战术和失速尾旋能力",
+    "总体平台：单发、串列双座、两侧肋下进气、双三角翼和全动平尾平衡成熟度与训练包线",
+    "安全闭环：教员视野、双重操纵、失速告警、发动机响应和弹射协同共同决定可训练性",
+    "保障体系：成熟动力、航电升级、轮胎刹车、备件和训练大纲共同决定年出动与学员通过率"
+  ],
+  "firstFlight": "航空工业与国家国防科技工业局资料确认2003年12月13日在贵州首飞",
+  "accent": "#456f83",
+  "heroImage": "/p/f0e224e8/jl9-2025.webp",
+  "model": {
+    "kind": "triposg-image-reconstruction",
+    "src": "/p/f0e224e8/models/jl9-triposg.glb",
+    "poster": "/p/f0e224e8/jl9-2025.webp",
+    "author": "VAST-AI Research / input photograph by Alert5",
+    "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+    "license": "input CC BY-SA 4.0; TripoSG code MIT",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "method": "VAST-AI官方TripoSG本机离线双候选单图重建、八视角审计与轻量漂浮碎片清理",
+    "inputImage": "/p/f0e224e8/ftc2000.webp",
+    "inputCredit": "Alert5",
+    "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:FTC-2000.jpg",
+    "engine": "TripoSG",
+    "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+    "engineLicense": "MIT",
+    "channel": "local-offline-rtx3060",
+    "outputSha256": "77f52223ec7e110f8d45d122b2c4a65271a1b05b618b4acac15c924dd052a7a8",
+    "generation": {
+      "steps": 40,
+      "seed": 84,
+      "guidanceScale": 7.0,
+      "denseDepth": 8,
+      "hierarchicalDepth": 9,
+      "targetFaces": 80000,
+      "flashDecoder": false
+    },
+    "note": "已检索制造商、政府、Wikimedia和公开模型来源，未找到可同时确认机型、作者、可再分发许可与原始下载包的合格现成模型。随后使用VAST-AI官方TripoSG和官方本地权重在RTX 3060上离线重建两个独立单图候选。候选一输入为颐园居的2025年歼教-9地面照片，输入SHA256 a175c9fe205d9fb7b0f31842b0460704dec07b907615edafd3ee381d5730af3e，seed 42，40步、guidance 7、dense depth 8、hierarchical depth 9，耗时240.44秒；输出80,000面、40个连通分量，把邻机和展品错误重建为大量游离部件，判定失败。候选二输入为Alert5的2016年FTC-2000完整飞行照片，输入SHA256 7ab17ef55d78a8bc33a317656db4658802fc754ae02cb042cbb3174e19b42715，seed 84，同为40步、guidance 7、dense depth 8、hierarchical depth 9，耗时237.81秒；原始输出80,000面、44个连通分量。依据面积审计删除43个明显漂浮小碎片后，保留单一主体38,808顶点、77,680面、1,398,724字节，SHA256 77f52223ec7e110f8d45d122b2c4a65271a1b05b618b4acac15c924dd052a7a8。八视角可辨单发机身、双三角翼、平尾、垂尾和尾喷口，允许作为AI单图重建外形示意；遮挡区由模型推断，非工程CAD，不可用于制造、仿真或尺寸测量。"
+  },
+  "statement": "歼教-9的工程意义在于复用成熟单发平台与工业基础，以侧进气、双三角翼、现代座舱和航电扩展高级训练能力。本文只讨论公开历史、可见外形和训练工程关系，不涉及敏感任务系统或可操作性武器细节。",
+  "summary": "歼教-9‘山鹰’是航空工业贵飞研制的全天候、轻型、单发、串列双座超声速高级教练机。官方资料确认其于2003年12月13日首飞，采用两侧肋下进气、双三角翼、全动后掠平尾和大后掠垂尾，承担高级训练、战斗入门、战术与失速尾旋训练。FTC-2000是外贸型，FTC-2000G进一步采用边条翼、大面积襟翼和BUMP进气道。该系列强调成熟基础、训练效率与较低保障门槛，但公开资料没有覆盖全部批次的统一性能、寿命和可用率数据。",
+  "facts": [
+    {"label": "定位", "value": "单发双座超声速高级教练机", "note": "全天候、高级与战斗入门训练"},
+    {"label": "研制单位", "value": "航空工业贵飞", "note": "贵州安顺"},
+    {"label": "首飞", "value": "2003年12月13日", "note": "官方确认"},
+    {"label": "机组", "value": "2人，前后串列", "note": "后座抬高改善教员视野"},
+    {"label": "总体", "value": "侧进气、双三角翼、单垂尾、单发", "note": "公开照片与官方描述可核实"},
+    {"label": "尺寸", "value": "长约14.55 m；翼展约8.32 m；高约4.10 m", "note": "公开行业手册口径"},
+    {"label": "最大起飞重量", "value": "约9.8 t级", "note": "非制造方全批次统一表"},
+    {"label": "最大速度", "value": "公开常见约Mach 1.5级", "note": "工况与批次未统一公开"},
+    {"label": "动力", "value": "单台加力涡喷", "note": "基础系列常与WP-13F(C)联系"},
+    {"label": "三维模型", "value": "TripoSG本机离线单图重建", "note": "77,680面，非工程CAD"}
+  ],
+  "timeline": [
+    {"year": "2001—2002", "event": "贵飞围绕新时期飞行员训练需求推进新型高级教练机设计制造。"},
+    {"year": "2003-10-31", "event": "首架‘山鹰’总装下线并移交试飞站。"},
+    {"year": "2003-12-13", "event": "‘山鹰’高级教练机在贵州首飞成功。"},
+    {"year": "2009前后", "event": "公开行业资料将JL-9进入部队训练体系置于这一阶段。"},
+    {"year": "2016—2017", "event": "FTC-2000外贸项目推进，首架外贸‘山鹰’于2017年6月总装下线。"},
+    {"year": "2018-09-28", "event": "FTC-2000G升级型公开首飞。"},
+    {"year": "2020", "event": "海军型改进原型机进入公开报道，面向陆基模拟舰载训练需求。"},
+    {"year": "2023—2026", "event": "官方持续报道歼教-9训练、海军型改进和飞行院校活动。"}
+  ],
+  "designPoints": [
+    "前后串列双座、后座抬高改善教员视野，同时增加座舱盖、弹射和双重操纵协同约束。",
+    "两侧肋下进气取代歼教-7机头进气，为机鼻航电和座舱视野释放空间。",
+    "双三角翼兼顾中低空亚跨音速机动与起降性能，全动平尾覆盖较宽俯仰包线。",
+    "单台加力涡喷复用成熟保障体系，却带来油耗、噪声、热负荷和单发停车风险。",
+    "FTC-2000G采用边条翼、大面积前后缘襟翼和BUMP进气道，不能与基础型混用外形或性能数据。",
+    "训练产能还受教员、课程、模拟器、轮胎刹车、发动机周转和备件体系共同限制。"
+  ],
+  "power": "基础JL-9/FTC-2000公开资料通常与WP-13F(C)加力涡喷联系起来。航空工业2023年回顾称其发动机推力相对歼教-7提升约50%，并强调高出勤率与失速尾旋训练能力。具体推力、油耗、寿命和高温高原性能必须绑定发动机与批次；加力提供超声速和高能量训练余度，也增加油耗与热负荷。",
+  "variants": [
+    {"name": "JL-9 / 歼教-9", "description": "国内基础训练系列，承担高级、战斗入门、战术和失速尾旋训练。"},
+    {"name": "海军型‘山鹰’", "description": "陆基使用，面向舰载战斗机飞行员训练；后续改进加入新的低速/着陆控制特征。"},
+    {"name": "FTC-2000", "description": "外贸型，保留双三角翼与侧进气总体；2017年首架外贸飞机总装下线。"},
+    {"name": "FTC-2000G", "description": "2018年公开升级节点，采用边条翼、大面积襟翼和BUMP进气道，定位更偏多用途。"}
+  ],
+  "strengths": [
+    "成熟单发平台和既有工业基础有利于控制采购、训练与维修门槛。",
+    "侧进气、抬高后座和现代航电改善高级训练的人机界面。",
+    "官方强调高出勤率、失速尾旋训练与系列化扩展。",
+    "基础型、海军型与外贸型形成覆盖不同用户训练链的家族。"
+  ],
+  "limits": [
+    "单发与加力涡喷带来停车风险、油耗、噪声和热负荷代价。",
+    "源自较早技术基础，难以完整复现现代数字电传、高推重比战机的操纵与任务系统。",
+    "基础型、海军型、FTC-2000和FTC-2000G差异明显，公开数据容易错配。",
+    "公开资料没有覆盖全批次的统一性能、寿命与可用率统计。",
+    "AI单图重建受遮挡与视角限制，只能作为低精度外形示意。"
+  ],
+  "photos": [
+    {"src": "/p/f0e224e8/jl9-2025.webp", "alt": "2025年空军航空开放活动中的歼教-9地面完整视图", "caption": "歼教-9完整地面视图，可辨串列座舱、侧进气、翼面、尾翼与前三点起落架。", "credit": "颐园居", "sourceUrl": "https://commons.wikimedia.org/wiki/File:JL-9_at_China%27s_Air_Force_Aviation_Open_Activity_20250921.jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"},
+    {"src": "/p/f0e224e8/ftc2000.webp", "alt": "2016年珠海航展FTC-2000完整飞行视图", "caption": "FTC-2000完整飞行展示，可清楚辨识单发尾喷口、双三角翼和大后掠垂尾。", "credit": "Alert5", "sourceUrl": "https://commons.wikimedia.org/wiki/File:FTC-2000.jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"},
+    {"src": "/p/f0e224e8/jl9-flares-2023.webp", "alt": "2023年长春航空展歼教-9飞行视图", "caption": "歼教-9飞行视图，可核验翼面、尾翼与单发机身比例。", "credit": "N509FZ", "sourceUrl": "https://commons.wikimedia.org/wiki/File:JL-9_releasing_flares_at_CCAS2023_(20230724095500).jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"},
+    {"src": "/p/f0e224e8/ftc2000g-2024.webp", "alt": "2024年珠海航展FTC-2000G机鼻与进气道细节", "caption": "FTC-2000G机鼻与进气道细节，展示其与基础型不同的前机身处理。", "credit": "Z3144228", "sourceUrl": "https://commons.wikimedia.org/wiki/File:FTC-2000G_in_Zhuhai_airshow_2024_(cropped).jpg", "license": "CC0 1.0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"}
+  ],
+  "sources": [
+    {"label": "国家国防科技工业局 / 航空工业：我是‘山鹰’，年方二十", "url": "https://www.sastind.gov.cn/n10086205/n10086403/c10443060/content.html"},
+    {"label": "国家国防科技工业局：中国首架外贸‘山鹰’飞机总装下线", "url": "https://www.sastind.gov.cn/n10086200/n10086344/c10193079/content.html"},
+    {"label": "国家国防科技工业局：蓝天讲台——歼教9训练定位", "url": "https://www.sastind.gov.cn/n10086200/n10086331/c10384457/content.html"},
+    {"label": "China Military：2026年JL-9飞行训练", "url": "https://eng.chinamil.com.cn/2025xb/B/16439373.html"},
+    {"label": "China Military：2020年海军型改进原型机", "url": "https://eng.chinamil.com.cn/CHINA_209163/TopStories_209189/9797906.html"},
+    {"label": "USAF CASI：China's Little Eagles训练体系研究", "url": "https://www.airuniversity.af.edu/Portals/10/CASI/documents/Research/Other-Topics/2019-11-13%20Little_Eagles.pdf"},
+    {"label": "Wikimedia Commons：Guizhou JL-9许可明确照片分类", "url": "https://commons.wikimedia.org/wiki/Category:Guizhou_JL-9"},
+    {"label": "VAST-AI Research：TripoSG官方代码与MIT许可", "url": "https://github.com/VAST-AI-Research/TripoSG"}
+  ],
+  "postId": "f0e224e8"
+},
+{
   "slug": "hongdu-k-8",
   "nameZh": "K-8“喀喇昆仑”",
   "nameEn": "Hongdu K-8 Karakorum",
