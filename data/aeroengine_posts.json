@@ -1,5 +1,51 @@
 [
   {
+    "issue": 11,
+    "slug": "fadec-start-acceleration-deceleration-control",
+    "postId": "f39e6def",
+    "title": "航空发动机学习简报｜第11期｜FADEC起动、加速与减速控制",
+    "subtitle": "把功率请求、燃油调度、瞬态限制器和故障处置写成可验证状态机",
+    "type": "设计与控制方法",
+    "date": "2026-08-21",
+    "updated": "2026-08-21",
+    "heroImage": "/p/f39e6def/fadec-transient-state-machine.png",
+    "summary": "从功率请求到燃油计量阀，拆解FADEC的目标生成、加速上限、减速稀熄下限、温度/转速限制与起动状态机，并用透明教学数据复算限制器仲裁、转子平均加速度和最小喘振裕度。",
+    "contentFile": "data/aeroengine/2026-08-21-fadec-start-acceleration-deceleration-control.html",
+    "keyConcepts": ["FADEC", "起动状态机", "燃油调度", "加速限制", "减速稀熄下限", "喘振裕度", "温度限制", "转速限制", "无扰切换", "故障容错"],
+    "headings": [
+      {"id":"本期问题与学习目标","title":"本期问题与学习目标"},
+      {"id":"核心结论","title":"核心结论"},
+      {"id":"从功率请求到燃油指令","title":"从功率请求到燃油指令"},
+      {"id":"限制器仲裁与必要公式","title":"限制器仲裁与必要公式"},
+      {"id":"可复算的简化算例","title":"可复算的简化算例"},
+      {"id":"起动状态机","title":"起动状态机"},
+      {"id":"加速控制与喘振温度权衡","title":"加速控制与喘振—温度权衡"},
+      {"id":"减速熄火与再点火逻辑","title":"减速、熄火与再点火逻辑"},
+      {"id":"故障容错与验证","title":"故障容错与验证"},
+      {"id":"设计分析执行步骤","title":"设计、分析与控制的执行步骤"},
+      {"id":"常见误区与失效边界","title":"常见误区与失效边界"},
+      {"id":"与整机和其他部件耦合","title":"与整机和其他部件的耦合"},
+      {"id":"自测题","title":"自测题"},
+      {"id":"答案与下一期衔接","title":"答案与下一期衔接"},
+      {"id":"参考资料与图示许可","title":"参考资料与图示许可"}
+    ],
+    "validationNeedles": ["min(0.88", "0.72", "13.25%/s", "12.8%", "0.24", "4.76%", "0.76%", "W<sub>f,dec/LBO</sub>"],
+    "figures": [
+      {"src":"/p/f39e6def/fadec-transient-state-machine.svg","fallback":"/p/f39e6def/fadec-transient-state-machine.png","title":"FADEC燃油限制器仲裁、教学加速曲线和起动状态机","author":"Qzl's Blog","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","basis":"FAA AC 33.28-3, 14 CFR 33.28/33.73, NASA 19750015501, 19930089108, 20150021871 and 20240000148"}
+    ],
+    "sources": [
+      {"title":"FAA AC 33.28-3: Engine Control Systems","url":"https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_33_28-3.pdf"},
+      {"title":"14 CFR 33.28: Engine Control Systems","url":"https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-33/subpart-C/section-33.28"},
+      {"title":"14 CFR 33.73: Power or Thrust Response","url":"https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-33/subpart-E/section-33.73"},
+      {"title":"NASA: Aircraft Engine Controls","url":"https://ntrs.nasa.gov/citations/19750015501"},
+      {"title":"NACA RM E56C08: Temperature-Scheduled Acceleration Control","url":"https://ntrs.nasa.gov/citations/19930089108"},
+      {"title":"NASA: Closed-Loop Performance and Operability Requirements","url":"https://ntrs.nasa.gov/citations/20150021871"},
+      {"title":"NASA/TM-20240000148: Transient Optimization of an Electrified Gas Turbine Engine","url":"https://ntrs.nasa.gov/citations/20240000148"},
+      {"title":"EASA CS-E Engines","url":"https://www.easa.europa.eu/en/document-library/certification-specifications/group/cs-e-engines"}
+    ],
+    "nextTopic": "经典型号剖析：选择一台公开资料充分、控制与可靠性事件可核验的代表性发动机，重点阅读认证参数、轴系级数、限制逻辑和改型代价"
+  },
+  {
     "issue": 10,
     "slug": "combustor-lean-blowout-stability-boundary",
     "postId": "0ef0310c",

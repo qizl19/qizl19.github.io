@@ -1,0 +1,127 @@
+<p><strong>航空发动机学习简报 · 第 11 期</strong></p>
+<p><strong>副题：</strong>把功率请求、燃油调度、瞬态限制器和故障处置写成可验证状态机</p>
+<p><strong>主题类型：</strong>设计与控制方法　<strong>预计学习时间：</strong>12-15 分钟　<strong>日期：</strong>2026-08-21</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote><p><strong>本期问题：</strong>推力杆一步推到高位时，FADEC 为什么不能把燃油流量直接一步加满？从停止、盘车、点火到慢车，以及从慢车快速加速或减速，控制器怎样同时守住喘振、超温、超转和熄火边界？</p></blockquote>
+<p>学完本期，你应能区分目标生成、稳态调节、加减速调度、限制器与保护逻辑；读懂“候选燃油—约束裁剪—执行机构—反馈监测”的控制链；复算一个归一化燃油仲裁算例；并把起动、加速、稳态、减速与关车写成带进入条件、超时和失败处置的状态机。本文只讨论公开通用原理，不给出任何具体型号的控制律、真实阈值或操作程序。</p>
+<p><strong>前置知识：</strong>建议回顾第04期喘振裕度、第07期温度口径和第10期燃烧稳定性。需要知道压气机与涡轮由轴功平衡耦合，燃油增加先改变燃烧温度和涡轮功，再通过转子惯量逐渐改变转速与流量。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol>
+  <li><strong>FADEC 控制的不是燃油一个量。</strong>它把功率请求转换为目标转速或推力，再协调燃油、可调静子、放气阀、喷口和点火等执行机构。</li>
+  <li><strong>加速燃油取“允许上限中的最小值”。</strong>候选燃油必须同时经过喘振/加速度、涡轮温度、转子转速和执行机构边界裁剪，最严格者接管。</li>
+  <li><strong>减速还存在最低燃油边界。</strong>减油过快可能使燃烧室越过稀熄线，因此不能只用上限选择器描述全部瞬态。</li>
+  <li><strong>起动是状态机，不是一条连续曲线。</strong>盘车、清吹、点火供油、light-off、加速至慢车均需条件确认；异常温升或转速不增长必须进入批准的失败处置。</li>
+  <li><strong>响应速度与寿命、稳定裕度互相竞争。</strong>更激进的增油可缩短响应时间，却可能降低喘振裕度、提高温度峰值和热端损伤，不能只优化“到达目标有多快”。</li>
+</ol>
+
+<h2 id="从功率请求到燃油指令"><a href="#从功率请求到燃油指令" class="headerlink" title="从功率请求到燃油指令"></a>从功率请求到燃油指令</h2>
+<p>驾驶员或自动推力系统给出功率请求后，控制器先依据飞行状态、环境条件、引气与取功状态生成目标，例如风扇转速、核心转速、发动机压力比或估算推力。稳态调节器根据目标误差形成候选燃油 W<sub>f,cand</sub>，但它尚不能直接驱动计量阀，因为转子、压气机、燃烧室和涡轮的瞬态响应并不同步。</p>
+<p>增油后涡轮功迅速上升，而转子需要时间加速；此时压气机流量和压比的变化可能暂时把工作点推向喘振线。相反，快速减油会先降低火焰放热，转子和气流却因惯性滞后，局部油气比可能跌破稳定边界。FADEC 因此需要独立的瞬态调度，并用传感器确认实际结果，而不是假定执行机构已精确完成命令。</p>
+
+<h2 id="限制器仲裁与必要公式"><a href="#限制器仲裁与必要公式" class="headerlink" title="限制器仲裁与必要公式"></a>限制器仲裁与必要公式</h2>
+<div class="aeroengine-formula"><strong>加速上限仲裁：</strong>W<sub>f,cmd</sub>=min(W<sub>f,cand</sub>, W<sub>f,acc</sub>, W<sub>f,T</sub>, W<sub>f,N</sub>, W<sub>f,act</sub>)。</div>
+<p>W<sub>f,cand</sub> 是目标调节器给出的候选燃油；W<sub>f,acc</sub> 是为保持压气机稳定与允许转子加速度设置的上限；W<sub>f,T</sub> 是温度上限；W<sub>f,N</sub> 是转速上限；W<sub>f,act</sub> 是燃油系统和执行机构可实现上限。各量单位必须一致，工程上常用质量流量或经压力、温度修正后的燃油参数。</p>
+<div class="aeroengine-formula"><strong>减速下限仲裁：</strong>W<sub>f,cmd</sub>=max(W<sub>f,cand</sub>, W<sub>f,dec/LBO</sub>)，同时仍受超转、关车与故障逻辑约束。</div>
+<p>这个 min/max 表达式是架构直觉，不是完整控制律。真实系统还需处理限幅器切换的无扰过渡、传感器滤波、执行机构速率限制、反积分饱和、通道表决和模型误差。若两个限制器在噪声附近反复抢占，还需要滞回或平滑逻辑，避免燃油指令抖振。</p>
+
+<figure class="aeroengine-figure">
+  <img src="/p/f39e6def/fadec-transient-state-machine.svg" alt="FADEC燃油限制器仲裁、教学加速曲线和起动状态机">
+  <figcaption>图1　FADEC 请求—限制器—执行机构链、教学加速曲线与可审计状态机。数值为透明示教数据，不对应任何型号的认证控制律。作者：Qzl's Blog；许可：<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>；依据 FAA AC 33.28-3、14 CFR §33.73 与 NASA 发动机控制研究绘制；可编辑 SVG，<a href="/p/f39e6def/fadec-transient-state-machine.png">PNG 后备</a>。</figcaption>
+</figure>
+
+<h2 id="可复算的简化算例"><a href="#可复算的简化算例" class="headerlink" title="可复算的简化算例"></a>可复算的简化算例</h2>
+<p>设一次教学加速中，所有燃油量均已按同一基准归一化。稳态目标调节器请求 W<sub>f,cand</sub>=0.88；由喘振与允许加速度得到 W<sub>f,acc</sub>=0.72；温度限制 W<sub>f,T</sub>=0.80；转速限制 W<sub>f,N</sub>=0.94；执行机构上限 W<sub>f,act</sub>=0.90。</p>
+<div class="aeroengine-formula"><strong>结果：</strong>W<sub>f,cmd</sub>=min(0.88, 0.72, 0.80, 0.94, 0.90)=0.72，当前由加速/喘振限制器接管。</div>
+<p>若转速从 32% 在 4.0 s 内升至 85%，平均归一化加速度为 (85%-32%)/4.0=13.25%/s。这个平均值不能替代逐时刻峰值；验收还要检查图中教学轨迹的最小喘振裕度 12.8%，以及温度、转速和燃烧稳定边界是否在全部时刻满足。</p>
+<p>再看减速：若目标调节器请求 0.18，而教学稀熄下限为 W<sub>f,dec/LBO</sub>=0.24，则在不触发关车逻辑时应先命令 0.24，而不是 0.18。算例输入与每 0.05 s 派生曲线保存在 <a href="/data/aeroengine/fadec-transient-teaching-profile.csv">CSV</a>；这些数字只用于复算选择器，不是运行限值。</p>
+
+<h2 id="起动状态机"><a href="#起动状态机" class="headerlink" title="起动状态机"></a>起动状态机</h2>
+<table>
+  <thead><tr><th>状态</th><th>主要进入证据</th><th>监测重点</th><th>典型失败处置类别</th></tr></thead>
+  <tbody>
+    <tr><td>盘车/清吹</td><td>起动资源可用、转子开始转动</td><td>转速、油压、残余燃油与时间</td><td>停止、继续清吹或报告起动系统故障</td></tr>
+    <tr><td>点火供油</td><td>规定的转速/压力窗口且点火通道就绪</td><td>light-off、异常积油、执行机构反馈</td><td>切油并按批准逻辑清吹</td></tr>
+    <tr><td>加速至慢车</td><td>确认点火与温升，转速持续增长</td><td>温度峰值、加速度、喘振与附件接合</td><td>热起动、悬挂起动或无点火分支</td></tr>
+    <tr><td>稳态慢车</td><td>转速、温度和压力进入稳定窗口</td><td>调节误差、振动、引气/发电负载</td><td>降级控制或安全关车</td></tr>
+  </tbody>
+</table>
+<p>“达到某转速就进下一状态”并不充分。每次转换至少要定义进入条件、保持条件、超时、退出条件和失败处置；同时明确哪些传感器可交叉核验。FAA AC 33.28-3 要求从功能、故障影响、飞机接口、环境和验证角度系统地证明发动机控制系统，而不是只展示一条正常起动曲线。</p>
+
+<h2 id="加速控制与喘振温度权衡"><a href="#加速控制与喘振温度权衡" class="headerlink" title="加速控制与喘振温度权衡"></a>加速控制与喘振—温度权衡</h2>
+<p>早期 NACA/NASA 研究已经指出，加速通常受压气机失速/喘振或涡轮温度限制。单纯寻找最大转子加速度并不安全，因为某些发动机在达到最大加速度时已经触及不稳定边界。历史方法会按转速、压气机出口压力和入口温度调度燃油，现代 FADEC 则可加入更完整的模型、健康估计和多变量限制，但物理约束没有消失。</p>
+<p>NASA 2015 年闭环性能与可操作性研究用通用涡扇模型评估响应时间、最小 HPC 喘振裕度和最大 HPT 入口温度的权衡；其不确定性边界对所研究设计的最坏限制估计误差分别不超过 4.76% 和 0.76%。这组量化结果说明控制设计必须覆盖老化与不确定性，也不能把通用模型精度直接外推到真实型号。</p>
+
+<h2 id="减速熄火与再点火逻辑"><a href="#减速熄火与再点火逻辑" class="headerlink" title="减速熄火与再点火逻辑"></a>减速、熄火与再点火逻辑</h2>
+<p>快速减速时，候选燃油可能迅速下降，但燃烧室需要最低局部热释放维持回流稳焰。控制器可用最低燃油/压力比、减油速率、燃烧室压力、排气温度和转子加速度等信息限制下降。若检测到 flameout，逻辑还需区分自动再点火、风车再点火与安全切油，不能在未知积油状态下盲目反复加油。</p>
+<p>减速限制与关车命令必须分开：前者保持发动机继续运行，后者有意切断燃油。传感器迟滞也很关键——温度下降慢不等于火焰仍存在，转速下降慢也可能只是转子惯量。第10期的时间尺度和高空再点火边界在这里成为状态机的物理依据。</p>
+
+<h2 id="故障容错与验证"><a href="#故障容错与验证" class="headerlink" title="故障容错与验证"></a>故障容错与验证</h2>
+<p>控制系统必须考虑转速、温度、压力和位置传感器的漂移、冻结、越界与不一致，也要考虑计量阀卡滞、可调静子/放气阀响应迟缓、供电丢失、数据总线错误和软件功能故障。监控器应区分“真实发动机异常”和“测量链异常”，并把可用通道、保底调度、告警和关车权限写入安全分析。</p>
+<p>验证不能只跑标称新发动机。需要覆盖制造散差、老化、间隙增大、传感器偏置、最低/最高环境温度、进气畸变、引气和轴功提取、执行机构速率与延迟。硬件在环试验检查真实控制器、I/O 和时序；台架及飞行试验再确认模型遗漏的燃烧、结构和安装效应。14 CFR §33.28 给出控制系统安全要求，§33.73 则要求从最低慢车到额定状态的响应不出现喘振、失速、熄火等有害特性。</p>
+
+<h2 id="设计分析执行步骤"><a href="#设计分析执行步骤" class="headerlink" title="设计分析执行步骤"></a>设计、分析与控制的执行步骤</h2>
+<ol>
+  <li><strong>列出状态与目标：</strong>停止、盘车、点火、加速至慢车、稳态、加速、减速、再点火和关车分别定义目标。</li>
+  <li><strong>建立物理模型：</strong>至少包含各轴惯量、部件图、燃烧室容积、传热与执行机构动态。</li>
+  <li><strong>统一修正口径：</strong>燃油、转速、压力和温度调度必须绑定测点、参考条件与单位。</li>
+  <li><strong>构造候选指令：</strong>由目标误差生成 W<sub>f,cand</sub>，明确调节器带宽与抗积分饱和。</li>
+  <li><strong>并列限制器：</strong>计算喘振/加速度、温度、转速、燃烧稳定和执行机构边界。</li>
+  <li><strong>处理切换：</strong>检查限制器接管与退出的滞回、连续性和无扰切换。</li>
+  <li><strong>注入故障：</strong>逐项施加传感器偏置、冻结、通道丢失和阀门迟滞，验证保底与告警。</li>
+  <li><strong>覆盖不确定性：</strong>对新机、老化机、环境、引气、取功和进气畸变做最坏组合扫描。</li>
+  <li><strong>分层验收：</strong>模型、软件、硬件在环、台架与飞行数据逐级闭环，不跨级替代证据。</li>
+</ol>
+
+<h2 id="常见误区与失效边界"><a href="#常见误区与失效边界" class="headerlink" title="常见误区与失效边界"></a>常见误区与失效边界</h2>
+<ul>
+  <li><strong>误区一：</strong>FADEC 等于一个 PID。实际还包含状态管理、调度、限制、监控、通道管理与飞机接口。</li>
+  <li><strong>误区二：</strong>温度未超限就能继续增油。喘振裕度、转速和执行机构可能先成为限制。</li>
+  <li><strong>误区三：</strong>更快响应总是更好。响应时间必须和温度峰值、稳定裕度、寿命和乘坐品质共同验收。</li>
+  <li><strong>误区四：</strong>稳态图足以设计瞬态。多轴转子、容积、传感器与阀门的动态会产生暂态失配。</li>
+  <li><strong>误区五：</strong>模型预测不喘振即可省略试验。真实畸变、退化和燃烧非定常必须用分层证据校核。</li>
+  <li><strong>证据边界：</strong>0.72、13.25%/s、12.8%、0.24 均为示教值；NASA 的 4.76% 与 0.76% 只描述其论文方法和通用模型。</li>
+</ul>
+
+<h2 id="与整机和其他部件耦合"><a href="#与整机和其他部件耦合" class="headerlink" title="与整机和其他部件耦合"></a>与整机和其他部件的耦合</h2>
+<p>飞机引气、防冰、发电机和液压泵会改变核心流量与轴功需求；可调静子和放气阀改变压气机工作线；喷口面积改变背压；进气畸变直接吞噬稳定裕度。自动推力、飞控与发动机控制之间还要处理请求优先级、速率限制和故障隔离。因此一次“油门阶跃”本质上是飞机—进气—发动机—附件的系统级瞬态。</p>
+<p>NASA 2024 年电气化燃气轮机瞬态优化研究进一步把电机功率注入/提取与燃油调度共同优化，目标仍是响应时间、喘振裕度和温度约束的权衡。它展示了新执行自由度，但不意味着传统边界被取消；电池、电机、功率电子和能量管理又带来新的饱和、热和故障约束。</p>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol>
+  <li>为什么功率请求不能直接等于燃油流量命令？</li>
+  <li>计算题：min(0.91, 0.76, 0.82, 0.95, 0.88) 等于多少，由哪个限制器接管？</li>
+  <li>计算题：转速从 40% 在 3 s 内升至 82%，平均归一化加速度是多少？</li>
+  <li>判断题：快速减速只需检查转子是否超速，不必检查燃烧稳定。</li>
+  <li>判断题：控制模型在标称新发动机上满足裕度，就足以覆盖全寿命。</li>
+  <li>起动状态转换至少应记录哪四类条件？</li>
+  <li>为何限制器切换需要滞回或无扰处理？</li>
+  <li>列出三项飞机侧负载或接口对发动机瞬态的影响。</li>
+</ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<ol>
+  <li>燃油先改变温度和涡轮功，转子与空气流量滞后；直接跟随请求可能喘振、超温、超转或熄火。</li>
+  <li>0.76，由加速/喘振上限接管。</li>
+  <li>(82%-40%)/3=14%/s；还需检查逐时刻峰值与全部约束。</li>
+  <li>错误。减油过快可能稀熄，且温度、转速和响应均需监测。</li>
+  <li>错误。老化、环境、畸变、引气、取功和传感器/执行机构误差都会减少裕度。</li>
+  <li>进入条件、保持/监测条件、超时、退出条件和失败处置，答出四项即可。</li>
+  <li>避免噪声附近反复抢占造成燃油抖振，并防止调节器积分项在饱和后产生突跳。</li>
+  <li>例如防冰/空调引气、发电或液压取功、自动推力请求、进气畸变和喷口/反推接口。</li>
+</ol>
+<p><strong>下一期建议：</strong>进入经典型号剖析，选择一台公开资料充分、控制与可靠性事件可核验的代表性发动机，重点阅读其认证参数、轴系级数、限制逻辑和改型代价。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ul>
+  <li><a href="https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_33_28-3.pdf" target="_blank" rel="noopener noreferrer">FAA AC 33.28-3：Engine Control Systems</a>：控制、限制、保护、监控、故障分析与飞机接口的合规指导。</li>
+  <li><a href="https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-33/subpart-C/section-33.28" target="_blank" rel="noopener noreferrer">14 CFR §33.28：Engine Control Systems</a>：发动机控制系统安全要求。</li>
+  <li><a href="https://www.ecfr.gov/current/title-14/chapter-I/subchapter-C/part-33/subpart-E/section-33.73" target="_blank" rel="noopener noreferrer">14 CFR §33.73：Power or Thrust Response</a>：从最低慢车到额定状态的响应与有害特性要求。</li>
+  <li><a href="https://ntrs.nasa.gov/citations/19750015501" target="_blank" rel="noopener noreferrer">NASA：Aircraft Engine Controls</a>：稳态、加速、减速燃油调度与限制器架构。</li>
+  <li><a href="https://ntrs.nasa.gov/citations/19930089108" target="_blank" rel="noopener noreferrer">NACA RM E56C08：Temperature-Scheduled Acceleration Control</a>：加速中喘振与温度限制、测温动态和闭环稳定性。</li>
+  <li><a href="https://ntrs.nasa.gov/citations/20150021871" target="_blank" rel="noopener noreferrer">NASA：Closed-Loop Performance and Operability Requirements</a>：响应时间、HPC 喘振裕度、HPT 温度与老化不确定性。</li>
+  <li><a href="https://ntrs.nasa.gov/citations/20240000148" target="_blank" rel="noopener noreferrer">NASA/TM-20240000148：Transient Optimization of an Electrified Gas Turbine Engine</a>：燃油与电机功率协同的瞬态约束优化。</li>
+  <li><a href="https://www.easa.europa.eu/en/document-library/certification-specifications/group/cs-e-engines" target="_blank" rel="noopener noreferrer">EASA CS-E Engines</a>：当前发动机认证规范及修订入口。</li>
+</ul>
+<p><strong>图示与数据：</strong>图1由 Qzl's Blog 使用 Python/Matplotlib 绘制，CC BY 4.0；SVG 文本可编辑，PNG 为网页后备。曲线采用确定性教学方程，原始数据保存于 <a href="/data/aeroengine/fadec-transient-teaching-profile.csv">fadec-transient-teaching-profile.csv</a>，不得当作认证调度表或操作依据。</p>

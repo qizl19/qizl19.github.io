@@ -3275,7 +3275,7 @@ li.categoryBar-list-item.category-cad-cae {
   background-position: center !important;
 }
 li.categoryBar-list-item.category-aeroengine {
-  background-image: linear-gradient(rgba(0,0,0,0.12) 15%, rgba(0,0,0,0.62) 100%), url('/p/0ef0310c/combustor-stability-map.png') !important;
+  background-image: linear-gradient(rgba(0,0,0,0.12) 15%, rgba(0,0,0,0.62) 100%), url('/p/f39e6def/fadec-transient-state-machine.png') !important;
   background-size: cover !important;
   background-position: center !important;
 }
