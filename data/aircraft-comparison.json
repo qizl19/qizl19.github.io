@@ -1,5 +1,16 @@
 [
   {
+    "slug": "lockheed-c-130j-super-hercules",
+    "name": "洛克希德·马丁 C-130J“超级大力神”",
+    "url": "/p/069c3498.html",
+    "firstFlightYear": 1996,
+    "lengthM": 29.79,
+    "wingspanM": 40.41,
+    "maxTakeoffWeightT": 74.39,
+    "speedLabel": "美国空军资料给标准型约362 ktas（约671 km/h，22,000 ft）；不同页面与批次略有差异",
+    "rangeLabel": "航程必须绑定载荷；美国空军资料给标准型最大正常载荷下约1,800 nmi（约3,334 km）"
+  },
+  {
     "slug": "guizhou-jl-9",
     "name": "歼教-9“山鹰”",
     "url": "/p/f0e224e8.html",

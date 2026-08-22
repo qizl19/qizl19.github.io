@@ -1,5 +1,137 @@
 [
 {
+  "slug": "lockheed-c-130j-super-hercules",
+  "nameZh": "洛克希德·马丁 C-130J“超级大力神”",
+  "nameEn": "Lockheed Martin C-130J Super Hercules",
+  "eyebrow": "飞机资料整理 · 第 21 期",
+  "subtitle": "用新动力、数字航电与精简机组延续一型经典战术运输平台",
+  "date": "2026-08-22",
+  "updated": "2026-08-22",
+  "nation": "美国 / 多国运营",
+  "category": "四发涡桨战术运输机",
+  "era": "1990年代至今",
+  "tags": ["航空", "运输机", "涡桨飞机"],
+  "status": "在产 / 多国现役",
+  "metrics": {
+    "firstFlightYear": 1996,
+    "lengthM": 29.79,
+    "wingspanM": 40.41,
+    "maxTakeoffWeightT": 74.39,
+    "speedLabel": "美国空军资料给标准型约362 ktas（约671 km/h，22,000 ft）；不同页面与批次略有差异",
+    "rangeLabel": "航程必须绑定载荷；美国空军资料给标准型最大正常载荷下约1,800 nmi（约3,334 km）"
+  },
+  "diagram": [
+    "任务需求：从简易跑道快速运送人员、托盘、车辆与医疗后送载荷",
+    "总体平台：高翼、四发涡桨、低货舱地板和尾部货桥形成战术装卸闭环",
+    "动力航电：AE 2100D3、六叶复合材料螺旋桨与数字控制提高功率和自动化",
+    "运营体系：两名飞行员、装载长、任务模块、地面保障与跑道条件共同决定出动效率"
+  ],
+  "firstFlight": "洛克希德·马丁官方时间线确认C-130J于1996年4月5日在佐治亚州玛丽埃塔首飞",
+  "accent": "#375f79",
+  "heroImage": "/p/069c3498/c130j-yokota.webp",
+  "model": {
+    "kind": "triposg-image-reconstruction",
+    "src": "/p/069c3498/models/c130j-triposg.glb",
+    "poster": "/p/069c3498/c130j-yokota.webp",
+    "author": "VAST-AI Research / input photograph by Tech. Sgt. Chris Birdwell, U.S. Air Force",
+    "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+    "license": "input public domain (U.S. Air Force); TripoSG code MIT",
+    "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "method": "VAST-AI官方TripoSG本机离线双候选单图重建、八视角审计与轻量漂浮碎片清理",
+    "inputImage": "/p/069c3498/c130j-greece.webp",
+    "inputCredit": "Tech. Sgt. Chris Birdwell / U.S. Air Force",
+    "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:C-130J_Super_Hercules_(12838689063).jpg",
+    "engine": "TripoSG",
+    "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+    "engineLicense": "MIT",
+    "channel": "local-offline-rtx3060",
+    "outputSha256": "3992cddf547699a9ff536a2fa6e871672921a4f8259914f06d90aa2c244dc9f3",
+    "generation": {
+      "steps": 40,
+      "seed": 84,
+      "guidanceScale": 7.0,
+      "denseDepth": 8,
+      "hierarchicalDepth": 9,
+      "targetFaces": 80000,
+      "flashDecoder": false
+    },
+    "note": "先检索制造商、政府、Wikimedia、MediaWiki 3D、Sketchfab与开源模型来源。Sketchfab上KOG_THORNS发布的C-130J模型可确认机型、作者、84,018面、可下载与CC BY 4.0许可，但匿名下载API要求账户认证，本次未绕过登录、未取得原始包，故没有使用。随后采用VAST-AI官方TripoSG与本机官方权重在RTX 3060上离线重建两个单图候选。候选一输入为Yasuo Osakabe的横田基地起飞照片，输入SHA256 660400deb5a8b36527eb2a2c914d9d39327212d3341654ab982031427314f302，seed 42，40步、guidance 7、dense depth 8、hierarchical depth 9，耗时243.80秒，原始输出80,000面、354个连通分量；虽可辨总体，却受旋转桨盘与碎片影响，未选用。候选二输入为Tech. Sgt. Chris Birdwell的希腊训练飞行照片，输入SHA256 adf3354c230ce49909d0b5abecda6cb738552c887513d0da68192ac347a21bb1，seed 84，其余参数相同，耗时201.46秒，原始输出80,000面、11个连通分量。删除10个合计192面的微小漂浮部件后，保留单一主体39,906顶点、79,808面、1,437,440字节，SHA256 3992cddf547699a9ff536a2fa6e871672921a4f8259914f06d90aa2c244dc9f3。八视角可辨四发高翼、六叶螺旋桨、机身、T形尾翼和起落架，允许作为AI单图重建外形示意。遮挡区由模型推断，非工程CAD，不可用于制造、仿真、气动分析或尺寸测量。"
+  },
+  "statement": "C-130J不是对经典C-130外形成比例放大的新飞机，而是把数字航电、发动机与螺旋桨、自动化机组和货运系统重新整合到成熟战术运输总体上。本文只整理公开任务、外形、动力和运营资料，不涉及敏感任务系统或可操作性作战细节。",
+  "summary": "C-130J‘超级大力神’是洛克希德·马丁在C-130家族基础上发展的新一代四发涡桨战术运输机。官方资料确认它于1996年4月5日首飞，1998年进入服役。与较早批次相比，J型换用四台Rolls-Royce AE 2100D3、六叶复合材料螺旋桨、综合数字驾驶舱和双人飞行机组，并保留高翼、低货舱地板、高浮性起落架与尾部货桥。标准型和加长15英尺的C-130J-30在长度、载荷人数与航程口径上不能混用。洛克希德·马丁2024年宣布全球C-130J机队超过300万飞行小时；2025年披露交付量超过560架，但制造商市场数据应与用户方任务口径分开理解。",
+  "facts": [
+    {"label": "定位", "value": "四发涡桨战术运输机", "note": "运输、空投、医疗后送与多种特种任务平台"},
+    {"label": "制造商", "value": "Lockheed Martin Aeronautics", "note": "佐治亚州玛丽埃塔生产线"},
+    {"label": "首飞", "value": "1996年4月5日", "note": "制造商官方时间线"},
+    {"label": "服役", "value": "1998年起", "note": "不同用户接装时间不同"},
+    {"label": "机组", "value": "2名飞行员 + 1名装载长", "note": "美国空军基础运输任务口径"},
+    {"label": "总体", "value": "高翼、四发涡桨、T形尾翼、尾部货桥", "note": "公开照片可核实"},
+    {"label": "尺寸", "value": "标准型长约29.79 m；翼展约40.41 m；高约11.9 m", "note": "C-130J-30机长约34.37 m"},
+    {"label": "最大起飞重量", "value": "约74.4 t级", "note": "须绑定用户与结构限制口径"},
+    {"label": "动力", "value": "4 × Rolls-Royce AE 2100D3", "note": "单台最高认证功率约4,700 shp"},
+    {"label": "三维模型", "value": "TripoSG本机离线单图重建", "note": "79,808面，非工程CAD"}
+  ],
+  "timeline": [
+    {"year": "1954", "event": "YC-130原型机首飞，奠定高翼、四发涡桨和尾部货桥的家族总体。"},
+    {"year": "1994", "event": "Rolls-Royce资料记载AE 2100D3被选为C-130J动力。"},
+    {"year": "1996-04-05", "event": "C-130J在美国佐治亚州玛丽埃塔首飞。"},
+    {"year": "1998", "event": "制造商时间线记载C-130J进入服役。"},
+    {"year": "1999-02", "event": "美国空军资料记载J型进入其装备序列。"},
+    {"year": "2013", "event": "全球C-130J机队累计飞行超过100万小时。"},
+    {"year": "2024-07", "event": "制造商宣布全球机队累计超过300万飞行小时，覆盖运输、救灾、医疗和特种任务。"},
+    {"year": "2025", "event": "制造商宣布交付超过560架，并完成新的机翼耐久性验证；该数字属于制造商统计。"}
+  ],
+  "designPoints": [
+    "高翼让主翼结构与发动机远离低货舱地板，也为大型侧门、尾部货桥和车辆直进直出留出空间。",
+    "四台涡桨在中低速、短距和低空任务中兼顾推力响应与燃油效率；六叶复合材料桨叶是J型最直观识别特征。",
+    "高浮性起落架、较大襟翼和反推能力支持条件受限跑道，但‘能在简易跑道运行’不等于任何地面都可安全使用。",
+    "数字驾驶舱、双惯导/GPS、平视显示器和自动驾驶降低了传统导航员与飞行工程师岗位需求。",
+    "标准C-130J与加长15英尺的C-130J-30共用翼展，却在货舱长度、空重、载荷人数和性能图上有差异。",
+    "模块化任务设备可覆盖加油、海上巡逻、搜救、气象、消防和特种任务，但改装重量、阻力与认证会改变基线性能。"
+  ],
+  "power": "C-130J使用四台Rolls-Royce AE 2100D3涡桨发动机，Rolls-Royce给出的最高认证功率为4,700 shp。发动机通过数字式全权限控制与Dowty R391六叶复合材料螺旋桨协同，较传统T56动力提高可用功率和自动化程度。螺旋桨的扫掠桨尖、减速器、发动机控制、反推逻辑和机翼气动必须作为一体系统理解；单纯比较轴马力不能直接推导起飞距离、油耗或噪声。",
+  "variants": [
+    {"name": "C-130J（标准型）", "description": "约29.8米机长，六个463L托盘位；适合体积与重量相对均衡的战术运输任务。"},
+    {"name": "C-130J-30", "description": "机身加长约4.6米，货舱增加两个托盘位，可容纳更多人员与担架；空重和重心管理随之变化。"},
+    {"name": "KC-130J", "description": "以J型为基础的空中加油与运输平台；外部油箱、加油吊舱和任务设备会改变阻力与载荷口径。"},
+    {"name": "HC/MC/AC-130J家族", "description": "面向搜救、特种作战或火力支援的用户改型；不能把任务设备和性能直接套回基线运输型。"},
+    {"name": "LM-100J", "description": "面向民用市场的J型衍生运输机，适航、客货装载与运营规则不同于军用基线。"}
+  ],
+  "strengths": [
+    "成熟高翼货运总体与现代动力航电结合，任务适应性强。",
+    "尾部货桥、卡车高度货舱地板和标准托盘系统缩短装卸与重构时间。",
+    "双人飞行机组与数字系统减少岗位，但仍保留装载长这一货运安全核心角色。",
+    "多国长期使用形成较大的训练、保障、改装和备件生态。",
+    "标准型与加长型为重量受限和体积受限任务提供不同选择。"
+  ],
+  "limits": [
+    "战术短距与简易跑道能力不能替代对跑道强度、坡度、障碍物、气象和发动机异物吸入的评估。",
+    "标准型、-30加长型和特种改型的重量、航程、人数与货舱数据容易被错误拼接。",
+    "四发、复杂任务设备与老牌全球机队意味着保障体系庞大，采购价不能代表全寿命成本。",
+    "涡桨在高速和高空效率上不等同喷气运输机，任务航程与时间必须结合载荷和飞行剖面。",
+    "AI单图重建受遮挡、透视和螺旋桨相位影响，只能作为低精度外形示意。"
+  ],
+  "photos": [
+    {"src": "/p/069c3498/c130j-yokota.webp", "alt": "美国空军C-130J从横田基地起飞的完整三分之四视图", "caption": "C-130J完整起飞视图，可辨高翼、四台发动机、六叶螺旋桨、机身与T形尾翼。", "credit": "Yasuo Osakabe / U.S. Air Force", "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Air_Force_C-130J_Super_Hercules.jpg", "license": "Public domain — U.S. Air Force", "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"},
+    {"src": "/p/069c3498/c130j-greece.webp", "alt": "美国空军C-130J在希腊训练飞行中的完整下侧视图", "caption": "训练飞行中的C-130J，可清楚核验四发排列、翼面、机身比例和尾翼；亦为本期TripoSG入选输入。", "credit": "Tech. Sgt. Chris Birdwell / U.S. Air Force", "sourceUrl": "https://commons.wikimedia.org/wiki/File:C-130J_Super_Hercules_(12838689063).jpg", "license": "Public domain — U.S. Air Force", "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"},
+    {"src": "/p/069c3498/c130j-cockpit.webp", "alt": "C-130J数字化双人驾驶舱与机组操作场景", "caption": "C-130J驾驶舱内部，展示双人座舱、综合显示器与顶部控制面板。", "credit": "Air Force Archive / U.S. Air Force", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gen._Michael_Minihan_piloting_a_Lockheed-Martin_C-130J_Super_Hercules.jpg", "license": "Public domain — U.S. Air Force", "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"},
+    {"src": "/p/069c3498/c130j-loading.webp", "alt": "地勤人员通过C-130J尾部货桥装载标准托盘", "caption": "C-130J尾部装载场景，展示低货舱地板、货桥与托盘化地面保障关系。", "credit": "Tech. Sgt. Kregg York / U.S. Air Force AFCENT", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cargo_Loading_(8336072).jpg", "license": "Public domain — U.S. Air Force", "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/"}
+  ],
+  "sources": [
+    {"label": "Lockheed Martin：C-130官方历史与C-130J首飞时间线", "url": "https://www.lockheedmartin.com/en-us/products/c130/history.html"},
+    {"label": "Lockheed Martin：2024年C-130J全球机队300万飞行小时", "url": "https://news.lockheedmartin.com/2024-07-22-Worldwide-C-130J-Super-Hercules-Fleet-Soars-Past-3-Million-Flight-Hours"},
+    {"label": "美国空军：C-130 Hercules任务、系统与性能口径", "url": "https://www.af.mil/About-Us/Fact-Sheets/Display/Article/1555054/c-130-hercules/"},
+    {"label": "美国空军国民警卫队：C-130J-30与标准型对比", "url": "https://www.130aw.ang.af.mil/About-Us/Fact-Sheets/Display/Article/4525571/fact-sheet-the-c-130j-30-super-hercules/"},
+    {"label": "Rolls-Royce：AE 2100D3官方产品页", "url": "https://www.rolls-royce.com/products-and-services/defence/aerospace/transport-tanker-patrol-and-tactical/ae-2100.aspx"},
+    {"label": "英国国防部：C-130J公开尺寸与任务资料", "url": "https://www.gov.uk/government/publications/air-equipment-for-sale"},
+    {"label": "Sketchfab：KOG_THORNS的C-130J CC BY 4.0模型页（本次未下载）", "url": "https://sketchfab.com/3d-models/lockheed-martin-c130jsuper-hercules-reupload-223b4ff4abb945038fe35726bedd0db1"},
+    {"label": "VAST-AI Research：TripoSG官方代码与MIT许可", "url": "https://github.com/VAST-AI-Research/TripoSG"},
+    {"label": "Wikimedia Commons：C-130J许可明确照片分类", "url": "https://commons.wikimedia.org/wiki/Category:Lockheed_Martin_C-130J_Super_Hercules"}
+  ],
+  "postId": "069c3498"
+}
+,
+{
   "slug": "guizhou-jl-9",
   "nameZh": "歼教-9“山鹰”",
   "nameEn": "Guizhou JL-9 / FTC-2000 Mountain Eagle",
