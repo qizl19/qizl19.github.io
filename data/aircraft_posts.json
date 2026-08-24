@@ -1,4 +1,124 @@
 [
+  {
+    "slug": "harbin-z-9",
+    "nameZh": "直-9“海豚”",
+    "nameEn": "Harbin Z-9",
+    "eyebrow": "飞机资料整理 · 第 22 期",
+    "subtitle": "从许可证生产到自主改进：中国轻型多用途直升机平台的形成",
+    "date": "2026-08-24",
+    "updated": "2026-08-24",
+    "nation": "中国 / 多国运营",
+    "category": "双发轻型多用途直升机",
+    "era": "1980年代至今",
+    "tags": ["航空", "直升机", "中国航空工业"],
+    "status": "多型现役 / 已形成出口用户",
+    "metrics": {
+      "firstFlightYear": 1981,
+      "lengthM": 11.44,
+      "wingspanM": 12.0,
+      "maxTakeoffWeightT": 4.1,
+      "speedLabel": "公开资料多给最大平飞约280 km/h；巡航约250 km/h，随批次与任务构型变化",
+      "rangeLabel": "公开资料约696–860 km，差异来自型号、载荷、油量与任务剖面，不能混用"
+    },
+    "diagram": [
+      "来源与需求：在法国AS365“海豚”家族基础上引进、消化并逐步国产化",
+      "总体布局：双发、四叶主旋翼、涵道尾桨与可收放前三点式起落架",
+      "平台化改进：机体、旋翼、动力和任务设备按运输、舰载与其他公开任务分化",
+      "运营边界：有效载荷、航程、起降环境与保障条件共同决定任务能力"
+    ],
+    "firstFlight": "美国陆军ODIN公开数据库记载首架直-9于1981年首飞；国产化程度更高的直-9B在1992年1月16日首飞",
+    "accent": "#2f6b62",
+    "heroImage": "/p/d0a7fc02/z9-hms-cornwall.webp",
+    "model": {
+      "kind": "unavailable",
+      "poster": "/p/d0a7fc02/z9-ghana.webp",
+      "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "method": "VAST-AI官方TripoSG本机离线双候选单图重建、八视角目视检查与网格审计",
+      "inputCredit": "POA(Phot) Owen King / UK Ministry of Defence；Xanderix",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:Ghana_Air_Force_GHF_631.jpg",
+      "license": "候选输入分别为Open Government Licence v1.0与CC BY 4.0；TripoSG代码MIT",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "engine": "TripoSG",
+      "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "engineLicense": "MIT",
+      "channel": "local-offline-rtx3060",
+      "note": "已检索制造商、政府、Wikimedia、MediaWiki 3D、Sketchfab及开源模型来源。Sketchfab可确认Martini-SF发布的Dolphin Helicopter（AS-365/Harbin Z-9）模型可下载，但许可为CC BY-NC，含非商业限制，不符合本站再分发门槛；付费模型亦未采用。随后使用VAST-AI官方TripoSG和本机官方权重在RTX 3060上离线生成两个单图候选。候选一输入为Owen King拍摄、英国国防部发布的飞行侧视图，输入SHA256 633ec6b828da8264caeeabe580937bd95ab4a183837602bab216006cd311fe84，seed 42、40步、guidance 7、dense depth 8、hierarchical depth 9、目标80,000面、耗时216.34秒；输出39,707顶点、80,000面、424个连通分量、1,437,268字节、SHA256 b28fe5013bb720f86fd301d56390413c020168c78a997e44066a41d71b2d5a4c，主旋翼仅形成两片显著桨叶且碎片过多。候选二输入为Xanderix拍摄的加纳空军直-9，输入SHA256 fe65c210d5fb404c59ef85c44234279b219cc75ef1455d069043fda2b994519d，seed 84、其余参数相同、耗时132.42秒；原始输出39,979顶点、80,000面、39个连通分量、1,440,532字节、SHA256 5135635bf79f6d1de950a7c65871910053472ba8d66c9935f041e6bedee7b0bc。删除38个合计1,992面的微小游离部件后，虽保留四叶主旋翼、机身、涵道尾桨和尾翼，但尾梁附近仍有与真机不符的连接伪影。两候选均未通过部件数量、轮廓与伪影审计，故不上传GLB。暂无可验证模型；静态照片仅用于公开外形辨识，不可用于制造、仿真、尺寸测量或任务规划。"
+    },
+    "statement": "直-9是中国在法国AS365“海豚”家族基础上引进、国产化并持续改进形成的轻型多用途直升机平台。本文只整理公开可核实的历史、外形、动力与运营资料，不涉及敏感任务系统、武器接口或可操作性使用细节。",
+    "summary": "直-9由哈尔滨飞机工业体系在法国AS365“海豚”家族基础上发展。公开官方资料把1980年代初的许可证生产视为起点，随后经历部件国产化、直-9A-100验证和直-9B批产，逐步形成运输、舰载及其他公开任务改型。它采用双发动机、四叶主旋翼、涵道尾桨和可收放前三点式起落架，紧凑机体适合多任务改装。不同资料中的长度、重量、速度和航程常混合了法方原型、直-9B、舰载型或出口型；本期资料因此保留范围并标注口径。直-9的工程价值不只在单一性能，而在于把许可证生产转化为持续改型、供应链和后续直升机研制能力。",
+    "facts": [
+      {"label": "定位", "value": "双发轻型多用途直升机", "note": "运输、联络、搜救与公开舰载任务平台"},
+      {"label": "制造体系", "value": "哈尔滨飞机工业体系", "note": "现属中国航空工业集团相关体系"},
+      {"label": "技术源流", "value": "法国AS365“海豚”家族", "note": "先许可证生产，后国产化与改型"},
+      {"label": "首飞", "value": "1981年（首架直-9）", "note": "直-9B公开首飞为1992年1月16日"},
+      {"label": "总体", "value": "四叶主旋翼 + 涵道尾桨", "note": "双发、可收放前三点式起落架"},
+      {"label": "尺寸", "value": "机身长约11.44–12.08 m；旋翼直径约11.93–12.00 m", "note": "测量基准和型号不同"},
+      {"label": "最大起飞重量", "value": "约4.0–4.25 t级", "note": "随批次与任务构型变化"},
+      {"label": "动力", "value": "2台涡轴发动机", "note": "国产型常见公开口径为涡轴-8系列"},
+      {"label": "载员", "value": "公开基础运输口径约10名乘员", "note": "座椅、油量和任务设备会改变有效载荷"},
+      {"label": "三维展示", "value": "暂无可验证模型", "note": "两次TripoSG候选均未通过目视与网格审计"}
+    ],
+    "timeline": [
+      {"year": "1980年代初", "event": "中国从法国引进“海豚”直升机相关生产许可与技术，开始直-9项目。"},
+      {"year": "1981", "event": "美国陆军ODIN公开数据库记载首架直-9首飞。"},
+      {"year": "1988–1990", "event": "直-9A-100用于提高国产化程度并完成公开验证，成为国产化进程的重要节点。"},
+      {"year": "1992-01-16", "event": "公开资料记载直-9B首飞。"},
+      {"year": "1993–1994", "event": "ODIN记载直-9B进入生产并于随后开始服役。"},
+      {"year": "2000年代", "event": "平台继续形成舰载、运输和其他公开任务改型，并成为后续直升机发展的技术基础之一。"},
+      {"year": "2014", "event": "国家国防科技工业局报道4架直-9出口型交付喀麦隆，反映其出口运营拓展。"},
+      {"year": "2019", "event": "中国军网公开报道驻吉布提保障基地使用直-9执行医疗后送训练。"},
+      {"year": "2022", "event": "中国军网公开报道舰载直-9参与海上搜救，展示平台化任务适应性。"}
+    ],
+    "designPoints": [
+      "紧凑流线机身、双发动力与四叶主旋翼形成轻型多用途平台；主旋翼直径约12米级。",
+      "涵道尾桨把尾桨叶片置于环形垂尾结构中，有助于地面安全、结构集成和外形辨识，但并非在所有工况都天然更高效。",
+      "可收放前三点式起落架降低巡航阻力，却增加收放机构、舱门、重量和维护复杂度。",
+      "双侧舱门与相对规整的客舱便于运输、医疗后送、联络和任务设备改装；具体载员取决于重量重心与座舱布局。",
+      "国产化不是一次性替换部件，而是材料、工艺、旋翼、动力、航电和供应链逐步成熟的系统工程。",
+      "舰载和陆基型在防腐、折叠/系留、航电和任务设备方面可能不同，不能把一个改型的重量和性能套用到全系列。"
+    ],
+    "power": "直-9采用双涡轴发动机布局。国产直-9B常见公开资料把动力指向涡轴-8系列，单台功率常见约540 kW级口径，但不同发动机批次、额定状态、环境修正和输出轴口径可能不同。发动机经主减速器驱动四叶主旋翼，同时通过传动系统驱动涵道尾桨。对直升机而言，发动机额定功率必须与主减速器限制、旋翼转速、环境温度、海拔和单发安全裕度一起解读；不能仅用两台发动机额定功率相加来推算载荷。",
+    "variants": [
+      {"name": "直-9 / 早期许可证生产型", "description": "在AS365家族基础上形成的早期批次，国产化比例与后续型号不同。"},
+      {"name": "直-9A-100", "description": "用于推进国产化和技术验证的关键节点，国家国防科技工业局称其为第一架国产直-9。"},
+      {"name": "直-9B", "description": "国产化程度提高的基础生产型，成为多种后续改型的平台。"},
+      {"name": "直-9C", "description": "公开资料中的海军舰载型；CASI资料称其可在具备直升机运作能力的中国海军作战舰艇上使用。"},
+      {"name": "直-9系列其他任务型", "description": "公开报道可见运输、搜救、医疗后送及其他任务改型；本文不展开敏感任务系统与可操作性细节。"},
+      {"name": "出口型", "description": "面向加纳、喀麦隆等公开用户的批次，航电、设备和重量口径可能不同。"}
+    ],
+    "strengths": [
+      "双发、紧凑机体与涵道尾桨适合舰载、运输和搜救等多种公开任务。",
+      "许可证生产到国产化的连续路径积累了旋翼系统、总装、试飞和供应链经验。",
+      "平台化改型延长了基本气动布局和生产体系的使用寿命。",
+      "可收放起落架和流线机身兼顾巡航阻力与地面操作需求。",
+      "国内外公开运营提供了跨气候、陆上与海上环境的使用经验。"
+    ],
+    "limits": [
+      "约4吨级平台的客舱、油量、任务设备和有效载荷之间存在直接权衡。",
+      "许可证源型、直-9A-100、直-9B、舰载型和出口型的尺寸、重量与性能不能混为一表。",
+      "涵道尾桨、可收放起落架和舰载环境要求带来结构、维护与保障复杂度。",
+      "公开性能常未注明高度、温度、起飞重量和余油规则，航程数字只能作为条件化参考。",
+      "两次AI单图重建均出现主旋翼或尾梁伪影，未达到可发布三维外形标准。"
+    ],
+    "photos": [
+      {"src": "/p/d0a7fc02/z9-hms-cornwall.webp", "alt": "中国海军直-9从英国军舰附近飞行的完整侧视图", "caption": "直-9完整飞行侧视图，可辨四叶主旋翼、涵道尾桨、机身与放下的起落架。", "credit": "POA(Phot) Owen King / UK Ministry of Defence", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chinese_Helicopter_Lands_on_HMS_Cornwall_MOD_45150752.jpg", "license": "Open Government Licence v1.0", "licenseUrl": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/1/"},
+      {"src": "/p/d0a7fc02/z9-ghana.webp", "alt": "加纳空军直-9完整侧视图", "caption": "加纳空军直-9飞行侧视图，可核验机身比例、四叶主旋翼、垂尾与涵道尾桨。", "credit": "Xanderix", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ghana_Air_Force_GHF_631.jpg", "license": "CC BY 4.0", "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"},
+      {"src": "/p/d0a7fc02/z9-plan.webp", "alt": "中国海军直-9停放在飞行甲板上", "caption": "甲板上的直-9近景，可观察座舱、旋翼毂、起落架与舰载使用环境。", "credit": "Sparktour", "sourceUrl": "https://commons.wikimedia.org/wiki/File:PLAN_Z-9_Helicopter.jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src": "/p/d0a7fc02/z9-pla-hk.webp", "alt": "两架中国人民解放军直-9W编队飞行", "caption": "两架直-9W编队飞行，用于展示该平台的公开运营场景；不据此推断任务载荷。", "credit": "Tksteven", "sourceUrl": "https://commons.wikimedia.org/wiki/File:PLA_Harbin_Z-9W_2012_Hong_Kong.JPG", "license": "CC BY 3.0", "licenseUrl": "https://creativecommons.org/licenses/by/3.0/"}
+    ],
+    "sources": [
+      {"label": "国家国防科技工业局：直-9A-100与哈尔滨航空工业发展历史", "url": "https://www.sastind.gov.cn/n10086205/n10086389/c10465460/content.html"},
+      {"label": "国家国防科技工业局：中国直升机引进、国产化与系列发展", "url": "https://www.sastind.gov.cn/n10086205/n10086403/c10253053/content.html"},
+      {"label": "国家国防科技工业局：4架直-9出口型交付喀麦隆", "url": "https://www.sastind.gov.cn/n10086200/n10086331/c10330530/content.html"},
+      {"label": "U.S. Army ODIN：Harbin Z-9历史、布局与公开参数", "url": "https://odin.t2com.army.mil/WEG/Asset/665e08f1f03808795b6e98d30b9eac5d"},
+      {"label": "China Aerospace Studies Institute：PLAN Aviation Primer（直-9C舰载平台）", "url": "https://www.airuniversity.af.edu/Portals/10/CASI/documents/Research/Other-Topics/2024-07-16%20Primer%204th%20ed.pdf"},
+      {"label": "中国军网英文版：驻吉布提保障基地直-9医疗后送训练", "url": "https://eng.chinamil.com.cn/CHINA_209163/TopStories_209189/9342177.html"},
+      {"label": "中国军网英文版：舰载直-9海上搜救公开报道", "url": "https://eng.chinamil.com.cn/view/2022-02/02/content_10127675_4.htm"},
+      {"label": "VAST-AI Research：TripoSG官方代码与MIT许可", "url": "https://github.com/VAST-AI-Research/TripoSG"},
+      {"label": "Wikimedia Commons：Harbin Z-9许可明确照片分类", "url": "https://commons.wikimedia.org/wiki/Category:Harbin_Z-9"}
+    ],
+    "postId": "d0a7fc02"
+  },
 {
   "slug": "lockheed-c-130j-super-hercules",
   "nameZh": "洛克希德·马丁 C-130J“超级大力神”",

@@ -1,5 +1,16 @@
 [
   {
+    "slug": "harbin-z-9",
+    "name": "直-9“海豚”",
+    "url": "/p/d0a7fc02.html",
+    "firstFlightYear": 1981,
+    "lengthM": 11.44,
+    "wingspanM": 12.0,
+    "maxTakeoffWeightT": 4.1,
+    "speedLabel": "公开资料多给最大平飞约280 km/h；巡航约250 km/h，随批次与任务构型变化",
+    "rangeLabel": "公开资料约696–860 km，差异来自型号、载荷、油量与任务剖面，不能混用"
+  },
+  {
     "slug": "lockheed-c-130j-super-hercules",
     "name": "洛克希德·马丁 C-130J“超级大力神”",
     "url": "/p/069c3498.html",
