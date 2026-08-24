@@ -1,5 +1,50 @@
 [
   {
+    "issue": 12,
+    "slug": "pw1100g-jm-geared-fan-durability",
+    "postId": "2c54c8a8",
+    "title": "航空发动机学习简报｜第12期｜PW1100G-JM：齿轮风扇匹配与耐久性",
+    "subtitle": "从减速齿轮、双转子匹配到粉末冶金适航事件，读懂高涵道比窄体机动力的系统取舍",
+    "type": "经典发动机剖析",
+    "date": "2026-08-24",
+    "updated": "2026-08-24",
+    "heroImage": "/p/2c54c8a8/pw1127-installed.webp",
+    "summary": "用FAA/EASA认证与新西兰CAA公开资料拆解PW1100G-JM的齿轮驱动风扇、双转子级数、FADEC额定逻辑和装机耦合，并用透明功率—扭矩算例解释齿轮如何交换转速与扭矩；单独审查2024年粉末冶金适航指令的部件与序列边界。",
+    "contentFile": "data/aeroengine/2026-08-24-pw1100g-jm-geared-fan-durability.html",
+    "keyConcepts": ["PW1100G-JM", "齿轮风扇", "双转子", "功率平衡", "扭矩", "FADEC额定", "涵道比", "热管理", "粉末冶金", "适航指令"],
+    "headings": [
+      {"id": "本期问题与学习目标", "title": "本期问题与学习目标"},
+      {"id": "核心结论", "title": "核心结论"},
+      {"id": "公开参数与认证口径", "title": "公开参数与认证口径"},
+      {"id": "齿轮风扇与双转子流路", "title": "齿轮风扇与双转子流路"},
+      {"id": "必要公式与简化算例", "title": "必要公式与简化算例"},
+      {"id": "压气机燃烧室涡轮与冷却", "title": "压气机、燃烧室、涡轮与冷却"},
+      {"id": "控制逻辑型号谱系与平台", "title": "控制逻辑、型号谱系与平台"},
+      {"id": "服役经验与适航事件", "title": "服役经验与适航事件"},
+      {"id": "优势代价与失效边界", "title": "优势、代价与失效边界"},
+      {"id": "工程分析执行步骤", "title": "设计与分析执行步骤"},
+      {"id": "与整机和其他部件耦合", "title": "与整机和其他部件的耦合"},
+      {"id": "自测题", "title": "自测题"},
+      {"id": "答案与下一期衔接", "title": "答案与下一期衔接"},
+      {"id": "参考资料与图示许可", "title": "参考资料与图示许可"}
+    ],
+    "validationNeedles": ["20 MW", "15.92 kN", "47.27 kN", "3级LPC", "8级HPC", "2级HPT", "3级LPT", "AD 2024-06-15"],
+    "figures": [
+      {"src": "/p/2c54c8a8/pw1127-installed.webp", "title": "A320neo上的PW1127G装机外观", "author": "Bene Riobó", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "basis": "Wikimedia Commons file page"},
+      {"src": "/p/2c54c8a8/pw1100g-power-path.svg", "title": "PW1100G-JM齿轮风扇功率路径教学示意", "author": "Qzl's Blog", "license": "CC BY 4.0", "licenseUrl": "https://creativecommons.org/licenses/by/4.0/", "basis": "FAA E00087EN, New Zealand CAA TAR 17/21B/13 and MTU public architecture"},
+      {"src": "/p/2c54c8a8/pw1000g-display.webp", "title": "PW1000G系列展示模型压气机局部", "author": "Bin im Garten", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/", "basis": "Wikimedia Commons file page"}
+    ],
+    "sources": [
+      {"title": "FAA TCDS E00087EN", "url": "https://drs.faa.gov/browse/excelExternalWindow/DRSDOCID139096157820250415180106.0001"},
+      {"title": "EASA IM.E.093 — PW1100G-JM Series", "url": "https://www.easa.europa.eu/en/document-library/type-certificates/engine-cs-e/easaime093-pw1100g-jm-series-engines"},
+      {"title": "New Zealand CAA TAR 17/21B/13 Rev 2", "url": "https://www.aviation.govt.nz/assets/aircraft/type-acceptance-reports/PW1100G-PW1400G.pdf"},
+      {"title": "MTU GTF Engine Family", "url": "https://www.mtu.de/engines/commercial-aircraft-engines/narrowbody-and-regional-jets/gtf-engine-family/"},
+      {"title": "FAA AD 2024-06-15", "url": "https://www.federalregister.gov/documents/2024/03/27/2024-06419/airworthiness-directives-international-aero-engines-llc-engines"},
+      {"title": "Pratt & Whitney GTF Multimedia", "url": "https://www.prattwhitney.com/newsroom/multimedia/gtf-engine"}
+    ],
+    "nextTopic": "齿轮箱热管理与扭振：如何把效率损失、油路、轴承温度和整机瞬态放入同一验证矩阵"
+  },
+  {
     "issue": 11,
     "slug": "fadec-start-acceleration-deceleration-control",
     "postId": "f39e6def",

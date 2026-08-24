@@ -1,0 +1,59 @@
+<p><strong>航空发动机学习简报 · 第 12 期</strong></p>
+<p><strong>副题：</strong>从减速齿轮、双转子匹配到粉末冶金适航事件，读懂高涵道比窄体机动力的系统取舍</p>
+<p><strong>主题类型：</strong>经典发动机剖析　<strong>预计学习时间：</strong>12–15分钟　<strong>日期：</strong>2026-08-24</p>
+
+<h2 id="本期问题与学习目标"><a href="#本期问题与学习目标" class="headerlink" title="本期问题与学习目标"></a>本期问题与学习目标</h2>
+<blockquote><p><strong>本期问题：</strong>PW1100G-JM为什么要在低压涡轮与风扇之间加入减速齿轮？这个机械自由度怎样改变风扇、低压压气机、涡轮、控制和寿命之间的匹配？</p></blockquote>
+<p>学完应能复述公开双转子流路；区分风扇转速、低压轴转速与齿轮速比；用功率—扭矩关系复算一个教学算例；解释同一涡轮机械通过FADEC额定逻辑形成不同推力型号；并把制造商效率声明、认证数据和粉末冶金适航指令分开阅读。</p>
+<p><strong>前置：</strong>第01期轴功平衡、第02期修正参数、第05期多级匹配、第07–08期温度与冷却、第11期FADEC瞬态限制。真实齿轮载荷谱、逐级特性、材料配方和完整控制律属于公开资料未确认。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2>
+<ol><li><strong>齿轮不是“额外推力源”。</strong>它在近似功率守恒下交换转速与扭矩，使大直径风扇较慢、低压涡轮较快地工作。</li><li><strong>机械解耦增加匹配自由度，也增加热与寿命问题。</strong>齿面、轴承、润滑、油冷却和扭振成为推进系统的一部分。</li><li><strong>同一基本涡轮机械可用软件额定形成多个型号。</strong>新西兰CAA公开报告指出系列内通过FADEC/DSU选择推力逻辑；这不等于任意改写软件即可合法增推。</li><li><strong>公开架构为双转子高涵道比轴流涡扇。</strong>单级风扇、3级LPC、8级HPC、2级HPT与3级LPT是监管公开描述。</li><li><strong>可靠性必须按部件和序列号读。</strong>FAA 2024年适航指令针对特定粉末冶金部件和适用发动机，不能被平均油耗或机队宣传数字抵消。</li></ol>
+
+<h2 id="公开参数与认证口径"><a href="#公开参数与认证口径" class="headerlink" title="公开参数与认证口径"></a>公开参数与认证口径</h2>
+<p>FAA型别证E00087EN、EASA IM.E.093与新西兰CAA接受报告共同构成公开基线。证书持有人为International Aero Engines LLC；PW1100G-JM用于Airbus A320neo家族。数字必须绑定完整型号，例如PW1124G-JM、PW1127G-JM、PW1130G-JM或PW1133G-JM。</p>
+<table><thead><tr><th>项目</th><th>公开值/描述</th><th>边界</th></tr></thead><tbody><tr><td>架构</td><td>双转子、齿轮驱动风扇、FADEC</td><td>FAA/CAA公开描述</td></tr><tr><td>级数</td><td>1风扇 + 3 LPC + 8 HPC；2 HPT + 3 LPT</td><td>公开基础构型</td></tr><tr><td>涵道比</td><td>约12:1</td><td>CAA代表性值，非全包线常数</td></tr><tr><td>风扇</td><td>约81英寸</td><td>PW1100G高推力级公开口径</td></tr><tr><td>应用</td><td>A319neo/A320neo/A321neo相应构型</td><td>须核对飞机与发动机后缀</td></tr><tr><td>认证起点</td><td>PW1133G-JM于2014-12-19获批</td><td>FAA TCDS</td></tr></tbody></table>
+<figure class="aeroengine-figure"><img src="/p/2c54c8a8/pw1127-installed.webp" alt="Vueling Airbus A320neo上的PW1127G发动机短舱"><figcaption>图1　A320neo上的PW1127G装机外观，可辨大直径风扇短舱与机翼安装关系。摄影：Bene Riobó；来源：<a href="https://commons.wikimedia.org/wiki/File:EC-NCU_A320neo_Vueling_PW1127G_OPO_01.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>；许可：<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>。</figcaption></figure>
+
+<h2 id="齿轮风扇与双转子流路"><a href="#齿轮风扇与双转子流路" class="headerlink" title="齿轮风扇与双转子流路"></a>齿轮风扇与双转子流路</h2>
+<p>来流先经单级风扇，大部分走旁通道；核心流经过3级LPC、8级HPC、环形燃烧室、2级HPT与3级LPT。高压涡轮驱动高压压气机；低压涡轮直接驱动LPC，再经风扇驱动齿轮系统驱动风扇。传统直驱设计要求风扇和低压涡轮同速，齿轮则允许风扇降低尖速、低压涡轮提高转速并减少做功级数，但把大功率传入齿轮、轴承和润滑系统。</p>
+<figure class="aeroengine-figure"><img src="/p/2c54c8a8/pw1100g-power-path.svg" alt="PW1100G-JM齿轮风扇功率路径示意"><figcaption>图2　公开功率路径教学示意，不按比例；依据FAA E00087EN、新西兰CAA TAR与MTU公开资料绘制。原创图，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。</figcaption></figure>
+
+<h2 id="必要公式与简化算例"><a href="#必要公式与简化算例" class="headerlink" title="必要公式与简化算例"></a>必要公式与简化算例</h2>
+<div class="aeroengine-formula"><strong>功率—扭矩：</strong>P=Tω；<strong>理想齿轮：</strong>ω<sub>fan</sub>=ω<sub>LP</sub>/i，T<sub>fan</sub>≈η<sub>g</sub>iT<sub>in</sub>。</div>
+<p>P单位W，T为N·m，ω为rad/s，i为减速比，η<sub>g</sub>为齿轮效率。假设教学点低压轴向齿轮输入20 MW、12,000 rpm，i=3、η<sub>g</sub>=0.99。输入角速度为1256.6 rad/s，输入扭矩15.92 kN·m；风扇转速4,000 rpm，角速度418.9 rad/s；输出功率19.8 MW，输出扭矩47.27 kN·m。</p>
+<p>核算：<code>20e6/1256.6=15,915 N·m</code>；<code>0.99×20e6/418.9=47,269 N·m</code>。齿轮没有增加功率，约0.2 MW教学损失转化为需要油系统带走的热。数据为透明假设，不代表PW1100G-JM真实额定点。</p>
+
+<h2 id="压气机燃烧室涡轮与冷却"><a href="#压气机燃烧室涡轮与冷却" class="headerlink" title="压气机燃烧室涡轮与冷却"></a>压气机、燃烧室、涡轮与冷却</h2>
+<p>3级LPC与3级高速LPT位于低压轴；8级HPC由2级冷却HPT驱动。高压系统承担核心压比和热端功率闭合，低压系统同时承担核心增压与风扇功。齿轮使LPT可用更高转速与较小级数输出所需功率，却要求低压轴、齿轮和风扇在稳态与瞬态都满足扭矩、温度和振动边界。公开资料称燃烧室采用TALON X技术；具体喷嘴几何、TIT和逐排冷却流量未公开，不能猜测。</p>
+<figure class="aeroengine-figure"><img src="/p/2c54c8a8/pw1000g-display.webp" alt="航空展上的PW1000G透明展示模型"><figcaption>图3　PW1000G系列展示模型的压气机局部，用于系列流路辨识，不据此推断PW1100G-JM内部尺寸。摄影：Bin im Garten；来源：<a href="https://commons.wikimedia.org/wiki/File:ILA_Berlin_2012_PD_141.JPG" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>；许可：<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>。</figcaption></figure>
+
+<h2 id="控制逻辑型号谱系与平台"><a href="#控制逻辑型号谱系与平台" class="headerlink" title="控制逻辑型号谱系与平台"></a>控制逻辑、型号谱系与平台</h2>
+<p>FADEC把推力请求转换为燃油、可调部件与限制器指令，并监控N1/N2、温度、压力和执行机构。CAA报告指出，同一系列的不同推力额定通过FADEC软件和DSU插头选择；工程上仍须核对批准软件、发动机后缀、服务通告与飞机安装。PW1124、PW1127、PW1130和PW1133的数字大致对应推力级别，但不是可互换零件清单。</p>
+<p>A320neo家族的装机性能还受进气恢复、短舱阻力、反推、飞机引气/取功和飞行状态影响。台架额定推力不能直接替代整机巡航油耗，也不能把PW1500G、PW1900G等家族成员的参数套到PW1100G-JM。</p>
+
+<h2 id="服役经验与适航事件"><a href="#服役经验与适航事件" class="headerlink" title="服役经验与适航事件"></a>服役经验与适航事件</h2>
+<p>Pratt &amp; Whitney把GTF的油耗、噪声和排放改善作为产品声明；这些数字依赖基线、任务和机队统计。监管侧，FAA 2024年最终规则针对特定PW1100G系列发动机中的粉末冶金异常，涉及HPT一级/二级轮毂和HPC第7/8级整体叶盘，要求加速拆检。它说明寿命管理必须从“发动机型号”细化到部件号、序列号、生产批次和循环数。</p>
+<p>不能由该AD推断所有齿轮风扇都存在相同缺陷，也不能把问题归因于“齿轮原理”。齿轮系统可靠性、热端粉末冶金部件和运营拆检节奏是不同证据链；它们会在可用率和维修能力上汇合，但失效机理必须分开。</p>
+
+<h2 id="优势代价与失效边界"><a href="#优势代价与失效边界" class="headerlink" title="优势代价与失效边界"></a>优势、代价与失效边界</h2>
+<ul><li>优势：风扇与LPT转速分别优化，利于推进效率、噪声和低压涡轮级数取舍。</li><li>代价：齿轮、轴承、润滑、冷却、扭振和大扭矩壳体载荷进入关键路径。</li><li>边界：高涵道比增大短舱尺寸与安装耦合，离地间隙、阻力和维修空间需整机权衡。</li><li>失效模式：齿轮/轴承异常、油系统污染或过热、压气机失速、热端裂纹与传感器/控制故障不可混为一类。</li><li>证据风险：制造商产品声明、TCDS认证值、AD强制措施和教学算例各自回答不同问题。</li></ul>
+<p><strong>常见误区一：</strong>把“风扇更慢”理解为发动机响应一定更慢。瞬态响应取决于两根转子的惯量、压气机裕度、燃油调度、齿轮扭矩与飞机推力需求；齿轮只改变机械映射。<strong>常见误区二：</strong>把齿轮效率接近1视为热管理可以忽略。即使教学算例只有1%损失，在20 MW量级也对应约200 kW热流，且局部齿面与轴承温度不能由平均功率损失代替。<strong>常见误区三：</strong>把型号数字直接当作任何环境下的推力。额定值还受温度、高度、持续时间、引气与批准软件构型约束。</p>
+<p>失效分析应先辨认能量路径：风扇异常可能经齿轮和低压轴反作用于LPT，油系统异常可能同时影响齿轮、轴承与热交换，核心机喘振则主要通过流量和转速耦合到低压系统。只有在故障树中明确测量量、因果方向和保护动作，才能避免把时间上同时出现的告警误判为同一根因。</p>
+
+<h2 id="工程分析执行步骤"><a href="#工程分析执行步骤" class="headerlink" title="工程分析执行步骤"></a>设计与分析执行步骤</h2>
+<ol><li>锁定完整型号、批准软件、DSU额定与装机平台。</li><li>建立双轴功率平衡，将风扇齿轮效率、附件取功和油系统热负荷显式加入。</li><li>用修正流量/转速连接风扇、LPC、HPC和涡轮图，分别验证稳态与瞬态。</li><li>把齿轮输入转速/扭矩、风扇输出转速/扭矩及扭振模态作为独立限制量。</li><li>加入引气、短舱、进气、反推和飞机电/液压取功，回到整机任务。</li><li>按AD适用性逐件核对零件号、序列、循环和维修记录；不以机队平均替代单机符合性。</li></ol>
+
+<h2 id="与整机和其他部件耦合"><a href="#与整机和其他部件耦合" class="headerlink" title="与整机和其他部件耦合"></a>与整机和其他部件的耦合</h2>
+<p>风扇直径影响短舱与起落架；齿轮损失进入油冷器和燃油热沉；LPT转速影响叶片应力和声学；核心压比与冷却影响燃烧排放和热端寿命；FADEC又必须在推力响应、喘振、温度、转速和齿轮扭矩间仲裁。因而“齿轮风扇”是总体架构，不是孤立部件。</p>
+
+<h2 id="自测题"><a href="#自测题" class="headerlink" title="自测题"></a>自测题</h2>
+<ol><li>齿轮为什么不产生额外功率？</li><li>计算题：20 MW、12,000 rpm时输入扭矩是多少？</li><li>计算题：i=3、η=0.99时风扇转速、输出功率和扭矩各是多少？</li><li>判断：系列内FADEC额定选择意味着可任意软件增推。</li><li>判断：2024年粉末冶金AD证明齿轮原理有缺陷。</li><li>HPT和LPT分别驱动什么？</li><li>为什么台架推力不能直接替代整机巡航性能？</li><li>AD适用性至少要核对哪四类标识？</li></ol>
+
+<h2 id="答案与下一期衔接"><a href="#答案与下一期衔接" class="headerlink" title="答案与下一期衔接"></a>答案与下一期衔接</h2>
+<ol><li>齿轮只按效率交换转速与扭矩。</li><li>约15.92 kN·m。</li><li>4,000 rpm、19.8 MW、约47.27 kN·m。</li><li>错误，必须是批准构型。</li><li>错误，AD针对特定粉末冶金部件/批次。</li><li>HPT驱动HPC；LPT驱动LPC并经齿轮驱动风扇。</li><li>还缺进气、短舱、引气/取功、飞行状态和飞机阻力。</li><li>零件号、序列号、生产批次、循环/维修状态。</li></ol>
+<p><strong>下一期衔接：</strong>回到基础/方法类，建议学习“齿轮箱热管理与扭振：如何把效率损失、油路、轴承温度和整机瞬态放入同一验证矩阵”。</p>
+
+<h2 id="参考资料与图示许可"><a href="#参考资料与图示许可" class="headerlink" title="参考资料与图示许可"></a>参考资料与图示许可</h2>
+<ul><li><a href="https://drs.faa.gov/browse/excelExternalWindow/DRSDOCID139096157820250415180106.0001" target="_blank" rel="noopener noreferrer">FAA TCDS E00087EN</a>：型号、批准日期与认证基线。</li><li><a href="https://www.easa.europa.eu/en/document-library/type-certificates/engine-cs-e/easaime093-pw1100g-jm-series-engines" target="_blank" rel="noopener noreferrer">EASA IM.E.093</a>：PW1100G-JM系列型别证页面。</li><li><a href="https://www.aviation.govt.nz/assets/aircraft/type-acceptance-reports/PW1100G-PW1400G.pdf" target="_blank" rel="noopener noreferrer">New Zealand CAA TAR 17/21B/13 Rev 2</a>：双转子级数、涵道比、风扇、FADEC与额定逻辑。</li><li><a href="https://www.mtu.de/engines/commercial-aircraft-engines/narrowbody-and-regional-jets/gtf-engine-family/" target="_blank" rel="noopener noreferrer">MTU GTF engine family</a>：减速齿轮与项目分工。</li><li><a href="https://www.federalregister.gov/documents/2024/03/27/2024-06419/airworthiness-directives-international-aero-engines-llc-engines" target="_blank" rel="noopener noreferrer">FAA AD 2024-06-15</a>：粉末冶金部件适用性与强制措施。</li><li><a href="https://www.prattwhitney.com/newsroom/multimedia/gtf-engine" target="_blank" rel="noopener noreferrer">Pratt &amp; Whitney GTF multimedia</a>：制造商产品与测试资料。</li></ul>
+<p><strong>图示许可：</strong>图2由Qzl's Blog依据上述官方资料绘制，CC BY 4.0；图1、图3来自Wikimedia Commons，作者、来源和许可已在图注列明。</p>
