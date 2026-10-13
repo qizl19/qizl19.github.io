@@ -1,0 +1,50 @@
+<p><strong>定位：</strong>面向 FreeCAD 动力学自动化工作流。</p>
+<p>检索窗口：2026-10-05 09:00 至 2026-10-12 09:00（Asia/Shanghai）。本期仅把窗口内可核对的官方发布、合并提交和问题单列为动态；论文预印本、社区报告与性能承诺分级标注。</p>
+<style>@media(max-width:768px){#article-container table{display:block;width:100%;overflow-x:auto}#article-container th,#article-container td{min-width:7em;overflow-wrap:anywhere}}</style>
+
+<h2 id="执行摘要">执行摘要</h2>
+<blockquote><p><strong>本周的主线是把 FreeCAD 26.3 RC1 放入隔离回归，而不是立即替换生产环境。</strong>该候选版于 10 月 8 日发布，官方明确仍有阻断问题。与此同时，Assembly 齿轮/皮带关节出现待确认崩溃报告；Gmsh 开发分支修正周期曲面高阶节点对应；VTK 的数组与 HDF 读取修复为后处理一致性提供了针对性测试入口。它们都比“全面升级”更适合作为可复算的验证任务。</p></blockquote>
+<ul><li>FreeCAD 26.3 RC1 属预发布；需与 1.1 建立同一组装配、STEP、网格和求解基线。</li><li>周期高阶网格与结果数组是本周最值得加入自动化门禁的两处数据链路。</li><li>IGA 与 AI/CAD 检索未发现足以替代现有生产流程的新证据；保留独立研究验证，不把旧论文写作本周进展。</li></ul>
+
+<h2 id="本周最优先的-3-项行动">本周最优先的 3 项行动</h2>
+<ol><li><strong>隔离跑 FreeCAD 26.3 RC1。</strong>固定同一装配文件与脚本，在 1.1 和 RC1 上比较关节位置、求解状态、保存重开后的位姿，以及错误日志；特别覆盖齿轮/皮带关节的直边选择。</li><li><strong>复算 Gmsh 周期高阶节点。</strong>使用官方新加的三向周期立方体基准，检查周期变换前后的节点配对、单元 Jacobian、网格连接与物理组；与冻结版本对照。</li><li><strong>锁定后处理数据契约。</strong>以 VTK-HDF 与 CellArray 缺损样例测试数组长度、类型、时间步、极值和异常显式失败；再由 ParaView Python 脚本批量重放。</li></ol>
+
+<h2 id="本周态势总览">本周态势总览</h2>
+<table><thead><tr><th>主题</th><th>证据等级</th><th>本周信号</th><th>决策</th></tr></thead><tbody><tr><td>FreeCAD</td><td>官方候选版</td><td>26.3 RC1，仍有阻断问题</td><td>隔离回归</td></tr><tr><td>Assembly</td><td>待确认社区问题</td><td>齿轮/皮带关节直边选择崩溃</td><td>最小复现，不外推</td></tr><tr><td>Gmsh</td><td>开发提交与基准</td><td>周期曲面高阶节点配对修正</td><td>周期/网格质量测试</td></tr><tr><td>VTK / ParaView</td><td>合并开发变更</td><td>Python 数组一致性、HDF 读取、增量更新</td><td>后处理回归</td></tr><tr><td>IGA / AI</td><td>本周无重要变化</td><td>无符合时间与量化门槛的新结果</td><td>维持研究基线</td></tr></tbody></table>
+
+<h2 id="freecad-assembly-自动化与-api-插件变化">FreeCAD Assembly 自动化与 API/插件变化</h2>
+<p><a href="https://github.com/FreeCAD/FreeCAD/releases/tag/26.3rc1" target="_blank" rel="noopener noreferrer">FreeCAD 26.3 RC1</a> 于窗口内发布，官方将其定义为首个候选版并明确提示仍有开放的阻断问题。它不是生产稳定版，也不能仅凭版本号推断 Assembly API 已稳定。对动力学自动化，重要的是同一装配在两版中的运动、约束残差和保存重开一致性。</p>
+<p><a href="https://github.com/FreeCAD/FreeCAD/issues/33409" target="_blank" rel="noopener noreferrer">问题 #33409</a> 报告在 Assembly 中用直边创建齿轮/皮带关节可能崩溃；目前为待确认问题信号，不等于所有平台可复现。把边类型、零件拓扑、关节参数、平台和 FreeCAD 版本写入最小复现文件，分别测试 GUI 与脚本路径；若崩溃发生在求解前，应先排查几何引用而非调节动力学求解参数。</p>
+<p>本窗口扫描官方提交时，未核验到可称为 Assembly 公共 API 正式发布的新接口。Part 附着引用容器修复与 FEM 的 VTK 兼容方法修复可作为相邻模块回归项，但不应包装成 Assembly 求解器更新。</p>
+
+<h2 id="iga-cad-分析一体化">IGA / CAD–分析一体化</h2>
+<p><strong>本周无重要可确认发布。</strong>对 G+Smo、GeoPDEs、PetIGA、tIGAr、igatools 的项目仓库、正式版本与论文检索，没有找到在固定窗口内同时具有原始证据、可复算量化指标和足够工作流影响的新成果。此结论只描述本次检索边界，不否定长期研究进展；NURBS/B-spline、T-spline、THB-spline、LR-spline、IBRA 与 trimmed/immersed IGA 的旧成果不计入本周新闻。</p>
+<p>FreeCAD/OCCT 到 IGA 的基线实验仍应逐面记录控制点、节点矢量、权重、次数、参数域、内外修剪环和 pcurve，再检验跨面连续性及边界条件映射。对切割单元记录积分失败率、条件数、自由度、组装/求解时间和内存。用同一修剪壳分别进行 IGA 与“STEP—Gmsh 二次网格—CalculiX”静力及前六阶模态计算，比较几何误差、位移和频率；没有这些量化结果，不能声称 CAD–分析一体化更优。</p>
+
+<h2 id="ai-cad-cae">AI × CAD/CAE</h2>
+<p><strong>本周无达到纳入门槛的新工作。</strong>检索覆盖 Text-to-CAD、programmatic/agentic CAD、CAD copilot、装配约束与验证、几何修复、自动参数化、拓扑优化、AI 网格、载荷/边界识别、参数标定、solver acceleration、ROM、surrogate、PINN、neural operator、digital twin 与后处理异常检测。窗口外的 CADForge 等预印本不能冒充本周论文。</p>
+<p>对 FreeCAD 工作流，保留四层可复算门禁：脚本可执行；B-Rep 有效且 STEP 可重导入；参数扰动后装配关节仍可求解；固定 Gmsh/CalculiX 输入下的位移、反力、应力分位数和模态误差达标。任何代理若只给出渲染相似度，未给出代码、数据、装配约束状态及失败日志，就只能作为候选生成器。风险是视觉正确掩盖几何与物理错误；应以盲测、固定种子和失败样例集验证。</p>
+
+<h2 id="catia-与-rhino-step-3dm-互操作">CATIA 与 Rhino / STEP / 3DM 互操作</h2>
+<p>rhino3dm 官方仓库在窗口内合并 <a href="https://github.com/mcneel/rhino3dm/commit/faf35f89" target="_blank" rel="noopener noreferrer">9.0 同步提交</a>。这属于开发分支同步，不等于 3DM、STEP 或 CATIA 之间的几何语义已全面保真。测试件应包含有理 NURBS、内孔修剪、单位、图层与对象属性；比较 Python 与 JavaScript 往返后的控制点/节点/权重、修剪环方向、包围盒和文件重读结果。本窗口未核验到 CATIA/STEP 官方互操作规范的重要新发布。</p>
+
+<h2 id="gmsh-与-meshio">Gmsh 与 meshio</h2>
+<p>Gmsh 开发分支的 <a href="https://github.com/live-clones/gmsh/commit/9e8df174" target="_blank" rel="noopener noreferrer">周期曲面节点匹配修复</a>涉及 transfinite、extruded 曲面及其高阶节点；随后 <a href="https://github.com/live-clones/gmsh/commit/e58015ee" target="_blank" rel="noopener noreferrer">细分三角形到四边形的中心节点映射</a>和<a href="https://github.com/live-clones/gmsh/commit/3678f12a" target="_blank" rel="noopener noreferrer">三向周期立方体基准</a>提供了可直接复跑的实验入口。它们是开发提交，不是稳定版发布，也没有可引用的独立性能倍率。</p>
+<table><thead><tr><th>试件</th><th>固定条件</th><th>应记录</th></tr></thead><tbody><tr><td>周期立方体</td><td>相同尺寸场、阶次、线程数</td><td>配对节点缺失数、周期残差、Jacobian 最小值</td></tr><tr><td>修剪曲面</td><td>相同 STEP、物理组</td><td>节点/单元数、边界误差、失败率</td></tr><tr><td>MSH4 往返</td><td>冻结 meshio 版本</td><td>单元类型、物理组、节点坐标差</td></tr></tbody></table>
+<p>meshio 官方仓库在窗口内无提交；维持冻结版本并以 MSH4 高阶/分区样例做往返，避免把 Gmsh 改动误判为 meshio 更新。</p>
+
+<h2 id="vtk-与-paraview">VTK 与 ParaView</h2>
+<p>VTK 在窗口内合并 <a href="https://github.com/Kitware/VTK/commit/16bb15fc" target="_blank" rel="noopener noreferrer">Python 数组与 NumPy 一致性</a>、<a href="https://github.com/Kitware/VTK/commit/a7dcf2ca" target="_blank" rel="noopener noreferrer">VTK-HDF 图像缓存</a>及<a href="https://github.com/Kitware/VTK/commit/f1fabcc2" target="_blank" rel="noopener noreferrer">HDF 读取溢出修复</a>相关主题。ParaView 的 <a href="https://github.com/Kitware/ParaView/commit/e76d4777" target="_blank" rel="noopener noreferrer">Python UpdatePipeline 增量更新</a>也进入开发分支。应把这些变更视为数据正确性和执行路径信号，非稳定版承诺。</p>
+<p>验证时固定一个多时间步结构动力学结果：对每步比较数组数量、dtype、shape、NaN 数、极值和单元/节点 ID；故意注入超长或缺损 HDF 数据，要求显式报错而非静默截断。ParaView Python 重放前后比较更新次数、结果哈希和运行时间，不用单一渲染截图判断数据等价。</p>
+
+<h2 id="calculix-与-abaqus-compatible-流程">CalculiX 与 Abaqus-compatible 流程</h2>
+<p><strong>本周未核验到重要正式发布。</strong>维持输入兼容与物理等价两层测试：第一层检查单元、材料、集合、载荷、边界、接触与输出关键字可解析；第二层对解析解或冻结 Abaqus-compatible 基线比较反力平衡、位移、应力分位数与前六阶模态。网格或后处理变更都不能替代求解器等价性证据。</p>
+
+<h2 id="python-cpp-pybind11-abi">Python / C++ / pybind11 / ABI</h2>
+<p>pybind11 窗口内合并 <a href="https://github.com/pybind/pybind11/commit/688e7430" target="_blank" rel="noopener noreferrer">keep_alive 失败重载处理修复</a>：未匹配的重载或失败的返回转换不应错误激活生命周期关系。它是开发提交，不等于新正式版本。对 FreeCAD 插件应在 MSVC/clang-cl、Release/Debug 和目标 Python 版本组合下测试重载失败、异常传播、对象销毁、重复加载和解释器关闭；通过编译不代表 ABI 或生命周期安全。</p>
+
+<h2 id="决策与监控清单">决策与监控清单</h2>
+<table><thead><tr><th>事项</th><th>本期动作</th><th>通过判据</th><th>主要风险</th></tr></thead><tbody><tr><td>FreeCAD RC1</td><td>隔离测试</td><td>装配位姿与求解日志回归通过</td><td>开放阻断问题</td></tr><tr><td>Gmsh 周期网格</td><td>复跑官方基准</td><td>节点配对与高阶质量一致</td><td>周期错误静默传播</td></tr><tr><td>VTK/ParaView</td><td>数据契约测试</td><td>数组和时间步无缺失</td><td>渲染正常但数据损坏</td></tr><tr><td>IGA / AI</td><td>维持研究验证</td><td>公开代码、数据与量化门槛</td><td>旧成果或营销口号冒充新进展</td></tr></tbody></table>
+
+<h2 id="来源与证据边界">来源与证据边界</h2>
+<p>本期依据 FreeCAD、Gmsh、VTK、ParaView、rhino3dm、pybind11 与 meshio 官方仓库的窗口内提交和 FreeCAD 官方候选版说明；G+Smo 等 IGA 项目仅用于判断是否存在本周可核验更新。提交说明中的行为属于开发状态，问题单属于待复现信号。性能、几何精度及求解器等价性均未在本机复测，因此本期给出可执行的验证实验，不声称已获得工程性能提升。</p>
