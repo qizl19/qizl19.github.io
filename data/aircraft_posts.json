@@ -1,5 +1,115 @@
 [
   {
+    "slug": "shaanxi-y-8",
+    "nameZh": "运-8",
+    "nameEn": "Shaanxi Y-8",
+    "eyebrow": "飞机资料整理 · 第 23 期",
+    "subtitle": "从安-12技术源流到中国四发中型运输机平台",
+    "date": "2026-10-13",
+    "updated": "2026-10-14",
+    "nation": "中国",
+    "category": "四发涡桨中型运输机",
+    "era": "1970年代至今",
+    "tags": ["航空", "中国航空工业", "运输机"],
+    "status": "基础型已衍生多种公开改型；部分系列机仍有公开服役报道",
+    "metrics": {
+      "firstFlightYear": 1974,
+      "lengthM": 34.02,
+      "wingspanM": 38.0,
+      "maxTakeoffWeightT": 61.0,
+      "speedLabel": "民航局资料：最大平飞速度662 km/h，巡航速度550 km/h；限所述基础型口径",
+      "rangeLabel": "航程随载荷、油量与改型变化；本文不将不同任务构型的数字混为一项"
+    },
+    "diagram": [
+      "技术源流：以安-12相关技术为基础，在中国开展设计与制造",
+      "总体构型：上单翼、四台涡桨发动机、尾部货舱门",
+      "平台演化：基础运输型向民用、海上巡逻及其他公开任务型扩展",
+      "工程边界：载荷、航程、跑道与任务设备彼此制约"
+    ],
+    "firstFlight": "中国民航局记载首架01号机于1974年12月25日首飞",
+    "accent": "#4c695d",
+    "heroImage": "/p/325c36cd/y8-alert5.webp",
+    "model": {
+      "kind": "unavailable",
+      "poster": "/p/325c36cd/y8-alert5.webp",
+      "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "method": "VAST-AI官方TripoSG本机离线单图候选重建与多视角审计",
+      "inputCredit": "kevinmcgill；Alert5",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:Shaanxi_Y-8_(6161610759).jpg",
+      "license": "CC BY-SA 2.0 / CC BY-SA 4.0；TripoSG代码MIT",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "engine": "TripoSG",
+      "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "engineLicense": "MIT",
+      "channel": "local-offline-rtx3060",
+      "note": "已检索明确许可的现成模型；Y-8X衍生型、付费和非商业受限模型不作为基础运-8替代。使用VAST-AI官方TripoSG与本机官方权重，在RTX 3060上对两张已验收照片分别进行单图推理，均为40步、guidance 7、dense depth 8、hierarchical depth 9、seed 42或84、目标80,000面。候选一（kevinmcgill，输入SHA256 756e75db23becd0cc813a60d986e1df7c140531e5c2a9aa8439cd40f88db23d2）耗时235.29秒，输出80,000面、19个连通分量、1,440,932字节、SHA256 3b4ab2072b740cf1d63b00e6852f3ceafa217f4d743fff18c9efbc6083507e3a；虽可辨四台发动机和尾翼，但机翼轮廓与起落架不可靠。候选二（Alert5，输入SHA256 b564d85f04ec9e7e0e66ba25f7ce92b8aa27fb80511d69707001bdb73f0f7905）耗时189.74秒，输出80,000面、441个连通分量、1,440,028字节、SHA256 967fad6245a68e70d15f6b876af0148a8a502876c83115f897e75d942c7584f7；八视角显示大量游离碎片、螺旋桨与机翼伪影，起落架不可辨。两者均未通过多视角和网格审计，不上传GLB。暂无可验证模型；AI单图重建的遮挡区由模型推断，非工程CAD，不可用于制造或仿真。"
+    },
+    "statement": "运-8是中国以安-12相关技术为源流发展的四发中型涡桨运输机。本文仅讨论公开的历史、总体外形和性能口径；不同批次及专用任务改型不可套用同一参数。",
+    "summary": "运-8的工程价值在于把四发涡桨运输机的制造、试飞与持续改型能力扎根于中国航空工业。中国民航局资料记载，项目1969年在西安开始设计，首架01号机1974年12月25日首飞，后续原型机继续试验，1980年完成设计定型并进入小批生产。基础型以高翼、四台涡桨发动机、宽体货舱和尾部货舱门满足货运需求。其38米翼展、34.02米机长和61吨最大起飞重量是基础型公开口径，不能直接套用到加装专用设备的后续改型。公开照片和报道还显示该平台在民用邮政和海上巡逻等场景的演化。",
+    "facts": [
+      {"label":"定位","value":"四发涡桨中型运输机","note":"基础型以货运和人员运输为主要公开用途"},
+      {"label":"技术源流","value":"安-12相关技术","note":"中国自主组织后续设计、生产和改型"},
+      {"label":"首飞","value":"1974-12-25","note":"中国民航局记载01号机首飞"},
+      {"label":"翼展 / 机长 / 机高","value":"38.00 / 34.02 / 11.16 m","note":"中国民航局基础型数据；Mitchell Institute换算结果一致"},
+      {"label":"最大起飞重量","value":"61 t","note":"基础型公开口径，非所有专用改型"},
+      {"label":"最大载重","value":"20 t","note":"中国民航局所述基础型口径，受航程和机场条件限制"},
+      {"label":"动力","value":"4台涡桨-6发动机","note":"公开资料载单台3120 kW/4250当量马力，需区分额定状态"},
+      {"label":"速度","value":"最大平飞662、巡航550 km/h","note":"民航局基础型口径，不代表所有重量与高度工况"},
+      {"label":"升限","value":"10,400 m","note":"公开基础型参数，非任务型通用保证值"},
+      {"label":"三维展示","value":"暂无可验证模型","note":"不以相似改型或轮廓错误的重建替代"}
+    ],
+    "timeline": [
+      {"year":"1969","event":"据中国民航局，运-8项目在西安开始设计。"},
+      {"year":"1974-12-25","event":"首架01号机首飞。"},
+      {"year":"1975–1977","event":"02号、03号原型机相继参与试验，推进定型。"},
+      {"year":"1980","event":"完成设计定型并进入小批生产阶段。"},
+      {"year":"1999","event":"公开摄影记录显示中国邮政航空使用运-8，说明平台的民用运营路径。"},
+      {"year":"2019","event":"中国政府英文网站公开展示运-8海上巡逻衍生型；不与基础货运型混用性能。"},
+      {"year":"2025","event":"中国军网公开图片显示运-8反潜衍生型活动，仅作为平台仍在使用的公开证据。"}
+    ],
+    "designPoints": [
+      "上单翼为货舱和发动机螺旋桨提供离地间隙，机身两侧起落架整流罩与尾部装卸布局利于货物运输。",
+      "四台涡桨发动机驱动螺旋桨，适于亚声速中程运输；发动机功率不能直接等同于可用有效载荷。",
+      "大货舱与尾部货舱门服务于装卸；可装货物的体积、地板承载、重心和跑道条件仍需分别核算。",
+      "运-8的外形可由高翼、四台螺旋桨发动机、单垂尾和尾部货舱结构识别，但各任务型的机头、舱门和外部设备差异明显。",
+      "20吨载重与最大航程、最大速度不是可同时实现的同一工况；重量、油量、环境和储备要求形成权衡。"
+    ],
+    "power": "基础型公开动力为四台涡桨-6发动机，配四叶螺旋桨。中国民航局页面给出单台3120 kW、4250当量马力的公开口径；当量马力包含喷气残余推力折算，不能与轴功率直接等同。涡桨通过燃气发生器和动力涡轮把燃料能量转为螺旋桨推力，低速阶段效率与螺旋桨直径、桨距和安装条件相关。不同批次的发动机改进、额定状态和任务设备可能改变性能，本文不推断未公开细节。",
+    "variants": [
+      {"name":"运-8基础运输型","description":"以货运、人员运输为核心的早期系列；本文尺寸性能表只对应此公开口径。"},
+      {"name":"民用货运 / 邮政型","description":"公开照片可见中国邮政航空运-8；运营和适航配置不应与军用基础型混称。"},
+      {"name":"运-8C等运输改型","description":"公开航空资料记录的后续运输改进型，机体细节和性能可能变化。"},
+      {"name":"海上巡逻等专用任务衍生型","description":"中国政府和军方公开报道可证实存在；本文只记录公开外形与用途，不讨论敏感任务系统。"}
+    ],
+    "strengths": [
+      "四发涡桨与宽体货舱构成可持续改型的运输平台。",
+      "上单翼、尾部装卸布局适合多种公开货运需求。",
+      "长期生产和衍生型号积累了制造、保障及系统集成经验。",
+      "公开民用与军用案例展示平台适应不同运营场景的潜力。"
+    ],
+    "limits": [
+      "四发动力系统带来维护、燃油和保障成本；与现代双发运输机比较必须限定任务和年代。",
+      "载重、航程、速度与机场条件相互制约，不能将各项最大值同时视为可达。",
+      "不同改型的机头、设备与重量差异大，公开基础型参数不能推广到专用任务型。",
+      "公开资料少有完整测试条件，尤其速度和航程应保留来源口径。",
+      "单图三维重建对螺旋桨、尾翼和遮挡面易产生伪影，未通过核验时不发布模型。"
+    ],
+    "photos": [
+      {"src":"/p/325c36cd/y8-alert5.webp","alt":"空军运-8在珠海停机坪上的完整侧视照片","caption":"2012年珠海的运-8，完整侧视可辨高翼、四台涡桨、单垂尾与起落架。","credit":"Alert5","sourceUrl":"https://commons.wikimedia.org/wiki/File:Shaanxi_Y-8.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src":"/p/325c36cd/y8-kevinmcgill.webp","alt":"空军运-8起飞时的三分之四视角照片","caption":"起飞阶段的运-8，可见四台发动机及机翼、尾翼的相对位置。","credit":"kevinmcgill","sourceUrl":"https://commons.wikimedia.org/wiki/File:Shaanxi_Y-8_(6161610759).jpg","license":"CC BY-SA 2.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/2.0/"},
+      {"src":"/p/325c36cd/y8-peter-garwood.webp","alt":"中国邮政航空运-8民用货机在广州机场的完整外观","caption":"1999年广州机场的中国邮政航空运-8，展示民用运营场景；型号配置与军用基础型不同。","credit":"Peter Garwood","sourceUrl":"https://commons.wikimedia.org/wiki/File:China_Postal_Airlines_Shaanxi_Y-8_(An-12)_B-3102,_Guangzhou,_Oct99_(51831254230).jpg","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/"}
+    ],
+    "sources": [
+      {"label":"中国民航局：运-8运输机研制、总体与公开参数","url":"https://www.caac.gov.cn/GYMH/MHBK/HKQJS/201509/t20150923_1835.html"},
+      {"label":"Mitchell Institute：Y-8外形尺寸与现役公开口径交叉核对","url":"https://www.mitchellaerospacepower.org/weapons/y-8/"},
+      {"label":"中国政府英文网：运-8海上巡逻衍生型公开报道","url":"https://english.www.gov.cn/news/topnews/201910/01/content_WS5d92f57dc6d0bcf8c4c147a3.html"},
+      {"label":"中国军网：运-8反潜衍生型公开照片（2025）","url":"https://eng.chinamil.com.cn/MEDIA/PhotosChina/16379593.html"},
+      {"label":"VAST-AI Research：TripoSG官方代码和MIT许可","url":"https://github.com/VAST-AI-Research/TripoSG"},
+      {"label":"Wikimedia Commons：Shaanxi Y-8公开照片分类","url":"https://commons.wikimedia.org/wiki/Category:Shaanxi_Y-8"}
+    ],
+    "postId": "325c36cd"
+  },
+  {
     "slug": "harbin-z-9",
     "nameZh": "直-9“海豚”",
     "nameEn": "Harbin Z-9",

@@ -1,5 +1,16 @@
 [
   {
+    "slug": "shaanxi-y-8",
+    "name": "运-8",
+    "url": "/p/325c36cd.html",
+    "firstFlightYear": 1974,
+    "lengthM": 34.02,
+    "wingspanM": 38.0,
+    "maxTakeoffWeightT": 61.0,
+    "speedLabel": "民航局资料：最大平飞速度662 km/h，巡航速度550 km/h；限所述基础型口径",
+    "rangeLabel": "航程随载荷、油量与改型变化；本文不将不同任务构型的数字混为一项"
+  },
+  {
     "slug": "harbin-z-9",
     "name": "直-9“海豚”",
     "url": "/p/d0a7fc02.html",
