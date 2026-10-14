@@ -1,5 +1,47 @@
 [
   {
+    "issue": 13,
+    "slug": "geared-fan-gearbox-thermal-torsion",
+    "postId": "61773c64",
+    "title": "航空发动机学习简报｜第13期｜齿轮风扇减速箱：热平衡与扭振验证",
+    "subtitle": "从100 kW教学热负荷到两惯量模态，建立功率、滑油和振动的联合验证矩阵",
+    "type": "设计与控制方法",
+    "date": "2026-10-14",
+    "updated": "2026-10-14",
+    "heroImage": "/p/61773c64/gearbox-energy-thermal.svg",
+    "summary": "承接第12期PW1100G-JM剖析，本期用NASA齿轮损失、热管理和动力学原始研究说明减速齿轮箱的功率损失与滑油散热，并以10 MW输入、99%效率得到100 kW教学热负荷，进一步用两惯量模型估计扭振频率；重点是可复算方法与整机耦合，而非某型号保密参数。",
+    "contentFile": "data/aeroengine/2026-10-14-geared-fan-gearbox-thermal-torsion.html",
+    "keyConcepts": ["减速齿轮箱", "齿轮风扇", "传动效率", "热平衡", "滑油", "燃油油冷器", "空气油冷器", "风阻损失", "扭振", "两惯量", "模态", "健康监测"],
+    "headings": [
+      {"id":"本期问题与学习目标","title":"本期问题与学习目标"},
+      {"id":"核心结论","title":"核心结论"},
+      {"id":"概念与物理直觉","title":"概念与物理直觉"},
+      {"id":"功率和热平衡公式","title":"功率与热平衡公式"},
+      {"id":"可复算热负荷算例","title":"可复算的简化算例：热负荷"},
+      {"id":"扭振模型与算例","title":"扭振模型与算例"},
+      {"id":"工程分析执行步骤","title":"工程分析的执行步骤"},
+      {"id":"常见误区与失效边界","title":"常见误区与失效边界"},
+      {"id":"与整机和其他部件耦合","title":"与整机和其他部件的耦合"},
+      {"id":"自测题","title":"自测题"},
+      {"id":"答案与下一期衔接","title":"答案与下一期衔接"},
+      {"id":"参考资料与图示许可","title":"参考资料与图示许可"}
+    ],
+    "validationNeedles": ["100 kW", "25 K", "11.25 Hz", "P<sub>loss</sub>", "Q̇<sub>oil</sub>"],
+    "figures": [
+      {"src":"/p/61773c64/gearbox-energy-thermal.svg","title":"齿轮箱功率与热量路径原创教学图","author":"Qzl's Blog","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","basis":"NASA/CR-168113 and NASA 20170009564; numerical values are stated teaching assumptions"},
+      {"src":"/p/61773c64/gearbox-torsion-model.svg","title":"两惯量扭振与频率计算原创教学图","author":"Qzl's Blog","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","basis":"NASA 20130014755; numerical values are stated teaching assumptions"}
+    ],
+    "sources": [
+      {"title":"NASA/CR-168113 advanced gearbox heat rejection","url":"https://ntrs.nasa.gov/citations/19870019120"},
+      {"title":"NASA meshed gear windage loss experiment","url":"https://ntrs.nasa.gov/citations/20170009564"},
+      {"title":"NASA Gearbox Dynamics Modeling","url":"https://ntrs.nasa.gov/api/citations/20130014755/downloads/20130014755.pdf"},
+      {"title":"NASA geared-fan thermal management architecture","url":"https://ntrs.nasa.gov/citations/20170000881"},
+      {"title":"FAA-H-8083-32B Powerplant Handbook","url":"https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/faa-h-8083-32b-aviation-maintenance-technician"},
+      {"title":"Pratt & Whitney GTF public architecture","url":"https://www.prattwhitney.com/products/commercial-engines/gtf"}
+    ],
+    "nextTopic": "传感器与健康管理：把油温、金属碎屑、振动和转子性能漂移组合成可验证的诊断证据"
+  },
+  {
     "issue": 12,
     "slug": "pw1100g-jm-geared-fan-durability",
     "postId": "2c54c8a8",

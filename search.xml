@@ -899,7 +899,95 @@
 </ul>
 
 <blockquote><p><strong>方法与边界：</strong>本报告只将检索窗口内、可由官方发布 / 仓库 / 论文原文或明确时间戳的社区帖子核验的信息列为“本周变化”。开发主干与 weekly / WIP / Beta 均不等同于正式发布；社区帖子仅作为问题信号。商业 CATIA 的授权门户内容可能不在公开检索范围内。</p></blockquote>
-]]></content><categories><category> CAD/CAE 生态周报 </category></categories><tags><tag> CAD/CAE </tag></tags></entry><entry><title>航空发动机学习简报｜第12期｜PW1100G-JM：齿轮风扇匹配与耐久性</title><link href="/p/2c54c8a8.html"/><url>/p/2c54c8a8.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 12 期</strong></p>
+]]></content><categories><category> CAD/CAE 生态周报 </category></categories><tags><tag> CAD/CAE </tag></tags></entry><entry><title>航空发动机学习简报｜第13期｜齿轮风扇减速箱：热平衡与扭振验证</title><link href="/p/61773c64.html"/><url>/p/61773c64.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 13 期</strong></p>
+<p><strong>主题类型：</strong>设计与控制方法　<strong>预计学习时间：</strong>12–15 分钟　<strong>日期：</strong>2026-10-14</p>
+<p><strong>副题：</strong>从100 kW教学热负荷到两惯量模态，建立功率、滑油和振动的联合验证矩阵</p>
+
+<h2 id="本期问题与学习目标">本期问题与学习目标</h2>
+<blockquote><p><strong>本期问题：</strong>齿轮风扇使低压涡轮与风扇各自运行在更合适的转速，但齿轮箱损失的功率去了哪里？滑油流量、换热器与扭振模态为什么必须和传动比一起设计？</p></blockquote>
+<p>学完本期，你应能画出“低压涡轮—齿轮箱—风扇”的功率路径，区分功率损失与热量分配，用滑油热平衡算出理想温升，并用两惯量模型估计第一扭转模态。前置知识是第02期修正转速、第04期压气机工作线、第11期FADEC瞬态限制，以及第12期PW1100G-JM的齿轮风扇架构。本文的数值算例完全是透明教学假设，并非PW1100G-JM公布参数或操作限制。</p>
+
+<h2 id="核心结论">核心结论</h2>
+<ol>
+<li><strong>高效率不等于低热负荷。</strong>在10 MW输入功率下，即使传动效率达到99%，功率差仍是100 kW；滑油、燃油与空气热汇必须共同承接。</li>
+<li><strong>滑油流量有双向影响。</strong>提高流量可降低理想温升，却可能增加搅油、风阻、泵功和换热器负担；NASA实测表明风阻损失随油流量上升。</li>
+<li><strong>稳态热平衡只是第一层。</strong>起飞、爬升、巡航和减速改变轴功、油温、燃油温度与可用散热能力，需要逐工况验证。</li>
+<li><strong>扭振取决于惯量和柔度。</strong>齿轮啮合刚度、轴扭转刚度及风扇惯量共同决定模态；扫转速时还要检查激励与固有频率相遇的区间。</li>
+<li><strong>公开资料支持方法，不支持替代认证数据。</strong>NASA旧型齿轮箱试验可用于学习损失机制，具体GTF热负荷、齿轮刚度和寿命仍需型号级试验资料。</li>
+</ol>
+
+<h2 id="概念与物理直觉">概念与物理直觉</h2>
+<p>齿轮箱在输入轴和风扇之间交换转速与扭矩。理想无损情况下，角速度降低多少，扭矩就相应提高，功率P=Tω守恒。真实齿轮啮合、轴承、密封和油液搅动都产生损失。损失主要以热进入滑油和周围结构，随后流向燃油—滑油冷却器或空气—滑油冷却器；还有一部分通过机匣与周围气流散失。NASA的齿轮研究把轴承摩擦、齿面摩擦、风阻与搅油分开评估，说明只用一个“效率百分数”不能解释损失随转速、负载、油温和流量的变化。</p>
+<p>风扇像大惯量飞轮，低压轴、齿轮啮合和连接结构则具有有限扭转刚度。一个瞬态扭矩脉动先使两侧转子产生相对转角，再由弹性力矩拉回；若激励持续接近模态频率，动态载荷可能显著放大。NASA的齿轮动力学研究明确指出啮合刚度的周期变化和齿隙是振动与不稳定的重要来源。热与扭振也并非两份独立报告：油温改变黏度与阻尼，温度变化影响间隙，而瞬态扭矩会改变局部载荷与损失。</p>
+
+<h2 id="功率和热平衡公式">功率与热平衡公式</h2>
+<div class="aeroengine-formula"><strong>传动效率：</strong>η<sub>g</sub>=P<sub>out</sub>/P<sub>in</sub>；损失功率P<sub>loss</sub>=P<sub>in</sub>−P<sub>out</sub>=(1−η<sub>g</sub>)P<sub>in</sub>。</div>
+<p>P单位为W或MW；η<sub>g</sub>为无量纲。两侧功率必须在相同稳态时间窗和相同功率边界测量。若泵、附件或轴承损失是否算入边界不同，所谓“齿轮箱效率”不能直接比较。损失的热分配还需单独量测；P<sub>loss</sub>不必全部经过滑油冷却器。</p>
+<div class="aeroengine-formula"><strong>理想滑油温升：</strong>Q̇<sub>oil</sub>=ṁ<sub>oil</sub>c<sub>p</sub>(T<sub>out</sub>−T<sub>in</sub>)。</div>
+<p>Q̇单位W，ṁ为kg/s，c<sub>p</sub>为J/(kg·K)，温度差为K。该式假设单相稳态流动、比热近似常数、测点覆盖全部被计入的油路且暂不计壳体储热。实际设计还要分别验证局部喷油、轴承温度、油气分离、回油与换热器压降，平均回油温度不代表最热点。</p>
+<figure class="aeroengine-figure"><img src="/p/61773c64/gearbox-energy-thermal.svg" alt="齿轮箱功率损失进入滑油和冷却器的教学示意，以及滑油流量对温升的影响"><figcaption>图1　功率—热量路径与教学温升曲线。假设10 MW输入、99%效率、全部100 kW损失由滑油带走，c<sub>p</sub>=2 kJ/(kg·K)。作者：Qzl's Blog；原创SVG；许可：<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>；依据<a href="https://ntrs.nasa.gov/citations/19870019120" target="_blank" rel="noopener noreferrer">NASA齿轮箱/散热研究</a>与<a href="https://ntrs.nasa.gov/citations/20170009564" target="_blank" rel="noopener noreferrer">NASA风阻损失试验</a>绘制。图中数值为独立算例。</figcaption></figure>
+
+<h2 id="可复算热负荷算例">可复算的简化算例：热负荷</h2>
+<p>设教学齿轮箱输入功率10 MW，效率0.99，先把全部损失视为进入滑油：P<sub>out</sub>=9.9 MW，Q̇<sub>oil</sub>=0.1 MW=100 kW。若滑油质量流量为2 kg/s、平均比热为2 kJ/(kg·K)，理想进出口温差为100/(2×2)=25 K。保持热量与比热不变，流量降至1 kg/s时温升为50 K，升至4 kg/s时温升为12.5 K。任何人都可按单位复算这三点。</p>
+<p>这不是“把流量加倍即可解决散热”的设计结论。油泵耗功、齿轮附近搅油损失、局部喷油分布、燃油温度与空气油冷器阻力都随方案变化。若有30 kW热量直接传入机匣和其他路径，油路只需带走70 kW，2 kg/s的上述理想温升便是17.5 K；这说明先定义控制体，再谈油流量。NASA公开的齿轮风阻实验发现，增大油流量会提高风阻损失；设计应比较“冷却收益”与“新增损失”。</p>
+
+<h2 id="扭振模型与算例">扭振模型与算例</h2>
+<div class="aeroengine-formula"><strong>两惯量理想模型：</strong>ω<sub>n</sub>=√[k<sub>t</sub>(1/J<sub>1</sub>+1/J<sub>2</sub>)]，f<sub>n</sub>=ω<sub>n</sub>/(2π)。</div>
+<p>J<sub>1</sub>、J<sub>2</sub>为同一侧坐标下的等效转动惯量，单位kg·m²；k<sub>t</sub>为等效扭转刚度，单位N·m/rad；ω<sub>n</sub>为rad/s，f<sub>n</sub>为Hz。跨齿轮比转换惯量时，必须先把两侧反射到同一坐标，不能直接把实物惯量代入。此式忽略阻尼、齿隙、啮合刚度时变、多轴系和结构耦合，只是预估第一模态的入门模型。</p>
+<p>取J<sub>1</sub>=10 kg·m²、J<sub>2</sub>=40 kg·m²、k<sub>t</sub>=40,000 N·m/rad，则ω<sub>n</sub>=√(40,000×0.125)=70.71 rad/s，f<sub>n</sub>≈11.25 Hz。这个教学结果提示应在转速扫掠中检查接近11.3 Hz的激励，而不是说某型发动机存在该共振。实际系统还要用多自由度模型、啮合阶次图、传感器频谱和试验模态校核。</p>
+<figure class="aeroengine-figure"><img src="/p/61773c64/gearbox-torsion-model.svg" alt="两个等效惯量由扭转刚度连接并计算固有频率的教学模型"><figcaption>图2　两惯量扭振教学模型及11.3 Hz算例。作者：Qzl's Blog；原创SVG；许可：<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>；建模依据<a href="https://ntrs.nasa.gov/api/citations/20130014755/downloads/20130014755.pdf" target="_blank" rel="noopener noreferrer">NASA Gearbox Dynamics Modeling</a>。</figcaption></figure>
+
+<h2 id="工程分析执行步骤">工程分析的执行步骤</h2>
+<ol>
+<li>画清边界：区分齿轮啮合、轴承、泵和附件，把输入、输出功率测点与滑油测点标在图上。</li>
+<li>建立工况矩阵：至少覆盖起动、地面慢车、起飞、爬升、巡航、下降与快速功率变化，并记录环境、燃油温度和引气/取功状态。</li>
+<li>先算能量守恒：逐工况计算轴功差，与油路和机匣散热估计闭合；若残差大，先查测量边界和传感器。</li>
+<li>再算热管理：按最低、标称、最高允许油流量计算温升和换热器需求，叠加油泵功、压降、燃油热汇上限与局部最热点。</li>
+<li>建立扭振模型：把输入轴、齿轮组和风扇惯量映射到同一侧，辨识刚度、阻尼与间隙，再扫频和扫转速。</li>
+<li>做试验回归：用稳态油温、回油流量、轴速/扭矩和振动阶次校准模型；记录模型误差、仪器不确定度和不一致工况。</li>
+</ol>
+
+<h2 id="常见误区与失效边界">常见误区与失效边界</h2>
+<ul>
+<li>把99%效率理解为“几乎没有热”。大功率乘以小损失率仍会形成显著热负荷。</li>
+<li>把平均回油温度当作齿面与轴承最热点。局部供油不足可能先出现问题。</li>
+<li>只提高油流量而不计算泵功、搅油损失、换热器压降和燃油热汇温度。</li>
+<li>只检查稳态巡航，忽略起飞热负荷峰值与加减速时的扭矩、温度滞后。</li>
+<li>把单自由度或两惯量频率视为全机固有频率；实际轴系、机匣支撑与齿轮啮合存在多模态耦合。</li>
+<li>把NASA旧型试验效率直接写作PW1100G-JM数据。它们用于物理机制和方法交叉核查，工况、边界与技术年代不同。</li>
+</ul>
+
+<h2 id="与整机和其他部件耦合">与整机和其他部件的耦合</h2>
+<p>齿轮箱效率改变低压涡轮需要提供的轴功，进而影响低压压气机、风扇与整机燃油流量的匹配。空气油冷器把余热排入涵道气流，散热器尺寸与压降会影响短舱阻力和风扇功率；燃油油冷器则受燃油流量和允许温度限制。NASA的推进系统热管理研究明确把齿轮箱、轴承、发电设备、燃油油冷器和空气油冷器放入同一热网络，这正是整机级分析的正确边界。</p>
+<p>控制系统的功率瞬态调度也与齿轮箱耦合：低压轴加减速改变扭矩和模态激励，热惯量使油温响应滞后。健康监测应把油温、油压、油量、磁性碎屑与振动趋势合看，但单个异常量不等于故障定位。公开适航和维护资料可以建立监测思路，型号实际限值必须以批准文件为准。</p>
+
+<h2 id="自测题">自测题</h2>
+<ol>
+<li>10 MW输入、效率99%时输出功率和损失功率各是多少？写出单位。</li>
+<li>若100 kW热量全部由2 kg/s、c<sub>p</sub>=2 kJ/(kg·K)的滑油带走，理想温升是多少？</li>
+<li>判断：滑油流量增加必然提高齿轮箱整体效率。说明理由。</li>
+<li>为什么必须说明效率计算是否包含泵和轴承损失？</li>
+<li>两个惯量分居齿轮两侧时，计算扭振频率前需做什么转换？</li>
+<li>判断：回油温度正常即可排除齿轮和轴承局部过热。</li>
+<li>列出三种需要共同检查的热汇或热流路径。</li>
+<li>为什么一次加速过程既要看温度曲线，也要看振动阶次随转速变化？</li>
+</ol>
+
+<h2 id="答案与下一期衔接">答案与下一期衔接</h2>
+<p>1）9.9 MW与0.1 MW，即100 kW。2）25 K。3）错；风阻、搅油和泵功可随流量增加。4）边界不同会使效率不可比。5）按齿轮比将惯量折算到同一侧坐标。6）错，平均温度不能代表局部热点。7）滑油至燃油、至空气、机匣至周围气流等。8）温度反映热惯量与散热能力，阶次图用于辨认经过模态的动态载荷，两者约束不同。</p>
+<p><strong>下一期建议：</strong>传感器与健康管理：如何把油温、金属碎屑、振动和转子性能漂移组合成可验证的诊断证据，而不把相关性误判为故障原因。</p>
+
+<h2 id="参考资料与图示许可">参考资料与图示许可</h2>
+<ol>
+<li><a href="https://ntrs.nasa.gov/citations/19870019120" target="_blank" rel="noopener noreferrer">NASA/CR-168113：先进齿轮箱与空气油冷器研究</a>；公开历史研究，用于损失与散热机制，不代表当前型号参数。</li>
+<li><a href="https://ntrs.nasa.gov/citations/20170009564" target="_blank" rel="noopener noreferrer">NASA：啮合齿轮风阻损失实验</a>；给出油流量、温度、齿轮表面速度对损失的影响。</li>
+<li><a href="https://ntrs.nasa.gov/api/citations/20130014755/downloads/20130014755.pdf" target="_blank" rel="noopener noreferrer">NASA：Gearbox Dynamics Modeling</a>；啮合刚度变化、齿隙与扭振模型。</li>
+<li><a href="https://ntrs.nasa.gov/citations/20170000881" target="_blank" rel="noopener noreferrer">NASA：混合电推进齿轮风扇热管理架构</a>；燃油油冷器和空气油冷器的系统级热汇路径。</li>
+<li><a href="https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/faa-h-8083-32b-aviation-maintenance-technician" target="_blank" rel="noopener noreferrer">FAA-H-8083-32B：动力装置手册第6章润滑与冷却</a>；维护层面的油路与冷却术语。</li>
+<li><a href="https://www.prattwhitney.com/products/commercial-engines/gtf" target="_blank" rel="noopener noreferrer">Pratt &amp; Whitney：GTF公开架构</a>；制造商声明，仅用于说明齿轮风扇架构。</li>
+</ol>
+<p>两幅SVG均为Qzl's Blog原创教学图，按<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>许可；图中10 MW、99%、惯量与刚度全是明示假设。原始图文件：<a href="/p/61773c64/gearbox-energy-thermal.svg">功率—热量路径</a>、<a href="/p/61773c64/gearbox-torsion-model.svg">两惯量扭振模型</a>。</p>
+]]></content><categories><category> 航空发动机 </category></categories><tags><tag> 航空发动机 </tag></tags></entry><entry><title>航空发动机学习简报｜第12期｜PW1100G-JM：齿轮风扇匹配与耐久性</title><link href="/p/2c54c8a8.html"/><url>/p/2c54c8a8.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 12 期</strong></p>
 <p><strong>副题：</strong>从减速齿轮、双转子匹配到粉末冶金适航事件，读懂高涵道比窄体机动力的系统取舍</p>
 <p><strong>主题类型：</strong>经典发动机剖析　<strong>预计学习时间：</strong>12–15分钟　<strong>日期：</strong>2026-08-24</p>
 

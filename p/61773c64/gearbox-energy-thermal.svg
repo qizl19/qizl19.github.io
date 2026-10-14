@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+<title id="title">齿轮风扇减速齿轮箱功率、热量与滑油流路教学示意</title>
+<desc id="desc">低压涡轮输入10兆瓦，假设传动效率99%，风扇侧得到9.9兆瓦，齿轮箱损失100千瓦。滑油将热量传至燃油油冷器和空气油冷器。右下曲线展示油温升与滑油质量流量的反比关系。</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#10263a"/><stop offset="1" stop-color="#173d49"/></linearGradient><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10Z" fill="#8be2da"/></marker></defs>
+<rect width="1200" height="680" fill="url(#bg)"/>
+<g font-family="Arial,'Noto Sans CJK SC','Microsoft YaHei',sans-serif" fill="#eaf5f3">
+<text x="60" y="61" font-size="31" font-weight="700">减速齿轮箱：功率与热量是一张账</text>
+<text x="60" y="94" font-size="16" fill="#b8d3d3">透明教学假设：Pᵢₙ = 10 MW，η = 0.99；所有损失暂计入滑油</text>
+<g stroke="#4f8c92" stroke-width="2" fill="#214657"><rect x="60" y="145" width="235" height="118" rx="16"/><rect x="470" y="145" width="260" height="118" rx="16"/><rect x="905" y="145" width="235" height="118" rx="16"/><rect x="470" y="337" width="260" height="92" rx="16"/><rect x="60" y="490" width="235" height="102" rx="16"/><rect x="342" y="490" width="235" height="102" rx="16"/></g>
+<text x="86" y="186" font-size="20" font-weight="700">低压涡轮 / 低压轴</text><text x="86" y="223" font-size="18">输入 10.0 MW</text>
+<text x="505" y="186" font-size="20" font-weight="700">减速齿轮箱</text><text x="505" y="223" font-size="18">η = Pₒᵤₜ / Pᵢₙ = 0.99</text>
+<text x="949" y="186" font-size="20" font-weight="700">风扇</text><text x="949" y="223" font-size="18">输出 9.9 MW</text>
+<text x="505" y="374" font-size="20" font-weight="700">齿轮 / 轴承损失</text><text x="505" y="405" font-size="18">Q̇ ≈ 100 kW</text>
+<text x="87" y="528" font-size="19" font-weight="700">燃油—滑油冷却器</text><text x="87" y="559" font-size="15">先计入可用燃油热汇</text>
+<text x="366" y="528" font-size="19" font-weight="700">空气—滑油冷却器</text><text x="366" y="559" font-size="15">余热排向气流</text>
+<g stroke="#8be2da" stroke-width="4" fill="none" marker-end="url(#arrow)"><path d="M295 204H461"/><path d="M730 204H896"/><path d="M600 263V329"/><path d="M470 385C305 385 180 415 180 481"/><path d="M295 541H332"/></g>
+<text x="73" y="637" font-size="16" fill="#b8d3d3">实际系统还含其他热源、泵功、旁通与热交换约束；此图仅用于能量核算教学。</text>
+<g transform="translate(745,345)"><rect width="390" height="246" rx="14" fill="#f4fbf9"/><text x="20" y="29" fill="#173d49" font-size="17" font-weight="700">ΔT = Q̇ / (ṁ cₚ)</text><text x="20" y="51" fill="#425b61" font-size="12">Q̇=100 kW, cₚ=2 kJ/(kg·K)</text><path d="M47 205H355M47 205V75" stroke="#395a60" stroke-width="2"/><path d="M90 88Q130 130 200 165T340 191" fill="none" stroke="#0b8e98" stroke-width="4"/><g fill="#0b6570" font-size="12"><text x="73" y="225">1</text><text x="188" y="225">2</text><text x="325" y="225">4</text><text x="177" y="242">ṁ (kg/s)</text><text x="7" y="94">50</text><text x="7" y="153">25</text><text x="7" y="203">0</text><text x="7" y="70">ΔT (K)</text></g><g fill="#0b8e98"><circle cx="90" cy="88" r="5"/><circle cx="200" cy="151" r="5"/><circle cx="340" cy="182" r="5"/></g></g>
+</g></svg>
