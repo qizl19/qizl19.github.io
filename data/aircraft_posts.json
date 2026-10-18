@@ -1,5 +1,106 @@
 [
   {
+    "slug": "harbin-y-12",
+    "nameZh": "运-12",
+    "nameEn": "Harbin Y-12",
+    "eyebrow": "飞机资料整理 · 第 24 期",
+    "subtitle": "从轻型双发运输机到国际适航审查的中国民机实践",
+    "date": "2026-10-15",
+    "updated": "2026-10-18",
+    "nation": "中国",
+    "category": "双发轻型多用途运输机",
+    "era": "1980年代至今",
+    "tags": ["航空", "中国航空工业", "通用航空"],
+    "status": "系列具有公开的国内外运营和取证记录；具体飞机当前状态逐机而异",
+    "metrics": {
+      "firstFlightYear": 1982,
+      "lengthM": 14.86,
+      "wingspanM": 17.24,
+      "maxTakeoffWeightT": 5.0,
+      "speedLabel": "中国民航局 Y-12II 型口径：最大平飞速度 328 km/h，巡航速度 292 km/h",
+      "rangeLabel": "中国民航局 Y-12II 型口径：1340 km；随载荷、油量、气象和改型变化"
+    },
+    "diagram": [
+      "任务：轻型短途客货运输与多用途改装",
+      "总体：上单翼、双发、斜撑杆、固定式前三点起落架",
+      "取舍：结构简洁与低速适应性对巡航阻力形成约束",
+      "适航：II、IV、E、F 的证书与性能口径必须分别核对"
+    ],
+    "firstFlight": "1982年；具体日期在本文采用的民航局概览中未列明",
+    "accent": "#386f80",
+    "heroImage": "/p/1ed35681/y12-museum.jpg",
+    "model": {
+      "kind": "unavailable",
+      "poster": "/p/1ed35681/y12-museum.jpg",
+      "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "method": "VAST-AI 官方 TripoSG 本机离线单图重建与多视角审计",
+      "inputCredit": "Ronidong",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:Harbin_Y-12_(II).jpg",
+      "license": "CC BY-SA 4.0；TripoSG 代码 MIT",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "engine": "TripoSG",
+      "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "engineLicense": "MIT",
+      "channel": "local-offline-rtx3060",
+      "note": "未找到机型与再分发许可均可核实的现成 GLB。采用 VAST-AI 官方 TripoSG 本机官方权重，在 RTX 3060 上对两张已验收照片分别单图推理，均为 40 步、guidance 7、dense depth 8、hierarchical depth 9、目标 80000 面。候选一（Ronidong，输入 SHA256 6a258007a463899962272404ab827858d7d190fc2e100450878b4f60a378beab，seed 42）耗时 931.8 秒，输出 80000 面、393 个连通分量、1439224 字节、SHA256 6b534dce63b7694c7291b4be16623f29d2a8b215df98d58193a5c5895882fce5；尾翼形态不可靠，碎片较多。候选二（AeroCambodia，输入 SHA256 5602d114b003903f0019816e4cc1feb3fd18936e092a6ab3ae73ae2f836b40bd，seed 84）耗时 545.17 秒，输出 80000 面、112 个连通分量、1440808 字节、SHA256 92566b9924ba20e175d31ecb356a386be0c47929e0db1c05be4c80a95ef56ee2；八视角显示机身、尾翼与起落架严重粘连、伪影。两者均未通过外形与网格审计，不上传 GLB。暂无可验证模型。AI 单图重建的遮挡区由模型推断，非工程 CAD，不可用于制造或仿真。"
+    },
+    "statement": "运-12是中国哈尔滨研制的双发轻型多用途飞机。本文参数均限定为中国民航局所列 Y-12II 型，系列后续改型不共用这组性能数据。",
+    "summary": "运-12的工程意义在于把轻型双发运输机研制、民用适航审查与出口运营结合起来。中国民航局记载，项目于1980年初开始设计，1985年获得国内民用飞机型号合格证，1986年获得生产许可证并开始外销，1990年6月20日获英国 CAA 型号合格证。本文聚焦 Y-12II：上单翼、双发涡桨、翼下斜撑杆和固定式前三点起落架构成鲜明外形；两台 PT6A-27 每台额定功率 462 kW。其 17.24 米翼展、14.86 米机长、5 吨起飞重量和 1340 千米航程均来自民航局明确标注的 II 型参数，不能移用到 IV、E 或全新一代 F 型。",
+    "facts": [
+      {"label": "制造商", "value": "哈尔滨飞机制造公司／后续哈飞体系", "note": "不同时期的法人名称有变化"},
+      {"label": "布局", "value": "上单翼、双发涡桨、斜撑杆、固定式前三点起落架"},
+      {"label": "动力", "value": "Y-12II：2 × PT6A-27，每台 462 kW", "note": "中国民航局公布的 II 型口径"},
+      {"label": "客舱", "value": "Y-12II 可配置 17 个旅客座椅", "note": "亦可配置货运或特种任务设备"},
+      {"label": "翼展／机长／机高", "value": "17.24 m／14.86 m／5.58 m", "note": "仅 Y-12II"},
+      {"label": "最大起飞重量", "value": "5000 kg", "note": "仅 Y-12II"},
+      {"label": "最大平飞／巡航速度", "value": "328／292 km/h", "note": "仅 Y-12II"},
+      {"label": "航程", "value": "1340 km", "note": "仅 Y-12II；实际受载荷与条件影响"}
+    ],
+    "timeline": [
+      {"year": "1980年初", "event": "运-12开始设计。"},
+      {"year": "1985年", "event": "获得中国民航局民用飞机型号合格证。"},
+      {"year": "1986年", "event": "获得生产许可证，并开始外销。"},
+      {"year": "1990年6月20日", "event": "英国 CAA 颁发型号合格证。"},
+      {"year": "1995年", "event": "后续 Y12 IV 获 FAA 批准；证书范围不自动涵盖所有型号。"},
+      {"year": "2023年", "event": "Y12F 获 EASA 型号合格证；属于不同于 II 型的独立口径。"}
+    ],
+    "designPoints": [
+      "高翼与翼下斜撑杆构成结构重量、低速性能和巡航阻力之间的折中。",
+      "固定式前三点起落架降低收放机构复杂度，但增加巡航阻力。",
+      "全金属半硬壳机身与可变客货舱支持短途客运、货运和公开任务改装。",
+      "外形照片来自不同国家和具体批次，不能由照片推断所有改型具有相同性能。"
+    ],
+    "power": "Y-12II 使用两台普拉特·惠特尼加拿大 PT6A-27 涡轮螺旋桨发动机，中国民航局记载单台功率 462 kW。螺旋桨产生主要推进力；双发提供冗余，但单发性能不能由额定功率直接推算。不同改型的发动机、螺旋桨与取证口径可能不同。",
+    "variants": [
+      {"name": "Y-12I / II", "description": "早期系列；本文量化参数仅适用于 II 型。"},
+      {"name": "Y12 IV", "description": "后续改型，列入 FAA A00006WI 型号数据单。"},
+      {"name": "Y12E", "description": "后续改型，同列入 FAA A00006WI。"},
+      {"name": "Y12F", "description": "全新一代 8 吨级通勤／通用飞机，2023 年获得 EASA 型号证书；不可套用 II 型参数。"}
+    ],
+    "strengths": [
+      "小规模客货运与多任务改装的灵活性。",
+      "简洁的高翼、斜撑和固定起落架布局，利于理解轻型运输机的工程取舍。",
+      "国内外取证与出口历史，是中国民机适航实践的重要案例。"
+    ],
+    "limits": [
+      "固定起落架和斜撑杆带来巡航阻力代价。",
+      "小型客货舱及载荷、航程的相互制约限制了任务范围。",
+      "不同改型差异明显；不能将 II 型参数当作整个系列的统一指标。"
+    ],
+    "photos": [
+      {"src": "/p/1ed35681/y12-museum.jpg", "alt": "中国航空博物馆保存的运-12II", "caption": "中国航空博物馆保存的运-12II，近侧前方视角。", "credit": "Ronidong", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Harbin_Y-12_(II).jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src": "/p/1ed35681/y12-cambodia.jpg", "alt": "柬埔寨空军运-12正视图", "caption": "柬埔寨空军运-12正视图，能看到双发、高翼和斜撑杆。", "credit": "AeroCambodia", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cambodian_Airforce_Harbin_Y12.JPG", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"},
+      {"src": "/p/1ed35681/y12-kenya.jpg", "alt": "肯尼亚空军运-12II侧视图", "caption": "肯尼亚空军运-12II降落侧视图。", "credit": "Alan Wilson / Hawkeye UK", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Harbin_Y-12_(II)_%27140%27_Kenya_Air_Force_(14982808543).jpg", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"}
+    ],
+    "sources": [
+      {"label": "中国民航局：运（Y）-12系列介绍，含 II 型参数", "url": "https://www.caac.gov.cn/GYMH/MHBK/HKQJS/201509/t20150923_1838.html"},
+      {"label": "FAA：A00006WI 型号数据单，Y12 IV 与 Y12E", "url": "https://drs.faa.gov/browse/excelExternalWindow/2B4481A4BC3047E186258726005645D2.0001"},
+      {"label": "EASA：Y12F 型号数据单", "url": "https://www.easa.europa.eu/en/downloads/138274/en"},
+      {"label": "中国民航局：Y12F 获欧盟型号合格证", "url": "https://www.caac.gov.cn/XWZX/MHYW/202307/t20230713_220642.html"}
+    ],
+    "postId": "1ed35681"
+  },
+  {
     "slug": "shaanxi-y-8",
     "nameZh": "运-8",
     "nameEn": "Shaanxi Y-8",

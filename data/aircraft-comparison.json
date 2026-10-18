@@ -1,5 +1,16 @@
 [
   {
+    "slug": "harbin-y-12",
+    "name": "运-12",
+    "url": "/p/1ed35681.html",
+    "firstFlightYear": 1982,
+    "lengthM": 14.86,
+    "wingspanM": 17.24,
+    "maxTakeoffWeightT": 5.0,
+    "speedLabel": "中国民航局 Y-12II 型口径：最大平飞速度 328 km/h，巡航速度 292 km/h",
+    "rangeLabel": "中国民航局 Y-12II 型口径：1340 km；随载荷、油量、气象和改型变化"
+  },
+  {
     "slug": "shaanxi-y-8",
     "name": "运-8",
     "url": "/p/325c36cd.html",

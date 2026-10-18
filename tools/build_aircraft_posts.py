@@ -941,7 +941,7 @@ def update_global_shell(
     category_item = '<li class="categoryBar-list-item"><a class="categoryBar-list-link" href="/aircraft/">飞机资料库</a><span class="categoryBar-list-count">4</span></li>'
     recent_prefix = '<div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list">'
     for path in root.rglob("*.html"):
-        if ".git" in path.parts or "tmp" in path.parts or "aircraft" in path.parts:
+        if ".git" in path.parts or "tmp" in path.parts or "aircraft" in path.parts or "data" in path.parts:
             continue
         text = path.read_text(encoding="utf-8")
         text = remove_legacy_gitcalendar(text)
