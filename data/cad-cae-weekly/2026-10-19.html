@@ -1,0 +1,86 @@
+<p><strong>定位：</strong>面向 FreeCAD 动力学自动化工作流。</p>
+<p>检索窗口：2026-10-12 08:43 至 2026-10-19 08:43（Asia/Shanghai）。本期只把窗口内可核验的官方候选版、合并提交、开发提交、论文原文和问题单列为动态；预印本、产品声明、社区问题与“本周无重要变化”分级标注。</p>
+<style>@media(max-width:768px){#article-container table{display:block;width:100%;overflow-x:auto}#article-container th,#article-container td{min-width:7em;overflow-wrap:anywhere}}</style>
+
+<h2 id="执行摘要">执行摘要</h2>
+<blockquote><p><strong>本周应把“数据链路可复算”放在“功能更多”之前。</strong>FreeCAD 26.3 RC2 于 10 月 18 日发布，官方仍要求回归测试且明确不用于生产；同日出现了一个高度贴合自动化场景的 Assembly 问题：由 Python/freecadcmd 无界面生成并保存的含关节装配，转入 GUI 激活时可能因 ViewProvider 未恢复而报错。Gmsh 开发分支则给出更直接的工程收益：分区文件读取/合并在提交说明中达到约 2 倍，另有大网格新节点规范化约 5 倍，以及 MSH、MED、legacy VTK 的多边形/多面体支持。AI 侧的 DeciCAD、DiffGIPC 和多保真 surrogate 有量化结果，但仍需通过 FreeCAD/CalculiX 的确定性门禁；IGA 主流开源框架本周无正式更新。</p></blockquote>
+<ul><li>RC2 不是生产版；先验证无界面创建—保存—GUI 激活—再次保存的装配闭环。</li><li>优先复跑 Gmsh 分区网格、多面体 MSH/MED/VTK 往返和高阶周期节点，防止性能提升伴随连接或物理组漂移。</li><li>AI 只进入候选层：几何、装配约束、接触和 surrogate 都必须与冻结的 STEP—Gmsh—CalculiX—VTK 基线盲测对照。</li></ul>
+
+<h2 id="本周最优先的-3-项行动">本周最优先的 3 项行动</h2>
+<ol><li><strong>建立 headless→GUI 装配回归。</strong>用 Python/freecadcmd 创建含 RevoluteJoint 的最小 FCStd，记录 ViewObject.Proxy、关节位姿与求解状态；分别在 1.1.4、26.3 RC2 和当前 weekly 打开、激活、保存重开。异常必须显式失败，不能靠 GUI 手工修补。</li><li><strong>验证 Gmsh 多面体与分区性能。</strong>固定一个百万级分区网格和一个含 polygon/polyhedron 的小型真值集，比较旧/新开发版本的读取、合并、内存、节点/单元/物理组哈希；同时往返 MSH、MED、legacy VTK，并用 VTK/ParaView 检查面列表。</li><li><strong>给 AI 建双轨门禁。</strong>CAD agent 以脚本成功、B-Rep 有效、STEP 重导入和装配约束残差为门槛；surrogate/可微接触以未见几何、载荷外推、非穿透、能量与 CalculiX 误差为门槛。未通过者只做建议器，不直接驱动生产模型。</li></ol>
+
+<h2 id="本周态势总览">本周态势总览</h2>
+<table><thead><tr><th>主题</th><th>证据等级</th><th>本周信号</th><th>工作流决策</th></tr></thead><tbody>
+<tr><td>FreeCAD</td><td>官方候选版</td><td>26.3 RC2；继续征集回归，禁止生产使用</td><td>隔离验证</td></tr>
+<tr><td>Assembly</td><td>社区问题信号</td><td>headless 文件转 GUI 时 ViewProvider 恢复失败</td><td>新增闭环回归</td></tr>
+<tr><td>IGA</td><td>本周无重要框架更新</td><td>相邻预印本用神经样条映射拉回 FEM，但并非精确 CAD 几何</td><td>研究验证</td></tr>
+<tr><td>AI × CAD/CAE</td><td>预印本/接收声明</td><td>CAD agent、可微接触、多保真 surrogate 有量化结果</td><td>候选层 + 物理门禁</td></tr>
+<tr><td>Gmsh</td><td>开发提交</td><td>分区读取/合并约 2 倍；新节点规范化约 5 倍；多面体 I/O</td><td>高优先复算</td></tr>
+<tr><td>VTK / ParaView</td><td>合并开发变更</td><td>VTKHDF 缓存、kd-tree、多面体涡核、分布式中止</td><td>数据契约回归</td></tr>
+<tr><td>CalculiX</td><td>开发提交</td><td>C3D8I 显式动力学与动态混合单元分配修正</td><td>元素级对照</td></tr>
+</tbody></table>
+
+<h2 id="freecad-assembly-自动化与-api-插件变化">FreeCAD Assembly 自动化与 API/插件变化</h2>
+<p><a href="https://github.com/FreeCAD/FreeCAD/releases/tag/26.3rc2" target="_blank" rel="noopener noreferrer">FreeCAD 26.3 RC2</a> 是窗口内的官方候选版。发布说明强调它汇集 RC1 之后的阻断修复，但仍要求对 1.1 的回归进行验证，并明确不应投入生产；旁边的 <a href="https://github.com/FreeCAD/FreeCAD/releases/tag/weekly-2026.10.14" target="_blank" rel="noopener noreferrer">weekly-2026.10.14</a> 同样是开发测试构建。自动化基线必须记录准确 tag、Python/Qt/OCCT/VTK 组合，不能把 RC2 和 27.1 weekly 混为同一行为。</p>
+<p><a href="https://github.com/FreeCAD/FreeCAD/issues/33697" target="_blank" rel="noopener noreferrer">Assembly 问题 #33697</a> 提供了可执行的最小复现：headless 创建 Assembly、两个 Box 和 RevoluteJoint，保存后在 GUI 激活装配，<code>joint.ViewObject.Proxy</code> 可能反序列化为整数而非 <code>ViewProviderJoint</code>，随后触发 <code>redrawJointPlacements</code> 属性错误。它目前是问题报告与建议修复，不是已合并修复；影响说明基于 1.1.4 环境，不能自动外推到 RC2。其价值在于揭示“无界面生成成功”并不等于“GUI 可编辑和可恢复”。</p>
+<p><a href="https://github.com/FreeCAD/FreeCAD/pull/33515" target="_blank" rel="noopener noreferrer">PR #33515</a> 合并了 Spreadsheet 细粒度重算依赖的规范属性名处理和回归测试，避免别名进入依赖图造成恢复问题。对参数驱动装配，应在保存重开后扰动别名与单元地址，验证重算对象集合、关节位姿和结果哈希一致。<a href="https://github.com/FreeCAD/FreeCAD/pull/33617" target="_blank" rel="noopener noreferrer">PR #33617</a> 修正 typings 的 PyPI 归档结构，<a href="https://github.com/FreeCAD/FreeCAD/pull/33674" target="_blank" rel="noopener noreferrer">PR #33674</a> 修正 <code>Quantity.getUserPreferred</code> 返回类型标注；它们改善开发体验，但不构成 Assembly 公共 API 稳定性承诺。</p>
+
+<h2 id="iga-cad-分析一体化">IGA / CAD–分析一体化</h2>
+<p><strong>主流 IGA 框架本周无重要可确认更新。</strong>固定窗口内检查 G+Smo、GeoPDEs、GeoPDEs hierarchical、PetIGA、tIGAr 与 igatools 的 release 和公开提交，均未发现新提交或正式版本；arXiv 对 IGA、IBRA、trimmed/immersed IGA、NURBS、B-spline、T-spline、THB-spline、LR-spline 的窗口检索也未得到可列为本周 IGA 新闻的论文。此结论只描述本次边界，旧成果不被重新包装为新进展。</p>
+<p>窗口内的相邻预印本 <a href="https://arxiv.org/abs/2610.19092" target="_blank" rel="noopener noreferrer">Neural Spline Flow Diffeomorphisms for Pullback Finite Element Methods on Complex Domains</a> 用单调有理二次样条耦合层学习从参考域到目标域的可逆映射，并在固定结构网格上拉回有限元弱式。正 Jacobian 由构造保证，几何映射误差与 FEM 离散/积分误差被明确区分；但摘要未给出可直接复核的几何误差、自由度、条件数或计时表，代码/数据链接也未在 arXiv 元数据中声明。它是“学习几何映射 + 传统 FEM”，不是 OCCT NURBS/修剪面的精确传递，更不能替代 IBRA 或 trimmed IGA 的切割单元稳健性证据。</p>
+<table><thead><tr><th>验证层</th><th>FreeCAD/OCCT 应提取</th><th>量化判据</th><th>失败模式</th></tr></thead><tbody>
+<tr><td>几何</td><td>次数、控制点、节点矢量、权重、参数域</td><td>曲面采样 Hausdorff/法向误差</td><td>权重或参数域重标定</td></tr>
+<tr><td>修剪</td><td>3D 边、pcurve、内外环、方向</td><td>闭合误差、切割单元失败率</td><td>短边、退化环、缝边翻转</td></tr>
+<tr><td>连续性/边界</td><td>跨面对应与法向、载荷区域</td><td>C0/C1 跳量、边界积分误差</td><td>错误参数映射、载荷漂移</td></tr>
+<tr><td>求解</td><td>壳/实体、接触、模态与多物理</td><td>DOF、收敛阶、条件数、时间、内存</td><td>小切割单元病态、接触不稳</td></tr>
+</tbody></table>
+<p>面向本工作流的复算试验保持不变：同一 OCCT/STEP 修剪壳分别进入 IGA 候选流程和“Gmsh 二次网格—CalculiX”传统 FEM，比较几何误差、静力位移/反力、前六阶模态、积分/组装/求解时间及内存；若使用 ROM 或神经算子，再加入未见参数和局部加密后的外推误差。</p>
+
+<h2 id="ai-cad-cae">AI × CAD/CAE</h2>
+<p>本期优先纳入可迁移、带 benchmark 和量化结果的工作；它们均不因高分或高倍率而跳过确定性验证。</p>
+<table><thead><tr><th>工作/状态</th><th>方法与数据</th><th>量化结果</th><th>开放性与局限</th><th>FreeCAD 影响/验证</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2610.21755" target="_blank" rel="noopener noreferrer">DeciCAD</a><br>预印本</td><td>面向 CAD 的语义动作 harness；SFT + 几何反馈在线 RL；4 个 CAD benchmark</td><td>相对通用 coding harness，输出 token 减少 45–88%；F1 0.6883→0.7437→0.7880；几何可用率 66.5%→73.5%</td><td>论文/TeX 可取，摘要未声明代码与数据；benchmark 与 FreeCAD API 差异、长链失败和约束语义漂移仍是主要风险</td><td>适合把工具空间收窄为受控 FreeCAD 命令；盲测 B-Rep 有效、STEP 重导入、参数扰动和装配残差</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2610.19091" target="_blank" rel="noopener noreferrer">DiffGIPC</a><br>预印本</td><td>GPU 可微 IPC；FEM + 每个仿射体 12 个运动 DOF；PyTorch 参数/损失接口</td><td>相对 DiffIPC，联合前向/反向峰值提速约 150×（全空间 FEM）和 4133.3×（仿射体）</td><td>摘要未声明代码/数据；峰值倍率不等于全场景收益，仿射近刚体、摩擦/CCD 和 GPU 条件限制迁移</td><td>可用于关节/接触参数标定候选；必须核验非穿透、摩擦锥、能量、梯度有限差分和 CalculiX 对照</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2610.17221" target="_blank" rel="noopener noreferrer">多保真 neural surrogate</a><br>预印本；作者注明 NeurIPS 2026 接收</td><td>连续保真度的数据配比；6 个 PDE、结构/非结构网格、2 类误差、4 种架构；超过 7000 次训练</td><td>在作者设置中达到高保真单独训练的准确度，同时数据生成计算量最多减少 6.3×</td><td><a href="https://github.com/psetinek/multi-fidelity-neural-surrogates" target="_blank" rel="noopener noreferrer">代码公开</a>；仍依赖仿真器误差模型与训练域，不能把低保真偏差视为噪声</td><td>适合 CalculiX 参数扫描预算；按网格/载荷/材料分层留出，报告误差—成本 Pareto 和失效域</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2610.20585" target="_blank" rel="noopener noreferrer">Hodge-Laplacian MoE</a><br>预印本</td><td>在粗非结构网格上按谱尺度分配 Transformer experts；缩减版 AirFRANS，约 4.9K 顶点/9.6K 面</td><td>相对同数据切分的 Transolver，relative L2 下降 31%，内部 MSE 下降 47%</td><td>CC 论文开放，摘要未给代码/完整数据切分；AirFRANS 气动场与结构动力学存在域差距</td><td>可迁移到非结构网格 surrogate，但先用 FreeCAD 几何族做跨拓扑测试并保持物理残差门禁</td></tr>
+</tbody></table>
+<p><strong>范围覆盖结论：</strong>Text-to-CAD、programmatic/agentic CAD、CAD copilot 与可验证装配由 DeciCAD 代表；约束求解、几何理解/修复和自动参数化仍缺本周可直接迁移的独立证据；拓扑优化与 AI 辅助网格没有达到同等量化/开放门槛的新结果；边界条件/载荷识别、参数标定和可微接触由 DiffGIPC 提供相邻证据；solver acceleration、ROM、surrogate、PINN、neural operator、digital twin、后处理与异常检测中，仅多保真 surrogate 与 Hodge-Laplacian MoE 达到本期纳入门槛。风险共性是 benchmark 泄漏、几何分布外失效、视觉指标替代拓扑/物理正确性和峰值性能选择性报告；置信度为中等，直到复现实验完成。</p>
+
+<h2 id="catia-与-rhino-step-3dm-互操作">CATIA 与 Rhino / STEP / 3DM 互操作</h2>
+<p><strong>本周未核验到 CATIA、rhino3dm、openNURBS 或 OCCT 的重要正式互操作发布。</strong>rhino3dm 与 openNURBS 主仓库在固定窗口没有提交；CATIA 商业信息也未提供可独立验证的 STEP/3DM 保真量化。McNeel 的 RhinoAI 开发分支在窗口内合并 Rhino 9.0 同步和本地化修正，但这不是 STEP/3DM 几何能力更新，也没有证明 CATIA 装配语义可保真往返。</p>
+<p>维持含有理 NURBS、内孔修剪、缝边、实例、单位、层与属性的金标准件，比较 CATIA→STEP→OCCT/FreeCAD 与 Rhino→3DM→rhino3dm 两条链的控制点/节点/权重、修剪环、体积、质心、B-Rep 有效性和实例层级。任何商业产品说明只作为产品声明，不替代文件级差分。</p>
+
+<h2 id="gmsh-与-meshio">Gmsh 与 meshio</h2>
+<p>Gmsh 开发分支是本期最强工程信号。<a href="https://gitlab.onelab.info/gmsh/gmsh/-/commit/16cb8c5ac8c54cd2d4d60d9abd49a23300a8f176" target="_blank" rel="noopener noreferrer">稀疏编号网格缓存改用 flat hash map</a> 的提交说明称分区文件读取/合并约快 2 倍；<a href="https://gitlab.onelab.info/gmsh/gmsh/-/commit/53106604fb1b462d5343c665e22ad337ff61904e" target="_blank" rel="noopener noreferrer">新节点规范化改用数组索引</a> 的说明称大网格约快 5 倍。两者均是开发提交给出的局部测量，不是独立 benchmark 或稳定版承诺，必须同时记录峰值内存与非稠密编号退化。</p>
+<p>格式链路也发生实质变化：<a href="https://gitlab.onelab.info/gmsh/gmsh/-/commit/3e18e4fd801d11f0be8657906898408e96433ade" target="_blank" rel="noopener noreferrer">MSH 的 <code>$Polytopes</code> 块加入记录偏移并支持多线程区间读取</a>；<a href="https://gitlab.onelab.info/gmsh/gmsh/-/commit/996f01ae29315d93ebc333d5838c7d91be564a47" target="_blank" rel="noopener noreferrer">MED 支持 polygon/polyhedron 及 tag/family</a>；<a href="https://gitlab.onelab.info/gmsh/gmsh/-/commit/d7e7c242af9c44f30728e6b635da09684a3477eb" target="_blank" rel="noopener noreferrer">legacy VTK 读写类型 7/42 和内嵌面列表</a>。<a href="https://gitlab.onelab.info/gmsh/gmsh/-/commit/8212764493f4e833afa56882a0dea6449c3216e1" target="_blank" rel="noopener noreferrer">周期线高阶节点反向修复</a>与边界层四边形重复反转修复则需要网格质量回归。</p>
+<table><thead><tr><th>试验</th><th>输入</th><th>记录</th><th>通过判据</th></tr></thead><tbody>
+<tr><td>分区读取/合并</td><td>稠密与稀疏编号，1/8/32 线程</td><td>墙钟、CPU、峰值内存、哈希</td><td>内容一致且无编号依赖</td></tr>
+<tr><td>多面体往返</td><td>polygon/polyhedron 真值集</td><td>面列表、方向、tag/family、体积</td><td>MSH/MED/VTK 全链一致</td></tr>
+<tr><td>高阶/周期</td><td>二至四阶周期线与体网格</td><td>节点配对、Jacobian、曲面误差</td><td>零漏配且无反转</td></tr>
+</tbody></table>
+<p>meshio 官方仓库在窗口内无提交或新 release。冻结版本并明确把新增 Gmsh polytope 能力视为兼容风险：在 meshio 未声明支持前，不应默认其能无损转写新的块、面列表、tag 和 family。</p>
+
+<h2 id="vtk-与-paraview">VTK 与 ParaView</h2>
+<p>VTK 开发分支合并了 <a href="https://gitlab.kitware.com/vtk/vtk/-/merge_requests/13790" target="_blank" rel="noopener noreferrer">VTKHDF 数组选择与结构化复合数据缓存修复</a>、<a href="https://gitlab.kitware.com/vtk/vtk/-/merge_requests/13779" target="_blank" rel="noopener noreferrer"><code>vtkKdTreePointLocator</code> 改由 nanoflann 支撑</a>，以及 <a href="https://gitlab.kitware.com/vtk/vtk/-/merge_requests/13679" target="_blank" rel="noopener noreferrer">多面体网格涡核提取修复</a>。这些变更分别影响时间步/数组选择一致性、邻域查询和多面体后处理；窗口内没有新的正式 VTK release。</p>
+<p>ParaView 合并了 <a href="https://gitlab.kitware.com/paraview/paraview/-/merge_requests/7921" target="_blank" rel="noopener noreferrer">分布式 abort 支持</a>、<a href="https://gitlab.kitware.com/paraview/paraview/-/merge_requests/7979" target="_blank" rel="noopener noreferrer">从 MPAS history 文件读取字段</a>、插件菜单/工具栏分类和 TecplotReader 更新。对自动化最关键的是“中止能否在 MPI ranks 间一致传播”和“缓存切换是否返回正确数组”，不是渲染截图是否正常。</p>
+<p>用同一多时间步、多数组、多面体结果在冻结版和新开发版比较 point/cell 数、dtype、shape、NaN、极值、时间值和数组哈希；对 kd-tree 记录构建/查询时间与邻居集合；注入用户中止，要求所有 rank 有界时间内退出并留下可诊断日志。</p>
+
+<h2 id="calculix-与-abaqus-compatible-流程">CalculiX 与 Abaqus-compatible 流程</h2>
+<p>CalculiX 作者仓库在窗口内有多项开发提交，但没有新的正式稳定版。<a href="https://github.com/Dhondtguido/CalculiX/commit/9ba5d76cbffbae15aba9d1da81559b2761a9c061" target="_blank" rel="noopener noreferrer">C3D8I 显式动力学修正</a>为内部自由度单独计算质量缩放，并新增 <code>press_expl_c3d8i</code> 输入与参考输出；该参考在 824 增量、时间 1.0e-5 时给出指定节点 y 位移约 -1.778918e-7，可作为直接复算锚点。<a href="https://github.com/Dhondtguido/CalculiX/commit/fd25f66b14af3abda3d3e251822c5ff069d9dca9" target="_blank" rel="noopener noreferrer">动态混合单元输入的 allocation 修正</a>单独跟踪显式动力学积分点上限；<a href="https://github.com/Dhondtguido/CalculiX/commit/66017d9739aebb7146a932f71e4dc323306cdfa4" target="_blank" rel="noopener noreferrer">超弹材料默认可压缩系数</a>加入 1e-10 下限。</p>
+<p>这些是源代码开发态，不能仅凭通过解析就宣布 Abaqus-compatible。对 C3D8I 做单元补丁、显式时间步、质量与能量平衡以及参考位移对照；对混合单元组合检查内存分配和越界；对超弹材料显式写出 D<sub>i</sub> 再与默认值比较，避免默认变化悄悄改变近不可压缩响应。</p>
+
+<h2 id="python-cpp-pybind11-abi">Python / C++ / pybind11 / ABI</h2>
+<p>pybind11 窗口内没有正式 release，但开发分支合并了 <a href="https://github.com/pybind/pybind11/commit/c61cf2f6343ac0e67bff6494b0d88fb0f2e982b6" target="_blank" rel="noopener noreferrer">native trampolines 的隐式值转换支持</a>与 <a href="https://github.com/pybind/pybind11/commit/d1a9692ebf46c1a7d7af73ea8a92fbb3ab4fde6f" target="_blank" rel="noopener noreferrer">chrono 歧义本地时间保持修复</a>。前者可能改变重载/虚函数桥接的接受路径，后者影响时区回折时刻的 round-trip；两者都属于开发变更，不等同于 ABI 承诺。</p>
+<p>FreeCAD 插件矩阵至少覆盖目标 FreeCAD 的 Python、MSVC/clang-cl、Release/Debug 和 pybind11 固定版本；对 trampoline 测试隐式转换、异常、对象寿命和重复加载，对时间戳测试 DST 歧义时刻。升级只在二进制导入、析构、跨模块类型识别、保存重开与回归脚本都通过后进行。</p>
+
+<h2 id="决策与监控清单">决策与监控清单</h2>
+<table><thead><tr><th>事项</th><th>本期动作</th><th>通过判据</th><th>主要风险</th></tr></thead><tbody>
+<tr><td>FreeCAD RC2 / Assembly</td><td>隔离运行 headless→GUI 闭环</td><td>无异常；位姿、约束、重开一致</td><td>ViewProvider 恢复失败</td></tr>
+<tr><td>Gmsh polytopes/分区</td><td>固定真值与性能基准</td><td>哈希一致且时间/内存可解释</td><td>格式消费者不兼容</td></tr>
+<tr><td>VTK/ParaView</td><td>数组、邻域、MPI 中止回归</td><td>数据契约一致、无挂起</td><td>渲染正常掩盖数据错误</td></tr>
+<tr><td>CalculiX</td><td>C3D8I/混合单元/超弹复算</td><td>参考位移与能量门槛通过</td><td>默认值改变物理响应</td></tr>
+<tr><td>AI/IGA</td><td>研究候选，不直连生产</td><td>公开复现 + 未见域 + 物理/几何门禁</td><td>高倍率不可迁移</td></tr>
+</tbody></table>
+
+<h2 id="来源与证据边界">来源与证据边界</h2>
+<p>本期联网核对 FreeCAD、Gmsh、meshio、VTK、ParaView、CalculiX、pybind11、rhino3dm、openNURBS、OCCT、G+Smo、GeoPDEs、PetIGA、tIGAr、igatools 的官方 release、提交或合并记录，并通过 arXiv 原文元数据筛选窗口内论文。FreeCAD RC2 是候选版；Gmsh、VTK、ParaView、CalculiX、pybind11 条目是开发状态；Assembly 条目是社区问题信号；AI/神经样条条目为预印本，其中多保真 surrogate 仅依据作者给出的 NeurIPS 2026 接收声明。提交说明中的倍率和论文摘要中的指标尚未在本机复现，故均配套给出验证实验，不写成生产收益保证。</p>
