@@ -1,5 +1,106 @@
 [
   {
+    "slug": "xian-ma60",
+    "nameZh": "新舟60",
+    "nameEn": "Xian MA60",
+    "eyebrow": "飞机资料整理 · 第 26 期",
+    "subtitle": "从 Y7-200A 适航探索到支线客机国内外运营",
+    "date": "2026-10-19",
+    "updated": "2026-10-19",
+    "nation": "中国",
+    "category": "双发涡桨支线客机",
+    "era": "1990年代至今",
+    "tags": ["航空", "中国航空工业", "民航"],
+    "status": "有历史国内外客运记录；具体机队的当前运营状态须逐机核对",
+    "metrics": {
+      "firstFlightYear": "公开资料未统一确认",
+      "lengthM": 24.71,
+      "wingspanM": 29.2,
+      "maxTakeoffWeightT": 21.8,
+      "speedLabel": "最高巡航与经济巡航口径不同；本期资料不混用单一保证值",
+      "rangeLabel": "公开资料存在载客、备份燃油和构型差异；不列无条件单一航程"
+    },
+    "diagram": [
+      "任务：约 50 座级支线客运及短途接驳",
+      "构型：高翼、两台翼上涡桨、常规尾翼",
+      "动力：Y7-200A 阶段 PW127C；2008 年奥凯批次 PW127J",
+      "运营：1999 年早期使用、2008 年奥凯接收与首航"
+    ],
+    "firstFlight": "新舟60具体首飞日公开资料有冲突，所核民航局概览未列明；不猜测",
+    "accent": "#35687b",
+    "heroImage": "/p/0b32fd83/ma60-merpati.jpg",
+    "model": {
+      "kind": "unavailable",
+      "poster": "/p/0b32fd83/ma60-lao-skyway.jpg",
+      "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "method": "本机官方 TripoSG 单图重建与八视角网格审计",
+      "inputCredit": "shankar s.",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:Lao_Skyway_Xian_MA-60_at_Vientiane.jpg",
+      "license": "输入照片 CC BY 2.0；TripoSG 代码 MIT",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "engine": "TripoSG",
+      "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "engineLicense": "MIT",
+      "channel": "local-offline-rtx3060",
+      "note": "暂无可验证模型。未找到来源、机型与再分发许可均可核实的现成 GLB。官方 TripoSG 代码和本机官方权重在 RTX 3060 离线推理，两张各自授权照片分别单图输入，均为 40 步、guidance 7、octree dense/hierarchical 深度 8/9、目标 80000 面。候选一（shankar s.，输入 SHA256 a18e3ae8ec7cd9d89117a75e3e8edba1908c2db6611381adc62e1c9eb98bf406，seed 42）耗时 169.32 秒，输出 16 个连通分量、1440848 字节、SHA256 8dc6d1fa467c9ef8896c2a634bf62f685faf73b52b9e18e9d701c8d07a049680；八视角可见离体人物及机翼/发动机伪影。候选二（Andrew Thomas，输入 SHA256 a46c8a55f8479c34369a7f532b37b2582aea67d2c7905d759422d10e9009f570，seed 84）耗时 92.97 秒，输出 263 个连通分量、1442012 字节、SHA256 1bfcc64e79d6b6c19137331cbda83571d068b8e4c2c48a7aa6cfb408d7e022f4；正后视、机翼和起落架明显失真，碎片过多。两者均非可信 MA60 外形，未上传 GLB。AI 单图重建的遮挡区由模型推断，非工程 CAD，不可用于制造或仿真。"
+    },
+    "statement": "新舟60是西安飞机工业发展的双发涡桨支线客机。Y7-200A 的取证历史和后续 MA60 具体批次需分开阅读，尤其不可混淆 PW127C 与 PW127J。",
+    "summary": "新舟60（MA60）由西安飞机工业在运-7 / Y7-200A 基础上改进。民航局记载 Y7-200A 适航试验型在 1998 年 5 月取得型号合格证，1999 年 1 月的改进工程后采用新舟60名称，1999 年 9 月开始在长安航空使用。2008 年奥凯航空接收并举行首航，为国内支线运营的代表性节点。MA60 外形为高翼、双发涡桨、常规尾翼与前三点起落架。公开数据中的 24.71 米机长、29.20 米翼展与 21.8 吨最大起飞重量采用 MA60 客运型口径。首飞具体日、速度、航程及不同批次动力信息存在资料差异，本文明确分列或暂不下定论。",
+    "facts": [
+      {"label": "制造商", "value": "西安飞机工业（集团）有限责任公司／后续中航工业体系"},
+      {"label": "总体布局", "value": "高翼、双发涡桨、常规尾翼、前三点起落架"},
+      {"label": "动力", "value": "2008 年奥凯航空 MA60 批次：2 × PW127J，四叶复合材料螺旋桨", "note": "民航局同期报道；Y7-200A 概览另记 PW127C"},
+      {"label": "单台最大起飞功率", "value": "PW127J：2750 shp（约 2050 kW）", "note": "民航局 MA60 运行符合性资料"},
+      {"label": "旅客座位", "value": "48 / 52 座方案；运行符合性资料列最多 56 名旅客", "note": "批次和批准客舱不同"},
+      {"label": "机长 / 翼展 / 机高", "value": "24.71 / 29.20 / 约 8.85 m", "note": "MA60 常见公开客运型数据"},
+      {"label": "最大起飞重量", "value": "21,800 kg", "note": "公开 MA60 客运型口径，非所有改型"},
+      {"label": "速度和航程", "value": "随载荷、储备油、工况和批次变化；无统一单值", "note": "不拼接不同来源的极值"}
+    ],
+    "timeline": [
+      {"year": "1998 年 5 月", "event": "Y7-200A 适航试验型取得中国型号合格证。"},
+      {"year": "1999 年 1 月", "event": "西飞启动质量与舒适性改进，随后命名新舟60。"},
+      {"year": "1999 年 9 月", "event": "民航局概览记载新舟60开始在长安航空使用。"},
+      {"year": "2008 年 9 月", "event": "奥凯航空首架 MA60 抵达天津；同期报道具体配置为 PW127J。"},
+      {"year": "2008 年 10 月 19 日", "event": "奥凯航空在天津举行 MA60 首航。"}
+    ],
+    "designPoints": [
+      "高翼使螺旋桨与翼上动力装置离地较高，也带来翼身连接与维护取舍。",
+      "双发涡桨是短途支线任务常见布局；与喷气客机的速度与经济性比较必须限定航段和客座率。",
+      "照片显示不同航空公司的历史机队，不能用旧涂装推断 2026 年每架机的在役状态。",
+      "48、52、56 座分别来自不同配置或运行文件，不是同时满足的一个客舱。"
+    ],
+    "power": "中国民航局介绍 Y7-200A 发展阶段时写 PW127C；其 2008 年奥凯航空 MA60 交付报道写 PW127J 和 Hamilton Sundstrand 247F-3 四叶螺旋桨。民航局 MA60 运行符合性文件给 PW127J 单台最大起飞功率 2750 shp（约 2050 kW）。这些来源对应的飞机与时间不同，不代表所有 MA60 均采用相同动力；具体机号应以批准文件为准。",
+    "variants": [
+      {"name": "Y7-200A", "description": "新舟60发展基础及早期取证平台；民航局历史概览给 PW127C。"},
+      {"name": "MA60 客运型", "description": "本文主体，2008 年奥凯航空批次为 PW127J；客舱方案有 48 / 52 座报道与最多 56 名旅客运行资料。"},
+      {"name": "MA600", "description": "同一发展家族的后续改进型，不能把其性能和取证口径直接套到 MA60。"}
+    ],
+    "strengths": [
+      "约 50 座级容量为中小客流航段提供机型选择。",
+      "民航局记录从早期取证、国内引入到首航的完整发展节点。",
+      "高翼双发涡桨与不同客舱布置提供支线运营的任务适应空间。"
+    ],
+    "limits": [
+      "巡航速度与航程口径在公开资料间不统一，不能把各项最大值拼成同一航班性能。",
+      "航材、维修、训练、客座率与航线网络影响实际经济性。",
+      "当前在役数量与每架照片所示飞机的适航状态，需按现时机队资料核对。"
+    ],
+    "photos": [
+      {"src": "/p/0b32fd83/ma60-merpati.jpg", "alt": "印尼 Merpati 航空新舟60完整侧面", "caption": "2012 年巴厘岛，PK-MZI 新舟60完整侧视。", "credit": "Andrew Thomas", "sourceUrl": "https://commons.wikimedia.org/wiki/File:PK-MZI_Xian_MA-60_(cn_601)_Merpati_Nusantara_Airlines._(8113284482)_(2).jpg", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"},
+      {"src": "/p/0b32fd83/ma60-lao-skyway.jpg", "alt": "老挝 Lao Skyway 新舟60三分之四侧面", "caption": "Lao Skyway 新舟60，可辨高翼、双发与起落架。", "credit": "shankar s.", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lao_Skyway_Xian_MA-60_at_Vientiane.jpg", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"},
+      {"src": "/p/0b32fd83/ma60-lao-tarmac.jpg", "alt": "老挝机场新舟60机头正面", "caption": "2014 年琅勃拉邦机场新舟60正视，展示双发对称布局。", "credit": "shankar s.", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chinese_built_Xian_MA60_aircraft-_they_allowed_me_to_go_almost_upto_the_tarmac_to_take_this_picture_(14605014312).jpg", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/"}
+    ],
+    "sources": [
+      {"label": "中国民航局：新舟60发展脉络与 1998/1999 节点", "url": "https://www.caac.gov.cn/PHONE/GYMH/MHBK/HKQJS/201509/t20150923_1839.html"},
+      {"label": "中国民航局：奥凯 MA60 接收、PW127J 与座位配置", "url": "https://www.caac.gov.cn/PHONE/XWZX/HYDT/200809/t20080908_18191.html"},
+      {"label": "中国民航局：2008 年 10 月奥凯首航", "url": "https://www.caac.gov.cn/PHONE/XWZX/HYDT/200810/t20081021_18010.html"},
+      {"label": "中国民航局：MA60 运行符合性资料与 PW127J 功率", "url": "https://www.caac.gov.cn/PHONE/SJ_IPHONE/BZS_IP/YWLJ_BZS/HKQPS_BZS/201511/P020151111637043412380.pdf"},
+      {"label": "生态环境部公开项目资料：MA60 机长与翼展", "url": "https://www.mee.gov.cn/ywgz/hjyxpj/jsxmhjyxpj/xmslqk/201803/W020180309514778261289.pdf"},
+      {"label": "公开航空技术数据对照（尺寸/重量）", "url": "https://janes.migavia.com/chn/xac/ma60.html"}
+    ],
+    "postId": "0b32fd83"
+  },
+  {
     "slug": "comac-arj21-700",
     "nameZh": "ARJ21-700 / C909",
     "nameEn": "COMAC ARJ21-700 / C909",

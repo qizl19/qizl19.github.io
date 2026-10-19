@@ -1,5 +1,16 @@
 [
   {
+    "slug": "xian-ma60",
+    "name": "新舟60",
+    "url": "/p/0b32fd83.html",
+    "firstFlightYear": "公开资料未统一确认",
+    "lengthM": 24.71,
+    "wingspanM": 29.2,
+    "maxTakeoffWeightT": 21.8,
+    "speedLabel": "最高巡航与经济巡航口径不同；本期资料不混用单一保证值",
+    "rangeLabel": "公开资料存在载客、备份燃油和构型差异；不列无条件单一航程"
+  },
+  {
     "slug": "comac-arj21-700",
     "name": "ARJ21-700 / C909",
     "url": "/p/f6e3b207.html",
