@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 610" role="img" aria-labelledby="title desc">
+<title id="title">发动机健康监测证据链教学示意</title>
+<desc id="desc">四路观测经过工况归一化和传感器自检后，分别进入残差与趋势分析，再由交叉证据指导人工复核与维护决策。</desc>
+<rect width="1100" height="610" fill="#f4f8fb"/>
+<text x="44" y="54" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#173b53">ENGINE HEALTH MONITORING · EVIDENCE CHAIN</text>
+<text x="44" y="82" font-family="Arial,sans-serif" font-size="15" fill="#476276">Original teaching schematic · not an approved alert schedule</text>
+<g font-family="Arial,sans-serif" font-size="18" text-anchor="middle">
+  <rect x="45" y="130" width="215" height="74" rx="12" fill="#d8ecf3" stroke="#6ba5bd"/><text x="152" y="159" fill="#174b62">Gas-path trend</text><text x="152" y="184" font-size="15" fill="#3f6678">EGT · N1 · fuel flow</text>
+  <rect x="45" y="218" width="215" height="74" rx="12" fill="#d8ecf3" stroke="#6ba5bd"/><text x="152" y="247" fill="#174b62">Oil system</text><text x="152" y="272" font-size="15" fill="#3f6678">temperature · pressure</text>
+  <rect x="45" y="306" width="215" height="74" rx="12" fill="#d8ecf3" stroke="#6ba5bd"/><text x="152" y="335" fill="#174b62">Vibration</text><text x="152" y="360" font-size="15" fill="#3f6678">order · amplitude</text>
+  <rect x="45" y="394" width="215" height="74" rx="12" fill="#d8ecf3" stroke="#6ba5bd"/><text x="152" y="423" fill="#174b62">Oil debris</text><text x="152" y="448" font-size="15" fill="#3f6678">count · type · inspection</text>
+  <rect x="345" y="205" width="215" height="190" rx="14" fill="#e8f0db" stroke="#91aa63"/><text x="452" y="245" fill="#456027">1 · Condition match</text><text x="452" y="278" font-size="15" fill="#516d39">altitude · Mach · thrust</text><text x="452" y="307" font-size="15" fill="#516d39">ambient · transients</text><text x="452" y="340" fill="#456027">2 · Sensor checks</text><text x="452" y="369" font-size="15" fill="#516d39">bias · dropout · calibration</text>
+  <rect x="645" y="205" width="210" height="190" rx="14" fill="#e8e5f5" stroke="#9684be"/><text x="750" y="245" fill="#51407b">3 · Residuals</text><text x="750" y="279" font-size="15" fill="#5e5280">measured − expected</text><text x="750" y="313" fill="#51407b">4 · Trends</text><text x="750" y="345" font-size="15" fill="#5e5280">abrupt vs gradual</text><text x="750" y="373" font-size="15" fill="#5e5280">correlated evidence</text>
+  <rect x="930" y="205" width="130" height="190" rx="14" fill="#f9e8d8" stroke="#c7925c"/><text x="995" y="244" font-size="17" fill="#855019">Review</text><text x="995" y="276" font-size="14" fill="#855019">repeat</text><text x="995" y="302" font-size="14" fill="#855019">inspect</text><text x="995" y="328" font-size="14" fill="#855019">document</text><text x="995" y="354" font-size="14" fill="#855019">maintain</text>
+</g>
+<g fill="none" stroke="#4d7891" stroke-width="3" stroke-linecap="round">
+  <path d="M260 167 H300 V300 H345"/><path d="M260 255 H300"/><path d="M260 343 H300"/><path d="M260 431 H300 V300"/>
+  <path d="M560 300 H645"/><path d="M855 300 H930"/>
+</g>
+<g fill="#4d7891"><path d="M345 300 l-12 -7 v14z"/><path d="M645 300 l-12 -7 v14z"/><path d="M930 300 l-12 -7 v14z"/></g>
+<rect x="45" y="510" width="1015" height="60" rx="10" fill="#fff" stroke="#c8d5db"/>
+<text x="65" y="535" font-family="Arial,sans-serif" font-size="16" fill="#2d5368">One abnormal channel is a clue, not a diagnosis. Debris is not a Gaussian residual.</text>
+<text x="65" y="557" font-family="Arial,sans-serif" font-size="14" fill="#607785">Basis: FAA AC 120-113; NASA/TM-2016-218926; NASA/TM-2003-212526. Diagram by Qzl's Blog · CC BY 4.0.</text>
+</svg>

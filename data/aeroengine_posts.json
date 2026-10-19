@@ -1,5 +1,45 @@
 [
   {
+    "issue": 14,
+    "slug": "engine-health-monitoring-sensor-fusion",
+    "postId": "f9ef6023",
+    "title": "航空发动机学习简报｜第14期｜传感器与健康管理：从油温、碎屑、振动到性能残差",
+    "subtitle": "用工况匹配、传感器自检与交叉证据，把异常读数变成可复核的维修线索",
+    "type": "设计与控制方法",
+    "date": "2026-10-17",
+    "updated": "2026-10-19",
+    "heroImage": "/p/f9ef6023/engine-health-evidence.svg",
+    "summary": "承接第13期齿轮箱热与扭振，本期把气路性能、滑油温度与碎屑、振动等测点放进同一诊断证据链。以 FAA 条件监测建议和 NASA 传感器选择/模型残差原始研究为基础，演示工况匹配、标准化残差与相关通道联合判断；所有阈值和数据均为教学假设，不代替型号维修程序。",
+    "contentFile": "data/aeroengine/2026-10-17-engine-health-monitoring-sensor-fusion.html",
+    "keyConcepts": ["发动机健康监测", "传感器选择", "气路性能趋势", "残差", "标准化残差", "协方差", "传感器偏置", "滑油温度", "金属碎屑", "振动阶次", "故障隔离", "误报率"],
+    "headings": [
+      {"id":"本期问题与学习目标","title":"本期问题与学习目标"},
+      {"id":"核心结论","title":"核心结论"},
+      {"id":"概念与物理直觉","title":"概念与物理直觉"},
+      {"id":"测点与证据矩阵","title":"测点与证据矩阵"},
+      {"id":"残差公式与变量","title":"残差公式与变量"},
+      {"id":"可复算算例","title":"可复算的简化算例"},
+      {"id":"工程分析执行步骤","title":"工程分析执行步骤"},
+      {"id":"常见误区与失效边界","title":"常见误区与失效边界"},
+      {"id":"与整机和其他部件耦合","title":"与整机和其他部件的耦合"},
+      {"id":"自测题","title":"自测题"},
+      {"id":"答案与下一期衔接","title":"答案与下一期衔接"},
+      {"id":"参考资料与图示许可","title":"参考资料与图示许可"}
+    ],
+    "validationNeedles": ["z<sub>EGT</sub>=5", "D²=5²+4²+2²=45", "D²=4+9+1=14", "e<sub>i</sub>=y<sub>i</sub>"],
+    "figures": [
+      {"src":"/p/f9ef6023/engine-health-evidence.svg","title":"发动机健康监测多通道证据链原创教学图","author":"Qzl's Blog","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","basis":"FAA AC 120-113; NASA/TM-2016-218926; NASA/TM-2003-212526"}
+    ],
+    "sources": [
+      {"title":"FAA-H-8083-32B Powerplant Handbook, Chapter 8","url":"https://www.faa.gov/sites/faa.gov/files/10_amtp_ch8.pdf"},
+      {"title":"FAA AC 120-113 CHG 1","url":"https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_120-113_Chg_1.pdf"},
+      {"title":"NASA/TM-2016-218926 Sensor Selection","url":"https://ntrs.nasa.gov/citations/20160001158"},
+      {"title":"NASA/TM-2003-212526 Kalman filter fault diagnostics","url":"https://ntrs.nasa.gov/citations/20030067984"},
+      {"title":"NASA/TM-2010-216358 On-board trend monitoring","url":"https://ntrs.nasa.gov/citations/20100024368"}
+    ],
+    "nextTopic": "经典发动机剖析：以公开资料充分的 CFM LEAP-1A 为例，映射气路测点、控制限制与可证实的维护证据"
+  },
+  {
     "issue": 13,
     "slug": "geared-fan-gearbox-thermal-torsion",
     "postId": "61773c64",
