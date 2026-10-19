@@ -1,5 +1,16 @@
 [
   {
+    "slug": "comac-arj21-700",
+    "name": "ARJ21-700 / C909",
+    "url": "/p/f6e3b207.html",
+    "firstFlightYear": 2008,
+    "lengthM": 33.46,
+    "wingspanM": 27.29,
+    "maxTakeoffWeightT": 40.5,
+    "speedLabel": "巡航速度受重量和工况影响；本文未采用未经统一口径核验的单一数值",
+    "rangeLabel": "中国商飞系列/构型公开范围 2225-3700 km，非满载保证航程"
+  },
+  {
     "slug": "harbin-y-12",
     "name": "运-12",
     "url": "/p/1ed35681.html",

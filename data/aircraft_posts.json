@@ -1,5 +1,107 @@
 [
   {
+    "slug": "comac-arj21-700",
+    "nameZh": "ARJ21-700 / C909",
+    "nameEn": "COMAC ARJ21-700 / C909",
+    "eyebrow": "飞机资料整理 · 第 25 期",
+    "subtitle": "从喷气式支线客机取证到规模化运营",
+    "date": "2026-10-17",
+    "updated": "2026-10-19",
+    "nation": "中国",
+    "category": "双发喷气式支线客机",
+    "era": "2000年代至今",
+    "tags": ["航空", "中国航空工业", "民航"],
+    "status": "2016 年投入商业运营；C909 为 2024 年新增商业名称",
+    "metrics": {
+      "firstFlightYear": 2008,
+      "lengthM": 33.46,
+      "wingspanM": 27.29,
+      "maxTakeoffWeightT": 40.5,
+      "speedLabel": "巡航速度受重量和工况影响；本文未采用未经统一口径核验的单一数值",
+      "rangeLabel": "中国商飞系列/构型公开范围 2225-3700 km，非满载保证航程"
+    },
+    "diagram": [
+      "任务：约 90 座级支线客运与枢纽接驳",
+      "构型：低翼、后机身双发涡扇、T 形尾翼",
+      "审定：ARJ21-700 STD 与 ER 重量口径分列",
+      "运营：交付、载客航线与 C909 商业命名演进"
+    ],
+    "firstFlight": "2008 年 11 月；中国商飞项目资料与 GE 首飞公告",
+    "accent": "#2c617b",
+    "heroImage": "/p/f6e3b207/arj21-zhuhai.jpg",
+    "model": {
+      "kind": "unavailable",
+      "poster": "/p/f6e3b207/arj21-zhuhai.jpg",
+      "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "method": "本机官方 TripoSG 单图重建与多视角审计",
+      "inputCredit": "Peng Chen",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:China_ARJ-21.jpg",
+      "license": "输入照片 CC BY-SA 2.0；TripoSG 代码 MIT",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "engine": "TripoSG",
+      "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "engineLicense": "MIT",
+      "channel": "local-offline-rtx3060",
+      "note": "暂无可验证模型。未找到来源、机型和再分发许可均可核实的现成 GLB。采用官方 TripoSG 代码与本机官方权重，在 RTX 3060 上分别以两张授权照片单图离线推理；均为 40 步、guidance 7、dense depth 8、hierarchical depth 9、目标 80000 面。候选一（Peng Chen，输入 SHA256 8dcc40b7c218e7d0f4c8712e87f7728aaae5b456952990745596d51b8773193a，seed 42）耗时 243.38 秒，输出 80000 面、21 个连通分量、1440400 字节、SHA256 33e67370afc3dfccf3058fa172769417884399864e7e2b3c57db4ac961539d04；机翼边缘严重伪影，起落架和尾部不足以辨认。候选二（Lhzss8，输入 SHA256 cbe0391d880e5aa4a40b5889ac5e4fd0529925f1138d3c382c3f5f01d808220f，seed 84）耗时 141.35 秒，输出 80000 面、218 个连通分量、1443664 字节、SHA256 1e0b9d0d2774479e70a54a61336ee1e77f800e17066a6a0ec350b62e45ec6fcd；八视角可见离体发动机形伪影、主翼严重锯齿且起落架缺失。两者均未通过外形与网格审计，未上传 GLB。AI 单图重建的遮挡区由模型推断，非工程 CAD，不可用于制造或仿真。"
+    },
+    "statement": "ARJ21-700 是中国商飞研制的喷气式支线客机。2024 年新增商业名称 C909；STD 和 ER 的最大起飞重量不同，本文分别标注。",
+    "summary": "ARJ21-700 以约 90 座级支线客运为主要任务，采用低翼、后机身两台 GE CF34-10A 涡扇发动机与 T 形尾翼。2008 年首飞，2014 年 12 月 30 日取得中国民航局型号合格证，2016 年 6 月由成都航空完成首次载客商业航线运营。中国商飞 2024 年宣布新增商业名称 C909。中国商飞与民航局公开资料给出机长 33.46 米、翼展 27.29 米；民航局机场资料分别列示 STD 最大起飞重量 40.5 吨、ER 为 43.5 吨，不能混成一个数。座位与航程也随客舱和运行构型变化。",
+    "facts": [
+      {"label": "制造商", "value": "中国商用飞机有限责任公司"},
+      {"label": "布局", "value": "低翼、机身后部双发涡扇、T 形尾翼"},
+      {"label": "动力", "value": "2 × GE CF34-10A", "note": "GE 官方供应及首飞公告"},
+      {"label": "客舱", "value": "78 / 90 / 95 或 97 座", "note": "中国商飞不同布局口径"},
+      {"label": "机长／翼展／机高", "value": "33.46 / 27.29 / 约 8.44 m", "note": "机高有四舍五入口径"},
+      {"label": "最大起飞重量 STD", "value": "40,500 kg", "note": "民航局机场资料"},
+      {"label": "最大起飞重量 ER", "value": "43,500 kg", "note": "民航局机场资料"},
+      {"label": "公开航程范围", "value": "2,225-3,700 km", "note": "不同构型；不代表满载保证值"}
+    ],
+    "timeline": [
+      {"year": "2002 年", "event": "项目启动并选定 GE CF34-10A 发动机。"},
+      {"year": "2008 年 11 月", "event": "ARJ21-700 首飞。"},
+      {"year": "2014 年 12 月 30 日", "event": "中国民航局颁发型号合格证。"},
+      {"year": "2015 年 11 月", "event": "首架飞机交付成都航空。"},
+      {"year": "2016 年 6 月 28 日", "event": "完成首次载客商业航线运营。"},
+      {"year": "2024 年 11 月", "event": "中国商飞宣布 ARJ21 新增商业名称 C909。"}
+    ],
+    "designPoints": [
+      "尾吊发动机与 T 形尾翼是最明显的外形辨识点。",
+      "低翼没有机翼下发动机吊架，后机身动力布置带来结构和维护取舍。",
+      "不同客舱座位数与最大航程不可直接拼成同一设计工况。",
+      "STD 和 ER 的最大起飞重量分列，不能把照片中涂装等同于具体重量批准状态。"
+    ],
+    "power": "GE 确认 ARJ21 采用两台 CF34-10A 涡扇发动机。该系列动力选择可由 GE 2003 年供货合同与 2008 年首飞公告交叉核验。具体额定推力与运行限制应按发动机批次和批准文件解释，本文不把宣传目标值当作每架飞机的保证值。",
+    "variants": [
+      {"name": "ARJ21-700 STD", "description": "标准重量构型，民航局机场资料列最大起飞重量 40.5 t。"},
+      {"name": "ARJ21-700 ER", "description": "增程重量构型，同资料列最大起飞重量 43.5 t。"},
+      {"name": "C909", "description": "2024 年新增商业名称；具体审定型号和构型仍须分别核对。"}
+    ],
+    "strengths": [
+      "约 90 座级容量可服务支线接驳和中等客流航线。",
+      "在中国建立了从型号审定、交付到商业运营的喷气式支线客机实践。",
+      "中国商飞公开多种客舱布局，提供运力配置弹性。"
+    ],
+    "limits": [
+      "座公里经济性依赖航段、客座率、维修保障与机队规模，不能由座位数单独推断。",
+      "尾吊双发和 T 尾带来后机身结构与维护可达性的工程取舍。",
+      "STD、ER 的重量与航程口径不同；宣传航程范围不是满载运营保证。"
+    ],
+    "photos": [
+      {"src": "/p/f6e3b207/arj21-zhuhai.jpg", "alt": "珠海航展 ARJ21-700 试验机", "caption": "珠海航展期间 ARJ21-700 试验机离地前后侧视。", "credit": "Peng Chen", "sourceUrl": "https://commons.wikimedia.org/wiki/File:China_ARJ-21.jpg", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"},
+      {"src": "/p/f6e3b207/arj21-chinasouthern.jpg", "alt": "南航 ARJ21-700 停靠广州白云机场", "caption": "南航 ARJ21-700，展示尾吊双发与 T 尾。", "credit": "Lhzss8", "sourceUrl": "https://commons.wikimedia.org/wiki/File:China_Southern_Airlines_Comac_Arj21-700_B651C_at_CAN.jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src": "/p/f6e3b207/arj21-transnusa.jpg", "alt": "印尼 TransNusa ARJ21-700 侧视", "caption": "TransNusa 的 ARJ21-700 PK-TJA，印尼机场地面侧视。", "credit": "Yosafat.bagus", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Comac_ARJ21-700.jpg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"}
+    ],
+    "sources": [
+      {"label": "中国商飞：ARJ21 新增 C909 商业名称与客舱布局", "url": "https://m.comac.cc/xw/202411/12/t20241112_7395972.html"},
+      {"label": "中国商飞：ARJ21-700 飞机特性手册", "url": "https://www.comac.cc/pdf/acap.pdf"},
+      {"label": "中国民航局：2014 年型号合格证", "url": "https://www.caac.gov.cn/XWZX/MHYW/201412/t20141230_13934.html"},
+      {"label": "中国民航局：2016 年首次载客运营", "url": "https://www.caac.gov.cn/XWZX/MHYW/201606/t20160628_38727.html"},
+      {"label": "GE：CF34-10A 发动机供应", "url": "https://www.ge.com/news/press-releases/ge-signs-definitive-agreement-china-regional-jet-engines"},
+      {"label": "中国商飞：ARJ21 产品概览与航程范围", "url": "https://english.comac.cc/products/rj/201403/11/t20140311_1460290.shtml"}
+    ],
+    "postId": "f6e3b207"
+  },
+  {
     "slug": "harbin-y-12",
     "nameZh": "运-12",
     "nameEn": "Harbin Y-12",
