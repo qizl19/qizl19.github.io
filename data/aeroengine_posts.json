@@ -1,5 +1,51 @@
 [
   {
+    "issue": 15,
+    "slug": "cfm-leap-1a-architecture-health",
+    "postId": "13fe59c2",
+    "title": "航空发动机学习简报｜第15期｜CFM LEAP-1A：双转子架构与热端耐久",
+    "subtitle": "从复合材料风扇、TAPS 燃烧到适航检查，读懂效率与在翼时间的系统取舍",
+    "type": "经典发动机剖析",
+    "date": "2026-10-20",
+    "updated": "2026-10-21",
+    "heroImage": "/p/13fe59c2/leap-1a-a320neo.jpg",
+    "summary": "以 CFM、GE Aerospace 与 EASA 原始资料剖析 LEAP-1A 的 78 英寸风扇、最大 33,000 lbf 起飞推力、复合材料风扇、TAPS 燃烧室及热端材料；用同工况推力比油耗算例解释产品级节油宣称，并结合持续改进与高压涡轮适航检查讨论效率和耐久。",
+    "contentFile": "data/aeroengine/2026-10-20-cfm-leap-1a-architecture-health.html",
+    "keyConcepts": ["LEAP-1A", "双转子", "高涵道比", "复合材料风扇", "TAPS", "CMC", "钛铝叶片", "推力比油耗", "FADEC", "热端耐久", "适航指令"],
+    "headings": [
+      {"id":"本期问题与学习目标","title":"本期问题与学习目标"},
+      {"id":"核心结论","title":"核心结论"},
+      {"id":"公开参数与口径","title":"公开参数与口径"},
+      {"id":"总体架构与流路","title":"总体架构与流路"},
+      {"id":"风扇压气机与性能取舍","title":"风扇、压气机与性能取舍"},
+      {"id":"燃烧涡轮冷却与材料","title":"燃烧、涡轮、冷却与材料"},
+      {"id":"控制附件与健康管理","title":"控制、附件与健康管理"},
+      {"id":"公式与可复算算例","title":"公式与可复算算例"},
+      {"id":"改型平台与服役事件","title":"改型、平台与服役事件"},
+      {"id":"优势局限与工程分析步骤","title":"优势、局限与工程分析步骤"},
+      {"id":"自测题","title":"自测题"},
+      {"id":"答案与下一期衔接","title":"答案与下一期衔接"},
+      {"id":"参考资料与图像许可","title":"参考资料与图像许可"}
+    ],
+    "validationNeedles": ["78 英寸风扇", "33,000 lbf", "61.2 kg/(kN·h)", "2025-0171R2"],
+    "figures": [
+      {"src":"/p/13fe59c2/leap-1a-a320neo.jpg","title":"EasyJet A320neo 上在役 LEAP 发动机整体风扇与短舱","author":"Actualcpscm","sourceUrl":"https://commons.wikimedia.org/wiki/File:CFM_International_LEAP_engine_on_a_2023_Airbus_A320neo_operated_by_EasyJet.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src":"/p/13fe59c2/leap-family-display.jpg","title":"巴黎航展 Safran 展台 LEAP 家族展示件侧面（具体 -1A 子型号未确认）","author":"Marc Lacoste","sourceUrl":"https://commons.wikimedia.org/wiki/File:Paris_Air_Show_2017_LEAP_left_side.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src":"/p/13fe59c2/leap-family-fan-display.jpg","title":"巴黎航展 Safran 展台 LEAP 家族展示件风扇（具体 -1A 子型号未确认）","author":"Marc Lacoste","sourceUrl":"https://commons.wikimedia.org/wiki/File:Paris_Air_Show_2017_LEAP_fan.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"}
+    ],
+    "sources": [
+      {"title":"CFM LEAP overview","url":"https://www.cfmaeroengines.com/leap"},
+      {"title":"CFM first LEAP-1A production delivery and technologies","url":"https://www.cfmaeroengines.com/press-articles/cfm-delivers-first-production-leap-1a-engines-to-airbus"},
+      {"title":"CFM Pegasus LEAP-1A entry into service","url":"https://www.cfmaeroengines.com/press-articles/pegasus-airlines-enjoys-smooth-entry-into-service--with-leap-1a"},
+      {"title":"EASA E.110 LEAP-1A and LEAP-1C type certificate","url":"https://www.easa.europa.eu/en/document-library/type-certificates/engine-cs-e/easae110-leap-1a-leap-1c-series-engines"},
+      {"title":"CFM LEAP continuous improvement","url":"https://www.cfmaeroengines.com/leap/continuous-improvement"},
+      {"title":"EASA AD 2025-0171R2 HPT blade inspection","url":"https://ad.easa.europa.eu/ad/2025-0171R2"},
+      {"title":"GE Aerospace 18 composite fan blades","url":"https://www.geaerospace.com/news/zh-hans/press-releases/joint-ventures/cfm56-reaches-record-production-rate-cfm-delivers-30000th-engine"},
+      {"title":"NLR-TP-2020-114 LEAP-1A26 modeling parameters","url":"https://reports.nlr.nl/bitstream/handle/10921/1544/TP-2020-114.pdf"}
+    ],
+    "nextTopic": "基础/方法：涵道比、风扇压比与短舱阻力如何共同决定推进效率"
+  },
+  {
     "issue": 14,
     "slug": "engine-health-monitoring-sensor-fusion",
     "postId": "f9ef6023",

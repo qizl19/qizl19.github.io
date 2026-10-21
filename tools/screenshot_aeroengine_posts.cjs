@@ -56,8 +56,11 @@ async function assertArticle(page, label) {
   if ((await page.locator("#card-toc .toc-item").count()) !== latest.headings.length) {
     throw new Error(`${label}: TOC count mismatch`);
   }
-  for (const text of ["简化算例", "自测题", "答案与下一期衔接", "CC BY 4.0"]) {
+  for (const text of ["简化算例", "自测题", "答案与下一期衔接"]) {
     if ((await page.getByText(text, { exact: false }).count()) === 0) throw new Error(`${label}: missing ${text}`);
+  }
+  if ((await page.getByText(/CC BY(?:-SA)? 4\.0/, { exact: false }).count()) === 0) {
+    throw new Error(`${label}: missing Creative Commons image credit`);
   }
   const broken = await page.locator("#article-container img").evaluateAll((images) =>
     images.filter((image) => image.complete && image.naturalWidth === 0)

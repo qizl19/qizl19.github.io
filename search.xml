@@ -997,7 +997,65 @@
 </ul>
 
 <blockquote><p><strong>方法与边界：</strong>本报告只将检索窗口内、可由官方发布 / 仓库 / 论文原文或明确时间戳的社区帖子核验的信息列为“本周变化”。开发主干与 weekly / WIP / Beta 均不等同于正式发布；社区帖子仅作为问题信号。商业 CATIA 的授权门户内容可能不在公开检索范围内。</p></blockquote>
-]]></content><categories><category> CAD/CAE 生态周报 </category></categories><tags><tag> CAD/CAE </tag></tags></entry><entry><title>航空发动机学习简报｜第14期｜传感器与健康管理：从油温、碎屑、振动到性能残差</title><link href="/p/f9ef6023.html"/><url>/p/f9ef6023.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 14 期</strong></p>
+]]></content><categories><category> CAD/CAE 生态周报 </category></categories><tags><tag> CAD/CAE </tag></tags></entry><entry><title>航空发动机学习简报｜第15期｜CFM LEAP-1A：双转子架构与热端耐久</title><link href="/p/13fe59c2.html"/><url>/p/13fe59c2.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 15 期</strong></p>
+<p><strong>主题类型：</strong>经典发动机剖析　<strong>预计学习时间：</strong>12–15 分钟　<strong>计划日：</strong>2026-10-20</p>
+<p><strong>副题：</strong>从复合材料风扇、TAPS 燃烧到适航检查，读懂效率与在翼时间的系统取舍</p>
+
+<h2 id="本期问题与学习目标">本期问题与学习目标</h2>
+<blockquote><p><strong>本期问题：</strong>LEAP-1A 为什么能够服务 A320neo 家族？它的节油技术、控制约束与热端维护代价如何一起理解？</p></blockquote>
+<p>学完本期，应能沿公开气路识别风扇、压气机、燃烧室和涡轮的职责；区分 LEAP-1A、-1B、-1C 的装机平台与尺寸；用推力与燃油流量做一段可复算的性能估算；再把材料创新与持续适航证据联系起来。前置知识是第01期 Brayton 循环、第02期修正参数、第04期喘振裕度及第14期健康监测。本文只使用制造商与适航机构公开资料；未公开的控制律、内部温度与寿命限值不作推断。</p>
+
+<h2 id="核心结论">核心结论</h2>
+<ol><li>LEAP-1A 是 A320neo 家族的可选动力，LEAP-1B 服务 737 MAX，LEAP-1C 服务 C919；三者共享技术家族，却不能把推力和风扇尺寸混成同一参数。</li><li>CFM 公布的 LEAP-1A 风扇直径为 78 英寸、最大起飞推力为 33,000 lbf；这是家族口径的上限信息，实际使用必须落到具体型号、条件和批准限制。</li><li>三维编织复合材料风扇、TAPS 燃烧室增材制造燃油喷嘴、CMC 热端部件与低压涡轮钛铝叶片构成相互耦合的减重、效率和温度管理方案。</li><li>高效率不是一次性设计结果。CFM 已推出 LEAP-1A 的高压涡轮耐久改进与停机后反向放气改进；适航指令又为特定高压涡轮叶片建立检查要求。</li><li>型号剖析要把产品宣传、型号合格证、适航指令、在役事实分层阅读；它们回答的问题不同。</li></ol>
+
+<h2 id="公开参数与口径">公开参数与口径</h2>
+<table><thead><tr><th>项目</th><th>LEAP-1A 公开口径</th><th>解释边界</th></tr></thead><tbody><tr><td>制造商</td><td>CFM International（GE Aerospace / Safran 合资）</td><td>产品家族</td></tr><tr><td>应用</td><td>Airbus A319neo、A320neo、A321neo</td><td>飞机型号合格与具体安装另行核对</td></tr><tr><td>风扇直径</td><td>78 in ≈ 1.981 m</td><td>制造商 LEAP-1A 家族页面</td></tr><tr><td>最大起飞推力</td><td>33,000 lbf ≈ 146.8 kN</td><td>制造商公布的上限；不是每个子型号的共同额定值</td></tr><tr><td>风扇叶片</td><td>18 片，三维编织复合材料</td><td>GE 公开制造资料</td></tr><tr><td>型号覆盖</td><td>EASA E.110 列有 -1A23、-1A26、-1A33 等多个构型</td><td>按当前证书修订与具体铭牌核对</td></tr><tr><td>涵道比、总压比、涡前温度</td><td>本期不列单一数值</td><td>公开材料中常混用家族、设计点及飞行状态</td></tr></tbody></table>
+<p>从制造商 LEAP 总览可以读到“较 CFM56 节省 15% 燃油及 CO₂”的产品级对比。该值不是任意航线、载重、维护状态下的保证值，也不能直接当作发动机热效率提升 15%。EASA E.110 是 LEAP-1A/-1C 的型号合格证入口；型号批准与产品性能宣传应分开使用。</p>
+<figure class="aeroengine-figure"><img src="/p/13fe59c2/leap-1a-a320neo.jpg" alt="EasyJet A320neo 上的 CFM LEAP 发动机风扇与短舱"><figcaption>图1　在役 A320neo 的 LEAP 发动机外观。摄影：<a href="https://commons.wikimedia.org/wiki/File:CFM_International_LEAP_engine_on_a_2023_Airbus_A320neo_operated_by_EasyJet.jpg" target="_blank" rel="noopener noreferrer">Actualcpscm / Wikimedia Commons</a>；<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>。为网页重新编码，未改变内容；照片不能读出内部级数或具体铭牌。</figcaption></figure>
+
+<h2 id="总体架构与流路">总体架构与流路</h2>
+<p>LEAP-1A 是高涵道比双转子涡扇：风扇后的空气分成外涵和核心流；核心流继续经过压缩、燃烧和涡轮，再与外涵流在发动机后方形成净推力。低压轴负责风扇及低压压气机/涡轮的功率平衡，高压轴负责高压压气机/涡轮。两轴允许各自转速适应工况，但风扇、核心机、进气道与喷管仍须在同一工作点匹配。</p>
+<p>荷兰 NLR 的 LEAP-1A26 性能建模报告采用风扇 1 级、低压压气机 3 级、高压压气机 10 级、高压涡轮 2 级、低压涡轮 7 级的配置。这是公开研究中明确写出的建模输入，可用于理解双轴功率流；具体维修与构型识别仍以获批型号资料为准。NLR 同一表还列出 -1A26 建模起飞推力 120.6 kN，正好提醒读者：它与 CFM 家族页面的 146.8 kN 上限不是同一子型号口径。</p>
+<p>分析一张公开结构图时，先问三个问题：空气在哪里分流？哪级涡轮驱动哪一根轴？附件、引气和冷却空气从哪条路径取能？不能凭展台外壳猜测内部级数。CFM 的 2016 年公告明确指出复合材料风扇、碎屑分离、TAPS 燃烧室、CMC 高压涡轮罩环和钛铝低压涡轮叶片；这些是可靠的架构节点，却不是可据以还原制造尺寸的图纸。</p>
+<figure class="aeroengine-figure"><img src="/p/13fe59c2/leap-family-display.jpg" alt="巴黎航展 Safran 展台的 LEAP 家族展示件整体侧面"><figcaption>图2　Safran 展台 LEAP 家族展示件，展示外部模块关系；展品没有足够标识确认具体 -1A 子型号。摄影：<a href="https://commons.wikimedia.org/wiki/File:Paris_Air_Show_2017_LEAP_left_side.jpg" target="_blank" rel="noopener noreferrer">Marc Lacoste / Wikimedia Commons</a>；<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>。网页重新编码，未改变内容。</figcaption></figure>
+
+<h2 id="风扇压气机与性能取舍">风扇、压气机与性能取舍</h2>
+<p>78 英寸风扇扩大有效流量面积，18 片三维编织复合材料叶片与复合材料机匣控制大直径带来的质量代价。更大风扇通常让更多空气以较小速度增量获得推力，有利于亚声速推进效率；与此同时，短舱直径、离地间隙、阻力、叶尖速度和噪声成为整机共同约束。风扇并非越大越好。</p>
+<p>高压压气机把核心流压至燃烧所需状态，压比增加往往提升循环潜力，却也提高出口温度、冷却负担和喘振敏感性。LEAP 的进气道、风扇、压气机与控制调度要同时满足起动、加速、爬升、巡航和复飞工况。公开资料没有给出可直接用于复现某一子型号工作线的完整压气机特性图，因此这里使用第04期通用工作线方法解释设计取舍。</p>
+
+<h2 id="燃烧涡轮冷却与材料">燃烧、涡轮、冷却与材料</h2>
+<p>CFM 披露 LEAP 的 Twin-Annular Pre-Swirl（TAPS）燃烧技术及增材制造燃油喷嘴。喷嘴制造方法允许复杂内部流道，但燃烧稳定性、排放、结焦与可维护性依然要共同验证。停机后热浸可能促使燃油喷嘴积碳；CFM 的反向放气系统是针对这一运营问题的持续改进，不能把它说成所有早期发动机出厂即有的相同配置。</p>
+<p>高压涡轮从高温燃气提取功率驱动核心压气机，冷却空气会从压气机取走一部分高压气流；CMC 罩环改善热端材料能力，钛铝低压涡轮叶片有助于降低后部旋转质量。材料选择带来制造、维修和环境敏感性新问题。CFM 公布的高压涡轮耐久改进与 EASA 针对特定一级转子叶片的检查指令，正说明热端性能必须与在翼时间和检查要求一起评估。</p>
+<figure class="aeroengine-figure"><img src="/p/13fe59c2/leap-family-fan-display.jpg" alt="Safran 展台 LEAP 家族展示件的风扇正面"><figcaption>图3　LEAP 家族展台展示件的风扇正面；用于观察叶片外形，不作为特定 -1A 铭牌证据。摄影：<a href="https://commons.wikimedia.org/wiki/File:Paris_Air_Show_2017_LEAP_fan.jpg" target="_blank" rel="noopener noreferrer">Marc Lacoste / Wikimedia Commons</a>；<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>。网页重新编码，未改变内容。</figcaption></figure>
+
+<h2 id="控制附件与健康管理">控制、附件与健康管理</h2>
+<p>电子控制系统把驾驶舱需求转成允许的发动机工作状态，协调燃油、可调部件与转速/温度限制。公开证书给出型号和批准边界，不公开完整 FADEC 调度表；第11期的起动/加速控制逻辑可作为阅读框架，不能替代 LEAP-1A 实际软件。附件系统还要供给润滑、发电和起动等功能；每项取功、取气与散热都进入整机效率账本。</p>
+<p>第14期的健康监测方法在此落地：把同工况的 EGT、燃油流量、转速、振动和滑油趋势分层比较，再查型号服务通告与适航指令是否涉及具体序列号、件号和循环数。EASA 2025-0171R2 指向高压涡轮一级转子叶片检查，适用范围是列明的构型与条件；维修人员须以当前有效的 AD、服务资料和批准程序执行，不能由这篇学习文章替代。</p>
+
+<h2 id="公式与可复算算例">公式与可复算算例</h2>
+<p>下面的简化算例只用同工况净推力和燃油流量，建立可复核的单位换算。</p>
+<div class="aeroengine-formula"><strong>推力比油耗：</strong>TSFC = ṁ<sub>f</sub> / F。</div>
+<p>ṁ<sub>f</sub> 为燃油质量流量，单位 kg/s；F 为净推力，单位 N；TSFC 单位 kg/(N·s)，工程资料也常用 kg/(kN·h)。公式是定义式，只有同一飞行状态、相同净推力口径下的数值才可比较。制造商“节油 15%”是产品级综合宣称，不是可代入任意额定推力点的 TSFC 数据。</p>
+<p>教学例：假设两台对比发动机在<strong>同一</strong>高度、速度和 100 kN 净推力下，基准发动机燃油流量为 2.00 kg/s；若另一台在完全相同条件下减少 15%，则为 1.70 kg/s。基准 TSFC=2.00×3600/100=72 kg/(kN·h)，另一台为 61.2 kg/(kN·h)，差 10.8 kg/(kN·h)。这组数值是人为设定的计算练习，不是 CFM 公布的 LEAP-1A 测试点。若改成不同飞行高度或不同推力，不能直接套用 15%。</p>
+
+<h2 id="改型平台与服役事件">改型、平台与服役事件</h2>
+<p>CFM 官方页面将 LEAP-1A 对应 Airbus A320neo 家族，LEAP-1B 对应 Boeing 737 MAX，LEAP-1C 对应 COMAC C919 集成推进系统。-1A 的 78 英寸风扇和官方上限 33,000 lbf，与 -1B 的 69 英寸、28,000 lbf 不可互换。-1A23、-1A26、-1A33 等后缀表示批准的具体构型或推力等级；查询性能、维护和适航适用性时，必须再看证书版本和发动机铭牌。</p>
+<p>LEAP-1A 于 2015 年 5 月 19 日随 A320neo 首飞；CFM 在 2016 年 4 月交付首批生产发动机，Pegasus Airlines 于 2016 年 8 月 2 日投入商业运营。持续适航并未因投入运营而停止：CFM 2024 年引入 LEAP-1A 反向放气，2024 年底引入高压涡轮耐久改进；EASA 后续适航指令继续规定某些部件的检查。不同事件对应制造、运营和监管的不同证据层。</p>
+
+<h2 id="优势局限与工程分析步骤">优势、局限与工程分析步骤</h2>
+<p>优势在于大直径高涵道风扇、轻质叶片与机匣、先进燃烧和热端材料的系统集成；代价集中在更复杂的制造与供应链、热端耐久、短舱安装与维护计划。面对一个“比上代更省油”的结论，工程师应依次：①固定飞机/发动机子型号与任务剖面；②取得同口径燃油、推力和环境数据；③计算 TSFC 或航段燃油；④检查重量、阻力、引气和维护状态；⑤查看当前适航指令与改进件状态；⑥报告收益和在翼时间两方面结果。缺失第②步时，只能引用制造商给出的产品级比较。</p>
+
+<h2 id="自测题">自测题</h2>
+<ol><li>LEAP-1A、-1B、-1C 分别关联哪三个飞机平台？</li><li>CFM 给出的 -1A 风扇直径和最大起飞推力是什么？是否每个子型号都等于该推力？</li><li>三维编织复合材料风扇叶片与大直径风扇分别解决/引入了什么问题？</li><li>TAPS 与增材制造喷嘴涉及哪个部件？</li><li>为什么 CMC 罩环和钛铝叶片不能直接证明某台发动机的涡前温度？</li><li>判断：制造商声称节油 15%，任意一条航线上 TSFC 都下降 15%。</li><li>计算：同工况 100 kN、1.70 kg/s，TSFC 为多少 kg/(kN·h)？</li><li>计算：若基准 72 kg/(kN·h)，新值 61.2，降低比例是多少？</li><li>遇到高压涡轮检查 AD，应先核对哪些信息？</li></ol>
+
+<h2 id="答案与下一期衔接">答案与下一期衔接</h2>
+<p>1. A320neo 家族、737 MAX、C919。2. 78 in、33,000 lbf 为制造商公布的 -1A 上限，具体子型号另查批准数据。3. 复材减轻大风扇质量；大直径又牵涉安装、阻力和叶尖速度。4. 燃烧室。5. 材料存在不等于已知特定工况燃气温度。6. 错，产品级比较不等于每个运行点。7. 1.70×3600/100=61.2 kg/(kN·h)。8. (72−61.2)/72=15%。9. 当前有效修订、具体型号/件号/序列号、循环数、检查程序及合格放行依据。</p>
+<p><strong>下一期衔接：</strong>回到基础/方法类，讨论涵道比、风扇压比和短舱安装阻力如何共同决定推进效率，并用可复算的简化动量模型说明边界。</p>
+
+<h2 id="参考资料与图像许可">参考资料与图像许可</h2>
+<ul><li><a href="https://www.cfmaeroengines.com/leap" target="_blank" rel="noopener noreferrer">CFM LEAP 总览与 -1A/-1B/-1C 公开参数</a></li><li><a href="https://www.cfmaeroengines.com/press-articles/cfm-delivers-first-production-leap-1a-engines-to-airbus" target="_blank" rel="noopener noreferrer">CFM 2016：首批生产发动机、技术与试飞</a></li><li><a href="https://www.cfmaeroengines.com/press-articles/pegasus-airlines-enjoys-smooth-entry-into-service--with-leap-1a" target="_blank" rel="noopener noreferrer">CFM 2016：Pegasus 首次商业运营</a></li><li><a href="https://www.easa.europa.eu/en/document-library/type-certificates/engine-cs-e/easae110-leap-1a-leap-1c-series-engines" target="_blank" rel="noopener noreferrer">EASA E.110 型号合格证入口</a></li><li><a href="https://www.cfmaeroengines.com/leap/continuous-improvement" target="_blank" rel="noopener noreferrer">CFM 持续改进：HPT 与反向放气</a></li><li><a href="https://ad.easa.europa.eu/ad/2025-0171R2" target="_blank" rel="noopener noreferrer">EASA AD 2025-0171R2：特定高压涡轮一级叶片检查</a></li><li><a href="https://www.geaerospace.com/news/zh-hans/press-releases/joint-ventures/cfm56-reaches-record-production-rate-cfm-delivers-30000th-engine" target="_blank" rel="noopener noreferrer">GE Aerospace：LEAP 18 片复合材料风扇叶片</a></li><li>图1：<a href="https://commons.wikimedia.org/wiki/File:CFM_International_LEAP_engine_on_a_2023_Airbus_A320neo_operated_by_EasyJet.jpg" target="_blank" rel="noopener noreferrer">Actualcpscm 原图</a>；图2、3：<a href="https://commons.wikimedia.org/wiki/File:Paris_Air_Show_2017_LEAP_left_side.jpg" target="_blank" rel="noopener noreferrer">Marc Lacoste 侧面</a>、<a href="https://commons.wikimedia.org/wiki/File:Paris_Air_Show_2017_LEAP_fan.jpg" target="_blank" rel="noopener noreferrer">Marc Lacoste 风扇</a>；均按原页 <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a> 署名使用。</li></ul>
+<p><a href="https://reports.nlr.nl/bitstream/handle/10921/1544/TP-2020-114.pdf" target="_blank" rel="noopener noreferrer">NLR-TP-2020-114：LEAP-1A26 建模配置、级数与推力口径</a>。</p>
+]]></content><categories><category> 航空发动机 </category></categories><tags><tag> 航空发动机 </tag></tags></entry><entry><title>航空发动机学习简报｜第14期｜传感器与健康管理：从油温、碎屑、振动到性能残差</title><link href="/p/f9ef6023.html"/><url>/p/f9ef6023.html</url><content type="html"><![CDATA[<p><strong>航空发动机学习简报 · 第 14 期</strong></p>
 <p><strong>主题类型：</strong>设计与控制方法　<strong>预计学习时间：</strong>12–15 分钟　<strong>计划日：</strong>2026-10-17</p>
 <p><strong>副题：</strong>用工况匹配、传感器自检与交叉证据，把异常读数变成可复核的维修线索</p>
 
