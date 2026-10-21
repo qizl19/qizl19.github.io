@@ -1,5 +1,16 @@
 [
   {
+    "slug": "chengdu-j-7",
+    "name": "歼-7",
+    "url": "/p/781d615f.html",
+    "firstFlightYear": 1966,
+    "lengthM": 13.945,
+    "wingspanM": 7.15,
+    "maxTakeoffWeightT": 8.655,
+    "speedLabel": "超音速；速度随改型、高度与飞行状态变化，不列全系列单一保证值",
+    "rangeLabel": "随改型、燃油、外挂与任务工况变化；不拼接无统一定义的最大航程"
+  },
+  {
     "slug": "xian-ma60",
     "name": "新舟60",
     "url": "/p/0b32fd83.html",

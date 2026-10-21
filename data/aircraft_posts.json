@@ -1,5 +1,105 @@
 [
   {
+    "slug": "chengdu-j-7",
+    "nameZh": "歼-7",
+    "nameEn": "Chengdu J-7",
+    "eyebrow": "飞机资料整理 · 第 27 期",
+    "subtitle": "从1966年早期型首飞到歼-7E双三角翼改进",
+    "date": "2026-10-21",
+    "updated": "2026-10-21",
+    "nation": "中国",
+    "category": "单发超音速战斗机家族",
+    "era": "1960年代至21世纪初",
+    "tags": ["航空", "中国航空工业", "军用飞机"],
+    "status": "历史上装备中国空军与海军航空兵并发展出口系列；2026年具体机队状态须按官方资料核对",
+    "metrics": {
+      "firstFlightYear": 1966,
+      "lengthM": 13.945,
+      "wingspanM": 7.15,
+      "maxTakeoffWeightT": 8.655,
+      "speedLabel": "超音速；速度随改型、高度与飞行状态变化，不列全系列单一保证值",
+      "rangeLabel": "随改型、燃油、外挂与任务工况变化；不拼接无统一定义的最大航程"
+    },
+    "diagram": [
+      "研制基础：米格-21F-13技术谱系与国内试制",
+      "外形：机头进气、单发涡喷、三角翼与单垂尾",
+      "制造：1966年首飞、生产定型，后续长期改型",
+      "歼-7E：1990年首飞，双三角机翼是关键变化"
+    ],
+    "firstFlight": "1966年1月17日，国防部与中国军网历史资料一致",
+    "accent": "#456c74",
+    "heroImage": "/p/781d615f/j7-blue-museum.jpg",
+    "model": {
+      "kind": "unavailable",
+      "poster": "/p/781d615f/j7-blue-museum.jpg",
+      "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "method": "本机官方 TripoSG 单图重建与八视角网格审计",
+      "inputCredit": "BrokenSphere",
+      "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Chengdu_J-7_MW.JPG",
+      "license": "输入照片 CC BY-SA 3.0；TripoSG 代码 MIT",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "engine": "TripoSG",
+      "engineUrl": "https://github.com/VAST-AI-Research/TripoSG",
+      "engineLicense": "MIT",
+      "channel": "local-offline-rtx3060",
+      "note": "暂无可验证模型。检索到 Sketchfab 上 Rhine_Lab_Muelsyse 的歼-7模型（CC Attribution，约9463面），但下载需授权且本轮未获得文件，无法核对文件哈希、格式及多视角，不上传。官方 TripoSG 本机 RTX3060 离线推理两张各自授权真机照片，均40步、guidance 7、octree 8/9、目标80000面。候选一（BrokenSphere，输入SHA256 25a635990e585515aeb927147f2b30922b06e503941976a9f20293cdbc1abe6f，seed42）耗时222.81秒，输出64连通分量、1440280字节、SHA256 75be36faa2871000e3f229fe4663182a9b9c01b1ca318e4ad978bb8b1a46bed7；八视角见翼面错位和尾部伪影。候选二（allen watkin，输入SHA256 62d1121b138710075f3fdfc619935cbbe5064eb921002239020efaf46bb788cc，seed84）耗时152.88秒，输出29连通分量、1440724字节、SHA256 876a02605cbd293a24e59c4736cb341d022e6329250879c8fab82535a624fd8b；机翼平面被错误竖起并有大量离体翼下伪影。两者均未通过外形和网格审计，未上传GLB。AI 单图重建的遮挡区由模型推断，非工程 CAD，不可用于制造或仿真。"
+    },
+    "statement": "歼-7是中国在米格-21F-13技术基础上发展、并多次改型的单发超音速战斗机。本期资料区分早期展品、歼-7E与外贸系列，不把不同改型参数拼成同一架飞机。",
+    "summary": "歼-7早期型于1966年1月17日在沈阳首飞，同年12月生产定型；国防部历史资料与中国军网回顾可交叉核验。机头进气、单发涡喷、三角翼、单垂尾构成其基本外形。后续歼-7II、外贸F-7和歼-7E持续改进；中国军网记载歼-7E于1990年5月18日首飞，其双三角翼面向中低空机动取舍。本期资料的13.945米机长、7.15米翼展和8.655吨重量来自中国航空博物馆一架早期歼-7展品说明牌，仅作该展品公开口径；其他公开资料对全系列尺寸和重量有不同改型的差异，不能通用。三张真机照片为博物馆展品，不能据此推断当前在役数量。",
+    "facts": [
+      {"label": "技术谱系", "value": "米格-21F-13相关技术基础上的国内试制和持续改型"},
+      {"label": "早期歼-7首飞", "value": "1966年1月17日，沈阳", "note": "国防部、中国军网历史资料"},
+      {"label": "生产定型", "value": "1966年12月", "note": "国防部历史资料"},
+      {"label": "布局", "value": "单座、机头进气、单发涡喷、三角翼、单垂尾"},
+      {"label": "展品11447尺寸", "value": "机长13.945 m、翼展7.15 m、机高4.103 m", "note": "中国航空博物馆展牌口径，非全系列统一参数"},
+      {"label": "展品11447全重", "value": "8,655 kg", "note": "展牌写“全重”，公开政府转载材料写“最大起飞重量”；定义须按改型核对"},
+      {"label": "歼-7E翼展", "value": "约8.32 m", "note": "Air Force Magazine 1995年资料；不得套到早期展品"},
+      {"label": "速度与航程", "value": "公开口径因改型、工况和外挂而异；不列无条件单值"}
+    ],
+    "timeline": [
+      {"year": "1961年前后", "event": "引进米格-21相关技术与实物，开展消化与试制。"},
+      {"year": "1966年1月17日", "event": "早期歼-7在沈阳首飞。"},
+      {"year": "1966年12月", "event": "国防部历史资料记载生产定型并转入批量生产。"},
+      {"year": "20世纪80年代", "event": "歼-7II及外贸F-7等系列持续改进。"},
+      {"year": "1990年5月18日", "event": "中国军网记载歼-7E首飞，双三角机翼是核心改进。"}
+    ],
+    "designPoints": [
+      "机头圆形进气口、中央锥体与机身中部单台涡喷构成显著辨识特征。",
+      "小型机体利于紧凑设计，也限制机内燃油、设备与后续升级空间。",
+      "早期三角翼与后期歼-7E双三角翼并非同一机翼；后者改善中低空机动特性。",
+      "博物馆照片分别记录不同展品，不能直接确定同一批次航电或动力。"
+    ],
+    "power": "早期歼-7采用涡喷-7系列单台加力涡轮喷气发动机；后期歼-7E等改型在发动机、航电和机翼方面各有变化。美国 Air Force Magazine 1995年年鉴把歼-7E的WP-7F单列，不应将其推力反推为1966年首飞机或照片中未核实批次的发动机额定值。",
+    "variants": [
+      {"name": "早期歼-7", "description": "1966年首飞并生产定型，与米格-21F-13技术谱系相连。"},
+      {"name": "歼-7II／外贸F-7", "description": "在早期基础上继续改动动力、座舱和航电；外贸名称与国内批次不能简单一一对应。"},
+      {"name": "歼-7E", "description": "1990年首飞，采用改进的双三角机翼；后期资料所列翼展与早期型不可混用。"}
+    ],
+    "strengths": [
+      "为中国超音速飞机制造、材料加工与机翼工艺积累了长期经验。",
+      "紧凑单发布局提供当时条件下的结构规模与维护取舍。",
+      "持续改型使同一技术谱系经历多代工程改进。"
+    ],
+    "limits": [
+      "机头进气与小型机体限制机头设备及机内燃油空间。",
+      "早期三角翼的低速和中低空机动性能有设计取舍；歼-7E另行改翼。",
+      "不同改型的尺寸、重量、发动机及性能不能拼成一张全系列统一表。"
+    ],
+    "photos": [
+      {"src": "/p/781d615f/j7-blue-museum.jpg", "alt": "深圳展出的歼-7 M603侧面真机", "caption": "深圳明思克航母世界的歼-7 M603，机身与机翼整体可见。", "credit": "BrokenSphere", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue_Chengdu_J-7_MW.JPG", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"},
+      {"src": "/p/781d615f/j7-aviation-museum.jpg", "alt": "中国航空博物馆歼-7 11447侧面", "caption": "中国航空博物馆展品11447侧面，可见机头进气与三角翼。", "credit": "allen watkin", "sourceUrl": "https://commons.wikimedia.org/wiki/File:J-7_(2908628963).jpg", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"},
+      {"src": "/p/781d615f/j7-front-museum.jpg", "alt": "中国航空博物馆歼-7正面及展牌", "caption": "歼-7正视与博物馆说明牌，展牌参数仅对应展品。", "credit": "Sam / Olai Ose / Skjaervoy", "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chengdu_J-7_in_the_China_Aviation_Museum.jpg", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/"}
+    ],
+    "sources": [
+      {"label": "中华人民共和国国防部：高方启与歼-7首飞、定型", "url": "https://www.mod.gov.cn/gfbw/gfjy_index/js_214151/4859875.html"},
+      {"label": "中国军网：歼-7E首飞与双三角机翼", "url": "https://www.81.cn/kj_208559/9876715.html"},
+      {"label": "中国科协：歼-7首飞历史回顾", "url": "https://mmcs.cast.org.cn/xwz/kxjrl/art/2025/art_983436331c3344eeaa9035bbb8e5c27e.html"},
+      {"label": "Air Force Magazine 1995航空年鉴：歼-7E改型数据", "url": "https://www.airandspaceforces.com/app/uploads/1995/11/1195_Nov1995.pdf"},
+      {"label": "辽宁省政府转载材料：公开尺寸口径差异", "url": "https://rfb.ln.gov.cn/rfb/rfzs/7874B578496247009BBE1A196C9F86FF/index.shtml"}
+    ],
+    "postId": "781d615f"
+  },
+  {
     "slug": "xian-ma60",
     "nameZh": "新舟60",
     "nameEn": "Xian MA60",
