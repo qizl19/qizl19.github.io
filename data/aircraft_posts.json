@@ -1,5 +1,64 @@
 [
   {
+    "slug": "airbus-a400m-atlas",
+    "nameZh": "A400M“阿特拉斯”",
+    "nameEn": "Airbus A400M Atlas",
+    "eyebrow": "飞机资料整理 · 第 28 期",
+    "subtitle": "四发涡桨如何连接大件远距运输与短场投送",
+    "date": "2026-10-23",
+    "updated": "2026-10-24",
+    "nation": "欧洲多国联合",
+    "category": "四发军用运输机",
+    "era": "2000年代至今",
+    "tags": ["航空", "军用飞机", "运输机"],
+    "status": "服役中；各国构型和订单状态需分别核对",
+    "metrics": {"firstFlightYear": 2009, "lengthM": 45.1, "wingspanM": 42.4, "maxTakeoffWeightT": 141, "speedLabel": "最大巡航真空速433 kt；巡航马赫数0.68-0.72", "rangeLabel": "满载37吨约1780 nmi；30吨约2400 nmi；渡航约4800 nmi"},
+    "diagram": ["需求：大件货物远距运输与短场投送", "布局：高翼、T尾、后货舱门与多轮起落架", "动力：四台TP400-D6与八叶变距螺旋桨", "性能：载重和航程形成任务包线"],
+    "firstFlight": "2009年12月11日；空客2009年财务报告",
+    "accent": "#345d72",
+    "heroImage": "/p/ea1cc3db/a400m-ground.jpg",
+    "model": {"kind": "unavailable", "poster": "/p/ea1cc3db/a400m-ground.jpg", "sourceUrl": "https://github.com/VAST-AI-Research/TripoSG", "method": "官方TripoSG本机单图重建与八视角网格审计", "inputCredit": "Juke sw、Jacek79", "inputSourceUrl": "https://commons.wikimedia.org/wiki/File:Airbus_A400M_54%2B18_at_STR.jpg", "license": "输入照片CC BY-SA 4.0；TripoSG代码MIT", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/", "engine": "TripoSG", "engineUrl": "https://github.com/VAST-AI-Research/TripoSG", "engineLicense": "MIT", "channel": "local-offline-rtx3060", "note": "暂无可验证模型。本轮现成模型检索未取得可核验机型、作者、再分发许可和文件哈希的GLB。本机RTX3060以官方TripoSG离线推理两张各自授权照片，均40步、guidance 7、octree 8/9、目标80000面。候选一Juke sw输入SHA256 57962b2f83afb7b28d6220f1e7cb23a20885b976a63f38a2e201e3cf0fbbeb48、seed42、耗时277.93秒，输出SHA256 eab47f113dcdb7437d1101a855471fa727eb23132e25494eff4793613157de89、1440884字节、102连通分量；八视角显示机身姿态、翼面和发动机错位。候选二Jacek79输入SHA256 96ef8f1f0c9fc33123c39c6200f33f1955fc6332f0ae3d2b546af1741204ea4a、seed84、耗时80.84秒，输出SHA256 b20f9c2a9ab112b44b2c91c2dd9524ae57f34bc15e97f4440ede36b91ad0efca、1441204字节、31连通分量；八视角显示翼面/尾翼旋转错位和螺旋桨伪影。两者均未通过外形与网格审计，未上传GLB。AI单图重建的遮挡区由模型推断，非工程CAD，不可用于制造或仿真。"},
+    "statement": "A400M以四台大型涡桨、宽货舱和短场能力连接战术与战略运输；公开参数必须按载重与任务工况读取。",
+    "summary": "A400M于2009年12月11日首飞，空客公开规格为最大载重37吨、机长45.10米、翼展42.40米、四台TP400-D6涡桨。满载航程约1780海里，载重30吨约2400海里，渡航约4800海里；三者不能并列当作一个任务点。高翼、T尾、后坡道和相邻螺旋桨反向旋转是其鲜明设计。英国皇家空军Atlas C.1于2014年入役，其机长及发动机轴功率公布值与空客标准规格存在口径差异，本文保留来源而不拼接。",
+    "facts": [
+      {"label":"首飞","value":"2009年12月11日；空客2009年财务报告"},
+      {"label":"尺寸","value":"机长45.10米、翼展42.40米、机高14.70米；空客规格。RAF Atlas网页另列42.2米机长。"},
+      {"label":"重量","value":"最大起飞重量141吨、最大载重37吨；空客规格。"},
+      {"label":"货舱","value":"约340立方米，高3.85-4.00米；空客规格。"},
+      {"label":"动力","value":"四台EuroProp TP400-D6；空客约11000轴马力/台，RAF约11600轴马力/台。"},
+      {"label":"巡航","value":"马赫0.68-0.72；最大巡航真空速433节；空客规格。"},
+      {"label":"航程","value":"满载37吨约1780海里；30吨约2400海里；渡航约4800海里，工况各异。"}
+    ],
+    "timeline": [
+      {"year":"2003年","event":"空客项目史记载A400M项目启动。"},
+      {"year":"2008年","event":"首架样机在塞维利亚公开亮相。"},
+      {"year":"2009年12月11日","event":"A400M首次飞行。"},
+      {"year":"2013年","event":"首批飞机交付法国。"},
+      {"year":"2014年","event":"英国皇家空军Atlas进入运营。"},
+      {"year":"2026年","event":"OCCAR公布德国当前采购批次末机交付，持续推进构型改进。"}
+    ],
+    "designPoints": ["高翼与T尾为大截面贯通货舱及后货舱门留出空间。", "多轮起落架、涡桨推进与宽货舱服务于短场和大型货物任务。", "相邻螺旋桨按空客所述‘down between the engines’相对反转，改善翼上流场。", "战略航程与战术短场要求同时约束机体、推进与任务载重。"],
+    "power": "四台EuroProp TP400-D6涡轮螺旋桨发动机驱动八叶变距、可顺桨螺旋桨。空客规格列约11000轴马力/台，RAF Atlas网页列约11600轴马力/台；两者可能涉及额定定义或构型口径，公开资料未确认差因。",
+    "variants": [{"name":"A400M标准运输平台","description":"多国用户基础运输机；具体任务设备、认证与舱内配置按运营方变化。"},{"name":"Atlas C.1","description":"英国皇家空军的A400M运营名称，2014年进入服役。"},{"name":"任务构型","description":"可按已认证装备执行医疗后送、空中加油或人员运输；不是独立的统一新机型。"}],
+    "strengths": ["37吨级最大载重与大截面货舱扩大大件货物运输范围。", "涡桨、高翼与地面系统兼顾较低速进近和条件较差机场。", "多个运营国可在运输、救援与医疗后送之间转换任务。"],
+    "limits": ["载重、航程与短场性能受跑道强度、温度、高度和气象共同限制。", "四台大功率涡桨、螺旋桨与多国构型提高维护与集成复杂度。", "制造商、RAF的机长及轴功率口径不同，不能合成一个无条件参数表。"],
+    "photos": [
+      {"src":"/p/ea1cc3db/a400m-ground.jpg","alt":"德国空军A400M地面滑行完整外形","caption":"德国空军54+18地面滑行，高翼、T尾、四台发动机与整体外形清晰可见。缩放展示。","credit":"Juke sw","sourceUrl":"https://commons.wikimedia.org/wiki/File:Airbus_A400M_54%2B18_at_STR.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src":"/p/ea1cc3db/a400m-flight.jpg","alt":"德国空军A400M飞行中仰视","caption":"德国空军54+08飞行中仰视，可见高翼、四台涡桨与T尾。缩放展示。","credit":"Jacek79","sourceUrl":"https://commons.wikimedia.org/wiki/File:Airbus_A400M-180_Luftwaffe_54%2B08_Sandkrug.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src":"/p/ea1cc3db/a400m-ramp.jpg","alt":"A400M后货舱门和坡道","caption":"2017年巴黎航展A400M后货舱门与坡道；展陈车辆不代表通用装载许可。缩放展示。","credit":"Marc Lacoste","sourceUrl":"https://commons.wikimedia.org/wiki/File:Paris_Air_Show_2017_Airbus_A400M_rear_ramp.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"}
+    ],
+    "sources": [
+      {"label":"空客A400M官方规格表","url":"https://image.contactad.airbus.com/lib/fe2d1171756404747c1678/m/1/7f52cf78-0b6e-49b2-8028-4cc0b85158bd.pdf"},
+      {"label":"英国皇家空军Atlas C.1官方介绍","url":"https://www.raf.mod.uk/aircraft/current-aircraft/atlas-c1-a400m/"},
+      {"label":"空客A400M产品页","url":"https://www.airbus.com/en/products-services/defence/military-aircraft/a400m"},
+      {"label":"空客2009年财务报告","url":"https://www.airbus.com/sites/g/files/jlcbta136/files/2021-07/financial-statements-2009-en.pdf"},
+      {"label":"空客项目史","url":"https://mediaassets.airbus.com/pm_38_736_736236-n9oaja9i2p.pdf"},
+      {"label":"OCCAR德国末机交付通告","url":"https://occar.int/news/a400m-programme-reaches-key-milestone-with-delivery-of-final-german-aircraft"},
+      {"label":"空客RAF撤离与救援案例","url":"https://www.airbus.com/en/newsroom/stories/2026-07-a400m-atlas-on-a-mission-at-the-edge-of-the-world"}
+    ],
+    "postId": "ea1cc3db"
+  },
+  {
     "slug": "chengdu-j-7",
     "nameZh": "歼-7",
     "nameEn": "Chengdu J-7",

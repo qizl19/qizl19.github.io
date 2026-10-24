@@ -1,5 +1,16 @@
 [
   {
+    "slug": "airbus-a400m-atlas",
+    "name": "A400M“阿特拉斯”",
+    "url": "/p/ea1cc3db.html",
+    "firstFlightYear": 2009,
+    "lengthM": 45.1,
+    "wingspanM": 42.4,
+    "maxTakeoffWeightT": 141,
+    "speedLabel": "最大巡航真空速433 kt；巡航马赫数0.68-0.72",
+    "rangeLabel": "满载37吨约1780 nmi；30吨约2400 nmi；渡航约4800 nmi"
+  },
+  {
     "slug": "chengdu-j-7",
     "name": "歼-7",
     "url": "/p/781d615f.html",
