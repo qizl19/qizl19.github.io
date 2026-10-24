@@ -1,0 +1,81 @@
+<p><strong>航空发动机学习简报 · 第 16 期</strong></p>
+<p><strong>主题类型：</strong>基础与前置知识　<strong>预计学习时间：</strong>12–15 分钟　<strong>计划日：</strong>2026-10-23</p>
+<p><strong>副题：</strong>从双流动量账本到安装净推力：为什么风扇并非越大越好</p>
+
+<h2 id="本期问题与学习目标">本期问题与学习目标</h2>
+<blockquote><p><strong>本期问题：</strong>为什么扩大风扇、提高涵道比通常有利于推进效率，却不能无限增大？风扇压比和短舱阻力又怎样改变最优点？</p></blockquote>
+<p>学完本期，你应能从入口质量流量分出核心流和涵道流，写出两股气流的动量推力；在相同净推力与飞行条件下比较“多空气、小增速”和“少空气、大增速”；再把短舱外阻、进气与喷管损失、重量和气动噪声放回整机目标。前置知识为第01期Brayton循环、第02期修正参数、第04期性能图及第15期LEAP-1A架构。本期数值是教学假设，不是任何在役发动机的保证性能。</p>
+
+<h2 id="核心结论">核心结论</h2>
+<ol>
+<li><strong>涵道比是流量比，不是效率数值。</strong>它定义为风扇涵道空气质量流量除以核心空气质量流量，必须同时给出飞行工况和定义边界。</li>
+<li><strong>同推力下，增加空气质量流量并减小增速通常降低尾流动能损失。</strong>这提高理想推进效率，却要求更大流道、风扇和短舱。</li>
+<li><strong>风扇压比控制涵道流的总压提升和喷流速度。</strong>它与风扇直径、低压涡轮功、噪声及失速裕度共同选取，不能单独取最低。</li>
+<li><strong>评价飞机要用安装后的净推力与任务燃油。</strong>短舱外阻、进气与喷管损失以及发动机重量能够抵消部分理想喷流收益。</li>
+<li><strong>“最佳”依赖条件。</strong>NASA的单通道风扇试验与现代单通道整机研究都发现安装效应重要，但各自数值只属于特定构型和马赫数。</li>
+</ol>
+
+<h2 id="双流动量账本">双流动量账本</h2>
+<p>把一台分开排气的涡扇想成两条管道：核心流经过压气机、燃烧室和涡轮；涵道流经过风扇后绕过核心机。核心机供给热力循环和风扇轴功，涵道流承担大量推进任务。NASA Glenn给出涵道比BPR=ṁ<sub>b</sub>/ṁ<sub>c</sub>；ṁ<sub>b</sub>与ṁ<sub>c</sub>分别是涵道和核心空气流量，单位kg/s。较大BPR意味着同样核心流量下处理更多冷空气，但实际设计可以同时改变核心尺寸、总压比与热端状态，不能只固定一个变量解释整机。</p>
+<p>在压差推力、燃油质量和安装阻力可忽略的教学边界下，双流净推力近似为 F<sub>u</sub>=ṁ<sub>b</sub>(V<sub>b</sub>−V<sub>0</sub>)+ṁ<sub>c</sub>(V<sub>c</sub>−V<sub>0</sub>)。V<sub>0</sub>为飞机相对空气速度，V<sub>b</sub>、V<sub>c</sub>为相应出口轴向速度，单位m/s；F<sub>u</sub>单位N。真实流动还要计入出口压力与环境压差、燃油质量、尾流非均匀性、机身/短舱干扰和进气阻力。图1把理想动量与安装修正分开画，避免把风扇台架数据直接当成飞机巡航节油率。</p>
+<figure class="aeroengine-figure"><img src="/p/91573f58/bypass-fan-installation.svg" alt="来流分成核心流与涵道流，两股喷流产生未安装推力，再扣除进气、短舱和喷管安装损失形成安装净推力"><figcaption>图1　原创双流动量与安装损失教学示意；作者：Qzl's Blog；<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。依据 <a href="https://www.grc.nasa.gov/www/k-12/BGP/turbfan.html" target="_blank" rel="noopener noreferrer">NASA Glenn涡扇推力</a>和 <a href="https://ntrs.nasa.gov/api/citations/20050207442/downloads/20050207442.pdf" target="_blank" rel="noopener noreferrer">NASA/TM-2005-213658</a>绘制；框图不代表某型号实际流路尺寸。</figcaption></figure>
+
+<h2 id="风扇压比与推进效率">风扇压比与推进效率</h2>
+<p>风扇压比FPR=P<sub>t,fan,out</sub>/P<sub>t,fan,in</sub>是风扇出口与入口的总压之比，两压力均用Pa，FPR无量纲；须注明测点、涵道/核心分流和修正转速。压比提高通常给涵道流更多单位质量能量与喷流速度，但风扇所需轴功也上升，低压涡轮需要从热气流取出更多功。对于给定目标推力和飞行速度，设计者可在风扇直径、质量流量、FPR、核心功率和喷管面积之间寻找匹配。低FPR不自动等于低耗油，风扇气动效率、叶尖速度、低压系统重量和可安装空间都在改变答案。</p>
+<div class="aeroengine-formula"><strong>理想单股喷流推进效率：</strong>η<sub>p</sub>=2V<sub>0</sub>/(V<sub>j</sub>+V<sub>0</sub>)。</div>
+<p>V<sub>j</sub>为单股理想出口速度，V<sub>0</sub>为来流速度，单位m/s；η无量纲。该式由推力功F V<sub>0</sub>除以喷流动能增量½ṁ(V<sub>j</sub>²−V<sub>0</sub>²)得到，假定稳态、完全膨胀、单一均匀喷流及无安装损失。双流发动机应分别加总两股动能，不能把两个出口速度先做简单平均再套单股公式；静止时V<sub>0</sub>=0，该“推进效率”定义为零，并不说明发动机没有静推力。</p>
+<p>NASA 1974年对1.15风扇压比试验件在马赫0.75下测得，风扇与短舱合成净推进力为理想风扇净推力的73%；内部损失约7%，外部阻力约20%。研究者推算该试验短舱若把FPR升至约1.35，推进效率可能达到约67%。这是特定试验件的条件结果，不能移植为现代民航发动机通用最优FPR。NASA后来的先进单通道运输机研究也把短舱阻力与发动机重量列为决定最优FPR的关键因素。</p>
+
+<h2 id="可复算的简化算例">可复算的简化算例</h2>
+<p>设飞机以V<sub>0</sub>=230 m/s巡航，忽略核心流、压差推力与燃油质量，只比较两种能提供<strong>同样100 kN未安装推力</strong>的理想涵道方案。方案A：ṁ=500 kg/s，V<sub>j</sub>=430 m/s；F=500×(430−230)=100000 N，喷流动能增量½×500×(430²−230²)=33.0 MW，推进功F V<sub>0</sub>=23.0 MW，η<sub>p,A</sub>=23/33≈0.697。方案B：ṁ=1000 kg/s，V<sub>j</sub>=330 m/s；F=1000×(330−230)=100000 N，动能增量为28.0 MW，η<sub>p,B</sub>=23/28≈0.821。多处理空气、少加速每公斤空气，在理想账本中少耗5 MW尾流能量。</p>
+<p>现在仅为敏感性演示，假设A、B的短舱及安装阻力分别为2 kN、8 kN。用F<sub>inst</sub>=F<sub>u</sub>−D<sub>install</sub>记安装净推力：F<sub>u</sub>是未安装推力、D<sub>install</sub>是按一致控制体归属的安装阻力，三者单位均为N；本例暂忽略安装对流场本身的反馈。固定上述喷流状态时，安装净推力分别98 kN、92 kN，均低于100 kN需求。若要重新满足同一巡航阻力，必须重新匹配喷流、轴功、燃油和可能的风扇尺寸；不能把92 kN方案的理想η<sub>p</sub>直接换算为节油率。按固定喷流动能暂算“净推力功/喷流动能”，A为98×230/33000≈0.683，B为92×230/28000≈0.756；这只展示外阻如何压低优势，不是已匹配的整机效率。8 kN和2 kN均为教学假设，非某发动机实测阻力。</p>
+
+<h2 id="工程分析执行步骤">工程分析执行步骤</h2>
+<ol>
+<li>固定飞机任务：巡航马赫数、高度、航程、起飞场长、噪声限制与飞机巡航阻力；先确定比较口径。</li>
+<li>选定同一核心技术与热端限制，列出候选风扇直径、BPR和FPR，而不是把不同代核心机混为一组。</li>
+<li>在各工况求进气质量流量、风扇与核心喷流、压差推力及未安装推力，检查流量连续性与功率平衡。</li>
+<li>建立风扇/压气机/涡轮性能图，检查巡航、起飞、爬升、降落工况的工作线与裕度。</li>
+<li>增加短舱外阻、进气压力损失、喷管效率、短舱与机翼干扰；输出安装净推力和燃油流量。</li>
+<li>把发动机和短舱重量、离地间隙、挂架结构、维护和噪声带入飞机尺寸与任务分析。</li>
+<li>在统一模型上做FPR/BPR/短舱尺寸灵敏度扫描，报告任务燃油、噪声和重量的Pareto取舍。</li>
+<li>用风洞、部件台架和飞行试验逐层校准安装阻力与性能图；区分已验证与模型推断。</li>
+</ol>
+
+<h2 id="常见误区与边界">常见误区与失效边界</h2>
+<ul>
+<li>把BPR高直接等同于整机油耗低：忽略风扇效率、核心循环、短舱和重量。</li>
+<li>用静推力或海平面TSFC比较巡航效率：V<sub>0</sub>、压力温度、额定与安装状态不同。</li>
+<li>把FPR当作出口速度比：总压比与喷流速度还受入口总温、效率、喷管膨胀和飞行速度影响。</li>
+<li>将旧试验的20%外阻当作现代短舱普遍值：该数值只属于NASA 1974年试验件的定义与条件。</li>
+<li>忽略风扇可操作性：低速高攻角进气畸变、雨雪和鸟击、噪声与叶尖间隙会改变可用设计域。</li>
+</ul>
+
+<h2 id="与整机和其他部件耦合">与整机和其他部件的耦合</h2>
+<p>风扇扩大使短舱截面、湿面积与挂架要求变化；离地间隙可能迫使起落架加长或发动机位置改变，进一步影响机翼与机身气动。低FPR通常要求更大流量来满足同推力，低压涡轮级数、齿轮或直驱转速匹配由此改变；低压轴与核心机不是互不相干的两个优化问题。喷管若采用可调面积，还引入控制调度、重量和失效模式。噪声受喷流速度、风扇叶尖条件与短舱声衬共同影响；燃油目标要在全航段积分，而非只看单个设计点。</p>
+
+<h2 id="自测题">自测题</h2>
+<ol>
+<li>写出BPR定义，并说明两股质量流量的单位。</li>
+<li>判断：BPR从8增至12，若其他条件不变，整机燃油必然降低。对还是错？</li>
+<li>若V<sub>0</sub>=200 m/s、均匀喷流V<sub>j</sub>=300 m/s，理想单股η<sub>p</sub>是多少？</li>
+<li>以ṁ=600 kg/s、V<sub>j</sub>−V<sub>0</sub>=100 m/s估算理想动量推力，写单位。</li>
+<li>FPR是静压比还是总压比？测点为何重要？</li>
+<li>NASA 1974年试验的20%外阻能否直接作为LEAP-1A巡航短舱阻力？说明理由。</li>
+<li>方案B未安装推力100 kN、安装阻力8 kN时，固定喷流状态下的安装净推力是多少？</li>
+<li>如果两个候选巡航TSFC相近，为什么还应比较风扇直径、噪声与发动机重量？</li>
+</ol>
+
+<h2 id="答案与下一期衔接">答案与下一期衔接</h2>
+<p>1. ṁ<sub>b</sub>/ṁ<sub>c</sub>，两者均kg/s。2. 错；至少还要比较效率、外阻、重量和匹配工况。3. 2×200/(300+200)=0.8。4. 600×100=60000 N=60 kN。5. 总压比；测点影响涵道/核心边界及损失的归属。6. 不能；它是特定年代、几何与马赫条件的试验结果。7. 92 kN。8. 它们改变全航段燃油、机场适用性、噪声和结构重量。下一期建议进入风扇/低压涡轮的部件匹配：从给定FPR与流量推轴功需求，再检查转速与工作线。</p>
+
+<h2 id="参考资料与图示许可">参考资料与图示许可</h2>
+<ol>
+<li><a href="https://www.grc.nasa.gov/www/k-12/BGP/turbfan.html" target="_blank" rel="noopener noreferrer">NASA Glenn：Turbofan Thrust（双流推力与涵道比定义）</a>。</li>
+<li><a href="https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-force/" target="_blank" rel="noopener noreferrer">NASA Glenn：General Thrust Equation（动量与压差项）</a>。</li>
+<li><a href="https://ntrs.nasa.gov/citations/19740020128" target="_blank" rel="noopener noreferrer">NASA-TM-X-3064：1.15 FPR试验件巡航性能，1974</a>。</li>
+<li><a href="https://ntrs.nasa.gov/citations/20140001089" target="_blank" rel="noopener noreferrer">NASA/AIAA：Advanced Single-Aisle Transport Propulsion Design Options Revisited，2013</a>。</li>
+<li><a href="https://ntrs.nasa.gov/api/citations/20050207442/downloads/20050207442.pdf" target="_blank" rel="noopener noreferrer">NASA/TM-2005-213658：安装推力与设计参数定义</a>。</li>
+<li><a href="https://ntrs.nasa.gov/api/citations/19930090341/downloads/19930090341.pdf" target="_blank" rel="noopener noreferrer">NACA RM E56B03：理想单股喷流推进效率公式</a>。</li>
+</ol>
+<p>图1为本站原创SVG教学图，作者Qzl's Blog，<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>。图中结构和箭头依据上述NASA公开资料自行绘制，没有使用外部图像。</p>

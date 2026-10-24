@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="t d">
+<title id="t">双流动量推力和短舱安装损失</title><desc id="d">来流分成涵道流与核心流，两股流量和速度差形成未安装推力，扣除进气、短舱和喷管安装损失得到安装净推力。涵道比是两股空气质量流量之比。</desc>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#276b83"/></marker><marker id="orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#b77a3c"/></marker></defs>
+<rect width="1200" height="620" rx="20" fill="#f6f9fa"/>
+<text x="54" y="70" font-size="31" font-weight="700" fill="#18384b" font-family="Microsoft YaHei, sans-serif">双流动量账本：从风扇到飞机</text>
+<text x="55" y="108" font-size="17" fill="#526974" font-family="Microsoft YaHei, sans-serif">同一飞行工况下比较质量流量、喷流增速与安装后的净推力</text>
+<rect x="54" y="167" width="176" height="112" rx="14" fill="#dcecf1" stroke="#9dc4d0"/>
+<text x="91" y="214" font-size="24" fill="#214d62" font-family="Microsoft YaHei, sans-serif">来流 V₀</text>
+<text x="83" y="247" font-size="18" fill="#456574" font-family="Microsoft YaHei, sans-serif">ṁ₀ = ṁb + ṁc</text>
+<line x1="232" y1="223" x2="315" y2="223" stroke="#276b83" stroke-width="7" marker-end="url(#arr)"/>
+<rect x="320" y="167" width="175" height="112" rx="14" fill="#dcecf1" stroke="#9dc4d0"/>
+<text x="361" y="212" font-size="24" fill="#214d62" font-family="Microsoft YaHei, sans-serif">风扇</text>
+<text x="345" y="246" font-size="17" fill="#456574" font-family="Microsoft YaHei, sans-serif">FPR = Pt₂/Pt₁</text>
+<path d="M495 209 H580 V164 H672" fill="none" stroke="#276b83" stroke-width="7" marker-end="url(#arr)"/>
+<path d="M495 239 H580 V324 H672" fill="none" stroke="#276b83" stroke-width="7" marker-end="url(#arr)"/>
+<rect x="680" y="112" width="450" height="112" rx="14" fill="#d6edf2" stroke="#86b8c5"/>
+<text x="711" y="157" font-size="24" fill="#214d62" font-family="Microsoft YaHei, sans-serif">涵道流 ṁb → Vb</text>
+<text x="711" y="190" font-size="18" fill="#456574" font-family="Microsoft YaHei, sans-serif">多空气 · 小增速 · 更大的风扇与短舱</text>
+<rect x="680" y="272" width="450" height="112" rx="14" fill="#e7eaf3" stroke="#adb8d1"/>
+<text x="711" y="317" font-size="24" fill="#374665" font-family="Microsoft YaHei, sans-serif">核心流 ṁc → Vc</text>
+<text x="711" y="350" font-size="18" fill="#596682" font-family="Microsoft YaHei, sans-serif">热力循环供功 · 喷流贡献推力</text>
+<text x="57" y="338" font-size="21" font-weight="700" fill="#214d62" font-family="Microsoft YaHei, sans-serif">涵道比 BPR = ṁb / ṁc</text>
+<text x="57" y="370" font-size="17" fill="#526974" font-family="Microsoft YaHei, sans-serif">两股质量流量单位均为 kg/s</text>
+<path d="M760 390 V437 H750" fill="none" stroke="#276b83" stroke-width="6" marker-end="url(#arr)"/>
+<rect x="54" y="435" width="666" height="112" rx="14" fill="#e5f1f3" stroke="#a4c9d0"/>
+<text x="77" y="476" font-size="23" fill="#214d62" font-family="Microsoft YaHei, sans-serif">未安装推力 Fu = ṁb(Vb − V₀) + ṁc(Vc − V₀)</text>
+<text x="77" y="516" font-size="17" fill="#526974" font-family="Microsoft YaHei, sans-serif">教学近似：忽略压差推力、燃油质量与非均匀尾流</text>
+<line x1="720" y1="492" x2="794" y2="492" stroke="#b77a3c" stroke-width="6" marker-end="url(#orange)"/>
+<rect x="804" y="435" width="325" height="112" rx="14" fill="#fff0de" stroke="#e0ba8b"/>
+<text x="833" y="478" font-size="24" fill="#7e4d1e" font-family="Microsoft YaHei, sans-serif">安装净推力 Fi</text>
+<text x="833" y="515" font-size="18" fill="#916039" font-family="Microsoft YaHei, sans-serif">Fu − 进气/短舱/喷管损失</text>
+<text x="56" y="591" font-size="14" fill="#66808a" font-family="Microsoft YaHei, sans-serif">Qzl's Blog · 原创教学示意 · CC BY 4.0 · 概念依据：NASA Glenn / NASA-TM-2005-213658</text>
+</svg>

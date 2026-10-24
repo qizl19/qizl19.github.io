@@ -1,5 +1,43 @@
 [
   {
+    "issue": 16,
+    "slug": "bypass-ratio-fan-pressure-nacelle-installation",
+    "postId": "91573f58",
+    "title": "航空发动机学习简报｜第16期｜涵道比、风扇压比与短舱阻力：推进效率的整机取舍",
+    "subtitle": "从双流动量账本到安装净推力：为什么风扇并非越大越好",
+    "type": "基础与前置知识",
+    "date": "2026-10-23",
+    "updated": "2026-10-24",
+    "heroImage": "/p/91573f58/bypass-fan-installation.svg",
+    "summary": "以NASA Glenn双流推力公式、NASA 1974年风扇短舱试验及2013年单通道整机研究，解释涵道比与风扇压比如何影响喷流增速、推进效率和短舱安装损失。用两个同推力教学方案复算0.697与0.821的理想效率，再加入假设安装阻力，说明飞机级选型必须重匹配并比较全航段燃油、重量与噪声。",
+    "contentFile": "data/aeroengine/2026-10-23-bypass-ratio-fan-pressure-nacelle-installation.html",
+    "keyConcepts": ["涵道比", "风扇压比", "双流动量", "推进效率", "安装净推力", "短舱外阻", "尾流动能", "低压涡轮功", "风扇直径", "任务燃油", "噪声", "性能匹配"],
+    "headings": [
+      {"id":"本期问题与学习目标","title":"本期问题与学习目标"},
+      {"id":"核心结论","title":"核心结论"},
+      {"id":"双流动量账本","title":"双流动量账本"},
+      {"id":"风扇压比与推进效率","title":"风扇压比与推进效率"},
+      {"id":"可复算的简化算例","title":"可复算的简化算例"},
+      {"id":"工程分析执行步骤","title":"工程分析执行步骤"},
+      {"id":"常见误区与边界","title":"常见误区与失效边界"},
+      {"id":"与整机和其他部件耦合","title":"与整机和其他部件的耦合"},
+      {"id":"自测题","title":"自测题"},
+      {"id":"答案与下一期衔接","title":"答案与下一期衔接"},
+      {"id":"参考资料与图示许可","title":"参考资料与图示许可"}
+    ],
+    "validationNeedles": ["33.0 MW", "28.0 MW", "0.821", "92 kN", "BPR=ṁ"],
+    "figures": [{"src":"/p/91573f58/bypass-fan-installation.svg","title":"双流动量与短舱安装损失原创教学图","author":"Qzl's Blog","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","basis":"NASA Glenn Turbofan Thrust; NASA/TM-2005-213658"}],
+    "sources": [
+      {"title":"NASA Glenn Turbofan Thrust","url":"https://www.grc.nasa.gov/www/k-12/BGP/turbfan.html"},
+      {"title":"NASA Glenn General Thrust Equation","url":"https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/thrust-force/"},
+      {"title":"NASA-TM-X-3064 1.15 FPR test","url":"https://ntrs.nasa.gov/citations/19740020128"},
+      {"title":"NASA/AIAA 2013 propulsion design trade study","url":"https://ntrs.nasa.gov/citations/20140001089"},
+      {"title":"NASA/TM-2005-213658 installed thrust definitions","url":"https://ntrs.nasa.gov/api/citations/20050207442/downloads/20050207442.pdf"},
+      {"title":"NACA RM E56B03 propulsive efficiency","url":"https://ntrs.nasa.gov/api/citations/19930090341/downloads/19930090341.pdf"}
+    ],
+    "nextTopic": "设计与控制方法：给定风扇压比与流量后，如何匹配风扇、低压涡轮轴功和工作线"
+  },
+  {
     "issue": 15,
     "slug": "cfm-leap-1a-architecture-health",
     "postId": "13fe59c2",
