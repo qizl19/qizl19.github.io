@@ -173,8 +173,13 @@ def main() -> None:
                 seed = generation.get("seed")
                 if not isinstance(seed, int) or seed < 0:
                     errors.append(f"Invalid TripoSG seed: {profile['nameZh']}")
+            elif model.get("kind") == "sourced-open-model":
+                if model_path.is_file() and model.get("outputSha256") != hashlib.sha256(model_path.read_bytes()).hexdigest():
+                    errors.append(f"Sourced GLB SHA-256 mismatch: {model_path}")
+                if not model.get("method") or not model.get("author"):
+                    errors.append(f"Missing sourced-model provenance: {profile['nameZh']}")
             else:
-                errors.append(f"Aircraft model has not migrated to TripoSG: {profile['nameZh']}")
+                errors.append(f"Unknown or unmigrated aircraft model kind: {profile['nameZh']}")
 
     checks = {
         root / "index.html": [profile["nameZh"] for profile in profiles],

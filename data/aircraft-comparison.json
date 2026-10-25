@@ -1,5 +1,16 @@
 [
   {
+    "slug": "boeing-787-9-dreamliner",
+    "name": "波音787-9“梦想客机”",
+    "url": "/p/3884f54e.html",
+    "firstFlightYear": 2013,
+    "lengthM": 62.8,
+    "wingspanM": 60.1,
+    "maxTakeoffWeightT": 259.22,
+    "speedLabel": "787家族典型巡航约Mach 0.85；实际速度由运营决定",
+    "rangeLabel": "波音当前产品页标称最高8300 nmi / 15370 km，非满载保证值"
+  },
+  {
     "slug": "airbus-a400m-atlas",
     "name": "A400M“阿特拉斯”",
     "url": "/p/ea1cc3db.html",

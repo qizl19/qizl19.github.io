@@ -1,5 +1,110 @@
 [
   {
+    "slug": "boeing-787-9-dreamliner",
+    "nameZh": "波音787-9“梦想客机”",
+    "nameEn": "Boeing 787-9 Dreamliner",
+    "eyebrow": "飞机资料整理 · 第 29 期",
+    "subtitle": "复合材料、更电气化系统与远程航线的取舍",
+    "date": "2026-10-25",
+    "updated": "2026-10-25",
+    "nation": "美国",
+    "category": "双发远程宽体客机",
+    "era": "2010年代至今",
+    "tags": ["航空", "民航", "宽体客机"],
+    "status": "服役中；具体航线、发动机与重量批准状态依运营方而异",
+    "metrics": {
+      "firstFlightYear": 2013,
+      "lengthM": 62.8,
+      "wingspanM": 60.1,
+      "maxTakeoffWeightT": 259.22,
+      "speedLabel": "787家族典型巡航约Mach 0.85；实际速度由运营决定",
+      "rangeLabel": "波音当前产品页标称最高8300 nmi / 15370 km，非满载保证值"
+    },
+    "diagram": [
+      "需求：中等容量的远程点对点航线",
+      "结构：复合材料机体与高效后掠翼",
+      "动力：两台GEnx-1B或Trent 1000系列涡扇",
+      "约束：载荷、航程、重量批准与维护成本"
+    ],
+    "firstFlight": "2013年9月17日；波音官方年表，特指787-9",
+    "accent": "#225773",
+    "heroImage": "/p/3884f54e/china-southern-wuhan.jpg",
+    "model": {
+      "kind": "sourced-open-model",
+      "src": "/p/3884f54e/models/boeing-787-9-sourced.glb",
+      "poster": "/p/3884f54e/china-southern-wuhan.jpg",
+      "author": "Nobilis 2（原始模型）；Bilawal Sidhu / God's Eye View（减面、纹理与坐标优化）",
+      "sourceUrl": "https://sketchfab.com/3d-models/boeing-787-9-b6711e2e698e4e469675c1154a50b7a3",
+      "license": "CC BY 4.0；再分发时署名原作者和优化者",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "method": "可再分发的现成787-9模型，经八视角目视和网格审计；非AI重建",
+      "outputSha256": "182963a700f02102c8aa3a11e467a33df383cdf1c58418e561104439dfec61af",
+      "note": "现成787-9外形可视化示意，非工程CAD，不可用于制造、仿真、尺寸测量或适航判断。原始作品为Nobilis 2的Sketchfab Boeing 787-9（CC BY 4.0）；本站使用God's Eye View公开优化版，优化内容包括几何/材质简化、256px WebP纹理及Y-up米制坐标，优化版来源 https://github.com/bilawalsidhu/gods-eye-view/blob/main/public/models/README.md 。下载GLB 470200字节、SHA256 182963a700f02102c8aa3a11e467a33df383cdf1c58418e561104439dfec61af、9472三角面、23个场景几何，文件头glTF v2；八视角核对双发、机身、机翼与翼尖、常规尾翼、左右对称和787-9近似62.8米机长，未见主轮廓错误。模型含大量分离小部件，不声称水密或精确尺寸；没有建模电气/内部系统。"
+    },
+    "statement": "787-9把复合材料宽体结构、两种发动机选项和远程点对点航线结合；不同版本的重量与航程口径必须分开读。",
+    "summary": "787-9于2013年9月17日首飞，2014年投入运营。波音当前产品页列机长62.8米、翼展60.1米、两舱250-325座，标称最高航程8300海里。可选GEnx-1B或Trent 1000系列发动机。2024年波音机场规划文件给最大设计起飞重量254692千克，当前产品页列259220千克，版本差异在文中保留；2013年电池事件发生在787-8而非787-9。",
+    "facts": [
+      {"label":"首飞","value":"2013年9月17日；波音官方年表，787-9。"},
+      {"label":"尺寸","value":"机长62.8米、翼展60.1米；波音当前787产品页。"},
+      {"label":"座位","value":"两舱250-325座，为制造商示意范围，具体布局由航空公司决定。"},
+      {"label":"最大起飞重量","value":"当前产品页259220千克；2024年机场规划文件设计值254692千克，不能当作同一批准构型。"},
+      {"label":"航程","value":"标称最高8300海里/15370千米；受载重、风、油量和任务限制。"},
+      {"label":"动力","value":"两台GEnx-1B或Trent 1000系列涡扇，选项因机队而异。"},
+      {"label":"结构","value":"波音称787机体约50%重量为复合材料；为家族级设计口径。"}
+    ],
+    "timeline": [
+      {"year":"2003年","event":"波音提出7E7概念，后发展为787家族。"},
+      {"year":"2009年12月15日","event":"787-8首飞；与本期787-9的首飞日期不同。"},
+      {"year":"2011年","event":"787-8交付全日空并投入服务。"},
+      {"year":"2013年9月17日","event":"787-9首次飞行，见波音官方年表。"},
+      {"year":"2014年7月","event":"罗尔斯-罗伊斯历史资料记载首架787-9由新西兰航空投入运营。"},
+      {"year":"2018年","event":"波音公布上海航空、吉祥航空各自首架787-9交付。"},
+      {"year":"2026年","event":"波音当前产品页更新787-9重量口径；与2024机场文件分列。"}
+    ],
+    "designPoints": [
+      "常规低翼、双发、单垂尾的远程宽体布局；787-9较787-8机身更长。",
+      "波音称787机体约50%重量为复合材料，并采用更电气化系统与先进气动。",
+      "60.1米翼展与787-8相同，但客舱容量和标称航程各有口径。",
+      "翼尖、发动机短舱与机体结构共同服务气动、噪声和重量设计。"
+    ],
+    "power": "787-9可选两台GE GEnx-1B或罗尔斯-罗伊斯Trent 1000系列高涵道比涡扇。两种发动机与后续改进包并非同一批次共装；具体额定推力及性能需按发动机型号、适航文件和航空公司构型核对。更电气化系统改变了传统大型客机对发动机引气的依赖，亦增加电力、热管理和维护要求。",
+    "variants": [
+      {"name":"787-8","description":"家族短机身成员，2009年首飞、2011年服役；2013年电池事件涉及此型号。"},
+      {"name":"787-9","description":"本期资料基准，2013年首飞、2014年服役；中等容量与远程能力组合。"},
+      {"name":"787-10","description":"更长机身、更多座位，波音当前产品页标称航程低于787-9。"}
+    ],
+    "strengths": [
+      "复合材料结构、现代涡扇和气动布局结合，支持远程点对点航线。",
+      "两种发动机选项和多种客舱配置为航空公司提供网络适配空间。",
+      "较长机身较787-8提高座位能力，同时保留较高标称航程。"
+    ],
+    "limits": [
+      "最大标称航程与座位范围不等于同一任务点，不能直接推算实际可载客货量。",
+      "大型复合材料结构的生产、检查和修复对质量体系及供应链提出要求。",
+      "更电气化系统要求电力、热管理与认证链条；2013年787-8电池事件提示系统安全的重要性。",
+      "不同文档最大起飞重量口径不同，航空公司个体的升重批准状态需逐机核实。"
+    ],
+    "photos": [
+      {"src":"/p/3884f54e/china-southern-wuhan.jpg","alt":"中国南方航空波音787-9在武汉地面完整外形","caption":"南航B-1168在武汉机场，完整机身、后掠翼和两台翼下发动机清晰可见；仅缩放与压缩。","credit":"Brian19891003","sourceUrl":"https://commons.wikimedia.org/wiki/File:NO._787_Boeing_787_at_WUH_(1).jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src":"/p/3884f54e/qatar-landing.jpg","alt":"卡塔尔航空787-9进近的机翼和发动机","caption":"卡塔尔航空A7-BHT进近，机翼、翼尖、双发与起落架可辨；仅缩放与压缩。","credit":"André Gerwing","sourceUrl":"https://commons.wikimedia.org/wiki/File:Boeing_787-9_(c-n_64228,_A7-BHT)_2026-08-06_Andre_Gerwing_Collection_ID_030786.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src":"/p/3884f54e/air-canada.jpg","alt":"加拿大航空787-9进近的三分之四视角","caption":"加拿大航空C-FNOG进近，翼尖、起落架与两台发动机可辨；仅缩放与压缩，图像保留摄影者署名。","credit":"Samson Ng . D201@EAL","sourceUrl":"https://commons.wikimedia.org/wiki/File:Boeing_787-9_Dreamliner.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"}
+    ],
+    "sources": [
+      {"label":"波音787当前产品页与参数","url":"https://www.boeing.com/commercial/787"},
+      {"label":"波音787设计与复合材料说明","url":"https://www.boeing.com/commercial/787/by-design"},
+      {"label":"波音787机场规划文件Rev P（2024）","url":"https://www.boeing.com/content/dam/boeing/boeingdotcom/commercial/airports/acaps/787_Rev_P.pdf"},
+      {"label":"波音年表：787-9首飞","url":"https://www.boeing.com/content/dam/boeing/v2/company/history/pdf/Boeing-Chronology.pdf"},
+      {"label":"罗尔斯-罗伊斯Trent 1000产品页","url":"https://www.rolls-royce.com/products-and-services/civil-aerospace/wide-body/trent-1000.aspx"},
+      {"label":"罗尔斯-罗伊斯历史：787-9运营","url":"https://www.mylearning.rolls-royce.com/about/our-history.aspx"},
+      {"label":"GE：GEnx-1B与787","url":"https://www.ge.com/news/press-releases/first-genx-1b-powered-boeing-787-dreamliner-delivered-japan-airlines"},
+      {"label":"NTSB：2013年787-8电池事件","url":"https://www.ntsb.gov/investigations/pages/DCA13IA037.aspx"},
+      {"label":"波音：上海航空首架787-9交付","url":"https://investors.boeing.com/investors/news/press-release-details/2018/Boeing-Delivers-First-787-Dreamliner-for-Shanghai-Airlines/default.aspx"},
+      {"label":"God's Eye View模型优化版出处与许可表","url":"https://github.com/bilawalsidhu/gods-eye-view/blob/main/public/models/README.md"},
+      {"label":"Nobilis 2原始787-9模型","url":"https://sketchfab.com/3d-models/boeing-787-9-b6711e2e698e4e469675c1154a50b7a3"}
+    ],
+    "postId": "3884f54e"
+  },
+  {
     "slug": "airbus-a400m-atlas",
     "nameZh": "A400M“阿特拉斯”",
     "nameEn": "Airbus A400M Atlas",
