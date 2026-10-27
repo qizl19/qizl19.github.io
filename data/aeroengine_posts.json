@@ -1,5 +1,42 @@
 [
   {
+    "issue": 17,
+    "slug": "fan-low-pressure-turbine-power-map-matching",
+    "postId": "18d9f054",
+    "title": "航空发动机学习简报｜第17期｜风扇—低压涡轮轴功与工作线匹配",
+    "subtitle": "从20.6 MW轴功账本到风扇、增压级、涡轮和喷管的共同工作点",
+    "type": "设计与控制方法",
+    "date": "2026-10-26",
+    "updated": "2026-10-27",
+    "heroImage": "/p/18d9f054/fan-lpt-match.svg",
+    "summary": "沿低压轴追踪风扇与核心增压级的功率需求、低压涡轮的燃气焓降，复算20.6025 MW教学设计点与约299.6 K涡轮温降，并用NASA部件匹配方法说明稳态功率、流量、转速、喷管和工作线须共同闭合。",
+    "contentFile": "data/aeroengine/2026-10-26-fan-low-pressure-turbine-power-map-matching.html",
+    "keyConcepts": ["低压轴", "风扇", "核心增压级", "低压涡轮", "轴功平衡", "修正流量", "修正转速", "部件性能图", "工作线", "流量连续", "喷管吞吐", "轴加速"],
+    "headings": [
+      {"id":"本期问题与学习目标","title":"本期问题与学习目标"},
+      {"id":"核心结论","title":"核心结论"},
+      {"id":"低压轴的物理直觉","title":"低压轴的物理直觉"},
+      {"id":"必要公式与变量口径","title":"必要公式与变量口径"},
+      {"id":"可复算的设计点算例","title":"可复算的设计点算例"},
+      {"id":"从功率到工作线的执行步骤","title":"从功率到工作线的执行步骤"},
+      {"id":"常见误区与失效边界","title":"常见误区与失效边界"},
+      {"id":"与整机和控制系统的耦合","title":"与整机和控制系统的耦合"},
+      {"id":"自测题","title":"自测题"},
+      {"id":"答案与下一期衔接","title":"答案与下一期衔接"},
+      {"id":"参考资料与图示许可","title":"参考资料与图示许可"}
+    ],
+    "validationNeedles": ["20.6025 MW", "299.6 K", "修正流量", "流量连续"],
+    "figures": [{"src":"/p/18d9f054/fan-lpt-match.svg","title":"低压轴功与流量匹配原创教学示意","author":"Qzl's Blog","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","basis":"NASA/TM-2005-213659 §3.7; NASA Glenn Compressor-Turbine Matching"}],
+    "sources": [
+      {"title":"NASA/TM-2005-213659, §3.7","url":"https://ntrs.nasa.gov/api/citations/20050207438/downloads/20050207438.pdf"},
+      {"title":"NASA Glenn Compressor–Turbine Matching","url":"https://www.grc.nasa.gov/www/k-12/airplane/ctmatch.html"},
+      {"title":"NASA component flow and work matching","url":"https://ntrs.nasa.gov/api/citations/19910020827/downloads/19910020827.pdf"},
+      {"title":"NASA Turbomachinery Maps","url":"https://ntrs.nasa.gov/api/citations/20070018165/downloads/20070018165.pdf"},
+      {"title":"NASA low-pressure subsystem analysis","url":"https://ntrs.nasa.gov/citations/20050179334"}
+    ],
+    "nextTopic": "低压轴瞬态加速与风扇喘振裕度调度：用简化惯量算例连接稳态匹配与FADEC限制"
+  },
+  {
     "issue": 16,
     "slug": "bypass-ratio-fan-pressure-nacelle-installation",
     "postId": "91573f58",

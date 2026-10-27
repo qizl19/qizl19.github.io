@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" role="img" aria-labelledby="title desc">
+<title id="title">低压轴功和流量匹配教学示意</title><desc id="desc">风扇和增压级消耗轴功，低压涡轮供功；两侧流量、转速和喷管共同约束工作点。</desc>
+<rect width="900" height="400" fill="#f8fbff"/><g font-family="Arial, sans-serif" fill="#17324d">
+<text x="40" y="44" font-size="26" font-weight="bold">LOW-PRESSURE SPOOL · POWER + FLOW MATCH</text>
+<rect x="40" y="106" width="205" height="90" rx="12" fill="#dceefe" stroke="#2873ab" stroke-width="3"/><text x="64" y="145" font-size="23">FAN</text><text x="64" y="175" font-size="17">500 kg/s · +35 K</text>
+<rect x="324" y="106" width="205" height="90" rx="12" fill="#dceefe" stroke="#2873ab" stroke-width="3"/><text x="345" y="145" font-size="23">BOOSTER</text><text x="345" y="175" font-size="17">60 kg/s · +50 K</text>
+<rect x="620" y="106" width="238" height="90" rx="12" fill="#ffe7d2" stroke="#c66a23" stroke-width="3"/><text x="642" y="145" font-size="23">LP TURBINE</text><text x="642" y="175" font-size="17">61 kg/s · −300 K</text>
+<path d="M625 220H70" stroke="#7551a8" stroke-width="9"/><path d="M70 220l18-10v20z" fill="#7551a8"/><text x="326" y="251" font-size="18">same shaft speed · N<tspan baseline-shift="sub" font-size="12">L</tspan></text>
+<path d="M245 152h65m220 0h75" stroke="#416582" stroke-width="4" marker-end="url(#a)"/><text x="45" y="308" font-size="20">fan + booster demand ≈ 20.6 MW</text><text x="45" y="343" font-size="20">η<tspan baseline-shift="sub" font-size="13">m</tspan> × LPT gas power ≈ 20.6 MW</text>
+<text x="585" y="308" font-size="17">Design-point, assumed values</text><text x="585" y="337" font-size="17">Map + nozzle check still required</text>
+</g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0l8 4-8 4z" fill="#416582"/></marker></defs></svg>
