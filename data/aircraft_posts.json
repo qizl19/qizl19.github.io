@@ -1,5 +1,107 @@
 [
   {
+    "slug": "airbus-a350-900",
+    "nameZh": "空客A350-900",
+    "nameEn": "Airbus A350-900",
+    "eyebrow": "飞机资料整理 · 第 30 期",
+    "subtitle": "复合材料机体、Trent XWB 与远程宽体航线的取舍",
+    "date": "2026-10-27",
+    "updated": "2026-10-27",
+    "nation": "欧洲",
+    "category": "双发远程宽体客机",
+    "era": "2010年代至今",
+    "tags": ["航空", "民航", "宽体客机"],
+    "status": "服役中；个别飞机重量批准状态与客舱布局依运营方而异",
+    "metrics": {
+      "firstFlightYear": 2013,
+      "lengthM": 66.8,
+      "wingspanM": 64.75,
+      "maxTakeoffWeightT": 283,
+      "speedLabel": "空客当前产品页列典型巡航 Mach 0.85",
+      "rangeLabel": "空客当前参数表列 8600 海里 / 15750 千米，非满载保证值"
+    },
+    "diagram": [
+      "需求：远程宽体航线的容量、航程和经济性",
+      "结构：复合材料机身与高展弦比后掠翼",
+      "动力：两台罗尔斯-罗伊斯 Trent XWB-84",
+      "约束：载荷、航程、机场适配与维护成本"
+    ],
+    "firstFlight": "2013年6月14日；空客 A350 家族事实与数字",
+    "accent": "#235c7e",
+    "heroImage": "/p/cf434801/cathay-pacific.jpg",
+    "model": {
+      "kind": "sourced-open-model",
+      "src": "/p/cf434801/models/a350-900-sourced.glb",
+      "poster": "/p/cf434801/cathay-pacific.jpg",
+      "author": "amvlab / aircraft-models",
+      "sourceUrl": "https://github.com/amvlab/aircraft-models/blob/main/models/A350_nologo.glb",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "method": "现成 A350 家族开源外形模型；与 A350-900 的公开机长、翼展及八视角轮廓比对后作为非工程示意",
+      "outputSha256": "d91061ecff300c4e8951b571a476d6fcacd4d50dceb8e1d9a80cde7fa86b19f5",
+      "note": "来源仓库将文件标为 A350，未另列子型号；网格约 67.2 米机长、64.6 米翼展，与空客 A350-900 的 66.8 / 64.75 米接近，明显区别于 73.8 米机长的 A350-1000。八视角目视可辨双发、后掠翼、上翘翼尖和常规尾翼；3710 三角面、221828 字节、GLB glTF v2，SHA256 d91061ecff300c4e8951b571a476d6fcacd4d50dceb8e1d9a80cde7fa86b19f5。网格不水密，来源未提供工程尺寸认证。该外形仅作 A350-900 近似可视化示意，不可用于制造、仿真、尺寸测量或适航判断。"
+    },
+    "statement": "A350-900以复合材料机身与机翼、Trent XWB-84双发和远程运营能力构成宽体干线方案；航程与最大载客数属于不同口径。",
+    "summary": "A350-900于2013年6月14日首飞，2014年12月22日首架交付卡塔尔航空，并于2015年1月15日投入商业运营。空客当前参数表列机长66.8米、翼展64.75米、典型三舱332—352座、最大起飞重量283吨与标称航程8600海里。飞机采用两台Trent XWB-84涡扇；超远程ULR与加长A350-1000须与基准型分开看。",
+    "facts": [
+      {"label":"首飞与服役","value":"2013年6月14日首飞；2015年1月15日由卡塔尔航空投入运营。"},
+      {"label":"尺寸","value":"机长66.80米、翼展64.75米、机高17.05米；空客当前产品页。"},
+      {"label":"座位","value":"典型三舱332—352座；最大440座，具体取决于布局和认证。"},
+      {"label":"最大起飞重量","value":"空客当前产品页列283.00吨；不同批次和批准状态可能不同。"},
+      {"label":"航程与巡航","value":"参数表列8600海里/15750千米、Mach 0.85；非同一最大载客任务点。"},
+      {"label":"动力","value":"两台罗尔斯-罗伊斯Trent XWB-84高涵道比涡扇。"},
+      {"label":"燃油容量","value":"空客当前产品页列最大166488升。"}
+    ],
+    "timeline": [
+      {"year":"2013年6月14日","event":"A350-900首次飞行。"},
+      {"year":"2014年9月30日","event":"获得欧洲航空安全局型号认证。"},
+      {"year":"2014年11月12日","event":"获得美国联邦航空局型号认证。"},
+      {"year":"2014年12月22日","event":"首架A350-900交付卡塔尔航空。"},
+      {"year":"2015年1月15日","event":"卡塔尔航空将A350-900投入商业运营。"},
+      {"year":"2018年10月11日","event":"A350-900ULR由新加坡航空投入运营。"},
+      {"year":"2022年","event":"空客引入A350新标准，涉及减重、重量与客舱改进。"}
+    ],
+    "designPoints": [
+      "低翼、双翼下发动机、常规尾翼的远程宽体布局，机翼展64.75米。",
+      "空客公开资料强调复合材料机身与机翼、现代化驾驶舱和宽客舱。",
+      "5.94米的机身外宽与5.71米最大客舱宽度对应多种航空公司客舱排布。",
+      "长翼展有利于远程巡航效率，同时要求机场地面资源适配。"
+    ],
+    "power": "A350-900采用两台罗尔斯-罗伊斯Trent XWB-84高涵道比涡扇，型号名对应约84000磅级推力。A350-1000采用更高推力的Trent XWB-97，不能把其参数直接套用于-900。发动机与机翼、燃油系统和控制限值共同决定起飞、爬升、巡航、噪声及维护取舍；额定推力并非任意高度、温度和速度下的恒定输出。",
+    "variants": [
+      {"name":"A350-900","description":"本期资料基准型，空客当前产品页列机长66.8米、典型三舱332—352座。"},
+      {"name":"A350-900ULR","description":"为超远程运营优化的-900衍生构型；航程与客舱口径应单列。"},
+      {"name":"A350-1000","description":"家族加长成员，机长73.8米、配Trent XWB-97；不应与-900混用参数。"},
+      {"name":"A350F","description":"家族货运型号，与本期客运-900不同。"}
+    ],
+    "strengths": [
+      "复合材料机身与机翼、新一代涡扇和现代气动布局共同支持远程航线。",
+      "基准型、ULR与加长型构成不同容量和航程的家族选择。",
+      "宽客舱和多种布局为航线网络与旅客配置提供空间。"
+    ],
+    "limits": [
+      "标称航程、典型座位和最大座位不对应同一任务点；实际载荷航程需按航班条件计算。",
+      "复合材料结构、发动机和复杂系统要求适配的检查与维修能力。",
+      "64.75米翼展和宽体尺寸影响停机位、滑行道及机场资源。",
+      "运营经济性随航线、座位密度、油价、维护状态与重量批准构型变化。",
+      "空客同页简介和参数表分别出现最高9700海里和8600海里口径；本卡按参数表的8600海里列示。"
+    ],
+    "photos": [
+      {"src":"/p/cf434801/cathay-pacific.jpg","alt":"国泰航空A350-900完整侧面外形","caption":"国泰航空A350-900地面完整侧面，双发、后掠翼和尾翼清晰可见；原图保留。","credit":"DUNCAN KIRK","sourceUrl":"https://commons.wikimedia.org/wiki/File:B-LRS_A350-900,_Cathay_Pacific,_Sea-Tac_05-12-26_(55319037982).jpg","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/"},
+      {"src":"/p/cf434801/china-eastern.jpg","alt":"中国东方航空A350-900地面外形","caption":"中国东方航空A350-900地面全机视角；原图保留。","credit":"Oleg Yunakov","sourceUrl":"https://commons.wikimedia.org/wiki/File:Airbus_A350-900_-_China_Eastern_Airlines_-_B-323H.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src":"/p/cf434801/singapore-airlines.jpg","alt":"新加坡航空A350-900进近侧面","caption":"新加坡航空A350-900进近，双发、翼尖和起落架可辨；原图保留。","credit":"kitmasterbloke","sourceUrl":"https://commons.wikimedia.org/wiki/File:9V-SGD_Singapore_Airlines_Airbus_A350-941_SIN_230325.jpg","license":"CC BY 2.0","licenseUrl":"https://creativecommons.org/licenses/by/2.0/"}
+    ],
+    "sources": [
+      {"label":"空客A350-900当前规格","url":"https://www.aircraft.airbus.com/en/aircraft/a350/a350-900"},
+      {"label":"空客A350家族介绍","url":"https://www.airbus.com/en/products-services/commercial-aircraft/passenger-aircraft/a350-family"},
+      {"label":"空客A350家族事实与数字（2024）","url":"https://www.airbus.com/sites/g/files/jlcbta136/files/2024-04/Airbus-A350-Family-Facts-and-Figures%20April-2024.pdf"},
+      {"label":"空客A350机场规划文件","url":"https://www.aircraft.airbus.com/sites/g/files/jlcbta126/files/2023-02/Airbus-Commercial-Aircraft-AC-A350-900-1000.pdf"},
+      {"label":"罗尔斯-罗伊斯Trent XWB产品页","url":"https://www.rolls-royce.com/products-and-services/civil-aerospace/widebody/trent-xwb.aspx"},
+      {"label":"amvlab开源A350模型与CC BY 4.0许可","url":"https://github.com/amvlab/aircraft-models"}
+    ],
+    "postId": "cf434801"
+  },
+  {
     "slug": "boeing-787-9-dreamliner",
     "nameZh": "波音787-9“梦想客机”",
     "nameEn": "Boeing 787-9 Dreamliner",

@@ -1,5 +1,16 @@
 [
   {
+    "slug": "airbus-a350-900",
+    "name": "空客A350-900",
+    "url": "/p/cf434801.html",
+    "firstFlightYear": 2013,
+    "lengthM": 66.8,
+    "wingspanM": 64.75,
+    "maxTakeoffWeightT": 283,
+    "speedLabel": "空客当前产品页列典型巡航 Mach 0.85",
+    "rangeLabel": "空客当前参数表列 8600 海里 / 15750 千米，非满载保证值"
+  },
+  {
     "slug": "boeing-787-9-dreamliner",
     "name": "波音787-9“梦想客机”",
     "url": "/p/3884f54e.html",
