@@ -1,5 +1,55 @@
 [
   {
+    "slug": "airbus-a380-800",
+    "nameZh": "空客A380-800",
+    "nameEn": "Airbus A380-800",
+    "eyebrow": "飞机资料整理 · 第 31 期",
+    "subtitle": "全长双层客舱、四发动力与高密度远程航线",
+    "date": "2026-10-29",
+    "updated": "2026-10-29",
+    "nation": "欧洲",
+    "category": "四发双层远程宽体客机",
+    "era": "2000年代至今",
+    "tags": ["航空", "民航", "宽体客机"],
+    "status": "生产于2021年结束；现有机队仍在运营并获空客支持",
+    "metrics": {"firstFlightYear":2005,"lengthM":72.73,"wingspanM":79.75,"maxTakeoffWeightT":575,"speedLabel":"空客2021年资料列长航程巡航约Mach 0.85","rangeLabel":"空客公开资料列约8000海里，受载荷、风和备降条件影响"},
+    "diagram": ["需求：繁忙枢纽间单班次高客流","结构：全长双层客舱与近80米翼展","动力：四台Trent 900或GP7000系列涡扇","约束：机场门位、滑行道、客座率与维护成本"],
+    "firstFlight": "2005年4月27日；空客A380事实与数字",
+    "accent": "#235d7e",
+    "heroImage": "/p/2c5b3864/singapore-airlines.jpg",
+    "model": {"kind":"sourced-open-model","src":"/p/2c5b3864/models/a380-800-sourced.glb","poster":"/p/2c5b3864/singapore-airlines.jpg","author":"amvlab / aircraft-models","sourceUrl":"https://github.com/amvlab/aircraft-models/blob/main/models/A380_nologo.glb","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","method":"现成A380家族开源模型；按八视角与A380-800公开轮廓比对，作为非工程外形示意","outputSha256":"785045c8467e8db10ba3b89a01a2d3c0184669b977964487a3a57825fa7c4619","note":"来源仓库标为A380，未明确子型号；外形长宽比例对应A380-800，八视角可辨四发、全长双层机身、机翼、尾翼及左右对称。原始GLB 239072字节、3338三角面、glTF v2、SHA256 785045c8467e8db10ba3b89a01a2d3c0184669b977964487a3a57825fa7c4619；原始坐标单位未获工程认证，网格不水密。该模型仅作A380-800近似外形可视化示意，不可用于制造、仿真、尺寸测量或适航判断。"},
+    "statement": "A380-800以双层客舱和四发动力换取繁忙枢纽间的单班次大容量，机场适配和客座率决定其运营价值。",
+    "summary": "A380-800于2005年4月27日首飞，2007年10月25日由新加坡航空投入商业运营。空客机场规划文件列机长72.73米、翼展79.75米，公开资料列最大认证载客853人、约8000海里标称航程。飞机可选四台Trent 900或GP7000系列发动机。生产于2021年结束，但现役机队继续获得制造商支持。",
+    "facts": [
+      {"label":"首飞与服役","value":"2005年4月27日首飞；2007年10月25日由新加坡航空投入运营。"},
+      {"label":"尺寸","value":"机长72.73米、翼展79.75米、机高约24.1米；空客机场规划与事实资料。"},
+      {"label":"座位","value":"最大认证853座；2021年空客资料列典型四舱约545座。"},
+      {"label":"最大起飞重量","value":"依Weight Variant约510-575吨，不能当作单一构型定值。"},
+      {"label":"航程与巡航","value":"约8000海里、长航程Mach 0.85；载荷与运行条件影响实际值。"},
+      {"label":"动力","value":"四台罗尔斯-罗伊斯Trent 900或Engine Alliance GP7000系列涡扇。"},
+      {"label":"燃油容量","value":"空客2021年资料列约320000升。"}
+    ],
+    "timeline": [
+      {"year":"2000年12月","event":"A380项目启动。"},
+      {"year":"2005年4月27日","event":"A380首次飞行。"},
+      {"year":"2007年10月25日","event":"新加坡航空将A380投入商业运营。"},
+      {"year":"2020年6月","event":"最后一次A380大型部件陆运车队抵达图卢兹。"},
+      {"year":"2021年","event":"A380结束生产，现有机队继续运营。"}
+    ],
+    "designPoints": ["全长双层客舱、低翼、四发与常规尾翼形成高容量远程布局。","近80米翼展和复杂起落架支撑高重量，同时提高机场适配要求。","客舱可由航空公司配置不同舱等、休息区及其他服务空间。","空客机场规划文件提供各Weight Variant的重量及地面服务数据，应按具体构型引用。"],
+    "power": "A380-800可以装四台罗尔斯-罗伊斯Trent 900，或四台Engine Alliance GP7000系列高涵道比涡扇；两种选项分属不同机队构型。四发提供起飞所需总推力，也意味着更多短舱、安装结构和维护工位。具体推力、耗油率与性能应以发动机改型、飞机重量和运行工况核对。",
+    "variants": [{"name":"A380-800","description":"唯一投入商业运营的量产客运型号；本期资料基准。"},{"name":"A380-800重量变体","description":"不同Weight Variant最大起飞重量、着陆重量与燃油/载荷批准不同。"},{"name":"A380货运方案","description":"规划方案未进入量产运营，不应视为已服役型号。"}],
+    "strengths": ["在单一机场时刻可承载大量旅客，适用于高密度枢纽航线。","双层客舱支持多种舱等和专门服务空间。","现役机队仍获空客支持，可继续发挥大容量价值。"],
+    "limits": ["机场门位、滑行道、登机桥和地面周转资源须适配大型双层客机。","四发和高载客量使经济性更依赖客座率、油价、航线需求与维护状态。","低客流航线难发挥大容量优势。","最高座位、最大重量和标称航程不应拼接为同一飞行任务点。"],
+    "photos": [
+      {"src":"/p/2c5b3864/singapore-airlines.jpg","alt":"新加坡航空A380-800完整空中外形","caption":"新加坡航空A380-800空中全机仰视，四发和双层机身可辨；仅缩放与压缩。","credit":"Saschaporsche","sourceUrl":"https://commons.wikimedia.org/wiki/File:Airbus_A380_Singapore_Airlines.JPG","license":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/"},
+      {"src":"/p/2c5b3864/lufthansa-frankfurt.jpg","alt":"法兰克福机场汉莎航空A380-800地面近景","caption":"汉莎航空A380-800在法兰克福机场，双层舷窗与翼下发动机可见；原图保留。","credit":"Polimerek","sourceUrl":"https://commons.wikimedia.org/wiki/File:Airbus_A_380_800.jpg","license":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/"},
+      {"src":"/p/2c5b3864/lufthansa-2025.jpg","alt":"汉莎航空A380-800进近洛杉矶完整外形","caption":"汉莎航空A380-800进近，四发、起落架及全机轮廓可辨；原图保留。","credit":"Ziongarage","sourceUrl":"https://commons.wikimedia.org/wiki/File:Airbus_A380-800_Lufthansa.jpg","license":"CC0 1.0","licenseUrl":"https://creativecommons.org/publicdomain/zero/1.0/"}
+    ],
+    "sources": [{"label":"空客A380当前产品介绍","url":"https://www.airbus.com/en/products-services/commercial-aircraft/passenger-aircraft/a380"},{"label":"空客A380机场规划文件2025","url":"https://www.aircraft.airbus.com/sites/g/files/jlcbta126/files/2025-12/AC_A380_20251201.pdf"},{"label":"空客A380事实与数字2021","url":"https://www.airbus.com/sites/g/files/jlcbta136/files/2021-10/EN-Airbus-A380-Facts-and-Figures_0.pdf"},{"label":"罗尔斯-罗伊斯Trent 900资料","url":"https://www.rolls-royce.com/media/press-releases-archive/yr-2011/110915-trent-900-skymark.aspx"},{"label":"GE Engine Alliance GP7200资料","url":"https://www.ge.com/news/press-releases/engine-alliance-unveils-new-logo"},{"label":"amvlab开源A380模型与许可","url":"https://github.com/amvlab/aircraft-models"}],
+    "postId": "2c5b3864"
+  },
+  {
     "slug": "airbus-a350-900",
     "nameZh": "空客A350-900",
     "nameEn": "Airbus A350-900",

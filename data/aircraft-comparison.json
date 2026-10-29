@@ -1,5 +1,16 @@
 [
   {
+    "slug": "airbus-a380-800",
+    "name": "空客A380-800",
+    "url": "/p/2c5b3864.html",
+    "firstFlightYear": 2005,
+    "lengthM": 72.73,
+    "wingspanM": 79.75,
+    "maxTakeoffWeightT": 575,
+    "speedLabel": "空客2021年资料列长航程巡航约Mach 0.85",
+    "rangeLabel": "空客公开资料列约8000海里，受载荷、风和备降条件影响"
+  },
+  {
     "slug": "airbus-a350-900",
     "name": "空客A350-900",
     "url": "/p/cf434801.html",
