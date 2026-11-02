@@ -1,0 +1,78 @@
+<p><strong>定位：</strong>面向 FreeCAD 动力学自动化工作流。</p>
+<p>检索窗口：2026-10-26 08:49 至 2026-11-02 08:49（Asia/Shanghai）。本期只把窗口内可核验的官方预发布、合并提交、开发提交、论文原文与问题单列为动态；正式发布、开发中变更、预印本、产品声明、社区信号和“本周无重要变化”分级标注。</p>
+<style>@media(max-width:768px){#article-container table{display:block;width:100%;overflow-x:auto}#article-container th,#article-container td{min-width:7em;overflow-wrap:anywhere}}</style>
+
+<h2 id="执行摘要">执行摘要</h2>
+<blockquote><p><strong>本周最值得做的是把“装配事务—STEP 精确几何—分区网格—多面体结果—模态语义”串成一条可复算的数据契约。</strong>FreeCAD weekly-2026.10.28 仍是开发预发布，但 Assembly 已合并防止爆炸视图任务重入把临时位移写回真实装配的修复；STEP/IGES 在非英文界面丢失颜色的路径也已修复并回移 26.3 分支。Gmsh 开发分支加速分区写出、登记 HXT 边界恢复产生的 Steiner 点，并修复混合 built-in/OCCT 实体 tag 冲突。VTK 开发分支加入分布式单文件 VTKHDF 写出，并继续修正 polyhedron 边/面语义；CalculiX 修正 C3D8R 热结果并补强输入检查。AI 侧只有 CAD-WAM 达到“新提交、量化、代码开放、可形成 FreeCAD 验证”的优先门槛：其 DeepCAD 7,962 模型统一评测中无效率 0.666%、IoU 0.964、平均 Chamfer 1.142，但模型只覆盖最多 10 步草图—拉伸序列，且训练依赖 8×H800。IGA 专项在固定窗口内没有合格的新发布或论文，不能用 10 月 21 日的壳拓扑优化预印本冒充本周新闻。</p></blockquote>
+<ul><li>为 Assembly 爆炸视图建立“任务打开—重复双击—取消—保存—重开”回归，比较零位姿漂移、事务栈和约束残差。</li><li>用非英文 UI 的带色 STEP、修剪 NURBS 与重复实例建立互操作真值集，并贯通 Gmsh 分区写出、VTKHDF/VTK 多面体和 CalculiX 结果哈希。</li><li>只在隔离分支复现 CAD-WAM：把 DSL 映射到 FreeCAD/CadQuery 后，追加参数扰动、拓扑命名、STEP 往返和可验证装配门禁。</li></ul>
+
+<h2 id="本周最优先的-3-项行动">本周最优先的 3 项行动</h2>
+<ol><li><strong>封住装配任务重入。</strong>在 RC2、weekly-2026.10.28 和含修复的开发构建中，对同一装配重复双击 Exploded View；取消后要求所有 Placement 与基线逐项相同，保存重开后关节残差不变，并把命令事务数量纳入断言。</li><li><strong>建立颜色、精确几何和结果格式的跨语言真值链。</strong>在中文/韩文 UI 导出含面颜色、层级、实例与修剪 NURBS 的 STEP；核对颜色、控制点、节点矢量、权重、pcurve/修剪环，再对 Gmsh 分区 MSH、CalculiX FRD/DAT 和 VTKHDF 做实体、面列表、数组、单位与 SHA-256 差分。</li><li><strong>把 AI 输出当候选程序而不是正确 CAD。</strong>复现 CAD-WAM 的统一指标后，再加入 FreeCAD 特有判据：BRepCheck、拓扑命名稳定、全约束草图、参数扰动重算、装配约束闭环和 STEP 二次导入；未通过者不得进入动力学求解。</li></ol>
+
+<h2 id="本周态势总览">本周态势总览</h2>
+<table><thead><tr><th>主题</th><th>证据等级</th><th>本周信号</th><th>工作流决策</th></tr></thead><tbody>
+<tr><td>FreeCAD Assembly</td><td>官方预发布 + 已合并</td><td>weekly-2026.10.28；Exploded View 任务重入保护</td><td>高优先回归</td></tr>
+<tr><td>IGA / CAD–分析</td><td>本周无重要变化</td><td>主流框架无窗口内发布/提交；无合格新论文</td><td>保持验证协议</td></tr>
+<tr><td>AI × CAD/CAE</td><td>预印本 + 开源代码</td><td>CAD-WAM 的 kernel-in-the-loop 下一状态监督</td><td>隔离复现</td></tr>
+<tr><td>STEP / Rhino / CATIA</td><td>已合并开发变更</td><td>非英文 UI 的 STEP/IGES 颜色导出修复</td><td>多语言真值集</td></tr>
+<tr><td>Gmsh / meshio</td><td>开发提交</td><td>分区写出、HXT 边界点、混合 OCCT tag 修复；meshio 无变化</td><td>性能与拓扑回归</td></tr>
+<tr><td>VTK / ParaView</td><td>开发提交</td><td>分布式单文件 VTKHDF、polyhedron sides；ParaView 缓存开关</td><td>并行 I/O 回归</td></tr>
+<tr><td>CalculiX</td><td>开发提交/社区信号</td><td>C3D8R 热结果修正；FreeCAD macOS ARM64 模态导入待确认</td><td>单元与跨平台复算</td></tr>
+<tr><td>pybind11 / ABI</td><td>开发提交</td><td>stable ABI 访问器重构与实例注册竞态修复</td><td>构建矩阵验证</td></tr>
+</tbody></table>
+
+<h2 id="freecad-assembly-自动化与-api-插件变化">FreeCAD Assembly 自动化与 API/插件变化</h2>
+<p><a href="https://github.com/FreeCAD/FreeCAD/releases/tag/weekly-2026.10.28" target="_blank" rel="noopener noreferrer">weekly-2026.10.28</a> 是 10 月 28 日发布的官方开发测试构建，发布页明确“不用于生产”。本周最直接的 Assembly 修复是 <a href="https://github.com/FreeCAD/FreeCAD/pull/32497" target="_blank" rel="noopener noreferrer">PR #32497</a>：当 Exploded View 任务已打开时再次双击，旧行为会重建任务界面、重新施加爆炸位移，并可能把活动 create/edit 事务提交，导致临时平移写入真实装配；取消只能撤销最新事务。修复在任务对话框已激活时直接返回，并已回移 26.3 分支。</p>
+<p>证据边界：这是已合并开发变更，PR 只报告手工验证，没有随提交展示自动化位姿/事务回归。对无头或批处理工作流，建议记录双击前后每个零件的 4×4 Placement、活动命令数量、关节残差和 FCStd 哈希；取消、保存重开和再次进入编辑都必须无漂移。该修复不等于 Assembly Python API 稳定承诺，插件仍应固定 FreeCAD tag、Python/Qt/OCCT/VTK 组合。</p>
+<p>同时，<a href="https://github.com/FreeCAD/FreeCAD/issues/33978" target="_blank" rel="noopener noreferrer">问题 #33978</a> 是需谨慎对待的社区信号：macOS ARM64 上 CalculiX DAT 已有有效固有频率，但部分 FEM Result 的 <code>EigenmodeFrequency</code> 仍为 0，且出现“Values need to be unique”。报告者修改导入脚本后新建模型成功，但未完成原文件的受控前后对比，因此它不是已确认根因或修复。验收应同时比较 DAT、FRD、Result 对象标量和保存重开后的模式序号。</p>
+
+<h2 id="iga-cad-分析一体化">IGA / CAD–分析一体化</h2>
+<p><strong>本周无重要变化。</strong>检索边界为 2026-10-26 08:49 至 2026-11-02 08:49（Asia/Shanghai）：检查了 IGA、IBRA、trimmed/immersed IGA、NURBS/B-spline/T-spline/THB-spline/LR-spline、局部加密、切割单元积分、连续性和参数域映射，以及结构动力学、壳/实体、接触、断裂、多物理场、拓扑优化、并行/GPU、预条件、ROM 和神经算子。<a href="https://github.com/gismo/gismo" target="_blank" rel="noopener noreferrer">G+Smo</a> 的 dev 最后公开提交为 10 月 1 日；<a href="https://github.com/dalcinl/PetIGA" target="_blank" rel="noopener noreferrer">PetIGA</a>、<a href="https://github.com/david-kamensky/tIGAr" target="_blank" rel="noopener noreferrer">tIGAr</a>、GeoPDEs 与 igatools 均未发现窗口内正式版本或提交。窗口外 10 月 21 日的 NURBS 壳拓扑优化预印本不作为本周新闻重复。</p>
+<table><thead><tr><th>验证对象</th><th>量化指标</th><th>本期结论</th><th>下一实验</th></tr></thead><tbody>
+<tr><td>OCCT/STEP NURBS</td><td>次数、控制点、节点矢量、权重、参数域、Hausdorff/法向误差</td><td>无新证据可改变基线</td><td>FreeCAD 导出—再导入逐字段差分</td></tr>
+<tr><td>修剪/切割单元</td><td>环闭合、短边、负 Jacobian、积分失败率、条件数</td><td>无窗口内量化工作</td><td>孔/缝/近切曲面的小型真值集</td></tr>
+<tr><td>结构动力学</td><td>自由度、收敛阶、频率/振型误差、组装/求解时间、内存</td><td>无合格新 benchmark</td><td>IGA 对 Gmsh 二次单元—CalculiX 模态</td></tr>
+<tr><td>ROM / neural operator</td><td>域外误差、守恒、端到端墙钟、加速比</td><td>没有兼具窗口日期、开放性和精确 CAD 传递的新结果</td><td>冻结几何/材料/载荷后盲测</td></tr>
+</tbody></table>
+<p>面向 FreeCAD 的门禁保持不变：从 <code>Geom_BSplineSurface</code> 提取 pole、knot、multiplicity、weight 和 u/v 参数域，从 TopoDS_Face 提取 3D edge、pcurve、内外 wire 与方向；再与 Gmsh/CalculiX 传统 FEM 在相同材料、载荷、边界条件和几何容差下比较位移、反力、模态、能量、自由度、条件数、时间和内存。没有这些数据，就不能把“精确 CAD 几何”推断为“精确分析模型”。</p>
+
+<h2 id="ai-cad-cae">AI × CAD/CAE</h2>
+<p>本期只纳入有 benchmark、量化结果、开放实现且能形成 FreeCAD 验证实验的工作。其他条目即使营销声量更大，也不替代物理和几何门禁。</p>
+<table><thead><tr><th>工作/状态</th><th>方法与数据</th><th>量化结果</th><th>开放性、局限与风险</th><th>FreeCAD 验证</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2610.39306" target="_blank" rel="noopener noreferrer">CAD-WAM</a><br>10 月 29 日预印本</td><td>Qwen2.5-1.5B 生成操作级 DSL；SetVAE 编码实际中间实体，辅助头预测下一几何状态；每步由 CadQuery/OCCT 执行后反馈。DeepCAD 178,238 模型，统一评测 7,962 个测试模型。</td><td>无效率 0.666%；平均/中位 CD 1.142/0.166，IoU 0.964，Euler 匹配 95.850%；相对最强任务基线，CD 中位数降 15%、均值降 56%。状态预测头把无效率 0.779%→0.666%、平均 CD 1.316→1.142。</td><td><a href="https://github.com/Lzy-1037/CAD-WAM" target="_blank" rel="noopener noreferrer">代码开放</a>。数据只含 1–10 步草图/拉伸，零拔模；训练/评测用 8×H800，编码器会圆化细边；生成器与评测 kernel 环境不同，布尔近重合面仍敏感。</td><td>复现统一指标后，追加 OCCT BRepCheck、拓扑命名、全约束草图、参数扰动、STEP 往返、装配约束和动力学可解性；对失败尾部做分层统计。</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2609.22688v3" target="_blank" rel="noopener noreferrer">DIP-CAD v3</a><br>10 月 27 日修订预印本</td><td>VLM agent + CAD kernel；显式面/边/点引用、局部坐标桥与草图约束保留设计意图；GERD-EVL 与 DeepCAD 子集。</td><td>静态生成 mIoU 提升 11.1%/5.6%；参数编辑 mIoU 提升 7.0%/4.2%。</td><td>本周只是旧预印本修订，不是新同行评议结果；arXiv 页面未确认代码/数据发布。mIoU 不能证明拓扑命名、约束闭合或长参数链稳定，置信度中低。</td><td>用 FreeCAD Expression/Spreadsheet 驱动 20 次参数扫描；统计重算成功率、约束自由度、引用漂移和最终 B-Rep 差分。</td></tr>
+</tbody></table>
+<p><strong>范围覆盖结论：</strong>CAD-WAM 覆盖 Text-to-CAD、programmatic CAD 和 kernel-in-the-loop 生成；DIP-CAD 覆盖 agentic CAD、几何引用、约束与自动参数化。二者都不是成熟的 CAD copilot，也没有验证多零件装配、接触或动力学。几何理解/修复、拓扑优化、AI 辅助网格、边界条件/载荷识别、参数标定、solver acceleration、ROM、surrogate model、PINN、neural operator、digital twin、后处理和异常检测在固定窗口内没有同时满足新鲜度、量化、开放性和 FreeCAD 可迁移性的成果；因此明确记为“本周无合格新增”，不拿旧论文填充。主要失效模式是训练分布外特征、边/面引用漂移、指标掩盖少数灾难性输出、kernel/tessellation 版本耦合，以及高算力复现成本。</p>
+
+<h2 id="catia-与-rhino-step-3dm-互操作">CATIA 与 Rhino / STEP / 3DM 互操作</h2>
+<p><a href="https://github.com/FreeCAD/FreeCAD/pull/33922" target="_blank" rel="noopener noreferrer">FreeCAD PR #33922</a> 是本周最实用的互操作变更：非英文 UI 重新应用语言时，STEP 导出模块从 <code>ImportGui</code> 退回 <code>Import</code>，导致“STEP with colors”静默变成无颜色导出；IGES 类型名变更后 GUI 仍查旧名，也使颜色丢失。提交者在韩文 UI 中做了导出—导入验证，修复已合并并回移 26.3 分支。</p>
+<p>这是颜色/模块选择修复，不是 NURBS 或修剪保真的量化证明。建议在中文、韩文、英文 UI 下对相同 FCStd 导出 STEP AP214/AP242，并比较 shape 数、实例层级、颜色绑定、面方向、控制点、节点矢量、权重、修剪环、体积与质心。CATIA 与 <a href="https://github.com/mcneel/rhino3dm" target="_blank" rel="noopener noreferrer">rhino3dm</a> 在窗口内没有可独立核验的重要正式发布；商业材料仅按产品声明处理，3DM 网格单精度与 NURBS 精确曲面应分开验收。</p>
+
+<h2 id="gmsh-与-meshio">Gmsh 与 meshio</h2>
+<p>Gmsh 官方仓库的公开镜像显示三类开发变化。<a href="https://github.com/live-clones/gmsh/commit/7adcd97c088deeb2607691571f24150faaf0a8e1" target="_blank" rel="noopener noreferrer">分区写出提交</a>把重复线性查找改为有序集合的二分查找，但没有随提交给出时间/内存 benchmark；必须用 10²–10⁴ 分区和稀疏实体 tag 实测。<a href="https://github.com/live-clones/gmsh/commit/dc742c0d323aef2063f144792a66a1a139cc18db" target="_blank" rel="noopener noreferrer">HXT 边界恢复</a>把新 Steiner 点登记到所属曲线/曲面，避免保存时缺少 tag。<a href="https://github.com/live-clones/gmsh/commit/3149ab0f67f20df76b1033cafdb53424b910436f" target="_blank" rel="noopener noreferrer">混合几何 tag 修复</a>防止 built-in 实体 tag 与 OCCT 布尔新实体冲突，旧行为会丢 volume 或使绘制崩溃。</p>
+<p>此外，MSH4 合并现在接受多个解文件重复写入整张网格的 overlap，并避免重复登记边界。所有条目均为开发提交，不是正式版本。验证应比较分区前后实体/物理组/ghost/overlap、Steiner 点归属、总单元数、体积、Jacobian、写出时间、峰值内存和文件哈希。<a href="https://github.com/nschloe/meshio" target="_blank" rel="noopener noreferrer">meshio</a> 在窗口内没有提交或 release；不得假定它已覆盖上述新语义。</p>
+
+<h2 id="vtk-与-paraview">VTK 与 ParaView</h2>
+<p>VTK 开发分支为 <a href="https://gitlab.kitware.com/vtk/vtk/-/commit/67372cecaef38fd4736eb9b2f53ffed4e48c34e0" target="_blank" rel="noopener noreferrer"><code>vtkHDFWriter</code> 增加 <code>UseExternalDistributed</code></a>，并配套简单分布式非结构网格的单文件测试；后续提交从子文件复制数据类型。其意义是 MPI 结果可收敛为一个 VTKHDF 入口，但还需要测试多 rank、空 rank、不同数组类型、失败恢复、写入时间和峰值内存，不能只凭“文件能打开”验收。</p>
+<p>多面体侧新增 <a href="https://gitlab.kitware.com/vtk/vtk/-/commit/4bd9db4afe8624f3d68d63f54bf4dfaa8858b6ee" target="_blank" rel="noopener noreferrer"><code>vtkUnstructuredGridSides</code></a>，并让 polyhedron 的边从 face 列表读取、比较时忽略边顺序。<a href="https://gitlab.kitware.com/vtk/vtk/-/commit/7519c6dd021ea5633f5deec147b428c189335c21" target="_blank" rel="noopener noreferrer">XML MultiBlock reader</a> 修复无 index 与嵌套 block 的读取。ParaView 则为 Clip 增加可关闭 static mesh optimization 的选项，并从 release 默认配置撤回 VisRTX-for-ANARI。它们都是开发状态；后处理回归需验证 block 路径、cell/face stream、数组 tuple 数、时间步、截图像素和 CPU/GPU 渲染差异。</p>
+
+<h2 id="calculix-与-abaqus-compatible-流程">CalculiX 与 Abaqus-compatible 流程</h2>
+<p>CalculiX 作者仓库在窗口内修正 <a href="https://github.com/Dhondtguido/CalculiX/commit/e748c3ef420656f7af0f49d761a3acd697fd0d70" target="_blank" rel="noopener noreferrer">C3D8R 的热结果计算</a>：<code>resultstherm.f</code> 对 C3D8R 调用 hourglass 相关形函数路径；另有 C3D8R 热 hourglass 控制、C3D8I selective mass scaling、Johnson–Cook UMAT 修正和额外输入检查。<a href="https://github.com/Dhondtguido/CalculiX/pull/304" target="_blank" rel="noopener noreferrer">MTU patchset #304</a> 合并 PaStiX 6.4 兼容、CMake 构建与时间戳文档等工程改进。</p>
+<p>这些不是正式 release，也没有统一量化 benchmark。应对单 C3D8R 立方体做恒定/线性温度场、约束热膨胀和 hourglass 能量检查，对 C3D8I 显式动力学比较总质量、稳定时间步与能量；Abaqus-compatible 关键词只表示输入语法路径，数值等价需要反力、温度梯度、应力、能量和收敛历史逐项复算。FreeCAD #33978 的模态导入问题要单独跨 macOS ARM64、Windows 和 Linux 验证。</p>
+
+<h2 id="python-cpp-pybind11-abi">Python / C++ / pybind11 / ABI</h2>
+<p>pybind11 本周没有正式 release，但开发分支继续减少对 CPython 私有结构的依赖：<a href="https://github.com/pybind/pybind11/commit/481725b34080f5f5df175ceac0f4cb1fb544cfc8" target="_blank" rel="noopener noreferrer">traceback 格式化</a>改用属性和公开的 <code>PyFrame_GetCode</code>/<code>PyFrame_GetLineNumber</code>，<a href="https://github.com/pybind/pybind11/commit/a581ca2516b78293cf40509b65845dd89339f2c6" target="_blank" rel="noopener noreferrer">thread state</a>改用 <code>PyThreadState_GetInterpreter</code>；目标是靠近 stable ABI，但 PyPy 7.x 仍保留字段访问回退。<a href="https://github.com/pybind/pybind11/commit/2a33aba3190cbf57ab3d46183858351b8321bba2" target="_blank" rel="noopener noreferrer">实例注册竞态修复</a>则保持可能执行用户代码的 holder 注册顺序。</p>
+<p>这不代表 FreeCAD 当前可以直接切 abi3。插件矩阵应固定目标 FreeCAD Python、MSVC/clang-cl、Debug/Release、pybind11 与 NumPy 版本，跑并发导入、跨模块类型识别、异常 traceback、析构、sub-interpreter 和 free-threaded 实验构建；同时用 ASan/TSan 或 Windows Application Verifier 检查竞态与 UAF。任何 wheel 变化都要重跑 FCStd 保存重开和长时批处理。</p>
+
+<h2 id="决策与监控清单">决策与监控清单</h2>
+<table><thead><tr><th>事项</th><th>本期动作</th><th>通过判据</th><th>主要风险</th></tr></thead><tbody>
+<tr><td>Assembly 爆炸视图</td><td>任务重入/取消/保存重开测试</td><td>Placement、事务和约束残差零漂移</td><td>仅有手工验证</td></tr>
+<tr><td>STEP 颜色/NURBS</td><td>三语言 UI + AP214/AP242 真值</td><td>颜色、层级、曲面与修剪逐字段一致</td><td>颜色修复被误解为几何保真</td></tr>
+<tr><td>Gmsh 分区</td><td>10²–10⁴ 分区规模测试</td><td>拓扑一致且时间/内存有可重复改善</td><td>提交无 benchmark</td></tr>
+<tr><td>VTKHDF/polyhedron</td><td>多 rank/空 rank/嵌套 block</td><td>数组、face stream、类型和哈希一致</td><td>开发 API 与并行失败恢复</td></tr>
+<tr><td>CalculiX 热/模态</td><td>C3D8R 单元 + 跨平台 FRD/DAT</td><td>解析值、对象值、能量和保存重开一致</td><td>社区问题根因未确认</td></tr>
+<tr><td>CAD-WAM</td><td>隔离复现并增加 FreeCAD 门禁</td><td>尾部失败受控，参数/引用/装配均可验证</td><td>算力、分布外和 kernel 耦合</td></tr>
+</tbody></table>
+
+<h2 id="来源与证据边界">来源与证据边界</h2>
+<p>本期联网核对 FreeCAD、Gmsh、meshio、VTK、ParaView、CalculiX、pybind11、rhino3dm、G+Smo、GeoPDEs、PetIGA、tIGAr 与 igatools 的官方发布、提交、PR 或问题，并查阅 arXiv 论文原文和公开代码。FreeCAD weekly 是预发布；Assembly、STEP/IGES、Gmsh、VTK、ParaView、CalculiX 与 pybind11 条目均为开发状态；CAD-WAM 与 DIP-CAD 是预印本；FreeCAD #33978 是尚待确认的社区问题信号；IGA、CATIA、rhino3dm 和 meshio按固定窗口明确记录“本周无重要变化”。所有提交或论文指标在本地 FreeCAD—Gmsh—CalculiX—VTK 工作流复现前，都不是生产收益保证。</p>
