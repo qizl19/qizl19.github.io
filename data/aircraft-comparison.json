@@ -1,5 +1,16 @@
 [
   {
+    "slug": "airbus-a320neo",
+    "name": "空客A320neo",
+    "url": "/p/e732294c.html",
+    "firstFlightYear": 2014,
+    "lengthM": 37.57,
+    "wingspanM": 35.8,
+    "maxTakeoffWeightT": 79,
+    "speedLabel": "空客产品页列最大使用马赫数M0.82",
+    "rangeLabel": "空客产品页列3400海里，2026家族事实表列3450海里；载荷及运行条件不同"
+  },
+  {
     "slug": "airbus-a380-800",
     "name": "空客A380-800",
     "url": "/p/2c5b3864.html",

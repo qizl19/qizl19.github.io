@@ -1,5 +1,54 @@
 [
   {
+    "slug": "airbus-a320neo",
+    "nameZh": "空客A320neo",
+    "nameEn": "Airbus A320neo",
+    "eyebrow": "飞机资料整理 · 第 32 期",
+    "subtitle": "新发动机选项、Sharklet与单通道机队共通性",
+    "date": "2026-10-31",
+    "updated": "2026-10-31",
+    "nation": "欧洲",
+    "category": "双发单通道客机",
+    "era": "2010年代至今",
+    "tags": ["航空", "民航", "单通道客机"],
+    "status": "持续生产并在多国航空公司服役",
+    "metrics": {"firstFlightYear":2014,"lengthM":37.57,"wingspanM":35.8,"maxTakeoffWeightT":79,"speedLabel":"空客产品页列最大使用马赫数M0.82","rangeLabel":"空客产品页列3400海里，2026家族事实表列3450海里；载荷及运行条件不同"},
+    "diagram": ["需求：中程高频航线的容量和机队共通性","结构：A320家族低翼单通道机身与Sharklet翼尖","动力：两台PW1100G-JM或LEAP-1A系列涡扇","约束：短舱离地间隙、噪声、机场适配与维护成本"],
+    "firstFlight": "2014年9月；空客2014年度资料",
+    "accent": "#235d7e",
+    "heroImage": "/p/e732294c/china-southern.jpg",
+    "model": {"kind":"sourced-open-model","src":"/p/e732294c/models/a320neo-sourced.glb","poster":"/p/e732294c/china-southern.jpg","author":"amvlab / aircraft-models","sourceUrl":"https://github.com/amvlab/aircraft-models/blob/main/models/A320_nologo.glb","license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","method":"现成A320家族开源模型，八视角核对机身、双发、机翼、翼尖与尾翼，作为A320neo近似外形示意","outputSha256":"08cc60caafe3d0937f3e12e72c28bcb96dfdb39763ac124bcd4da8adaea11ab9","note":"来源仓库标为A320，未明确neo子型。八视角可辨窄体机身、翼下双发、上翘翼尖、常规尾翼和左右对称；5229三角面、250472字节、glTF v2，网格不水密，源坐标单位未认证。该模型仅作A320neo家族近似外形可视化示意，不可用于制造、仿真、尺寸测量或适航判断。"},
+    "statement": "A320neo以两种新动力选项、Sharklet翼尖和A320家族共通性改进中程单通道运营；收益取决于整机与航线匹配。",
+    "summary": "A320neo于2014年9月首飞，2015年11月首个PW1100G-JM动力构型获EASA/FAA认证，2016年1月首架交付汉莎航空。空客2026年事实表列机长37.57米、翼展35.80米、典型两舱150–180座、最大194座、最大起飞重量79吨和约3450海里标称航程。可选PW1100G-JM或LEAP-1A发动机；产品页航程口径为3400海里，需并列说明。",
+    "facts": [
+      {"label":"首飞与服役","value":"2014年9月首飞；2016年1月首交付汉莎航空并投入航班。"},
+      {"label":"尺寸","value":"机长37.57米、几何翼展35.80米、机高11.76米；空客产品页与2026事实表。"},
+      {"label":"座位","value":"典型两舱150–180座；最大194座，取决于批准客舱布局。"},
+      {"label":"最大起飞重量","value":"79.0吨为公开产品口径，具体飞机按批准构型。"},
+      {"label":"航程与速度","value":"产品页3400海里、2026事实表3450海里；最大使用马赫数M0.82。"},
+      {"label":"动力","value":"两台普惠PW1100G-JM或CFM LEAP-1A系列涡扇；具体构型按证书。"}
+    ],
+    "timeline": [
+      {"year":"2010年","event":"空客启动A320neo新发动机选项项目。"},
+      {"year":"2014年9月","event":"首架A320neo完成首次飞行。"},
+      {"year":"2015年11月24日","event":"EASA与FAA批准首个PW1100G-JM动力构型。"},
+      {"year":"2016年1月20日","event":"首架A320neo交付汉莎航空；当月投入航班。"},
+      {"year":"2018年12月","event":"A319neo LEAP-1A构型获证，neo家族动力组合扩大。"}
+    ],
+    "designPoints": ["低翼、后掠翼、翼下双发和常规尾翼延续A320家族单通道平台。","Sharklet翼尖降低诱导阻力，收益随航段和工况变化。","新一代大风扇与短舱提高推进效率潜力，同时影响离地间隙、安装阻力和维修。","机身与驾驶舱家族共通性降低机队转换门槛。"],
+    "power": "A320neo可选普惠PW1100G-JM齿轮传动涡扇或CFM LEAP-1A直接驱动双转子涡扇。两条技术路线都须在风扇、压气机、涡轮、短舱和飞机任务点之间匹配。具体推力、油耗、维护要求与适航限制依子型号和批准文件而定，不能把某一发动机的参数套用全部A320neo。",
+    "variants": [{"name":"A320neo","description":"本期资料基准型，空客2026事实表列37.57米机长。"},{"name":"A319neo","description":"家族短机身成员，载客量和重量口径不同。"},{"name":"A321neo","description":"家族长机身成员，载客量、重量与航程不同。"},{"name":"A320ceo","description":"上一代当前发动机选项构型，不属于neo；用于理解家族共通性。"}],
+    "strengths": ["单通道机队共通性有利于培训、调度和维护组织。","两种发动机选项使航空公司能在性能、服务与供应链间选择。","Sharklet与新动力在适合的中程航线提高每座效率。"],
+    "limits": ["大直径风扇和短舱增加安装、离地间隙与维护约束。","每座节油取决于载客率、航段长度和比较口径，不是单台发动机热效率。","标称航程和最大载客量不对应同一保证飞行任务。","不同发动机选项的维修与适航措施不可混同。"],
+    "photos": [
+      {"src":"/p/e732294c/china-southern.jpg","alt":"中国南方航空A320-251N完整空中外形","caption":"南航A320-251N空中全机，Sharklet翼尖、双发和起落架可辨；仅缩放与压缩。","credit":"Windmemories","sourceUrl":"https://commons.wikimedia.org/wiki/File:20231209_Airbus_A320-251N_of_China_Southern_Airlines_(B-301L)_at_SZX.jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src":"/p/e732294c/china-southern-2018.jpg","alt":"中国南方航空A320neo起飞全机侧面","caption":"南航A320neo起飞，翼尖、短舱和起落架外形可辨；仅缩放与压缩。","credit":"N509FZ","sourceUrl":"https://commons.wikimedia.org/wiki/File:B-301A@CAN_(20180929155809).jpg","license":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/"},
+      {"src":"/p/e732294c/lufthansa.jpg","alt":"汉莎航空A320neo停场外形","caption":"汉莎航空A320neo停场；已依EXIF方向旋转、缩放与压缩。","credit":"BOSSHEP","sourceUrl":"https://commons.wikimedia.org/wiki/File:Lufthansa_A320-200neo_(D-AINV)_at_LHR.jpg","license":"CC0 1.0","licenseUrl":"https://creativecommons.org/publicdomain/zero/1.0/"}
+    ],
+    "sources": [{"label":"空客A320neo当前产品规格","url":"https://www.aircraft.airbus.com/en/aircraft/a320-family/a320neo"},{"label":"空客A320家族2026事实表","url":"https://mediaassets.airbus.com/pm_38_914_914157-tlwvtuuhjj.pdf?fileName=airbus-a320-family-facts-and-figures-june-2026.pdf"},{"label":"EASA A320neo认证公告","url":"https://www.easa.europa.eu/en/newsroom-and-events/news/easa-certifies-airbus-a320neo"},{"label":"空客首架A320neo交付公告","url":"https://www.airbus.com/en/newsroom/press-releases/2016-01-first-a320neo-delivery-opens-new-era-in-commercial-aviation"},{"label":"空客A320neo发动机和Sharklet说明","url":"https://mmsbuilder.airbus.com/2-template-a320neo/"},{"label":"amvlab开源A320模型与许可","url":"https://github.com/amvlab/aircraft-models"}],
+    "postId": "e732294c"
+  },
+  {
     "slug": "airbus-a380-800",
     "nameZh": "空客A380-800",
     "nameEn": "Airbus A380-800",
