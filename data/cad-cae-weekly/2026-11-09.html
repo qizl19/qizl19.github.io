@@ -1,0 +1,81 @@
+<style>#article-container table{width:100%;border-collapse:collapse;margin:1rem 0}#article-container th,#article-container td{border:1px solid #d8dee9;padding:.58rem;vertical-align:top}#article-container th{background:#eef4f8}#article-container code{white-space:normal;overflow-wrap:anywhere}#article-container .risk-high{color:#9b1c1c;font-weight:700}#article-container .risk-mid{color:#8a5800;font-weight:700}#article-container .evidence{font-size:.94em;color:#415466}@media(max-width:768px){#article-container table{display:block;width:100%!important;max-width:100%!important;overflow-x:auto;box-sizing:border-box}#article-container th,#article-container td{min-width:7em;overflow-wrap:anywhere}}</style>
+<p><strong>定位：</strong>面向 FreeCAD 动力学自动化工作流。</p>
+<h2 id="执行摘要">执行摘要</h2>
+<blockquote><p><strong>本周最值得做的是把 FreeCAD 原生模型、装配约束和 CAE 结果都纳入可执行验收，而不是把“脚本能跑”当作完成。</strong>FreeCAD <a href="https://github.com/FreeCAD/FreeCAD/releases/tag/weekly-2026.11.04" target="_blank" rel="noopener noreferrer">weekly-2026.11.04</a> 是开发预发布；窗口后半段合并的 LinkArray 关节修复用 9 个新测试覆盖平移、旋转和 4 类数组，关节的 30/80 mm 偏移被定位为源 Placement 重复施加。关节角限位界面也从 ±180° 扩展至 ±360°并加入 0→270°动力学测试。另一方面，爆炸视图任务重入仍有已确认回归，模拟视频导出在 5 万帧量级可产生约 700 kB/帧 PNG，报告者 25 GB 的 <code>/tmp</code> 仍不够。VTK/ParaView 同期增强 STEP/IGES/BREP 原始名称保留、精确多面体测量和并行 ghost 生成；后者在 250 万单元、27 分区上报告单进程约 7×、4 MPI rank 约 4–6×加速。</p><p>AI 侧出现两类高价值证据：其一，Parametric CAD Bench v3 在固定 FreeCAD 环境中用 100 项原生文件验收，13 个模型—agent 系统最高总体均值仍只有 61.03%；其二，Intent2CAD 通过语义/参数化监督把无效率从 2.39% 降到 0.22%，但仅覆盖 CadQuery 单体特征。AgenticTO 进一步证明“求解器收敛”不能证明“读对了需求”：几何工具将 50 题正确/拒绝数从 37 提到 44，却也增加了把错误规格作为成品交付的情况。IGA 专项只有 11 月 3 日修订的 Helmholtz 传输特征值预印本符合窗口；其 p=3 GIFT 在圆域以 34,322 DOF 达到与 869,487 DOF 三次混合 FEM 相近结果，但没有修剪、接触、条件数、墙钟或开放代码数据，不能外推为 FreeCAD—OCCT 直接分析已经打通。</p></blockquote>
+<ul><li>把 LinkArray 平移/旋转、0→270°限位、爆炸视图取消/保存重开和长视频导出组成 Assembly 自动化回归，设置磁盘预算与中断清理断言。</li><li>用带重复名称和 Unicode 标签的 STEP/IGES/BREP 真值件贯通 FreeCAD/OCCT—VTK/ParaView，并对 concave/thin polyhedron 的体积、插值、梯度和 ghost 拓扑做数值哈希。</li><li>把 Parametric CAD Bench 的原生 FCStd 验收、Intent2CAD 的关系编辑和 AgenticTO 的“意图—规则—证书”三层记录移植进 FreeCAD 动力学流水线。</li></ul>
+
+<h2 id="本周最优先的-3-项行动">本周最优先的 3 项行动</h2>
+<ol><li><strong>先封住装配与视频导出的状态风险。</strong>为 LinkArray 建立 Y=30/80 mm、旋转源、未重算数组、vertex/edge/cylinder 选取和 fixed joint 求解矩阵；再测 revolute 10→270°。爆炸视图执行“打开任务—切换其他视图—取消/确定—保存—重开”，要求 Placement、约束残差和事务栈无漂移。长动画先按 700 kB/帧估算临时盘占用，强制配额、逐帧/分块编码、异常后的临时目录回收。</li><li><strong>建立 CAD 名称与多面体数值语义契约。</strong>用相同 STEP/IGES/BREP 在 FreeCAD、VTK 新 <code>vtkOCCTPDCReader</code> 和 ParaView 中核对原始名称、层级、实例、颜色与 NURBS/trim 元数据；对薄、凹、多面体共享面及分区网格比较体积、质心、face stream、ghost 数、场值、梯度和 MPI rank 不变性。</li><li><strong>采用原生文件与求解器双重验收 AI 输出。</strong>候选模型必须保存可重算 FCStd，验证尺寸、草图自由度、特征树、拓扑引用、参数扰动、装配闭环和 STEP 往返；随后把载荷/边界/材料意图与规则检查、数值证书分开记录。任何一层不通过都不能进入批量动力学或优化。</li></ol>
+
+<h2 id="本周态势总览">本周态势总览</h2>
+<table><thead><tr><th>主题</th><th>证据等级</th><th>本周信号</th><th>工作流决策</th></tr></thead><tbody>
+<tr><td>FreeCAD Assembly</td><td>官方预发布 + 已合并 PR + 社区问题</td><td>LinkArray placement、±360°限位、爆炸线修复；爆炸视图重入与临时 PNG 配额仍有风险</td><td>最高优先回归</td></tr>
+<tr><td>IGA / CAD–分析</td><td>修订预印本；框架无更新</td><td>GIFT 特征值结果有 DOF 优势，但无 trim/contact/代码/性能</td><td>只做隔离复算</td></tr>
+<tr><td>AI × CAD/CAE</td><td>同行评议 camera-ready + 预印本 + 开源 benchmark</td><td>原生 FreeCAD agent benchmark、可编辑 Text-to-CAD、solver-checked TO、裂纹 surrogate</td><td>引入三层验收</td></tr>
+<tr><td>STEP / Rhino / CATIA</td><td>VTK/ParaView 已合并开发变更</td><td>OCCT reader 保留原始 CAD 名称；rhino3dm/CATIA 无合格新增</td><td>名称/层级真值集</td></tr>
+<tr><td>Gmsh / meshio</td><td>开发提交</td><td>高阶线 Jacobian UAF、1D/边界层崩溃与 compound curve 断链防护；meshio 无变化</td><td>高阶网格 fuzz 回归</td></tr>
+<tr><td>VTK / ParaView</td><td>已合并开发 MR</td><td>ghost 4–7×、polyhedron 精确体积/梯度、Catalyst 异常隔离</td><td>并行与凹单元回归</td></tr>
+<tr><td>CalculiX</td><td>开发提交/PR</td><td>敏度无滤波路径、<code>*TEMPERATURE, OP=NEW</code>、材料类型检查</td><td>输入 deck 差分</td></tr>
+<tr><td>pybind11 / ABI</td><td>已合并开发 PR</td><td>CPython 3.12+ 改用 PyType_FromMetaclass，稳定 ABI 准备但保留兼容回退</td><td>双路径构建矩阵</td></tr>
+</tbody></table>
+
+<h2 id="freecad-assembly-自动化与-api-插件变化">FreeCAD Assembly 自动化与 API/插件变化</h2>
+<p><a href="https://github.com/FreeCAD/FreeCAD/releases/tag/weekly-2026.11.04" target="_blank" rel="noopener noreferrer">weekly-2026.11.04</a> 发布于 11 月 4 日，官方明确它是用于测试修复、回归和新功能的 bleeding-edge 预发布，不应用于生产。它的 tag 截止点早于本周后半段合并的 Assembly 变更，因此“本周已合并”不等于“该 weekly 已包含”。</p>
+<p><a href="https://github.com/FreeCAD/FreeCAD/pull/34146" target="_blank" rel="noopener noreferrer">PR #34146</a> 修复 LinkArray 元素关节偏移：数组源内部 Placement 已进入 picked shape，随后又被 <code>getGlobalPlacement</code> 乘一次。Y=30 mm/80 mm 时，关节和求解后的零件分别恰好偏 30/80 mm，旋转源也会错。修复改用引用解析到的 owner shape，并加入 9 个测试，覆盖 vertex/edge、已求解 fixed joint、未重算数组、cylinder bottom/intersection 以及 polar/circular/path/point arrays。该 PR 披露由 agent 找因、写修复与测试，人类负责并经 CI 合并；对于动力学自动化，这是“AI 参与代码”但有可执行回归的正例。</p>
+<p><a href="https://github.com/FreeCAD/FreeCAD/pull/34182" target="_blank" rel="noopener noreferrer">PR #34182</a> 把 revolute task panel 从 ±180°扩展到 ±360°，与既有属性范围一致，并增加 10°连续转到 270°后停止的动力学测试；它已回移 26.3 分支。<a href="https://github.com/FreeCAD/FreeCAD/pull/33936" target="_blank" rel="noopener noreferrer">PR #33936</a> 让多步爆炸线从上一步终点而不是原始 bounding-box 中心开始，使 TechDraw 与 3D 视图一致。</p>
+<p class="risk-high">尚未闭环的风险：</p><ul><li><a href="https://github.com/FreeCAD/FreeCAD/issues/34120" target="_blank" rel="noopener noreferrer">#34120</a> 是已确认回归：爆炸视图任务打开时点击另一视图仍会把位移叠加到正常装配，Cancel 不一定恢复，且会留下显示线；已有外部分支修复，但主线问题仍开着。</li><li><a href="https://github.com/FreeCAD/FreeCAD/issues/34185" target="_blank" rel="noopener noreferrer">#34185</a> 是待确认的社区问题信号：报告称约 700 kB/帧、数万帧使 25 GB <code>/tmp</code> 配额耗尽，而最终视频约 10 MB；5 万帧可能拖垮系统。它不是合并修复，但足以成为批处理门禁。</li></ul>
+
+<h2 id="iga-cad-分析一体化">IGA / CAD–分析一体化</h2>
+<p><strong>本周只有一项合格的“修订预印本”信号，没有框架发布。</strong>检索边界为 2026-11-02 08:49 至 2026-11-09 08:47（Asia/Shanghai），覆盖 IGA/IBRA、trimmed/immersed IGA、NURBS/B-spline/T-spline/THB-spline/LR-spline、局部加密、切割单元积分、连续性、参数域映射、边界条件，以及动力学、壳/实体、接触、断裂、多物理场、拓扑优化、GPU/并行、预条件、ROM 与 neural operator。G+Smo、GeoPDEs、PetIGA、tIGAr 与 igatools 未发现窗口内正式版本或公开提交；不能用窗口外成果填充。</p>
+<p><a href="https://arxiv.org/abs/2609.21862" target="_blank" rel="noopener noreferrer">Helmholtz 传输特征值 IGA</a> 的 v1 在 9 月，v2 于 11 月 3 日修订，状态是预印本而非本周首发。方法用 GIFT 解四阶、二次、非自伴特征值问题，几何 NURBS 与场近似基可分离，并构造 <span lang="en">H²-conforming</span> 空间。圆域 p=3 表中，34,322 DOF 得到首个特征值 2.7594352；对照三次混合 FEM 的 869,487 DOF 得 2.7594400，论文概括为约百分之一 DOF。方域对照中 34,322 DOF 与 194,566 DOF 混合 FEM 达到同列结果，约六分之一 DOF；理论/数值收敛阶为 <code>2(p-1)</code>。</p>
+<table><thead><tr><th>评价维度</th><th>本周证据</th><th>开放性/局限</th><th>FreeCAD 验证实验</th></tr></thead><tbody>
+<tr><td>几何与连续性</td><td>NURBS/GIFT、H² conforming；2D/3D 曲域特征值</td><td>无 trim/cut cell、nonmatching patch、接触或断裂；L 形奇异域收敛约 1</td><td>从 OCCT 提取 degree、poles、knots、multiplicities、weights、u/v 域、wire/pcurve/orientation</td></tr>
+<tr><td>量化</td><td>DOF 与特征值、收敛阶</td><td>无条件数、组装/求解时间、内存、几何误差</td><td>同一 STEP/NURBS 与 Gmsh 二次单元—CalculiX 比频率、振型 MAC、反力、能量、时间/内存</td></tr>
+<tr><td>开放性</td><td>论文与表格公开</td><td>未给代码、数据、可执行 benchmark；复现置信度中</td><td>先做圆/空心柱解析几何，再做含孔/短边/近切 trim 真值件</td></tr>
+</tbody></table>
+<p>结论：这项结果支持“高连续基在特征值问题上可能以更少 DOF 达到精度”，不支持“OCCT/STEP 的修剪 NURBS 已被无损传给分析”。FreeCAD 试验必须独立核对几何 Hausdorff/法向误差、trim 环闭合、Jacobian/积分失败、条件数、收敛、时间与内存，并与 Gmsh/CalculiX 传统 FEM 使用完全一致的材料、载荷和边界条件。</p>
+
+<h2 id="ai-cad-cae">AI × CAD/CAE</h2>
+<p>本期优先纳入可复现、量化且能落到 FreeCAD 验收的工作。论文指标均为作者报告，在固定 kernel、渲染、单位、数据切分和硬件上复现前不视为生产收益。</p>
+<table><thead><tr><th>工作/状态</th><th>方法、数据与量化结果</th><th>开放性、局限/失效模式</th><th>工作流影响与验证</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2611.02659" target="_blank" rel="noopener noreferrer">Parametric CAD Bench v3</a><br>新预印本/开放 benchmark</td><td>100 题：30 创建、30 创建后编辑、40 工程图重建；固定 FreeCAD 环境，独立 verifier 检查几何、尺寸与原生特征史。13 个模型—agent 系统最高总体均值 61.03%，工程图到 CAD 均值 84.66%。</td><td>任务/配置/评分代码/产物开放；仅 100 个精选单体 PartDesign 任务，不含装配、FEM、制造认证或有机曲面。完整系统分数不能归因于单一模型。</td><td>直接迁移其 FCStd 合同；新增装配约束残差、拓扑命名、保存重开、参数扰动与动力学可解性。置信度高。</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2611.03449" target="_blank" rel="noopener noreferrer">Intent2CAD</a><br>NeurIPS 2026 camera-ready</td><td>IntentCAD-100K/ Edit-1K；把低层 trace 提升为 CadQuery 语义特征和轻量参数关系。无效率 2.39%→0.22%，API recovery 99.96%；零样本编辑总体成功率 41.80%→88.90%→92.50%，关系派生编辑 77.09%→88.73%。</td><td><a href="https://github.com/JinboYang94/Intent2CAD" target="_blank" rel="noopener noreferrer">代码/数据开放</a>。只支持保守常见模板；长尾特征、随意/欠规范指令未研究；CadQuery 单体不等于 FreeCAD feature tree/Assembly。</td><td>把参数关系映射为 Spreadsheet/Expression/Sketch constraints，做 20 次扰动重算、BRepCheck、引用稳定与 STEP 往返。置信度中高。</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2611.04077" target="_blank" rel="noopener noreferrer">AgenticTO</a><br>新预印本/代码数据开放</td><td>分离规格意图、确定性规则、数值证书。50 个作者构造 brief 中，几何工具令正确/拒绝从 37 提到 44，却增加“错误规格成品”；15 个完整 session 中 14 个认证发布、1 个正确拒绝。5 个问题达 25.6–73.7 M 单元；长程重开以冷启动 51–69%算力得到 -3.06% 至 +0.07% compliance 差。</td><td>完整记录开放；单载荷线弹性、作者筛题、单次运行。规则漏掉多数改变意图的注入故障；oracle 澄清达到满分不能代表工程师交互。求解器证书不能证明需求正确。</td><td>把材料/载荷/BC/单位的“意图记录”与 deck 规则、FRD/DAT 数值证书分离；人审语义层。置信度中高。</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2611.03473" target="_blank" rel="noopener noreferrer">Fracture-Bench</a><br>新预印本/开放 benchmark</td><td>1,000 个 AT2 + 4,000 个 PF-CZM 仿真；FNO/DeepONet/Latent DeepONet/UNet/扩散同切分。数据集 1 的 FNO/Latent DeepONet 均误差约 10⁻⁶，比 UNet/DeepONet低约 10×；数据集 2 扩散误差约为 UNet 的 1/6，但 706 s/次对 6 ms/次。</td><td>数据、代码、切分和 regime descriptor 开放。误差集中在裂纹局部化末期；初始裂纹相距不到一个网格时路径会分叉；缺 3D、mixed-mode 与实验配对。</td><td>用 CalculiX/其他断裂基准只作交叉参考；必须按载荷步看裂纹路径、能量和尾部失败，不能只报均值。置信度高。</td></tr>
+</tbody></table>
+<p><strong>范围覆盖结论：</strong>Parametric CAD Bench 与 Intent2CAD 覆盖 Text-to-CAD、programmatic CAD、CAD copilot/agentic CAD、约束和自动参数化；SO(3)-equivariant B-rep 学习本周也有同行评议预印本与代码，但其目标是旋转稳健的分割/分类，不是几何修复或装配验证。AgenticTO 覆盖拓扑优化、载荷/边界条件意图与 solver-checked release；Fracture-Bench 覆盖 surrogate/neural operator 和异常尾部。AI 辅助网格、参数标定、solver acceleration、ROM、PINN、digital twin、后处理与异常检测虽有窗口内论文，但未同时满足与 FreeCAD 动力学的迁移性、开放性和量化门槛，记为“本周无优先新增”。主要风险仍是训练分布外、面/边引用漂移、均值掩盖灾难性尾部、单位/坐标语义错读、kernel/网格版本耦合和证书验证错问题。</p>
+
+<h2 id="catia-与-rhino-step-3dm-互操作">CATIA 与 Rhino / STEP / 3DM 互操作</h2>
+<p>本周最可信的互操作变化来自 VTK/ParaView，而不是商业产品声明。<a href="https://gitlab.kitware.com/vtk/vtk/-/merge_requests/13966" target="_blank" rel="noopener noreferrer">VTK MR !13966</a> 给 OCCT reader 的 data assembly 节点增加 <code>name</code> 属性，保存 STEP/IGES/BREP 原始名称；原因是 VTK 节点名必须唯一且是合法 C 标识符，过去会改写 CAD 名称。<a href="https://gitlab.kitware.com/paraview/paraview/-/merge_requests/8015" target="_blank" rel="noopener noreferrer">ParaView MR !8015</a> 切换到 <code>vtkOCCTPDCReader</code>。这能改善名称/层级追踪，但不证明实例、颜色、NURBS 控制点、节点矢量、权重、trim 或连续性无损。</p>
+<p>CATIA 与 <a href="https://github.com/mcneel/rhino3dm" target="_blank" rel="noopener noreferrer">rhino3dm</a> 在固定窗口内未发现合格 release/commit；不得把旧版本或商业材料冒充本周新闻。建议制作重复名称、Unicode 名称、实例、颜色、AP242 层级、修剪 NURBS 与 3DM exact surface/mesh 并存的真值件，比较 FreeCAD/OCCT、Rhino、VTK/ParaView 中的路径、类型、曲面参数与拓扑映射。</p>
+
+<h2 id="gmsh-与-meshio">Gmsh 与 meshio</h2>
+<p>Gmsh 本周没有正式 release，只有开发提交。<a href="https://github.com/live-clones/gmsh/commit/dcc213be7db32682734c1acec973be3c9400758e" target="_blank" rel="noopener noreferrer">dcc213b</a> 为线单元 Jacobian bounds 加 Bezier subdivision，修复曲线质量计算读取已释放内存，并在单元无法细分时停止；<a href="https://github.com/live-clones/gmsh/commit/5b485e4db553623633cf2d7f446ed1e6e4a83b35" target="_blank" rel="noopener noreferrer">5b485e4</a> 阻止在 1D 网格和非 stack 的边界层列上运行会崩溃的高阶优化/快速弯曲。另有 compound curve 元素不成链时改为逐曲线网格并报警、混合 built-in/OCCT face 只三角化 OCCT curve、退化尺寸积分越界停止等防护。</p>
+<p>这些提交未给质量、时间或内存 benchmark。验收应对直线/高曲率 NURBS、1D、二阶/三阶边界层、compound curve 断链和混合 kernel 模型运行 ASan 构建，统计 crash/UAF、负 Jacobian、最小 scaled Jacobian、单元数、几何偏差、墙钟与峰值内存。<a href="https://github.com/nschloe/meshio" target="_blank" rel="noopener noreferrer">meshio</a> 在窗口内无 commit/release；不能假设它已覆盖上述高阶和实体语义。</p>
+
+<h2 id="vtk-与-paraview">VTK 与 ParaView</h2>
+<p><a href="https://gitlab.kitware.com/vtk/vtk/-/merge_requests/13915" target="_blank" rel="noopener noreferrer">VTK MR !13915</a> 是本周量化最强的基础设施变化：<code>vtkGhostCellsGenerator</code> 用 <code>vtkUnstructuredGridSides</code>、occupancy bins、<code>vtkKdTreePointLocator</code> 与 <code>vtkSMPTools</code> 重写并行路径，在 250 万单元、27 分区上报告单进程约 7×、4 MPI ranks 约 4–6×，同时减少内存；它还修复 tolerance 大于默认 bbox inflation 时漏匹配，以及输入含待剥离 ghost 时 polyhedron point id/共享 face 复制问题。结果仍是开发 MR 的单一 benchmark，需复测时间、RSS、通信量和输出 hash。</p>
+<p><a href="https://gitlab.kitware.com/vtk/vtk/-/merge_requests/13935" target="_blank" rel="noopener noreferrer">MR !13935</a> 修复薄/凹 polyhedron：旧 Delaunay 填 convex hull，薄单元体积为 0、凹单元体积被高估。新路径尽量保留 cell 内 tetra；弯曲面允许 5% volume tolerance，Schoenhardt prism 无可用分解时明确失败。代价是 convex 约 +5%，concave 约 10× tetrahedralization 时间。<a href="https://gitlab.kitware.com/vtk/vtk/-/merge_requests/13941" target="_blank" rel="noopener noreferrer">MR !13941</a> 还把 <code>IsInside</code> tolerance 固定为 cell diagonal 的 1e-6，修复 dent 内 probe、concave mean-value sign、corner derivatives 与多分量越界。</p>
+<p><a href="https://gitlab.kitware.com/paraview/paraview/-/merge_requests/7971" target="_blank" rel="noopener noreferrer">ParaView MR !7971</a> 把 Catalyst pipeline 异常限制在单 pipeline，清除递归执行状态并防止 C 接口异常逃逸；2-rank macOS chart 首次渲染也由 MPI barrier 改为文件锁，修复非对称 pvbatch 挂起。对 FreeCAD 动力学后处理，建议对凹/薄/共享面 polyhedron、空 rank、多 rank、异常 pipeline 与连续时间步做数值、拓扑和恢复语义回归。</p>
+
+<h2 id="calculix-与-abaqus-compatible-流程">CalculiX 与 Abaqus-compatible 流程</h2>
+<p>CalculiX 作者仓库本周无正式 release。<a href="https://github.com/Dhondtguido/CalculiX/pull/305" target="_blank" rel="noopener noreferrer">PR #305</a> 合并 MTU sensitivity patchset：修正 <code>feasibledirection.c</code>，尤其是未定义 sensitivity filter 的用例；PR 没有 reviewer 或量化 benchmark，应视为开发变更。<a href="https://github.com/Dhondtguido/CalculiX/commit/537aa816cc30cce5d6391cc9409bb28b854c88df" target="_blank" rel="noopener noreferrer">537aa81</a> 修正 <code>*TEMPERATURE, OP=NEW</code>，并有未知 <code>*ELASTIC</code>/<code>*EXPANSION</code> type 的输入处理以及 Mohr-Coulomb 例程改动。</p>
+<p>建议把一个多 step 热—结构 deck 做 <code>OP=NEW</code>/<code>OP=MOD</code> 差分，比较节点温度、热应力、反力和 restart；对敏度流程分别启用/不启用 filter，用中心差分核对梯度方向与相对误差。Abaqus-compatible 只表示关键词路径，不表示状态更新、材料切线或敏度数值等价；未有自动对照数据前置信度中低。</p>
+
+<h2 id="python-cpp-pybind11-abi">Python / C++ / pybind11 / ABI</h2>
+<p><a href="https://github.com/pybind/pybind11/pull/6231" target="_blank" rel="noopener noreferrer">pybind11 PR #6231</a> 在 CPython 3.12+ 用 <code>PyType_FromMetaclass()</code> + <code>PyType_Spec</code> 创建类型，减少直接填写 <code>PyHeapTypeObject</code> 私有字段，为 stable ABI 做准备；PyPy、GraalPy、Python&lt;3.12 和不兼容 metaclass 仍走 legacy path，可用 CMake 关闭新路径。合并前修复了带点类名、free-threaded 可见性和拒绝 rename 的 metaclass 回归；最终报告 default/free-threaded 1416/1414 tests、每边 39 个 Catch2 case/11,444 assertions 通过。</p>
+<p>这不是稳定 release，也不等于 FreeCAD 可立即切 abi3。插件应对 CPython 3.11/3.12/3.14 free-threaded、spec/legacy、MSVC/clang-cl、Debug/Release、跨模块类型和自定义 metaclass 做矩阵测试；同时跑 FreeCAD 导入、对象生命周期、异常、析构、sub-interpreter、保存重开和长时批处理。若二进制轮子与 FreeCAD 内置 pybind11/CPython 不同，仍可能产生 ODR/ABI 与 holder 生命周期问题。</p>
+
+<h2 id="决策与监控清单">决策与监控清单</h2>
+<table><thead><tr><th>事项</th><th>本期动作</th><th>通过判据</th><th>风险/置信度</th></tr></thead><tbody>
+<tr><td>LinkArray 关节</td><td>9 类场景 + 30/80 mm/旋转复测</td><td>marker、求解后 Placement、保存重开误差均低于模型容差</td><td>已合并/高</td></tr>
+<tr><td>爆炸视图/视频</td><td>重入取消 + 5 万帧磁盘预算</td><td>零位姿漂移；临时占用有上限且失败可清理</td><td>已确认/待确认问题，高风险</td></tr>
+<tr><td>CAD 名称链</td><td>Unicode/重复名/实例/trim STEP 真值</td><td>原始名属性、层级与几何字段逐项一致</td><td>开发 MR/中高</td></tr>
+<tr><td>VTK polyhedron</td><td>薄、凹、共享面、MPI ghost</td><td>体积/梯度/数组/hash 正确，性能改善可重复</td><td>开发 MR/中高</td></tr>
+<tr><td>IGA</td><td>圆域与修剪真值件双轨</td><td>特征值收敛 + OCCT 字段保真 + FEM 可复算</td><td>修订预印本/中</td></tr>
+<tr><td>AI CAD/TO</td><td>原生 FCStd + 意图/规则/证书</td><td>重算、参数、装配、载荷、BC 与结果证书全部通过</td><td>开放 benchmark/中高</td></tr>
+<tr><td>pybind11</td><td>spec/legacy + free-threaded 矩阵</td><td>导入、类型识别、生命周期、保存重开无差异</td><td>开发 PR/中</td></tr>
+</tbody></table>
+
+<h2 id="来源与证据边界">来源与证据边界</h2>
+<p>本期以运行时刻为截止，联网核对 FreeCAD、Gmsh、meshio、VTK、ParaView、CalculiX、pybind11、rhino3dm、G+Smo、GeoPDEs、PetIGA、tIGAr 与 igatools 的官方 release、PR、commit 和 issue，并阅读 arXiv 原文/HTML、公开代码与 benchmark 页面。FreeCAD weekly 是预发布；FreeCAD Assembly、Gmsh、VTK、ParaView、CalculiX 与 pybind11 均是开发状态；#34120 是已确认问题，#34185 是待确认社区信号；Intent2CAD 标注为 NeurIPS 2026 camera-ready，其他 AI/IGA 条目按预印本处理；CATIA、rhino3dm、meshio 和主要 IGA 框架明确记录“本周无重要变化”。所有作者报告的性能和准确率在本地 FreeCAD—OCCT—Gmsh—CalculiX—VTK 工作流复现前，都不是生产保证。</p>
