@@ -1,0 +1,322 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>CAD/CAE 生态周报｜2026-11-16 | Qzl's Blog</title><meta name="keywords" content="航空"><meta name="author" content="Qzl"><meta name="copyright" content="Qzl"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本期聚焦 FreeCAD 装配状态安全、精确 NURBS/IGA 数值链，以及能量证书驱动的 AI surrogate 与 agentic CAE 验收。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CAD/CAE 生态周报｜2026-11-16">
+<meta property="og:url" content="https://qizl19.github.io/p/d4c3bc9f.html">
+<meta property="og:site_name" content="Qzl&#39;s Blog">
+<meta property="og:description" content="本期聚焦 FreeCAD 装配状态安全、精确 NURBS/IGA 数值链，以及能量证书驱动的 AI surrogate 与 agentic CAE 验收。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qizl19.github.io/p/d4c3bc9f/cad-cae-weekly-cover-2026-11-16.webp">
+<meta property="article:published_time" content="2026-11-16T01:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-16T01:00:00.000Z">
+<meta property="article:author" content="Qzl">
+<meta property="article:tag" content="CAD/CAE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qizl19.github.io/p/d4c3bc9f/cad-cae-weekly-cover-2026-11-16.webp"><link rel="shortcut icon" href="/img/bitbug_favicon.ico"><link rel="canonical" href="https://qizl19.github.io/p/d4c3bc9f"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-right"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CAD/CAE 生态周报｜2026-11-16',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-11-16 09:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/mouse.css"><link rel="stylesheet" href="/css/gundongtiao.css"><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><a href="javascript:void(0);" onclick="preloader.endLoading();" title="点击跳过动画"><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="iron-container iron-circle"><div class="iron-box1 iron-circle iron-center"></div><div class="iron-box2 iron-circle iron-center"></div><div class="iron-box3 iron-circle iron-center"></div><div class="iron-box4 iron-circle iron-center"></div><div class="iron-box5 iron-circle iron-center"></div><div class="iron-box6 iron-circle"><div class="iron-coil" style="--i: 0"></div><div class="iron-coil" style="--i: 1"></div><div class="iron-coil" style="--i: 2"></div><div class="iron-coil" style="--i: 3"></div><div class="iron-coil" style="--i: 4"></div><div class="iron-coil" style="--i: 5"></div><div class="iron-coil" style="--i: 6"></div><div class="iron-coil" style="--i: 7"></div></div></div></div></a><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://pic3.zhimg.com/80/v2-94d674932a8c0f4a6cccc1b7a158c21a_720w.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/p/d4c3bc9f/cad-cae-weekly-cover-2026-11-16.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Qzl's Blog</a></span><div id="he-plugin-simple"></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div></div></div><div id="navFn"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> search</span></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CAD/CAE 生态周报｜2026-11-16</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-11-16T01:00:00.000Z" title="发表于 2026-11-16 09:00:00">2026-11-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-11-16T01:00:00.000Z" title="更新于 2026-11-16 09:00:00">2026-11-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CAD-CAE%E7%94%9F%E6%80%81%E5%91%A8%E6%8A%A5/">CAD/CAE 生态周报</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">11.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>26分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" data-flag-title="CAD/CAE 生态周报｜2026-11-16"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><style>#article-container table{width:100%;border-collapse:collapse;margin:1rem 0}#article-container th,#article-container td{border:1px solid #d8dee9;padding:.58rem;vertical-align:top}#article-container th{background:#eef4f8}#article-container code{white-space:normal;overflow-wrap:anywhere}#article-container .risk-high{color:#9b1c1c;font-weight:700}#article-container .risk-mid{color:#8a5800;font-weight:700}#article-container .evidence{font-size:.94em;color:#415466}@media(max-width:768px){#article-container table{display:block;width:100%!important;max-width:100%!important;overflow-x:auto;box-sizing:border-box}#article-container th,#article-container td{min-width:7em;overflow-wrap:anywhere}}</style>
+<p><strong>定位：</strong>面向 FreeCAD 动力学自动化工作流。</p>
+<h2 id="执行摘要">执行摘要</h2>
+<blockquote><p><strong>本周的主线是把“几何、装配语义、边界条件与数值证书”一起保存，而不是只保存模型或云图。</strong>FreeCAD <a href="https://github.com/FreeCAD/FreeCAD/releases/tag/weekly-2026.11.11" target="_blank" rel="noopener noreferrer">weekly-2026.11.11</a> 是开发预发布，包含跨文档 joint snapping 的临时几何修复；随后主线又合并嵌套 BOM 数量分组和镜像 Link 崩溃修复，但后者晚于该 weekly 的 tag。已确认问题 <a href="https://github.com/FreeCAD/FreeCAD/issues/34381" target="_blank" rel="noopener noreferrer">#34381</a> 表明在 Joint 编辑期间双击另一对象会永久清空原引用，保存重开后可触发 <code>NoneType</code> 错误，自动化必须把 Task Panel 重入纳入状态机测试。</p><p>IGA/CAD–分析一体化本周有三类可量化证据：几何非线性 IGA 梁到流体界面的功共轭映射在强弯扭下把虚功差压到约 10<sup>−11</sup>–10<sup>−10</sup>；NURBS 曲壁有限体积在 41,344 单元的 Couette 测试中把三次重构速度误差由多边形几何的 4.626×10<sup>−5</sup> 降至 3.493×10<sup>−7</sup>；THB/HB 样条局部粗化在 24,432 DOF 的移动前沿测试上给出可预判的 L∞ 误差界。AI 侧，能量范数训练把 3D transformer 的中位能量误差降低 7.5 倍、von Mises 误差降低 6.1 倍；Ms-LegONet 在 3D 多查询链上报告 30–900 倍加速和 10<sup>−4</sup> 相对误差。二者都比只看位移 MSE 或单次推理时间更贴近 CAE 验收。</p></blockquote>
+<ul><li>建立 FreeCAD Assembly 状态回归：跨文档 edge/face snapping、嵌套 BOM、镜像 Link、Joint Task Panel 重入、保存重开和非单位 Placement 子装配标记。</li><li>建立 OCCT/STEP 精确几何到 IGA/传统 FEM 的双轨真值件：控制点、节点矢量、权重、trim/pcurve、连续性、边界条件、功/能量与动力学 MAC 同时比对。</li><li>把 AI 候选输出改为“意图清单 + 可重算模型/网格 + 求解输入 + 能量/残差/守恒证书 + OOD 拒绝”，禁止只凭云图或 LLM 评审放行。</li></ul>
+
+<h2 id="本周最优先的-3-项行动">本周最优先的 3 项行动</h2>
+<ol><li><strong>先封装配交互状态。</strong>在 <code>weekly-2026.11.11</code> 与当前主线各跑同一矩阵：外部文档 Link 的 vertex/edge/face/cylinder snapping；两级 BOM 中重复紧固件和镜像 Link；编辑 Joint 时双击 Body/另一 Joint 后分别 Cancel/OK；保存、关闭、重开并比较引用字符串、JCS、Placement、约束残差和 BOM 树。#34381 尚未修复，失败应阻断批处理。</li><li><strong>做一组精确几何双轨验证。</strong>从 OCCT 的 BSpline surface/curve 导出 degree、poles、knots、multiplicities、weights、u/v 参数域、edge pcurve、wire orientation 与 seam；一轨进入 IGA/高阶曲壁离散，一轨经 Gmsh 二次/高阶单元到 CalculiX。比较 Hausdorff/法向误差、trim 环闭合、Jacobian、功/能量、反力、固有频率、振型 MAC、条件数、组装/求解时间与峰值内存。</li><li><strong>把 AI 放进证书驱动的闭环。</strong>用能量范数 surrogate 先筛高应力错误；用 Ms-LegONet/PhysICL 只做候选 ROM 或场预测；用 MechFoundry/拆解 agent 生成载荷、材料或操作建议时，要求单位、支撑、载荷路径、接触、材料来源和拒绝理由可追踪，并由 CalculiX/基准解复算。</li></ol>
+
+<h2 id="本周态势总览">本周态势总览</h2>
+<table><thead><tr><th>主题</th><th>证据等级</th><th>本周信号</th><th>工作流决策</th></tr></thead><tbody>
+<tr><td>FreeCAD Assembly</td><td>官方预发布、已合并 PR、确认 issue</td><td>跨文档 snapping、嵌套 BOM；Joint 编辑重入会破坏引用</td><td>最高优先状态回归</td></tr>
+<tr><td>IGA / CAD–分析</td><td>预印本 + G+Smo 开发提交</td><td>功共轭 FSI、NURBS 曲壁高阶 FV、可控 THB/HB 粗化</td><td>做精确几何双轨真值件</td></tr>
+<tr><td>AI × CAD/CAE</td><td>预印本、开放代码/数据不一</td><td>能量范数、可组合局部空间、agentic CAE、装配拆解图、场 ICL</td><td>证书与 OOD 拒绝优先</td></tr>
+<tr><td>CATIA / Rhino / STEP / 3DM</td><td>rhino3dm 已合并开发 PR</td><td>Python 3.12+ 单 abi3 wheel；无 free-threading；建立 8.35 性能门禁</td><td>ABI/几何往返矩阵</td></tr>
+<tr><td>Gmsh / meshio</td><td>大量开发提交；无正式 release</td><td>实验性 discrete CAD、polytope API/鲁棒性、WASM64 16 GB</td><td>只在隔离分支验证</td></tr>
+<tr><td>VTK / ParaView</td><td>ParaView 6.2.1 正式补丁发布 + VTK 开发提交</td><td>全局 ID、DPvtk、VTKHDF/大网格修复；共享 polyhedron face</td><td>可评估升级 6.2.1</td></tr>
+<tr><td>CalculiX</td><td>开发提交；无正式 release</td><td>flowoutput 与错误/警告信息变更，无量化 benchmark</td><td>保持现版并做 deck diff</td></tr>
+<tr><td>Python / C++ / pybind11</td><td>已合并开发 PR</td><td>pybind11 合并 abi3/abi3t；仍未正式发布</td><td>CPython/FreeCAD ABI 双构建</td></tr>
+</tbody></table>
+
+<h2 id="freecad-assembly-自动化与-api-插件变化">FreeCAD Assembly 自动化与 API/插件变化</h2>
+<p><a href="https://github.com/FreeCAD/FreeCAD/releases/tag/weekly-2026.11.11" target="_blank" rel="noopener noreferrer">weekly-2026.11.11</a> 于 11 月 11 日发布，官方明确它是用于测试新功能和回归的 bleeding-edge 预发布，不用于生产。其 tag 指向 <code>e140bd8</code>，因此 11 月 13 日才合并的 BOM 修复不在该构建中。</p>
+<p><a href="https://github.com/FreeCAD/FreeCAD/pull/34282" target="_blank" rel="noopener noreferrer">PR #34282</a> 修复 Assembly snapping 对跨文档外部 Link 使用持久命名映射时的 string hasher 不匹配。修复改为 <code>Part.getShape(..., noElementMap=True)</code> 取得临时几何索引，并新增 104 行 C++ 测试覆盖有效/无效 edge/face snapping。它解决的是 UI 选点到几何索引的可靠性，不证明拓扑命名在模型编辑后稳定；回归仍要加入加/删特征后的重新寻址。</p>
+<p><a href="https://github.com/FreeCAD/FreeCAD/pull/31136" target="_blank" rel="noopener noreferrer">PR #31136</a> 在遍历每一级 BOM 时只对同级 sibling 分组，避免不同层级重复零件被错误合并；同一修复还处理了镜像 Link 路径上的不安全 cast 崩溃。它在主线合并，但没有作者给出的性能 benchmark。建议用 2–4 层子装配、共享实例、镜像/缩放 Link、循环引用拒绝和 Unicode 标签构造黄金 BOM JSON。</p>
+<p class="risk-high">确认问题：</p><ul><li><a href="https://github.com/FreeCAD/FreeCAD/issues/34381" target="_blank" rel="noopener noreferrer">#34381</a> 已确认：Joint Task Panel 打开时双击另一对象，前一 Joint 的 references 会被清空并永久保存，重开可报 <code>'NoneType' object is not subscriptable</code>。这是状态机/事务错误，不能靠 recompute 发现。</li><li><a href="https://github.com/FreeCAD/FreeCAD/issues/34419" target="_blank" rel="noopener noreferrer">#34419</a> 是社区问题信号：在非单位 Placement 子装配中，JCS 3D 标记偏移恰好等于子装配 Placement，报告例中约 60 mm；求解与 <code>Placement1/2</code> 正确，只是标记错误。报告基于 1.1.3，尚不能当作当前主线回归，但应加入视图/求解分离验收。</li></ul>
+
+<h2 id="iga-cad-分析一体化">IGA / CAD–分析一体化</h2>
+<p><strong>检索边界：</strong>固定窗口 2026-11-09 08:47 至 2026-11-16 08:52（Asia/Shanghai），覆盖 IGA/IBRA、trimmed/immersed IGA，NURBS、B-spline、T-spline、THB-spline、LR-spline，局部加密、切割单元、连续性、参数域映射、边界条件、积分与稳健性，以及结构动力学、壳/实体、接触、断裂、多物理场、拓扑优化、GPU/并行、预条件、ROM 和 AI/神经算子。GeoPDEs、PetIGA、tIGAr、igatools 未发现窗口内正式发布；G+Smo 有开发修复但无正式版本。</p>
+<table><thead><tr><th>工作/状态</th><th>方法与量化</th><th>开放性与局限</th><th>FreeCAD 迁移实验</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2611.12599" target="_blank" rel="noopener noreferrer">非线性 IGA 梁 FSI 映射</a><br>预印本；Kratos 实现声明</td><td>Bernoulli/Timoshenko NURBS 梁到独立流体界面的构形相关映射，转置保证功共轭。p=2/3、4/16/64 knot spans、60°弯曲与 4π 扭转下，有限差分虚功误差最低约 10<sup>−11</sup>–10<sup>−10</sup>；Timoshenko 映射对 p=2/3/4 呈约 3/4/5 阶。</td><td>给出 Mok、Turek–Hron、Goland benchmark；未给 OCCT/STEP 导入、trim、接触、墙钟/内存。控制点不是物理点，Frenet frame 在零曲率处失效，需要 frame transport。</td><td>从 OCCT NURBS 中心线提取 knots/weights/control points 与材料 director；对同一湿表面检查位移 RMS、虚功差、反力和时步能量漂移。</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2611.13463" target="_blank" rel="noopener noreferrer">NURBS-enhanced 高阶 FV</a><br>预印本</td><td>曲壁 NURBS + k-exact 重构 + dGRP 黏性通量。在 Couette 41,344 cells、k=3 时，速度 L2 误差从 polygon 的 4.626×10<sup>−5</sup> 降到 3.493×10<sup>−7</sup>，NURBS 路径约四阶；线性重构无 dGRP 不收敛。</td><td>测试为 2D 层流与混合网格；无 trim surface、3D 壳/实体、接触或开源代码链接；Newton/GMRES 参数较强，几何收益与求解器收益需拆分。</td><td>以圆环、椭圆环、带孔板做 OCCT 精确曲线、Gmsh 高阶曲边与线性 faceting 三组；固定 flux/BC，分别量化几何误差、收敛阶与迭代数。</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2611.15687" target="_blank" rel="noopener noreferrer">HB/THB 代数粗化</a><br>预印本；GeoPDEs 实验</td><td>局部反演 refinement matrix，不组装 mass matrix/数值积分；残差给无未知常数的 L∞ 界。11,223 DOF 六级自适应路径上单次局部转移把 H1 误差放大 1.22 倍，global L2 projection 为 1.18 倍；误差界 effectivity 2.9–7.7，典型步保持 56% 域完全不变。移动前沿细网 24,432 DOF，参考同精度网 15,906 DOF。</td><td>二维立方 maximal-smoothness HB/THB；没有真实 CAD trim、多 patch continuity、条件数、墙钟或并行数据。全局投影更准，连续多次粗化在最粗两级可把误差放大到约 2.5 倍。</td><td>用带移动载荷的 NURBS 梁/壳，记录 DOF、误差界、真实能量误差与粗化区域；与重新网格的 CalculiX 对照，验证载荷/BC 不随参数域映射漂移。</td></tr>
+</tbody></table>
+<p>G+Smo 开发侧，<a href="https://github.com/gismo/gismo/pull/910" target="_blank" rel="noopener noreferrer">PR #910</a> 修正 <code>containingSides()</code> 对面、边、角返回错误方向；另有 <a href="https://github.com/gismo/gismo/commit/e7837599" target="_blank" rel="noopener noreferrer"><code>gsGeometry::refineCoeff</code></a> 与 Greville API 重命名。这些是开发修复，不是正式 release。它们提示边界枚举和局部加密 API 会直接影响 Dirichlet/Neumann 边的可追踪性，应在 FreeCAD 导出的每个 face/edge 上保留双向映射和方向断言。</p>
+<p><strong>结论：</strong>本周证据支持“精确曲壁、高连续基和局部粗化在特定 benchmark 上有数值优势”，不证明 OCCT B-Rep 的 trim/pcurve/多 patch 连续性能被这些实现无损接收。生产前仍要完成控制点、节点矢量、权重、修剪边界、seam、orientation 与连续性保真核查，并与 Gmsh/CalculiX 的传统 FEM 使用相同材料、载荷和边界条件复算。</p>
+
+<h2 id="ai-cad-cae">AI × CAD/CAE</h2>
+<p>本期优先筛选能迁移到 FreeCAD、可复现且有量化验证的工作。以下结果均为作者报告；在固定几何 kernel、网格、单位、切分和硬件上复现前，不视为生产保证。</p>
+<table><thead><tr><th>工作/状态</th><th>方法、数据与量化</th><th>开放性、局限/失效模式</th><th>工作流影响与验证</th></tr></thead><tbody>
+<tr><td><a href="https://arxiv.org/abs/2611.13379" target="_blank" rel="noopener noreferrer">CAD-derived 虚拟拆解</a><br>预印本</td><td>按共同释放约束把紧固件组成操作集，用可见性、工具可达性、扭矩移除、路径与物理验证生成 AND/OR 图。54-component OpenManipulator gripper 上，可见性/可达性筛掉 51.4% 候选；受控 toy assembly 未见 branching violation。</td><td>论文公开，未发现代码/数据仓库；仅一个复杂装配案例，未覆盖弹性变形、公差、螺纹咬合或传感误差。置信度中。</td><td>将 FreeCAD Joint/BOM/fastener 属性映射到图；对每个拆解动作保存碰撞、工具包络、约束释放与再装配证书，并用随机紧固件缺失/遮挡做失效测试。</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2611.14571" target="_blank" rel="noopener noreferrer">MechFoundry agentic CAE</a><br>预印本</td><td>从对象描述生成形状、载荷案例、材料，使用非贴体 adaptive octree differentiable GPU solver 做非线性响应与优化。50 个日常/工程对象平均 6.5 min、US$1.3/对象。</td><td>关键工程判断由语言模型 reviewer 评分，没有测试套件或实验真值；几何、BC、材料和模型假设可共同错但求解仍收敛。代码开放性不足，置信度低–中。</td><td>只迁移“提案生成”，不迁移自动放行；FreeCAD 中要求每个载荷/支撑落到命名拓扑，单位、材料来源、接触与安全系数由规则和 CalculiX 双检。</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2611.14574" target="_blank" rel="noopener noreferrer">能量范数 FE surrogate</a><br>预注册预印本；代码/数据开放</td><td>线弹性中离散势能 gap 等于应力误差能量；只换 loss，3D transformer 中位 energy-norm error 降 7.5×、von Mises error 降 6.1×，2D von Mises 误差减半以上。label-free energy 模型距监督能量模型仅 1.3×。</td><td>代码、配置、记录与数据有版本/Zenodo；代码为非商业许可证。无网络能迁移到显著更细网格；Ritz projection 除 peak stress 外更准，峰值和网格 OOD 仍危险。置信度高。</td><td>把 CalculiX stiffness/load 导出为筛查证书；按 energy gap、von Mises tail、反力平衡和网格加密一致性排序，不以 displacement MSE 放行。</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2611.13515" target="_blank" rel="noopener noreferrer">Ms-LegONet</a><br>预印本；代码/生成器/权重开放</td><td>学习局部 coefficient-dependent zero-boundary space，以共享 interface traces 和递归 static condensation 组合。256 个高对比 primitive 的 2D mosaic 上 L2 error 比基线低 4–150×；2D 新系数快 1.6–2.3×；3D 多查询 port response 快 30–900×，相对误差 10<sup>−4</sup>。</td><td>系数类内泛化，不等于任意 CAD/接触/塑性；3D 结果依赖 exact local space 与 port 设定。开放性好，置信度中高。</td><td>先在重复材料胞元、梁/支架子结构做组件级 ROM；每个 primitive 保存局部 Céa 指标，越界材料、裂纹、接触或几何拓扑变化自动回退全阶。</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2611.15965" target="_blank" rel="noopener noreferrer">PhysICL 非结构网格场预测</a><br>预印本</td><td>单一 checkpoint 从 K 个已标注仿真上下文直接预测任意 query mesh 场与 quantile。5 个未见 PLAID 数据集上 K≥32 时均优于最近邻；AhmedML 中位 110 万节点、K=64 峰值 GPU 4.27 GiB；几何/载荷 procedural fine-tune 把 stress error 降 2.7×。</td><td>在低秩场上落后专用 ROM；按数据集训练的 Transolver 仍可更准 2.8–9.9×。未见明确代码发布，置信度中。</td><td>作为参数扫描预览与异常检测，不替代求解；用 32/64 个 CalculiX 案例做 context，检查 quantile calibration、峰值应力尾部、mesh/拓扑 OOD 与守恒。</td></tr>
+</tbody></table>
+<p><strong>范围覆盖判断：</strong>Text-to-CAD、programmatic CAD、CAD copilot、constraint solving 与可验证装配，本周没有比上期原生 FreeCAD benchmark 更强的新量化结果；不得重复旧成果充数。本期新增主要落在 agentic CAD/CAE、装配理解、载荷/边界条件提出、surrogate/ROM/neural operator 与后处理不确定性。自动参数化、拓扑优化、AI 辅助网格、参数标定、PINN、digital twin 与异常检测均检索过，但没有同时满足窗口、量化、开放性和 FreeCAD 可迁移性门槛的新条目。</p>
+
+<h2 id="catia-与-rhino-step-3dm-互操作">CATIA 与 Rhino / STEP / 3DM 互操作</h2>
+<p>CATIA/商业产品侧未发现窗口内可核验的公开 release 或工程 benchmark，本期记为<strong>本周无重要变化</strong>，不以产品营销声明代替证据。rhino3dm 则有明确开发变化：<a href="https://github.com/mcneel/rhino3dm/pull/752" target="_blank" rel="noopener noreferrer">PR #752</a> 为 Python 3.12+ 构建单一 abi3 wheel，但明确<strong>不支持 free-threading</strong>；41/43 CI checks 通过，尚不是正式 release。<a href="https://github.com/mcneel/rhino3dm/pull/753" target="_blank" rel="noopener noreferrer">PR #753</a> 新增 Python/JavaScript/.NET 对 8.35 的性能回归门禁，覆盖文件 I/O、表迭代、BRep、mesh、SubD、Draco/JSON 等；本地阈值 1.5×、CI 1.75×，这是“不得退化超过阈值”而不是性能提升证明。</p>
+<p>对 FreeCAD/OCCT—Rhino/3DM—STEP 链，建议用同一真值件同时核对 NURBS degree/poles/knots/weights、trim curve 与 pcurve、closed/periodic/seam、edge orientation、实例变换、颜色/层级/名称和单位；分别保存 exact geometry 与 display mesh 的 hash，避免把 tessellation 一致误当成 B-Rep 保真。</p>
+
+<h2 id="gmsh-与-meshio">Gmsh 与 meshio</h2>
+<p>Gmsh 本周无正式 release，但主线合并了大规模实验性 <a href="https://github.com/live-clones/gmsh/commit/88281345" target="_blank" rel="noopener noreferrer">discrete CAD modeler</a>：71 个文件、约 2.1 万行新增，含 primitive、boolean、fillet、triangle-soup import、shape recognition 与 API 示例；<a href="https://github.com/live-clones/gmsh/commit/e73a6752" target="_blank" rel="noopener noreferrer">广义 winding number</a> 用 dipole-moment tree 评估 triangle soup 内外。它面向离散几何修复/建模，不会恢复原始 NURBS 设计意图，也没有可引用的精度/墙钟 benchmark；对 FreeCAD 应只作为 mesh-derived 候选，不得覆盖 OCCT 精确几何。</p>
+<p>polytope 路径继续补齐：<a href="https://github.com/live-clones/gmsh/commit/e03c9a6b" target="_blank" rel="noopener noreferrer">API</a> 可按元素返回 edge/face 计数并验证输入；读取、分区、ghost、梯度、共享面与导出限制也有防护。Web 端新增 <a href="https://github.com/live-clones/gmsh/commit/b573ab84" target="_blank" rel="noopener noreferrer">WASM64 最高 16 GB memory</a>，普通 WASM32 仍为 4 GB。验收应包括凹/薄 polyhedron、>127-node face、>2<sup>31</sup> tag、共享反向面、分区合并与 MSH/VTK/MED 往返 hash。meshio 在固定窗口内未发现 commit/release，记为<strong>本周无重要变化</strong>。</p>
+
+<h2 id="vtk-与-paraview">VTK 与 ParaView</h2>
+<p><a href="https://discourse.paraview.org/t/paraview-6-2-1-is-available-for-download/17814" target="_blank" rel="noopener noreferrer">ParaView 6.2.1</a> 于 11 月 11 日正式发布，是本期少数稳定发布。它基于 VTK 9.7.2，修复 DPvtk 多时间步/内存泄漏/并行错误传播、composite dataset 全局 point/cell ID、VTKHDF temporal cache、IOSS 错误报告、大网格整数溢出和 Python 数千 array 查找的二次复杂度等。Clip 的 static-mesh cache 在早期 benchmark 中建缓存一轮约 2.5×慢，后续约 0.7×时间，约 5 个 time steps 才回本；6.2.1 提供 <code>Use Cache</code> 开关。这一量化可直接指导短序列后处理。</p>
+<p>VTK 主线开发把 polyhedron face 允许共享并用负索引表示反向，同步更新 VTKHDF 2.9、XML 2.5、ghost utilities 及 OpenFOAM/CGNS/FLUENT/CONVERGE readers。它不是正式 VTK release。验证要同时比较 face orientation、cell volume/centroid、ghost 拓扑、array 与并行 rank 不变性；特别注意旧 reader/writer 对新 face 语义的兼容。</p>
+
+<h2 id="calculix-与-abaqus-compatible-流程">CalculiX 与 Abaqus-compatible 流程</h2>
+<p>CalculiX 作者仓库本周没有正式 release。窗口内只有 <a href="https://github.com/Dhondtguido/CalculiX/commit/a09170a5" target="_blank" rel="noopener noreferrer"><code>flowoutput.f</code> 变更</a>和错误/警告消息改进，没有 release note、review 或量化 benchmark，证据不足以建议升级。Abaqus-compatible 工作流仍应固定已验证的 ccx 版本，保存输入 deck、二进制与编译器哈希；对候选主线只跑小型回归：静力、模态、接触、温度/流固输出、FRD/DAT 解析、能量/反力平衡与 Abaqus 关键字差分。</p>
+
+<h2 id="python-cpp-pybind11-abi">Python / C++ / pybind11 / ABI</h2>
+<p><a href="https://github.com/pybind/pybind11/pull/6198" target="_blank" rel="noopener noreferrer">pybind11 PR #6198</a> 于 11 月 12 日合并 stable ABI 支持：CPython 3.12+ 的 <code>abi3</code> 与 3.15+ free-threaded 的 <code>abi3t</code> 目标是每个平台各用一个 wheel 覆盖后续 Python。作者报告 awkward 一个 microbenchmark 下降 1–3%，其他测试不可测或部分更快；这仍是主线开发，不是 v3.1.0 正式能力保证。ABI 仍受 NumPy、跨模块类型、exception translator、holder/lifetime 与解释器模式影响。</p>
+<p>FreeCAD 插件不应立即切 abi3。建议矩阵：FreeCAD 内置 CPython 版本 × regular/free-threaded × Debug/Release × MSVC/clang-cl × NumPy on/off × pybind11 stable/unstable ABI；跑导入、跨模块类型识别、对象寿命、异常、析构、sub-interpreter、长时批处理与保存重开。rhino3dm 的“abi3 但禁用 free-threading”同时说明各依赖的 ABI 边界必须分开声明。</p>
+
+<h2 id="决策与监控清单">决策与监控清单</h2>
+<table><thead><tr><th>门禁</th><th>最小实验</th><th>通过标准</th><th>风险/置信度</th></tr></thead><tbody>
+<tr><td>Assembly 状态</td><td>snapping、BOM、Joint 重入、保存重开</td><td>引用/JCS/Placement/BOM/残差无漂移</td><td class="risk-high">高风险；高置信问题</td></tr>
+<tr><td>OCCT→IGA/FEM</td><td>精确 NURBS + trim 双轨</td><td>几何、功/能量、频率/MAC、BC 映射在阈值内</td><td class="risk-high">高风险；证据中</td></tr>
+<tr><td>AI CAE</td><td>energy gap + tail stress + OOD</td><td>优于零场/ROM，细网格与反力复算通过</td><td class="risk-mid">中高风险；证据中高</td></tr>
+<tr><td>Gmsh polytope/discrete CAD</td><td>凹/薄/共享反向面、triangle soup</td><td>无崩溃，face/volume/hash 往返一致</td><td class="risk-high">开发中；证据中</td></tr>
+<tr><td>ParaView 6.2.1</td><td>短/长时序 Clip、DPvtk、VTKHDF、MPI</td><td>数值一致；≥5 steps cache 获益可复现</td><td>正式补丁；置信度高</td></tr>
+<tr><td>abi3/abi3t</td><td>双 ABI/解释器构建矩阵</td><td>导入、寿命、异常、长跑无差异</td><td class="risk-mid">开发中；置信度中</td></tr>
+</tbody></table>
+
+<h2 id="来源与证据边界">来源与证据边界</h2>
+<p>本期以 2026-11-16 08:52（Asia/Shanghai）为截止，联网核对 FreeCAD、Gmsh、meshio、VTK、ParaView、CalculiX、pybind11、rhino3dm、G+Smo、GeoPDEs、PetIGA、tIGAr 与 igatools 的官方 release、PR、commit 与 issue，并阅读 arXiv 原文/HTML、公开代码与数据说明。FreeCAD weekly 是开发预发布；FreeCAD/Gmsh/VTK/CalculiX/pybind11/rhino3dm/G+Smo 条目均为开发状态；ParaView 6.2.1 是正式补丁发布；AI 与 IGA 论文按预印本处理；#34381 是确认问题，#34419 是旧稳定版社区信号。CATIA、meshio、GeoPDEs、PetIGA、tIGAr 与 igatools明确记录“本周无重要变化”。所有作者报告的性能和准确率在 FreeCAD—OCCT—Gmsh—CalculiX—VTK 目标工作流复现前都不是生产保证。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Qzl</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://qizl19.github.io/p/d4c3bc9f.html">https://qizl19.github.io/p/d4c3bc9f.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://qizl19.github.io" target="_blank">Qzl's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CAD-CAE/">CAD/CAE</a></div><div class="post_share"><div class="social-share" data-image="/p/d4c3bc9f/cad-cae-weekly-cover-2026-11-16.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-right"><a href="/p/df5582bd.html"><img class="next-cover" src="/p/df5582bd/cad-cae-weekly-cover-2026-11-09.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CAD/CAE 生态周报｜2026-11-09</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://pic3.zhimg.com/80/v2-94d674932a8c0f4a6cccc1b7a158c21a_720w.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Qzl</div><div class="author-info__description">行胜于言</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">64</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/qizl19"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/qizl19" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1073472023@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">执行摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%91%A8%E6%9C%80%E4%BC%98%E5%85%88%E7%9A%84-3-%E9%A1%B9%E8%A1%8C%E5%8A%A8"><span class="toc-number">2.</span> <span class="toc-text">本周最优先的 3 项行动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%91%A8%E6%80%81%E5%8A%BF%E6%80%BB%E8%A7%88"><span class="toc-number">3.</span> <span class="toc-text">本周态势总览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#freecad-assembly-%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%8E-api-%E6%8F%92%E4%BB%B6%E5%8F%98%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">FreeCAD Assembly 自动化与 API/插件变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iga-cad-%E5%88%86%E6%9E%90%E4%B8%80%E4%BD%93%E5%8C%96"><span class="toc-number">5.</span> <span class="toc-text">IGA / CAD–分析一体化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ai-cad-cae"><span class="toc-number">6.</span> <span class="toc-text">AI × CAD/CAE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#catia-%E4%B8%8E-rhino-step-3dm-%E4%BA%92%E6%93%8D%E4%BD%9C"><span class="toc-number">7.</span> <span class="toc-text">CATIA 与 Rhino / STEP / 3DM 互操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gmsh-%E4%B8%8E-meshio"><span class="toc-number">8.</span> <span class="toc-text">Gmsh 与 meshio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vtk-%E4%B8%8E-paraview"><span class="toc-number">9.</span> <span class="toc-text">VTK 与 ParaView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#calculix-%E4%B8%8E-abaqus-compatible-%E6%B5%81%E7%A8%8B"><span class="toc-number">10.</span> <span class="toc-text">CalculiX 与 Abaqus-compatible 流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-cpp-pybind11-abi"><span class="toc-number">11.</span> <span class="toc-text">Python / C++ / pybind11 / ABI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E4%B8%8E%E7%9B%91%E6%8E%A7%E6%B8%85%E5%8D%95"><span class="toc-number">12.</span> <span class="toc-text">决策与监控清单</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A5%E6%BA%90%E4%B8%8E%E8%AF%81%E6%8D%AE%E8%BE%B9%E7%95%8C"><span class="toc-number">13.</span> <span class="toc-text">来源与证据边界</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/p/d4c3bc9f.html" title="CAD/CAE 生态周报｜2026-11-16"><img src="/p/d4c3bc9f/cad-cae-weekly-cover-2026-11-16.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CAD/CAE 生态周报｜2026-11-16"></a><div class="content"><a class="title" href="/p/d4c3bc9f.html" title="CAD/CAE 生态周报｜2026-11-16">CAD/CAE 生态周报｜2026-11-16</a><time datetime="2026-11-16T01:00:00.000Z" title="发表于 2026-11-16 09:00:00">2026-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/df5582bd.html" title="CAD/CAE 生态周报｜2026-11-09"><img src="/p/df5582bd/cad-cae-weekly-cover-2026-11-09.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CAD/CAE 生态周报｜2026-11-09"></a><div class="content"><a class="title" href="/p/df5582bd.html" title="CAD/CAE 生态周报｜2026-11-09">CAD/CAE 生态周报｜2026-11-09</a><time datetime="2026-11-09T01:00:00.000Z" title="发表于 2026-11-09 09:00:00">2026-11-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/57652dd7.html" title="CAD/CAE 生态周报｜2026-11-02"><img src="/p/57652dd7/cad-cae-weekly-cover-2026-11-02.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CAD/CAE 生态周报｜2026-11-02"></a><div class="content"><a class="title" href="/p/57652dd7.html" title="CAD/CAE 生态周报｜2026-11-02">CAD/CAE 生态周报｜2026-11-02</a><time datetime="2026-11-02T01:00:00.000Z" title="发表于 2026-11-02 09:00:00">2026-11-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/e732294c.html" title="空客A320neo"><img src="/p/e732294c/china-southern.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="空客A320neo"></a><div class="content"><a class="title" href="/p/e732294c.html" title="空客A320neo">空客A320neo</a><time datetime="2026-10-31T01:00:00.000Z" title="发表于 2026-10-31 09:00:00">2026-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/2c5b3864.html" title="空客A380-800"><img src="/p/2c5b3864/singapore-airlines.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="空客A380-800"></a><div class="content"><a class="title" href="/p/2c5b3864.html" title="空客A380-800">空客A380-800</a><time datetime="2026-10-29T01:00:00.000Z" title="发表于 2026-10-29 09:00:00">2026-10-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Qzl</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script src="/js/timing.js"></script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script async src="/js/weather.js"></script><script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><script src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script src="/js/grayscale.js"></script><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><div id="ghbdages" style="overflow:hidden;max-height:90px;height:auto;text-align:center;margin-top:10px"><div class="swiper-wrapper"><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" title="博客框架为Hexo_v5.4.0"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" title="主题版本Butterfly_v3.8.2"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" title="本站使用JsDelivr为静态资源提供CDN加速"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，默认线路托管于Vercel"><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" title="本站采用双线部署，联通线路托管于Coding"><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" title="本站项目由Gtihub托管"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a></div><div class="swiper-slide"><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></div></div></div><style>a.github-badge:hover:before {display:none}</style>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><script defer src="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://cdn.jsdelivr.net/npm/hexo-butterfly-footer-beautify/lib/swiperbdage_init_js.min.js"></script><!-- hexo injector body_end end --><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body></html>
